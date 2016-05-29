@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 121: vbox expects a non-empty block.
-    vbox:
-         ^
+File "game/screens.rpy", line 71: u'background' is not a keyword argument or valid child for the text statement.
+    text upgrade_tt.value xalign 0.1 yalign 0.5 color "#000" size 30 xysize(1100,250) font "fonts/LiberationSans-Regular.ttf" background "#222"
+                                                                                                                                        ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

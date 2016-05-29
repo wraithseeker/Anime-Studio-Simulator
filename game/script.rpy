@@ -10,13 +10,21 @@ define m = Character('Mayumi', color="#fff")
 
 # The game starts here.
 label start:
+    
     $_game_menu_screen = "navigation"
+    $yukari_upgrade_selected = False
+    $yuuko_upgrade_selected = False
+    $sumiko_upgrade_selected = False
+    $mayumi_upgrade_selected = False
+    $shunsuke_upgrade_selected = False
+
     python:
         Yukari_stats = Stats("Yukari")
         Mayumi_stats = Stats("Mayumi")
         Sumiko_stats = Stats("Sumiko")
         Yuuko_stats = Stats("Yuuko")
         Shunsuke_stats = Stats("Shunsuke")
+
     scene bg studio with dissolve
     show yukari at left
     y "That’s awesome! Although I'm curious as to how you convinced them, since we don't have any concrete work to show... "

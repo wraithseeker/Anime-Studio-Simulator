@@ -101,7 +101,7 @@ init -1:
         bottom_padding 0
         yminimum 300
     style quick_menu_text:
-        color "#A5988E"
+        color "#77736F"
         hover_color "#000"
         selected_color "#000"
     style quick_menu_text_button:
@@ -168,6 +168,7 @@ init -1:
     style sidenav_menu_buttons_text:
         size 35
         color "#000"
+        hover_color "#000"
         xalign 0.5
         yalign 0.5
         text_align 0.5
@@ -182,5 +183,9 @@ init -1:
         ypos 822
     style upgrade_window:
         background "ui/upgrade_screen.png"
+    style task_window:
+        background "ui/tasks_screen.png"
+
+
 init python:
     layout.MAIN_MENU = _("ARE YOU SURE YOU WANT TO QUIT?")
