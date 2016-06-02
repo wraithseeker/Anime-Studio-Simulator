@@ -90,7 +90,8 @@ init -1:
     # style say_vbox:
 
     style textbox_window:
-        background Frame("ui/textbox.png",10,10)
+        background Frame("ui/textbox_85.png",10,10)
+        #background None
         left_margin 500
         right_margin 550
         top_margin 16
@@ -160,9 +161,9 @@ init -1:
         color "#000"
     style sidenav_menu_buttons:
         background None
-        xysize(257,66)
-        hover_background "ui/settings_button_hover.png"
-        selected_background "ui/settings_button_hover.png"
+        xysize(344,66)
+        hover_background "ui/side_menu_button_hover.png"
+        selected_background "ui/side_menu_button_hover.png"
         ypos 125
         xpos 45
     style sidenav_menu_buttons_text:
@@ -178,6 +179,14 @@ init -1:
         background "ui/outsource/outsource_screen.png"
     style outsource_buttons:
         xysize(300,125)
+    style outsource_buttons_outsource:
+        xysize(300,125)
+        xpos 340
+    style upgrade_button:
+        xysize(300,125)
+        xalign 0.6
+        yalign 0.88
+        background None
     style sidenav_done:
         xysize(460,124)
         ypos 822
@@ -185,6 +194,17 @@ init -1:
         background "ui/upgrade_screen.png"
     style task_window:
         background "ui/tasks_screen.png"
+    style file_picker_text:
+        size 35
+        color "#000"
+        text_align 0.5
+        xpos 10
+    style save_button_close:
+        xalign 0.93
+        yalign 0.1
+    style file_picker_nav: 
+        xalign 0.2
+        yalign 0.2
 
 
 init python:

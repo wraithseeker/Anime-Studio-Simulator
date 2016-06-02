@@ -66,8 +66,9 @@ screen upgrade():
                 action SetVariable("shunsuke_upgrade_selected",True)
                 hovered upgrade_tt.Action("Invite a veteran writer to review Shunsuke's writing.")
 
-        add "ui/money_bag.png" xpos -630 ypos 679
-        text "5" color "#000" size 50 xpos -660 ypos 689
+        add "ui/big_moneybag.png" xpos -650 ypos 649
+        text "5" color "#000" size 65 xpos -680 ypos 678
+    imagebutton idle "ui/upgrade_button.png" style "upgrade_button"
 
     $number = 0
     if yukari_upgrade_selected:
@@ -109,6 +110,8 @@ screen anime_status():
                 add "ui/anime_status/star_full.png"
                 add "ui/anime_status/star_full.png"
                 add "ui/anime_status/star_full.png"
+        hbox:
+            add "ui/anime_status/diamond_full.png" ypos -125 xpos 340
         
 
     bar value StaticValue(60,100):
@@ -349,8 +352,9 @@ screen outsource():
         hbox:
             xalign 0.35
             yalign 0.88
-            add "ui/money_bag.png"
-            text "5" color "#000" size 50 ypos 10 xpos 20
+            add "ui/big_moneybag.png" xpos 92 ypos 24
+            text "5" color "#000" size 65 xpos 112 ypos 52
+            imagebutton idle "ui/outsource/outsource_button.png" style "outsource_buttons_outsource"
 
 
 screen side_nav():
@@ -364,6 +368,7 @@ screen side_nav():
             #add "ui/hline.png" ypos 55 xpos 45
             vbox: 
                 spacing 5
+                ypos 20
                 textbutton ("Anime Status")  action ShowMenu("anime_status")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 textbutton ("Member Status")  action ShowMenu("member_status")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 textbutton ("Tasks")  action ShowMenu("task")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"

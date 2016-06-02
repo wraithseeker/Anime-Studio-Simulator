@@ -34,7 +34,8 @@ screen say(who, what, side_image=None, two_window=False):
             if who:
                 text who id "who" font "fonts/Multicolore.otf" bold False size 35
 
-            text what id "what" color "#000" font "fonts/LiberationSans-Regular.ttf"
+            text what id "what" color "#000" font "fonts/LiberationSans-Regular.ttf" size 30 #outlines [(0.5, "#C8F7C5", 0, 0)]
+    
 
     else:
 
@@ -266,11 +267,10 @@ init -2:
 # a single screen, file_picker. We then use the file_picker screen
 # from simple load and save screens.
 
-screen file_picker_load():
+screen file_picker():
 
     frame:  
-
-        background "ui/load/load_screen.png"
+        background None
         imagebutton auto "ui/load/close_button_%s.png" action Return() style "save_button_close" 
 
         # The buttons at the top allow the user to pick a
@@ -321,122 +321,57 @@ screen file_picker_load():
             for i in range(1, columns * rows + 1):
                 #$ file_name = FileSlotName(i, columns * rows)
                 $ save_name = FileSaveName(i)
-                $ file_time = FileTime(i, empty=_("empty"))
-            
+                $ file_time = FileTime(i)
+                
                 
                 # Each file slot is a button.
                 button:
-                    
-                    #background "ui/save/save_frame_box_empty.png"
-                    top_padding 25
-                    xpadding 35
-                    bottom_padding 15
+                    #background None
+                    background "ui/save/save_frame_box_empty.png"
+                    xpadding 70
+                    ypos -10
                     action FileAction(i)
                    # background None
                     has vbox
+                    spacing 50
                     #show "ui/save/save_frame_box_empty.png"
                     # Add the screenshot. empty="ui/save/save_frame_box_empty.png" << empty box
-                    add FileScreenshot(i)
+                    if file_time == "this ":
+                        text "This [file_time]" size 60
 
-                    
-
+                    add FileScreenshot(i) xpos -35 ypos 20
+               
+                
                     text "[file_time!t][save_name!t]" style "file_picker_text"
 
                     key "save_delete" action FileDelete(i)
 
 
-screen file_picker_save():
-
-     frame:
-        style "file_picker_frame"
-
-        has vbox
-
-        # The buttons at the top allow the user to pick a
-        # page of files.
-        hbox:
-            style_group "file_picker_nav"
-
-            textbutton _("Previous"):
-                action FilePagePrevious()
-
-            textbutton _("Auto"):
-                action FilePage("auto")
-
-            textbutton _("Quick"):
-                action FilePage("quick")
-
-            for i in range(1, 9):
-                textbutton str(i):
-                    action FilePage(i)
-
-            textbutton _("Next"):
-                action FilePageNext()
-
-        $ columns = 2
-        $ rows = 5
-
-        # Display a grid of file slots.
-        grid columns rows:
-            transpose True
-            xfill True
-            style_group "file_picker"
-
-            # Display ten file slots, numbered 1 - 10.
-            for i in range(1, columns * rows + 1):
-
-                # Each file slot is a button.
-                button:
-                    action FileAction(i)
-                    xfill True
-
-                    style "file_picker_text"
-                    has hbox
-                    # Add the screenshot.
-                    add FileScreenshot(i)
-
-                    $ file_name = FileSlotName(i, columns * rows)
-                    $ file_time = FileTime(i, empty=_("Empty Slot."))
-                    $ save_name = FileSaveName(i)
-
-                    # if "same" == "same"
-
-                    text "[file_name]. [file_time!t]\n[save_name!t]"
-
-                    key "save_delete" action FileDelete(i)
-
 screen save():
 
     # This ensures that any other menu screen is replaced.
     tag menu
+    window:
+        background "ui/save/save_screen.png"
 
   #  use navigation
-    use file_picker_save
+    use file_picker
 
 screen load():
 
     # This ensures that any other menu screen is replaced.
-
+    window:
+        background "ui/load/load_screen.png"
     tag menu
     #use navigation
-    use file_picker_load
+    use file_picker
 
 init -2:
     style file_picker_frame is menu_frame
     style file_picker_nav_button is small_button
     style file_picker_nav_button_text is small_button_text
     style file_picker_button is large_button
-    style file_picker_text:
-        size 30
-        color "#000"
-        yoffset 30
-        xoffset 40
-    style save_button_close:
-        xalign 0.93
-        yalign 0.1
-    style file_picker_nav: 
-        xalign 0.2
-        yalign 0.2
+  
 
 
 

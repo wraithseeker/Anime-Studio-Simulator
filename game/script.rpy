@@ -5,19 +5,29 @@
 
 # Declare characters used by this game.
 define y = Character('Yukari', color="#000",ctc="ctc_fixed",ctc_position="fixed")
-define m = Character('Mayumi', color="#fff")
+define m = Character('Mayumi', color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define s = Character('Sumiko', color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define yuu = Character('Yuuko', color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define ss = Character('Shunsuke', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 
-
-# The game starts here.
-label start:
-    
+init: 
     $_game_menu_screen = "navigation"
     $yukari_upgrade_selected = False
     $yuuko_upgrade_selected = False
     $sumiko_upgrade_selected = False
     $mayumi_upgrade_selected = False
     $shunsuke_upgrade_selected = False
-
+    #positions for images
+    $pos_1 = Position(xalign=0.1,yalign=1.0)
+    $pos_2 = Position(xalign=0.2,yalign=1.0)
+    $pos_3 = Position(xalign=0.3,yalign=1.0)
+    $pos_4 = Position(xalign=0.4,yalign=1.0)
+    $pos_5 = Position(xalign=0.5,yalign=1.0)
+    $pos_6 = Position(xalign=0.6,yalign=1.0)
+    $pos_7 = Position(xalign=0.7,yalign=1.0)
+    $pos_8 = Position(xalign=0.8,yalign=1.0)
+    $pos_9 = Position(xalign=0.9,yalign=1.0)
+    $pos_10 = Position(xalign=1,yalign=1.0)
     python:
         Yukari_stats = Stats("Yukari")
         Mayumi_stats = Stats("Mayumi")
@@ -25,21 +35,18 @@ label start:
         Yuuko_stats = Stats("Yuuko")
         Shunsuke_stats = Stats("Shunsuke")
 
+# The game starts here.
+label start:
+   
+   
     scene bg studio with dissolve
     show yukari at left
-    y "That’s awesome! Although I'm curious as to how you convinced them, since we don't have any concrete work to show... "
-    "Directing her own anime is Yukari’s greatest dream. Funding puts her dream one step closer to reality. She can hardly breathe from excitement."
-    $Yukari_stats.UpgradeProficiency(5)
-    "Yukari proficiency is [Yukari_stats.proficiency] "
-    # $mynumber = renpy.random.randint(1,10)
-    # "[mynumber]"
-   # call screen game_dashboard
-    $Yukari_stats.happiness += 15
-    y "Once you add a story, pictures, and music, you can release it to the world!"
-    y "My name is [Yukari_stats.name] and my current stress level is [Yukari_stats.stress]"
-
-    $Yukari_stats.human_relations += 15
-    y "My best friend is Mayumi, who has a stress level of [Mayumi_stats.stress]"
+    show sumiko at pos_9
+    y "I have great news to share with all of you regarding our anime project!"
+    s "After planning for the past few weeks, I’m glad we finally have some news."
+    show shunsuke at pos_6 with moveinright
+    ss "What’s the news? You look really excited, so I guess it's related to our funding?"
+    y "That's right! I managed to secure enough funding from investors for us to start the anime project. I’ve also rented a studio for us to work in."
     jump test
     return
 

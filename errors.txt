@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 71: u'background' is not a keyword argument or valid child for the text statement.
-    text upgrade_tt.value xalign 0.1 yalign 0.5 color "#000" size 30 xysize(1100,250) font "fonts/LiberationSans-Regular.ttf" background "#222"
-                                                                                                                                        ^
+File "game/game_screens.rpy", line 354: u'style' is not a keyword argument or valid child for the add statement.
+    add "outsource_button.png" style "outsource_buttons"
+                                    ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

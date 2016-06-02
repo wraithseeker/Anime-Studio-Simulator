@@ -13,8 +13,8 @@ init -1 python hide:
     config.screen_width = 1920
     config.screen_height = 1080
 
-    config.thumbnail_height = 170
-    config.thumbnail_width = 300
+    config.thumbnail_height = 187
+    config.thumbnail_width = 330
 
     ## This controls the title of the window, when Ren'Py is
     ## running in a window.
