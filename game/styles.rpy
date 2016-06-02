@@ -90,7 +90,7 @@ init -1:
     # style say_vbox:
 
     style textbox_window:
-        background Frame("ui/textbox_85.png",10,10)
+        background Frame("ui/textbox.png",10,10)
         #background None
         left_margin 500
         right_margin 550
@@ -205,6 +205,9 @@ init -1:
     style file_picker_nav: 
         xalign 0.2
         yalign 0.2
+    style menu_window:
+        top_padding 15
+        bottom_padding 15
 
 
 init python:

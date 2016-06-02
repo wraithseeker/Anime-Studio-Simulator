@@ -378,3 +378,7 @@ screen side_nav():
                 # textbutton ("Monday")  action ShowMenu("load")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
         vbox:
             imagebutton auto "ui/done_%s.png" style "sidenav_done" action Return()
+
+screen start_game:
+    use side_nav
+    text "lol"

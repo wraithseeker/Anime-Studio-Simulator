@@ -79,11 +79,11 @@ screen choice(items):
     window:
         style "menu_window"
         xalign 0.5
-        yalign 0.5
+        yalign 0.45
 
         vbox:
             style "menu"
-            spacing 2
+            spacing 40
 
             for caption, action, chosen in items:
 
@@ -91,9 +91,11 @@ screen choice(items):
 
                     button:
                         action action
+                        ypadding 20
+                        xpadding 35
                         style "menu_choice_button"
-
-                        text caption style "menu_choice"
+                        background Frame("ui/textbox.png",10,10)
+                        text caption style "menu_choice" color "#000" size 40
 
                 else:
                     text caption style "menu_caption"

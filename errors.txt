@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/game_screens.rpy", line 354: u'style' is not a keyword argument or valid child for the add statement.
-    add "outsource_button.png" style "outsource_buttons"
-                                    ^
+File "game/game_screens.rpy", line 382: screen expects a non-empty block.
+    screen start_game:
+                      ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227
