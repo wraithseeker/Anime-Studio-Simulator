@@ -354,7 +354,7 @@ screen outsource():
             yalign 0.88
             add "ui/big_moneybag.png" xpos 92 ypos 24
             text "5" color "#000" size 65 xpos 112 ypos 52
-            imagebutton idle "ui/outsource/outsource_button.png" style "outsource_buttons_outsource"
+            imagebutton idle "ui/outsource_button.png" style "outsource_buttons_outsource"
 
 
 screen side_nav():
