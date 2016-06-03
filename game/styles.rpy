@@ -85,7 +85,6 @@ init -1:
        # padding_top
        size 30
        ypos -40
-
        font "fonts/LiberationSans-Regular.ttf"
     # style say_vbox:
 
@@ -133,6 +132,13 @@ init -1:
         yalign 0.02
     style tooltip_value is text:
         size 30
+    style task_tooltip:
+        size 30
+        color "#000"
+    style task_stats_tooltip:
+        size 30
+        color "#000"
+        font 'fonts/LiberationSans-BoldItalic.ttf'
     style anime_status_window:
         background "ui/anime_status/anime_status_screen.png"
     style side_nav:
@@ -205,9 +211,20 @@ init -1:
     style file_picker_nav: 
         xalign 0.2
         yalign 0.2
-    style menu_window:
-        top_padding 15
-        bottom_padding 15
+    style task_text:
+        size 25
+        color "#000"
+        hover_color "#27ae60"
+        selected_color "#27ae60"
+    style task_text_selected:
+        size 25
+        color "27ae60"
+    style task_button:
+        background None
+    style char_title_text:
+        color "#000"
+        size 40
+        xpos 27
 
 
 init python:

@@ -1,8 +1,111 @@
 ﻿screen task():
     tag menu
     use side_nav
+
+    default task_tt_description = Tooltip("Sends Yukari to do marketing tasks") 
+    default task_tt_stats = Tooltip("{color=#27ae60}+1 Marketing{/color}\n{color=#c0392b}-1 Happiness{/color}")
     window:
         style "task_window"
+
+    frame:
+        background None
+        xysize(545,230)
+        xalign 0.53
+        yalign 0.22 
+        vbox:
+            spacing 30
+            text task_tt_description.value style "task_tooltip" text_align 0.0
+            text task_tt_stats.value style "task_stats_tooltip" text_align 0.0
+    hbox:
+        xalign 0.097
+        yalign 0.232
+        add "char_image/yukari.png" 
+        text "Yukari" style "char_title_text"
+        vbox:
+            ypos 65
+            xpos -130
+            spacing 10
+            #     text yukari_tasks[i].title
+            #     text yukari_tasks[i].description
+            #     text str(yukari_tasks[i].selected)
+            for i in range(0,len(yukari_tasks)):
+                text str(yukari_tasks[i].selected)
+                if yukari_tasks[i].selected:
+                    textbutton yukari_tasks[i].title:
+                        text_style "task_text_selected" 
+                        style "task_button" 
+                        action SetField(yukari_tasks[i],"selected",False)
+                        #SetDict is used to modify arrays, SetField is to modify the field of an object's value
+                else:
+                    textbutton yukari_tasks[i].title:
+                        text_style "task_text" 
+                        style "task_button" 
+                        hovered [task_tt_stats.Action("{color=#27ae60} +2 Proficiency{/color}\n{color=#c0392b} -1 Stress\n -1 Happiness{/color}")
+                                ,task_tt_description.Action(yukari_tasks[i].description)]                                      
+                        action SetField(yukari_tasks[i],"selected",True)
+
+
+    hbox:
+        xalign 0.097
+        yalign 0.55
+        add "char_image/yuuko.png" 
+        text "Yuuko" style "char_title_text"
+        vbox:
+            ypos 65
+            xpos -130
+            spacing 10
+            textbutton "Marketing":
+                text_style "task_text" 
+                style "task_button" 
+                action NullAction()
+            textbutton "Quality Check":
+                text_style "task_text" 
+                style "task_button" 
+                action NullAction()
+            textbutton "Team Bonding":
+                text_style "task_text" 
+                style "task_button" 
+                action NullAction()
+
+    hbox:
+        xalign 0.097
+        yalign 0.862
+        add "char_image/mayumi.png" 
+        text "Mayumi" style "char_title_text"
+        vbox:
+            ypos 65
+            xpos -146
+            spacing 10
+            textbutton "Marketing" text_style "task_text" style "task_button"
+            textbutton "Quality Check" text_style "task_text" style "task_button"
+            textbutton "Team Bonding" text_style "task_text" style "task_button"
+
+    hbox:
+        xalign 0.561
+        yalign 0.858
+        add "char_image/shunsuke.png" 
+        text "Shunsuke" style "char_title_text"
+        vbox:
+            ypos 65
+            xpos -205
+            spacing 10
+            textbutton "Marketing" text_style "task_text" style "task_button"
+            textbutton "Quality Check" text_style "task_text" style "task_button"
+            textbutton "Team Bonding" text_style "task_text" style "task_button"
+    hbox:
+        xalign 0.533
+        yalign 0.542
+        add "char_image/sumiko.png" 
+        text "Sumiko" style "char_title_text"
+        vbox:
+            ypos 65
+            xpos -145
+            spacing 10
+            textbutton "Marketing" text_style "task_text" style "task_button"
+            textbutton "Quality Check" text_style "task_text" style "task_button"
+            textbutton "Team Bonding" text_style "task_text" style "task_button"
+
+
 
 screen upgrade():
     tag menu
@@ -176,8 +279,19 @@ screen member_status():
     window:
         style "member_status_window"
 
+
+    add "char_image/yukari.png" xalign 0.260 yalign 0.232
+    text "Yukari" xalign 0.35 yalign 0.195 color "#000" size 40
+    add "char_image/yuuko.png" xalign 0.075 yalign 0.546
+    text "Yuuko" xalign 0.168 yalign 0.455 color "#000" size 40
+    add "char_image/sumiko.png" xalign 0.413 yalign 0.545
+    text "Sumiko" xalign 0.507 yalign 0.445 color "#000" size 40
+    add "char_image/shunsuke.png" xalign 0.415 yalign 0.86
+    text "Shunsuke" xalign 0.529 yalign 0.715 color "#000" size 40
+    add "char_image/mayumi.png" xalign 0.075 yalign 0.863
+    text "Mayumi" xalign 0.172 yalign 0.715 color "#000" size 40
     #yukari
-    #add "char_image/upgrade/yukari.png" xalign 0.27 yalign 0.24
+
     vbox:
 
         xalign 0.468 yalign 0.278

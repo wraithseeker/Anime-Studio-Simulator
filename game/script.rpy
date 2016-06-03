@@ -10,27 +10,6 @@ define s = Character('Sumiko', color="#000",ctc="ctc_fixed",ctc_position="fixed"
 define yuu = Character('Yuuko', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define ss = Character('Shunsuke', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 
-init: 
-    $_game_menu_screen = "navigation"
-    $yukari_upgrade_selected = False
-    $yuuko_upgrade_selected = False
-    $sumiko_upgrade_selected = False
-    $mayumi_upgrade_selected = False
-    $shunsuke_upgrade_selected = False
-    #positions for images
-    $pos_farleft = Position(xalign = -0.045,yalign = 1.0)
-    $pos_left = Position(xalign = 0.18,yalign = 1.0)
-    $pos_middle = Position(xalign = 0.5,yalign = 1.0)
-    $pos_middleright = Position(xalign = 0.65,yalign = 1.0)
-    $pos_farright = Position(xalign = 1.1,yalign = 1.0)
-    $pos_right = Position(xalign = 0.92,yalign = 1.0)
-    python:
-        Yukari_stats = Stats("Yukari")
-        Mayumi_stats = Stats("Mayumi")
-        Sumiko_stats = Stats("Sumiko")
-        Yuuko_stats = Stats("Yuuko")
-        Shunsuke_stats = Stats("Shunsuke")
-
 # The game starts here.
 label start:
    
