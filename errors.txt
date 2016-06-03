@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/game_screens.rpy", line 40: expected a keyword argument or child statement.
-    $yukari_task_02_s = True
-    ^
+File "game/tasks.rpy", line 46: invalid syntax
+                if pri
+    
 
 Ren'Py Version: Ren'Py 6.99.10.1227

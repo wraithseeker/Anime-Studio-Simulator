@@ -23,33 +23,20 @@
             #Misc
             self._quality_check = 0
             self._marketing = 0
+        def AddSomeStats(self):
+            self.plot = 1
+            renpy.notify( "Some Message.")
 
-        def OutsourcePlot(self,value):
-            self._plot += value
 
-        def OutsourceCharacterDevelopment(self,value):
-            self._character_development += value
+        @property
 
-        def OutsourceStoryboard(self,value):
-            self._storyboard += value
+        def plot(self):
+            return self._plot
 
-        def OutsourceCharacterDesign(self,value):
-            self._character_design += value
-
-        def OutsourceAnimation(self,value):
-            self._animation += value
-
-        def OutsourceBackground(self,value):
-            self._background += value
-
-        def OutsourceVoiceActing(self,value):
-            self._voice_acting += value
-
-        def OutsourceOPAndED(self,value):
-            self._op_and_ed += value
-
-        def OutsourceOST(self,value):
-            self._ost += value
+        @plot.setter
+        def plot(self,value):
+            self._plot = value
+            
 
 
 

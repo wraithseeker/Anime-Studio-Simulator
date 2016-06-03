@@ -25,25 +25,29 @@
             ypos 65
             xpos -130
             spacing 10
-            #     text yukari_tasks[i].title
-            #     text yukari_tasks[i].description
-            #     text str(yukari_tasks[i].selected)
+            #text str(anime.plot)
             for i in range(0,len(yukari_tasks)):
-                text str(yukari_tasks[i].selected)
+                #text yukari_tasks[i].getStats() style "task_stats_tooltip"
                 if yukari_tasks[i].selected:
                     textbutton yukari_tasks[i].title:
                         text_style "task_text_selected" 
                         style "task_button" 
-                        action SetField(yukari_tasks[i],"selected",False)
+                        action [SetField(yukari_tasks[i],"selected",False),
+                                renpy.curry(yukari_tasks[i].removeStats)(anime),
+                                SetVariable("yukari_task_selected",False)]
                         #SetDict is used to modify arrays, SetField is to modify the field of an object's value
                 else:
                     textbutton yukari_tasks[i].title:
                         text_style "task_text" 
                         style "task_button" 
-                        hovered [task_tt_stats.Action("{color=#27ae60} +2 Proficiency{/color}\n{color=#c0392b} -1 Stress\n -1 Happiness{/color}")
-                                ,task_tt_description.Action(yukari_tasks[i].description)]                                      
-                        action SetField(yukari_tasks[i],"selected",True)
-
+                        #27ae60# green color
+                        ##c0392b red color
+                        hovered [task_tt_stats.Action(yukari_tasks[i].getStats())
+                                ,task_tt_description.Action(yukari_tasks[i].description)] 
+                        action If ((yukari_task_selected == False),
+                                [SetField(yukari_tasks[i],"selected",True),
+                                renpy.curry(yukari_tasks[i].addStats)(anime),
+                                SetVariable("yukari_task_selected",True)])  
 
     hbox:
         xalign 0.097
