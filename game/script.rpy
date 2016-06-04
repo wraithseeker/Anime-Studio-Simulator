@@ -9,7 +9,7 @@ define m = Character('Mayumi', color="#000",ctc="ctc_fixed",ctc_position="fixed"
 define s = Character('Sumiko', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define yuu = Character('Yuuko', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define ss = Character('Shunsuke', color="#000",ctc="ctc_fixed",ctc_position="fixed")
-
+    
 # The game starts here.
 label start:
    
@@ -44,33 +44,35 @@ label start:
     show sumiko happy
     "At Mayumi’s declaration, everyone cheers. Everyone excitedly discusses their hopes and dreams for the upcoming project. "
     jump pre_game
-    return
 
 label pre_game:
-    $game_casual = False
     scene bg studio with dissolve
-    "This is their new studio where they would be working hard to produce their own anime series within 3 months."
-    "You'll be managing everyone, keeping track of their status to avoid stressing them out which would lower their productivity."
-    "There are tasks you can assign the team members to do two times in a week."
-    "You'll eventually have to outsource work outside and you can send them off to upgrade their skills too!"
+    $anime.name = renpy.input("Name of your anime?",default="",length=20)
+    if anime.name == "":
+        $anime.name = "Macross Delta"
+    "[anime.name] sounds great! Let's go through the basics of the game."
+    "This is their new studio where they would be working hard to produce [anime.name] within 3 months."
+    "You'll be managing everyone, keeping track of their status to manage their stress level that could hinder the progress on [anime.name]."
+    "Tasks can be assigned to each member two times a week. You'll eventually have to outsource work and it is a good idea to send your team members for training occasionally."
+    
     menu:
-        "Do you prefer playing the game casually?"
-        "I'm new to the game!":
+        "Which difficulty level do you prefer?"
+        "Casual":
             $game_casual = True
-        "I'm fine by myself!":
+        "Normal":
             $game_casual = False
 
-    "[game_casual]"
     if game_casual:
-        " I am a casual"
+        "You have chosen to create [anime.name] under the casual mode."
     else:
-        pass
+        "You have chosen to create [anime.name] under the normal mode."
 
     show screen start_game
-
+    "This is where you'll oversee the production of [anime.name]. The deadline for [anime.name] will be during {font=fonts/LiberationSans-Bold.ttf}Week 10{/font}."
+    "The most important thing is to choose tasks for your team member under {font=fonts/LiberationSans-Bold.ttf}'Tasks'{/font}. After that you can end your turn by selecting the {font=fonts/LiberationSans-Bold.ttf}'Done'{/font} button."
+    "Good luck with [anime.name]!"
+    call screen side_nav
 label test:
-    "We are at the end of the world"
+   
     "Press enter to quit"
-   # $Yukari_stats.human_relations += 3
-   # "On a side node, [Yukari_stats.name]'s human relation is now [Yukari_stats.human_relations]"
     return

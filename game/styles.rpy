@@ -187,7 +187,8 @@ init -1:
         xysize(300,125)
     style outsource_buttons_outsource:
         xysize(300,125)
-        xpos 340
+        xpos 313
+        ypos 2
     style upgrade_button:
         xysize(300,125)
         xalign 0.6
@@ -225,6 +226,21 @@ init -1:
         color "#000"
         size 40
         xpos 27
+    style input_prompt:
+        size 30
+        color "#000"
+        ypos -33
+    style input_text:
+        color "#000"
+        font "fonts/LiberationSans-Regular.ttf"
+        size 30
+    style anime_name:
+        color "#000"
+        font "fonts/LiberationSans-Bold.ttf"
+        size 30
+        ypos 180
+        xpos 210
+        text_align 0.5
 
 
 init python:

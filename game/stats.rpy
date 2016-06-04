@@ -8,7 +8,7 @@
             self._happiness = 0
 
         def UpgradeProficiency(self,value):
-            self._proficiency += value
+            self._proficiency = value
             
         @property
 
@@ -17,8 +17,8 @@
 
         @stress.setter
         def stress(self,value):
-            if 0 <= self._stress + value <= 10:
-                self._stress += value
+            if 0 <= value <= 10:
+                self._stress = value
             else:
                 renpy.notify( "Stress must be between 0 to 10.")
 
@@ -28,8 +28,8 @@
 
         @happiness.setter
         def happiness(self,value):
-            if 0 <= self._happiness + value <= 10:
-                self._happiness += value
+            if 0 <= value <= 10:
+                self._happiness = value
             else:
                # renpy.notify( "Happiness must be between 0 to 10.")
                pass
@@ -40,10 +40,11 @@
 
         @proficiency.setter
         def proficiency(self,value):
-            if 0 <= self._proficiency + value <= 10:
-                self._proficiency += value
+            if 0.0 <= value <= 10.0:
+                self._proficiency = value
             else:
-                renpy.notify( "Proficiency must be between 0 to 10.")
+                #current_proficiency = self.proficiency
+                renpy.notify( "Proficiency must be between 0 to 10. Value is " + str(self._proficiency))
 
         @property
         def human_relations(self):
@@ -51,8 +52,8 @@
 
         @human_relations.setter
         def human_relations(self,value):
-            if 0 <= self._human_relations + value <= 10:
-                self._human_relations += value
+            if 0 <= value <= 10:
+                self._human_relations = value
             else:
                 #renpy.notify( "Human Relations must be between 0 to 10.")
                 pass

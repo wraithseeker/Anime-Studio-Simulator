@@ -120,8 +120,8 @@ init -2:
 # http://www.renpy.org/doc/html/screen_special.html#input
 
 screen input(prompt):
-
-    window style "input_window":
+    modal True
+    window style "textbox_window":
         has vbox
 
         text prompt style "input_prompt"
@@ -208,7 +208,7 @@ screen main_menu():
         #spacing 20
         style "mainmenu_frame"
         textbutton _("New") action Start() text_style "mainmenu_text" style "mainmenu_button"
-        textbutton _("Load") action ShowMenu("load")  text_style "mainmenu_text" style "mainmenu_button"
+        textbutton _("Load") action ShowMenu("load_mainmenu")  text_style "mainmenu_text" style "mainmenu_button"
         textbutton _("Options") action ShowMenu("preferences")  text_style "mainmenu_text" style "mainmenu_button"
         #textbutton _("Dashboard") action ShowMenu("game_dashboard")  text_style "mainmenu_text" style "mainmenu_button"
         #textbutton _("Help") action Help()  text_style "mainmenu_text" style "mainmenu_button"
@@ -367,6 +367,12 @@ screen load():
     tag menu
     #use navigation
     use file_picker
+
+screen load_mainmenu:
+    tag menu
+    window:
+        background "bg/studio.png"
+    use load
 
 init -2:
     style file_picker_frame is menu_frame

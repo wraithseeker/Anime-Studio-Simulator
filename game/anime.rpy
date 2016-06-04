@@ -36,6 +36,15 @@
         @plot.setter
         def plot(self,value):
             self._plot = value
+
+        @property
+
+        def storyboard(self):
+            return self._storyboard
+
+        @storyboard.setter
+        def storyboard(self,value):
+            self._storyboard = value
             
 
 

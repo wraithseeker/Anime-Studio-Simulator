@@ -21,13 +21,12 @@
         yalign 0.232
         add "char_image/yukari.png" 
         text "Yukari" style "char_title_text"
+        #SetDict is used to modify arrays, SetField is to modify the field of an object's value
         vbox:
             ypos 65
             xpos -130
             spacing 10
-            #text str(anime.plot)
             for i in range(0,len(yukari_tasks)):
-                #text yukari_tasks[i].getStats() style "task_stats_tooltip"
                 if yukari_tasks[i].selected:
                     textbutton yukari_tasks[i].title:
                         text_style "task_text_selected" 
@@ -35,13 +34,10 @@
                         action [SetField(yukari_tasks[i],"selected",False),
                                 renpy.curry(yukari_tasks[i].removeStats)(anime),
                                 SetVariable("yukari_task_selected",False)]
-                        #SetDict is used to modify arrays, SetField is to modify the field of an object's value
                 else:
                     textbutton yukari_tasks[i].title:
                         text_style "task_text" 
                         style "task_button" 
-                        #27ae60# green color
-                        ##c0392b red color
                         hovered [task_tt_stats.Action(yukari_tasks[i].getStats())
                                 ,task_tt_description.Action(yukari_tasks[i].description)] 
                         action If ((yukari_task_selected == False),
@@ -58,18 +54,24 @@
             ypos 65
             xpos -130
             spacing 10
-            textbutton "Marketing":
-                text_style "task_text" 
-                style "task_button" 
-                action NullAction()
-            textbutton "Quality Check":
-                text_style "task_text" 
-                style "task_button" 
-                action NullAction()
-            textbutton "Team Bonding":
-                text_style "task_text" 
-                style "task_button" 
-                action NullAction()
+            for i in range(0,len(yuuko_tasks)):
+                if yuuko_tasks[i].selected:
+                    textbutton yuuko_tasks[i].title:
+                        text_style "task_text_selected" 
+                        style "task_button" 
+                        action [SetField(yuuko_tasks[i],"selected",False),
+                                renpy.curry(yuuko_tasks[i].removeStats)(anime),
+                                SetVariable("yuuko_task_selected",False)]
+                else:
+                    textbutton yuuko_tasks[i].title:
+                        text_style "task_text" 
+                        style "task_button" 
+                        hovered [task_tt_stats.Action(yuuko_tasks[i].getStats())
+                                ,task_tt_description.Action(yuuko_tasks[i].description)] 
+                        action If ((yuuko_task_selected == False),
+                                [SetField(yuuko_tasks[i],"selected",True),
+                                renpy.curry(yuuko_tasks[i].addStats)(anime),
+                                SetVariable("yuuko_task_selected",True)])  
 
     hbox:
         xalign 0.097
@@ -80,9 +82,24 @@
             ypos 65
             xpos -146
             spacing 10
-            textbutton "Marketing" text_style "task_text" style "task_button"
-            textbutton "Quality Check" text_style "task_text" style "task_button"
-            textbutton "Team Bonding" text_style "task_text" style "task_button"
+            for i in range(0,len(mayumi_tasks)):
+                if mayumi_tasks[i].selected:
+                    textbutton mayumi_tasks[i].title:
+                        text_style "task_text_selected" 
+                        style "task_button" 
+                        action [SetField(mayumi_tasks[i],"selected",False),
+                                renpy.curry(mayumi_tasks[i].removeStats)(anime),
+                                SetVariable("mayumi_task_selected",False)]
+                else:
+                    textbutton mayumi_tasks[i].title:
+                        text_style "task_text" 
+                        style "task_button" 
+                        hovered [task_tt_stats.Action(mayumi_tasks[i].getStats())
+                                ,task_tt_description.Action(mayumi_tasks[i].description)] 
+                        action If ((mayumi_task_selected == False),
+                                [SetField(mayumi_tasks[i],"selected",True),
+                                renpy.curry(mayumi_tasks[i].addStats)(anime),
+                                SetVariable("mayumi_task_selected",True)]) 
 
     hbox:
         xalign 0.561
@@ -93,9 +110,24 @@
             ypos 65
             xpos -205
             spacing 10
-            textbutton "Marketing" text_style "task_text" style "task_button"
-            textbutton "Quality Check" text_style "task_text" style "task_button"
-            textbutton "Team Bonding" text_style "task_text" style "task_button"
+            for i in range(0,len(shunsuke_tasks)):
+                if shunsuke_tasks[i].selected:
+                    textbutton shunsuke_tasks[i].title:
+                        text_style "task_text_selected" 
+                        style "task_button" 
+                        action [SetField(shunsuke_tasks[i],"selected",False),
+                                renpy.curry(shunsuke_tasks[i].removeStats)(anime),
+                                SetVariable("shunsuke_task_selected",False)]
+                else:
+                    textbutton shunsuke_tasks[i].title:
+                        text_style "task_text" 
+                        style "task_button" 
+                        hovered [task_tt_stats.Action(shunsuke_tasks[i].getStats())
+                                ,task_tt_description.Action(shunsuke_tasks[i].description)] 
+                        action If ((shunsuke_task_selected == False),
+                                [SetField(shunsuke_tasks[i],"selected",True),
+                                renpy.curry(shunsuke_tasks[i].addStats)(anime),
+                                SetVariable("shunsuke_task_selected",True)]) 
     hbox:
         xalign 0.533
         yalign 0.542
@@ -105,22 +137,45 @@
             ypos 65
             xpos -145
             spacing 10
-            textbutton "Marketing" text_style "task_text" style "task_button"
-            textbutton "Quality Check" text_style "task_text" style "task_button"
-            textbutton "Team Bonding" text_style "task_text" style "task_button"
+            for i in range(0,len(sumiko_tasks)):
+                if sumiko_tasks[i].selected:
+                    textbutton sumiko_tasks[i].title:
+                        text_style "task_text_selected" 
+                        style "task_button" 
+                        action [SetField(sumiko_tasks[i],"selected",False),
+                                renpy.curry(sumiko_tasks[i].removeStats)(anime),
+                                SetVariable("sumiko_task_selected",False)]
+                else:
+                    textbutton sumiko_tasks[i].title:
+                        text_style "task_text" 
+                        style "task_button" 
+                        hovered [task_tt_stats.Action(sumiko_tasks[i].getStats())
+                                ,task_tt_description.Action(sumiko_tasks[i].description)] 
+                        action If ((sumiko_task_selected == False),
+                                [SetField(sumiko_tasks[i],"selected",True),
+                                renpy.curry(sumiko_tasks[i].addStats)(anime),
+                                SetVariable("sumiko_task_selected",True)]) 
 
+
+transform grow_success_text:
+    zoom 0 alpha 1
+    on show:
+        linear 0.2 zoom 1
+        linear 1.8 alpha 0
+    on hide:
+        zoom 0 alpha 1
 
 
 screen upgrade():
     tag menu
     use side_nav
-    default upgrade_tt = Tooltip("Send your team for training!")
- 
+    default upgrade_tt = Tooltip(upgrade_tooltip_default)
+    
     window:
         style "upgrade_window"
 
     hbox:
-        xalign 0.18
+        xalign 0.24
         yalign 0.25
         spacing 50
         if yukari_upgrade_selected:
@@ -175,27 +230,21 @@ screen upgrade():
 
         add "ui/big_moneybag.png" xpos -650 ypos 649
         text "5" color "#000" size 65 xpos -680 ypos 678
-    imagebutton idle "ui/upgrade_button.png" style "upgrade_button"
 
-    $number = 0
-    if yukari_upgrade_selected:
-        $number += 1
-    if yuuko_upgrade_selected:
-        $number += 1
-    if sumiko_upgrade_selected:
-        $number += 1
-    if shunsuke_upgrade_selected:
-        $number += 1
-    if mayumi_upgrade_selected:
-        $number += 1
+    imagebutton:
+        auto "ui/upgrade_screen/done_%s.png" 
+        style "upgrade_button" 
+        action [renpy.curry(UpgradeCharacters)(yukari_stats,mayumi_stats,shunsuke_stats,sumiko_stats,yuuko_stats)
+                ]
 
-    text str(number) xalign 0.2 yalign 0.9 color "#000"
     frame:
         background None
         xalign 0.18 yalign 0.6 
         xysize(1150,250)
         text upgrade_tt.value color "#000" size 40 text_align 0.0
 
+    showif upgrade_tooltip != "":
+        text upgrade_tooltip color "#2ecc71" size 40 xalign 0.37 yalign 0.75 at grow_success_text
 
 screen anime_status():
     tag menu
@@ -472,18 +521,22 @@ screen outsource():
             yalign 0.88
             add "ui/big_moneybag.png" xpos 92 ypos 24
             text "5" color "#000" size 65 xpos 112 ypos 52
-            imagebutton idle "ui/outsource_button.png" style "outsource_buttons_outsource"
+            imagebutton auto "ui/outsource/done_%s.png" style "outsource_buttons_outsource" action Return()
 
 
 screen side_nav():
+    if yukari_task_selected and yuuko_task_selected and sumiko_task_selected and shunsuke_task_selected and mayumi_task_selected:
+        $task_ready = True
+    else:
+        $task_ready = False
     frame:
         style "side_nav"
+        #text anime.name style "anime_name"
         vbox:
             textbutton ("Week 1") action NullAction()  text_style "sidenav_week" style "sidenav_week_button"
             textbutton ("Monday")  action NullAction()  text_style "sidenav_day" style "sidenav_day_button"
             #add "ui/money_bag.png" ypos 85 xpos 55
             text "25" style "sidenav_money_text"
-            #add "ui/hline.png" ypos 55 xpos 45
             vbox: 
                 spacing 5
                 ypos 20
@@ -495,8 +548,8 @@ screen side_nav():
                 textbutton ("Options")  action ShowMenu("preferences") text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 # textbutton ("Monday")  action ShowMenu("load")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
         vbox:
-            imagebutton auto "ui/done_%s.png" style "sidenav_done" action Return()
+            if task_ready:
+                imagebutton auto "ui/done_%s.png" style "sidenav_done" action Return()
 
 screen start_game:
     use side_nav
-    text "lol"

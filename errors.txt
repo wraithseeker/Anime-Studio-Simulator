@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/tasks.rpy", line 46: invalid syntax
-                if pri
-    
+File "game/game_screens.rpy", line 162: on expects a non-empty block.
+    on show:
+            ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227
