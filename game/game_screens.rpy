@@ -102,7 +102,7 @@
                                 SetVariable("mayumi_task_selected",True)]) 
 
     hbox:
-        xalign 0.561
+        xalign 0.576
         yalign 0.858
         add "char_image/shunsuke.png" 
         text "Shunsuke" style "char_title_text"
@@ -129,9 +129,9 @@
                                 renpy.curry(shunsuke_tasks[i].addStats)(anime),
                                 SetVariable("shunsuke_task_selected",True)]) 
     hbox:
-        xalign 0.533
-        yalign 0.542
-        add "char_image/sumiko.png" 
+        xalign 0.565
+        yalign 0.55
+        add "char_image/sumiko.png" ypos -5
         text "Sumiko" style "char_title_text"
         vbox:
             ypos 65
