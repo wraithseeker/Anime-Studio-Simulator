@@ -17,7 +17,7 @@ transform weekly_text_transform:
     linear 2 alpha 0.0
 # The game starts here.
 label start:
-   
+    jump week_2_1
     scene bg restaurant
     show yukari laugh_eyes_closed at pos_left
     show yuuko at pos_right
@@ -189,6 +189,7 @@ label week_1_2:
     $renpy.show("weekly_popup_text",what=Text("Tuesday",style="weekly_label_text"),at_list=[weekly_text_transform])
     "Although the others have their tasks set out for them, Yukari realizes there isn’t much she can do at this stage in the process. The same goes for Mayumi."
     "Yukari paces in frustration. She can’t sit around and do nothing."
+    hide weekly_popup_text
     "After taking a moment to think of possible things she can do to help, Yukari decides to…"
     menu:
         "Read books about management":
@@ -253,4 +254,40 @@ label week_1_4:
     scene studio with dissolve
     $current_week = 2
     call screen start_game
+
+transform flip:
+    xzoom -1
+label week_2_1:
+    scene studio
+    show yukari at pos_left
+    show sumiko at Position(xalign = 1.1,yalign = 1.0)
+    show shunsuke at pos_middleright_half
+    show yuuko_f at pos_farleft behind yukari
+    with dissolve
+    $renpy.show("weekly_popup_text",what=Text("Monday",style="weekly_label_text"),at_list=[weekly_text_transform])
+    "On Monday, Yukari spends some time going through the scenario for [anime.name]. Then she gathers everyone together to look at the character designs."
+    y "I think they’re fine. I don’t see any major flaws. What do the rest of you think?"
+    hide weekly_popup_text
+    ss "Well…"
+    s "Uh-oh. Dramatic pause from Shunsuke. Here comes trouble…"
+    "Yukari fidgets silently and braces herself. There’s nothing wrong with constructive criticism, but if he presents his issues with the art poorly, it could cause their team’s first major disagreement."
+    ss "Personally speaking, the character designs aren’t really what I had in my mind."
+    ss "I'm not saying the design is bad, but the art style doesn't go well with the scenario I wrote for [anime.name]"
+    ss "We should redo these designs so they display the characters’ traits and fit the story better."
+    yuu "I know the designs need to be refined, but I can’t completely redo them all."
+    yuu "It took me quite a while to get the designs right. I had a lot of trouble choosing the art style for [anime.name]."
+    ss "The one you chose just doesn’t work."
+    yuu "Art style and references have never been a problem for before, but I was usually drawing fan art. I guess I need to improve, fast."
+    yuu "But if I have to re-do all the character designs, I’m scared we won’t meet our deadline!"
+    ss "Yukari should be the one to decide. She’s in charge."
+    y "Hmm…"
+    "Each side has good points, but with a limited budget and limited time, Yukari has to make this decision carefully."
+    menu:
+        "Side with Yuuko":
+            "Yuuko is right. They have a tight deadline to finish [anime.name], and they need to make 6 episodes."
+            "They’ll need to touch up the designs, but Yukari decides re-doing them would cause more harm than good by setting their progress back so far."
+        "Side with Shunsuke":
+            "Shunsuke is right. While they may have a tight deadline to finish the 6 episodes of [anime.name], rushing things might not be the best."
+            "Yukari decides it’s best to work with a firm foundation instead of a shaky one. The character designs need to be re-done to match the scenario, or else the project’s value will ultimately be lowered."
+
 

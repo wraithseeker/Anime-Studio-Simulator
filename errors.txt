@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 198: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-    "Supervise Yuuko & Sumiko"
-                              ^
+File "game/script.rpy", line 262: end of line expected.
+    show yukari at pos_left]
+                           ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227
