@@ -241,6 +241,11 @@ init -1:
         ypos 180
         xpos 210
         text_align 0.5
+    style weekly_label_text:
+        color "#000"
+        size 40
+    style skip_indicator:
+        size 35
 
 
 init python:

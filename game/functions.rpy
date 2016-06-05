@@ -1,4 +1,24 @@
 ﻿init -100 python:
+
+    def ResetTasksSelection():
+        global yukari_tasks
+        global yuuko_tasks
+        global sumiko_tasks
+        global shunsuke_tasks
+        global mayumi_tasks
+        ResetCharacterTask(yukari_tasks)
+        ResetCharacterTask(yuukotasks)
+        ResetCharacterTask(sumiko_tasks)
+        ResetCharacterTask(shunsuke_tasks)
+        ResetCharacterTask(mayumi_tasks)
+
+    def ResetCharacterTask(item):
+        for i in range(0,len(item)):
+            item[i].selected = False
+            
+
+       
+
     def UpgradeCharacters(yukari,mayumi,shunsuke,sumiko,yuuko):
         global upgrade_tooltip
         global upgrade_tooltip_color

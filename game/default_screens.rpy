@@ -83,7 +83,7 @@ screen choice(items):
 
         vbox:
             style "menu"
-            spacing 40
+            spacing 25
 
             for caption, action, chosen in items:
 
@@ -95,7 +95,7 @@ screen choice(items):
                         xpadding 35
                         style "menu_choice_button"
                         background Frame("ui/textbox.png",10,10)
-                        text caption style "menu_choice" color "#000" size 40
+                        text caption style "menu_choice" color "#000" size 35
 
                 else:
                     text caption style "menu_caption"
@@ -574,4 +574,24 @@ init -2:
         selected_idle_color "#cc08"
         selected_hover_color "#cc0"
         insensitive_color "#4448"
+
+screen notify(message):
+    zorder 100
+
+    text message at _notify_transform size 35
+
+    # This controls how long it takes between when the screen is
+    # first shown, and when it begins hiding.
+    timer 3.25 action Hide('notify')
+
+transform _notify_transform:
+    # These control the position.
+    xalign .02 yalign .015
+
+    # These control the actions on show and hide.
+    on show:
+        alpha 0
+        linear .25 alpha 1.0
+    on hide:
+        linear .5 alpha 0.0
 

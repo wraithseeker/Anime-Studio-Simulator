@@ -3,12 +3,10 @@
         def __init__(self,name):
             self.name = name
             self._human_relations = 0
-            self._stress = 0
+            self._stress = 2
             self._proficiency = 0
-            self._happiness = 0
+            self._happiness = 10
 
-        def UpgradeProficiency(self,value):
-            self._proficiency = value
             
         @property
 
@@ -57,4 +55,5 @@
             else:
                 #renpy.notify( "Human Relations must be between 0 to 10.")
                 pass
+
 

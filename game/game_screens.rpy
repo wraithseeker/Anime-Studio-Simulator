@@ -375,28 +375,28 @@ screen member_status():
 
         xalign 0.468 yalign 0.278
         spacing 13
-        bar value StaticValue(100,100):
+        bar value StaticValue(yukari_stats.happiness,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_red_bar_full.png")
             right_bar Frame("ui/member_status/member_bar_empty.png")
             thumb_shadow None
             thumb None
-        bar value StaticValue(100,100):
+        bar value StaticValue(yukari_stats.stress,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_orange_bar_full.png")
             right_bar Frame("ui/member_status/member_bar_empty.png")
             thumb_shadow None
             thumb None
-        bar value StaticValue(100,100):
+        bar value StaticValue(yukari_stats.proficiency,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_blue_bar_full.png")
             right_bar Frame("ui/member_status/member_bar_empty.png")
             thumb_shadow None
             thumb None
-        bar value StaticValue(100,100):
+        bar value StaticValue(yukari_stats.human_relations,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_purple_bar_full.png")
@@ -408,21 +408,21 @@ screen member_status():
     vbox:
         xalign 0.287 yalign 0.540
         spacing 13
-        bar value StaticValue(100,100):
+        bar value StaticValue(yuuko_stats.happiness,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_red_bar_full.png")
             right_bar Frame("ui/member_status/member_bar_empty.png")
             thumb_shadow None
             thumb None
-        bar value StaticValue(100,100):
+        bar value StaticValue(yuuko_stats.stress,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_orange_bar_full.png")
             right_bar Frame("ui/member_status/member_bar_empty.png")
             thumb_shadow None
             thumb None
-        bar value StaticValue(100,100):
+        bar value StaticValue(yuuko_stats.proficiency,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_blue_bar_full.png")
@@ -433,21 +433,21 @@ screen member_status():
     vbox:
         xalign 0.623 yalign 0.540
         spacing 13
-        bar value StaticValue(100,100):
+        bar value StaticValue(sumiko_stats.happiness,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_red_bar_full.png")
             right_bar Frame("ui/member_status/member_bar_empty.png")
             thumb_shadow None
             thumb None
-        bar value StaticValue(100,100):
+        bar value StaticValue(sumiko_stats.stress,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_orange_bar_full.png")
             right_bar Frame("ui/member_status/member_bar_empty.png")
             thumb_shadow None
             thumb None
-        bar value StaticValue(100,100):
+        bar value StaticValue(sumiko_stats.proficiency,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_blue_bar_full.png")
@@ -459,21 +459,21 @@ screen member_status():
     vbox:
         xalign 0.287 yalign 0.815
         spacing 13
-        bar value StaticValue(100,100):
+        bar value StaticValue(mayumi_stats.happiness,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_red_bar_full.png")
             right_bar Frame("ui/member_status/member_bar_empty.png")
             thumb_shadow None
             thumb None
-        bar value StaticValue(100,100):
+        bar value StaticValue(mayumi_stats.stress,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_orange_bar_full.png")
             right_bar Frame("ui/member_status/member_bar_empty.png")
             thumb_shadow None
             thumb None
-        bar value StaticValue(100,100):
+        bar value StaticValue(mayumi_stats.proficiency,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_blue_bar_full.png")
@@ -484,21 +484,21 @@ screen member_status():
     vbox:
         xalign 0.623 yalign 0.815
         spacing 13
-        bar value StaticValue(100,100):
+        bar value StaticValue(shunsuke_stats.happiness,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_red_bar_full.png")
             right_bar Frame("ui/member_status/member_bar_empty.png")
             thumb_shadow None
             thumb None
-        bar value StaticValue(100,100):
+        bar value StaticValue(shunsuke_stats.stress,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_orange_bar_full.png")
             right_bar Frame("ui/member_status/member_bar_empty.png")
             thumb_shadow None
             thumb None
-        bar value StaticValue(100,100):
+        bar value StaticValue(shunsuke_stats.proficiency,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_blue_bar_full.png")
@@ -559,23 +559,27 @@ screen side_nav():
         style "side_nav"
         #text anime.name style "anime_name"
         vbox:
-            textbutton ("Week 1") action NullAction()  text_style "sidenav_week" style "sidenav_week_button"
+            textbutton ("Week [current_week]") action NullAction()  text_style "sidenav_week" style "sidenav_week_button"
             textbutton ("Monday")  action NullAction()  text_style "sidenav_day" style "sidenav_day_button"
             #add "ui/money_bag.png" ypos 85 xpos 55
             text str(anime.funds) style "sidenav_money_text"
             vbox: 
                 spacing 5
                 ypos 20
-                textbutton ("Anime Status")  action ShowMenu("anime_status")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
-                textbutton ("Member Status")  action ShowMenu("member_status")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
-                textbutton ("Tasks")  action ShowMenu("task")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
-                textbutton ("Outsource")  action ShowMenu("outsource")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
-                textbutton ("Upgrades")  action ShowMenu("upgrade")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
-                textbutton ("Options")  action ShowMenu("preferences") text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
+                textbutton ("Anime Status")  action If(side_nav_interaction,ShowMenu("anime_status"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
+                textbutton ("Member Status")  action If(side_nav_interaction,ShowMenu("member_status"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
+                textbutton ("Tasks")  action If(side_nav_interaction,ShowMenu("task"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
+                textbutton ("Outsource")  action If(side_nav_interaction,ShowMenu("outsource"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
+                textbutton ("Upgrades")  action If(side_nav_interaction,ShowMenu("upgrade"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
+                textbutton ("Options")  action If (side_nav_interaction,ShowMenu("preferences")) text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 # textbutton ("Monday")  action ShowMenu("load")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
+               
         vbox:
             if task_ready:
-                imagebutton auto "ui/done_%s.png" style "sidenav_done" action Return()
+                imagebutton auto "ui/done_%s.png" style "sidenav_done" action [Return(),SetVariable("task_ready",True)]
 
 screen start_game:
     use side_nav
+    text str(task_ready)
+    if task_ready:
+        timer 0.2 action [Return(),SetVariable("task_ready",False)]

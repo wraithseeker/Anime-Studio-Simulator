@@ -10,7 +10,7 @@
                         "quality_check","marketing","funds"]
         char_stats = ["stress","proficiency","happiness","human_relations"]
 
-        anime = Anime("Anime Name")
+        anime = Anime("Macross Delta")
         anime.funds = 20
         anime.plot = 2.5
         anime.storyboard = 3
@@ -51,8 +51,10 @@
         shunsuke_stats = Stats("Shunsuke")
 
     #game variables
+    $current_week = 1
     $game_casual = False
     $task_ready = False
+    $side_nav_interaction = True
     $upgrade_tooltip_color = "#2ecc71"
     #15 stars is the max number of stars we have, * 100 to convert it to percentage
     $anime_story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15 * 100)
@@ -83,6 +85,7 @@
     $pos_left = Position(xalign = 0.18,yalign = 1.0)
     $pos_middle = Position(xalign = 0.5,yalign = 1.0)
     $pos_middleright = Position(xalign = 0.65,yalign = 1.0)
-    $pos_farright = Position(xalign = 1.1,yalign = 1.0)
+    $pos_middleright_half = Position(xalign = 0.75,yalign = 1.0)
+    $pos_farright = Position(xalign = 1.0,yalign = 1.0)
     $pos_right = Position(xalign = 0.92,yalign = 1.0)
 
