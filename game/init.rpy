@@ -1,14 +1,28 @@
 ﻿init: 
     $_game_menu_screen = "navigation"
     $upgrade_proficiency_value = 0.5
+    $upgrade_proficiency_cost = 2
     python:
         #A list of allowed stats to be modified during the game
-        anime_stats = ["plot","storyboard","character_development",
+        anime_stats = ["plot","character_development","storyboard",
                         "character_design","background","animation",
                         "voice_acting","op_and_ed","ost",
                         "quality_check","marketing","funds"]
         char_stats = ["stress","proficiency","happiness","human_relations"]
+
         anime = Anime("Anime Name")
+        anime.funds = 20
+        anime.plot = 2.5
+        anime.storyboard = 3
+        anime.character_development = 0.5
+
+
+        anime.character_design = 1.5
+        anime.background = 2.5
+        anime.animation = 3.5
+
+        anime.ost = 5
+
         yukari_tasks = [Tasks("Marketing","Do some Marketing",storyboard = 3,plot=-1)
                         ,Tasks("Networking","Do some networking",plot=2)
                         ,Tasks("Practise","Do some practise",plot=3)
@@ -29,42 +43,24 @@
         shunsuke_tasks = [Tasks("Write Story","Sketch Character",storyboard = 3,plot=-1)
                         ,Tasks("Practise Writing","Doodling",plot=2)
                         ,Tasks("Relax","Focus on relaxing",plot=3)]
+
         yukari_stats = Stats("Yukari")
         mayumi_stats = Stats("Mayumi")
         sumiko_stats = Stats("Sumiko")
         yuuko_stats = Stats("Yuuko")
         shunsuke_stats = Stats("Shunsuke")
 
-
-        def UpgradeCharacters(yukari,mayumi,shunsuke,sumiko,yuuko):
-            global upgrade_tooltip
-            message = "Proficiency successfully increased for"
-            if yukari_upgrade_selected:
-                setattr(yukari,"proficiency",getattr(yukari,"proficiency") + upgrade_proficiency_value)
-                message = message + " \nYukari"
-            if mayumi_upgrade_selected:
-                setattr(mayumi,"proficiency",getattr(mayumi,"proficiency") + upgrade_proficiency_value)
-                message = message + " \nMayumi"
-            if shunsuke_upgrade_selected:
-                setattr(shunsuke,"proficiency",getattr(shunsuke,"proficiency") + upgrade_proficiency_value)
-                message = message + " \nShunsuke"
-            if sumiko_upgrade_selected:
-                setattr(sumiko,"proficiency",getattr(sumiko,"proficiency") + upgrade_proficiency_value)
-                message = message + " \nSumiko"
-            if yuuko_upgrade_selected:
-                setattr(yuuko,"proficiency",getattr(yuuko,"proficiency") + upgrade_proficiency_value)
-                message = message + " \nYuuko"
-
-            if yukari_upgrade_selected or mayumi_upgrade_selected or shunsuke_upgrade_selected or sumiko_upgrade_selected or yuuko_upgrade_selected:
-                upgrade_tooltip = "Success!"
-                ui.timer(2.0,SetVariable("upgrade_tooltip",""))
-                renpy.restart_interaction()
-
     #game variables
     $game_casual = False
     $task_ready = False
+    $upgrade_tooltip_color = "#2ecc71"
+    #15 stars is the max number of stars we have, * 100 to convert it to percentage
+    $anime_story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15 * 100)
+    $anime_art_progress = int((anime.character_design + anime.background + anime.animation) / 15 * 100)
+    $anime_music_progress = int((anime.op_and_ed + anime.ost + anime.voice_acting) / 15 * 100)
+
     #upgrade screen
-    $upgrade_tooltip_default = "Send your team for training!"
+    $upgrade_tooltip_default = "Send your team for training! This will increase their Proficiency stats."
     $upgrade_tooltip_complete = "Upgrade successful!"
     $upgrade_tooltip = ""
     $yukari_upgrade_selected = False

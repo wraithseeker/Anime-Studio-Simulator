@@ -165,7 +165,6 @@ transform grow_success_text:
     on hide:
         zoom 0 alpha 1
 
-
 screen upgrade():
     tag menu
     use side_nav
@@ -229,7 +228,7 @@ screen upgrade():
                 hovered upgrade_tt.Action("Invite a veteran writer to review Shunsuke's writing.")
 
         add "ui/big_moneybag.png" xpos -650 ypos 649
-        text "5" color "#000" size 65 xpos -680 ypos 678
+        text str(upgrade_proficiency_cost) color "#000" size 65 xpos -680 ypos 678
 
     imagebutton:
         auto "ui/upgrade_screen/done_%s.png" 
@@ -244,7 +243,7 @@ screen upgrade():
         text upgrade_tt.value color "#000" size 40 text_align 0.0
 
     showif upgrade_tooltip != "":
-        text upgrade_tooltip color "#2ecc71" size 40 xalign 0.37 yalign 0.75 at grow_success_text
+        text upgrade_tooltip color upgrade_tooltip_color size 40 xalign 0.37 yalign 0.75 at grow_success_text
 
 screen anime_status():
     tag menu
@@ -256,21 +255,32 @@ screen anime_status():
     #story
     vbox:
         xalign 0.35 
-        yalign 0.28
+        yalign 0.30
         spacing 10
         for i in range(0,3):
             hbox:
                 spacing 5
-                add "ui/anime_status/star_full.png"
-                add "ui/anime_status/star_full.png"
-                add "ui/anime_status/star_full.png"
-                add "ui/anime_status/star_full.png"
-                add "ui/anime_status/star_full.png"
-        hbox:
-            add "ui/anime_status/diamond_full.png" ypos -125 xpos 340
+                # quotient grabs the integer value, e.g plot = 4.5, grabs int 4
+                # remainder grabs the remainder value, e.g plot = 4.5, grabs 0.5 and converts it to int
+                # empty stars is how many empty star images we have to display
+                python:
+                    plot_value = getattr(anime,anime_stats[i])
+                    remainder = int(plot_value % 1 / 0.5)
+                    quotient = int(plot_value // 1)
+                    empty_stars = 5 - quotient - remainder
+
+
+                for p in range(0,quotient):
+                    add "ui/anime_status/star_full.png"
+                for h in range(0,remainder):
+                    add "ui/anime_status/star_half.png"
+                for e in range(0,empty_stars):
+                    add "ui/anime_status/star_empty.png"
+        #hbox:
+            #add "ui/anime_status/diamond_full.png" ypos -125 xpos 340
         
 
-    bar value StaticValue(60,100):
+    bar value StaticValue(anime_story_progress,100):
         ymaximum 23
         xmaximum 407
         left_bar Frame("ui/anime_status/blue_bar_full.png")
@@ -284,16 +294,24 @@ screen anime_status():
         xalign 0.35 
         yalign 0.575
         spacing 10
-        for i in range(0,3):
+        for i in range(3,6):
             hbox:
                 spacing 5
-                add "ui/anime_status/star_full.png"
-                add "ui/anime_status/star_full.png"
-                add "ui/anime_status/star_full.png"
-                add "ui/anime_status/star_full.png"
-                add "ui/anime_status/star_full.png"
+                python:
+                    plot_value = getattr(anime,anime_stats[i])
+                    remainder = int(plot_value % 1 / 0.5)
+                    quotient = int(plot_value // 1)
+                    empty_stars = 5 - quotient - remainder
 
-    bar value StaticValue(100,100):
+
+                for p in range(0,quotient):
+                    add "ui/anime_status/star_full.png"
+                for h in range(0,remainder):
+                    add "ui/anime_status/star_half.png"
+                for e in range(0,empty_stars):
+                    add "ui/anime_status/star_empty.png"
+
+    bar value StaticValue(anime_art_progress,100):
         ymaximum 23
         xmaximum 407
         left_bar Frame("ui/anime_status/orange_bar_full.png")
@@ -307,15 +325,23 @@ screen anime_status():
         xalign 0.35 
         yalign 0.87
         spacing 10
-        for i in range(0,3):
+        for i in range(6,9):
             hbox:
                 spacing 5
-                add "ui/anime_status/star_full.png"
-                add "ui/anime_status/star_full.png"
-                add "ui/anime_status/star_full.png"
-                add "ui/anime_status/star_full.png"
-                add "ui/anime_status/star_full.png"
-    bar value StaticValue(60,100):
+                python:
+                    plot_value = getattr(anime,anime_stats[i])
+                    remainder = int(plot_value % 1 / 0.5)
+                    quotient = int(plot_value // 1)
+                    empty_stars = 5 - quotient - remainder
+
+
+                for p in range(0,quotient):
+                    add "ui/anime_status/star_full.png"
+                for h in range(0,remainder):
+                    add "ui/anime_status/star_half.png"
+                for e in range(0,empty_stars):
+                    add "ui/anime_status/star_empty.png"
+    bar value StaticValue(anime_music_progress,100):
         ymaximum 23
         xmaximum 407
         left_bar Frame("ui/anime_status/brown_bar_full.png")
@@ -493,7 +519,7 @@ screen outsource():
             spacing 25
             xalign 0.25
             yalign 0.25
-            imagebutton idle "ui/outsource/plot.png" style "outsource_buttons"
+            imagebutton auto "ui/outsource/plot_%s.png" style "outsource_buttons"
             imagebutton idle "ui/outsource/character_dev.png" style "outsource_buttons"
             imagebutton idle "ui/outsource/storyboard.png" style "outsource_buttons"
         hbox:
@@ -536,7 +562,7 @@ screen side_nav():
             textbutton ("Week 1") action NullAction()  text_style "sidenav_week" style "sidenav_week_button"
             textbutton ("Monday")  action NullAction()  text_style "sidenav_day" style "sidenav_day_button"
             #add "ui/money_bag.png" ypos 85 xpos 55
-            text "25" style "sidenav_money_text"
+            text str(anime.funds) style "sidenav_money_text"
             vbox: 
                 spacing 5
                 ypos 20

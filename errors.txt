@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/game_screens.rpy", line 162: on expects a non-empty block.
-    on show:
-            ^
+File "game/anime.rpy", line 47: invalid syntax
+            if value <= 5
+    
 
 Ren'Py Version: Ren'Py 6.99.10.1227
