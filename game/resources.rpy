@@ -113,6 +113,7 @@ image bg restaurant = "bg/restaurant.png"
 image bg studio = "bg/studio.png"
 image bg animation_studio = "bg/animation_studio.jpg"
 image bg recording_studio = "bg/recording_studio.png"
+image bg street = "bg/street.jpg"
 image bg cafe = "bg/cafe.png"
 image money = "ui/money_bag.png"
 

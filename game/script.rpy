@@ -15,9 +15,14 @@ transform weekly_text_transform:
     linear 2 alpha 1.0
     pause 3.0
     linear 2 alpha 0.0
+transform weekly_text_street_transform:
+    xalign 0.5 yalign 0.24 alpha 0.0
+    linear 2 alpha 1.0
+    pause 3.0
+    linear 2 alpha 0.0
 # The game starts here.
 label start:
-    jump week_2_1
+    jump week_2_3
     scene bg restaurant
     show yukari laugh_eyes_closed at pos_left
     show yuuko at pos_right
@@ -93,9 +98,9 @@ label week_1_1:
     "On Monday, Yukari gathers everyone together at the studio. It’s time to discuss and finalize the details about [anime.name]."
     show mayumi worry at pos_farleft
     m "So… what type of anime is [anime.name], again?"
-    hide weekly_popup_text
     show sumiko sigh
     s "We’ve been talking about it for weeks, and you still don’t know?"
+    hide weekly_popup_text
     show mayumi tsundere
     m " I was listening to music!"
     ss "Every time it came up?"
@@ -189,8 +194,8 @@ label week_1_2:
     $renpy.show("weekly_popup_text",what=Text("Tuesday",style="weekly_label_text"),at_list=[weekly_text_transform])
     "Although the others have their tasks set out for them, Yukari realizes there isn’t much she can do at this stage in the process. The same goes for Mayumi."
     "Yukari paces in frustration. She can’t sit around and do nothing."
-    hide weekly_popup_text
     "After taking a moment to think of possible things she can do to help, Yukari decides to…"
+    hide weekly_popup_text
     menu:
         "Read books about management":
             pass
@@ -267,19 +272,27 @@ label week_2_1:
     $renpy.show("weekly_popup_text",what=Text("Monday",style="weekly_label_text"),at_list=[weekly_text_transform])
     "On Monday, Yukari spends some time going through the scenario for [anime.name]. Then she gathers everyone together to look at the character designs."
     y "I think they’re fine. I don’t see any major flaws. What do the rest of you think?"
-    hide weekly_popup_text
+    show shunsuke sad
     ss "Well…"
+    show sumiko angry
     s "Uh-oh. Dramatic pause from Shunsuke. Here comes trouble…"
+    hide weekly_popup_text
+    show yukari sad
     "Yukari fidgets silently and braces herself. There’s nothing wrong with constructive criticism, but if he presents his issues with the art poorly, it could cause their team’s first major disagreement."
+    show shunsuke sad_angry
     ss "Personally speaking, the character designs aren’t really what I had in my mind."
-    ss "I'm not saying the design is bad, but the art style doesn't go well with the scenario I wrote for [anime.name]"
+    ss "I'm not saying the design is bad, but the art style doesn't go well with the scenario I wrote for [anime.name]."
     ss "We should redo these designs so they display the characters’ traits and fit the story better."
+    show yuuko_f worry
     yuu "I know the designs need to be refined, but I can’t completely redo them all."
     yuu "It took me quite a while to get the designs right. I had a lot of trouble choosing the art style for [anime.name]."
+    show shunsuke angry
     ss "The one you chose just doesn’t work."
+    show yuuko_f sigh
     yuu "Art style and references have never been a problem for before, but I was usually drawing fan art. I guess I need to improve, fast."
     yuu "But if I have to re-do all the character designs, I’m scared we won’t meet our deadline!"
     ss "Yukari should be the one to decide. She’s in charge."
+    show yukari sad
     y "Hmm…"
     "Each side has good points, but with a limited budget and limited time, Yukari has to make this decision carefully."
     menu:
@@ -289,5 +302,78 @@ label week_2_1:
         "Side with Shunsuke":
             "Shunsuke is right. While they may have a tight deadline to finish the 6 episodes of [anime.name], rushing things might not be the best."
             "Yukari decides it’s best to work with a firm foundation instead of a shaky one. The character designs need to be re-done to match the scenario, or else the project’s value will ultimately be lowered."
+label week_2_2:
+    scene studio
+    show yukari at pos_left
+    show mayumi at pos_farleft behind yukari
+    show sumiko laugh_eyes_closed at pos_middleright_half
+    show shunsuke at Position(xalign = 1.05,yalign = 1.0)
+    with dissolve
+    $renpy.show("weekly_popup_text",what=Text("Wednesday",style="weekly_label_text"),at_list=[weekly_text_transform])
+    s "Now that we’ve straightened out the scenario and character designs for [anime.name], why don’t we try to do some pre-release marketing?"
+    y "Pre-release marketing?"
+    show sumiko happy
+    s "You know, like how the other anime series always start marketing early to build up pre-release hype? Then we’ll have people shouting “We want [anime.name], we want [anime.name]!"
+    show shunsuke sigh
+    ss "Don’t forget, we don’t have a budget like those companies have."
+    ss "We’re lucky enough to have the investments funds Yukari worked hard to get! We can’t squander that money until we have enough of a cash-flow to survive."
+    show mayumi laugh_eyes_closed
+    m "Right. We’re working for free, remember?"
+    show shunsuke
+    show sumiko tsundere
+    s "That’s not something easy to forget."
+    show mayumi happy
+    hide weekly_popup_text
+    m "Do you think you can do pre-release marketing without spending money? It’d be pretty neat if we could!"
+    show sumiko
+    s "Marketing without money? How?"
+    ss "Hmm… What about social networks?"
+    m "Do we have those?"
+    ss "Not yet, but I can create pages for [anime.name] and start some guerilla marketing."
+    show mayumi worry
+    m "Guerilla marketing?"
+    show shunsuke happy
+    ss "Low-cost, unconventional marketing, like a viral campaign. It will take time and ingenuity, but not cost us money."
+    ss "I’m not sure if it'll work, but it's worth a try."
+    show sumiko laugh_eyes_closed
+    s "Seems interesting. Let’s let Shunsuke try his guerilla whatever-it-is!"
+    show mayumi worry
+    m "We already have a lot to do already. Pre-release marketing was never in our plans, and we’re up against a deadline. Are you sure it’s okay to take on even more work? What do you think, Yukari?"
+    "It’s a tricky decision. Yukari thinks through the argument each of her team members made and weighs the pros and cons of each option. She doesn’t want anything to go wrong with [anime.name]."
+    menu:
+        "Start pre-release marketing":
+            ss "I’ll get right on it."
+            "Shunsuke creates a number of pages on social networks for [anime.name]. He’ll post updates about the project to get the attention of the community."
+        "Heed Mayumi's advice":
+            show yukari worry
+            y "Sorry, Shunsuke, but I agree with Mayumi. We’ve already got a lot on our plate, and we don’t want to cause feature creep for [anime.name]."
+label week_2_3:
+    scene bg street
+    show yukari at left
+    show mayumi_f at right
+    $renpy.show("weekly_popup_text",what=Text("Friday",style="weekly_label_text"),at_list=[weekly_text_street_transform])
+    "On Friday afternoon, Yukari meets up with Mayumi to do some research for [anime.name]. The two of them head over to the closest Animate store that they could locate."
+    show yukari happy
+    y "There! That’s Animate. They have a huge collection of anime merchandise for sale!"
+    show mayumi_f worry
+    m "Are you sure this is “research,” Yukari?"
+    show yukari laugh_eyes_closed
+    y " Of course. It’s all for the sake of [anime.name]."
+    "For the sake of [anime.name], Yukari checks out several other similar shops as well as Animate. She buys some figurines and goes shopping in the name of research."
+    "Soon, her arms are loaded with bags of merchandise."
+    show mayumi_f sigh
+    m "Um, Yukari? What does this have to do with research?"
+    show yukari happy
+    y "Research?"
+    hide weekly_popup_text
+    show mayumi_f angry
+    m "We’re here to do research for [anime.name], remember?"
+    show yukari laugh_eyes_closed
+    y "Oh, right! Oops. Hehe, well, uh… there’s nothing wrong with a little fun, right?"
+    y "We can have fun and do research at the same time, It'll be a BLAST!"
+    show yukari
+    show mayumi_f
+    y "Yukari and Mayumi spends some time looking around the store to try and figure out the latest anime trends in order to appeal to the masses for [anime.name]. "
+    "As they head home after completing their research, it occurs to Yukari that maybe she shouldn’t take money with her the next time she conducts research."
 
 
