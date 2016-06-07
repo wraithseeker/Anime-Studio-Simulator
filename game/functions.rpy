@@ -6,16 +6,29 @@
         global sumiko_tasks
         global shunsuke_tasks
         global mayumi_tasks
+        global task_ready
+        global yukari_task_selected
+        global yuuko_task_selected
+        global sumiko_task_selected
+        global shunsuke_task_selected
+        global mayumi_task_selected
         ResetCharacterTask(yukari_tasks)
-        ResetCharacterTask(yuukotasks)
+        ResetCharacterTask(yuuko_tasks)
         ResetCharacterTask(sumiko_tasks)
         ResetCharacterTask(shunsuke_tasks)
         ResetCharacterTask(mayumi_tasks)
+        yukari_task_selected = False
+        yuuko_task_selected = False
+        mayumi_task_selected = False
+        shunsuke_task_selected = False
+        sumiko_task_selected = False
+        # for i in range(0,len(item)):
+        #     item[i].selected = False
 
     def ResetCharacterTask(item):
         for i in range(0,len(item)):
             item[i].selected = False
-            
+
 
        
 

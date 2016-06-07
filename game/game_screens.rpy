@@ -1,12 +1,12 @@
 ﻿screen task():
     tag menu
     use side_nav
-
     default task_tt_description = Tooltip("Sends Yukari to do marketing tasks") 
     default task_tt_stats = Tooltip("{color=#27ae60}+1 Marketing{/color}\n{color=#c0392b}-1 Happiness{/color}")
     window:
         style "task_window"
 
+    imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return() 
     frame:
         background None
         xysize(545,230)
@@ -169,10 +169,10 @@ screen upgrade():
     tag menu
     use side_nav
     default upgrade_tt = Tooltip(upgrade_tooltip_default)
-    
     window:
         style "upgrade_window"
 
+    imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return()
     hbox:
         xalign 0.24
         yalign 0.25
@@ -247,12 +247,12 @@ screen upgrade():
 
 screen anime_status():
     tag menu
-    use side_nav
     window:
         style "anime_status_window"
 
     #star_full.png, star_half.png,star_empty.png
     #story
+    imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return() 
     vbox:
         xalign 0.35 
         yalign 0.30
@@ -354,10 +354,10 @@ screen anime_status():
 
 screen member_status():
     tag menu
-    use side_nav
     window:
         style "member_status_window"
 
+    imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return()
 
     add "char_image/yukari.png" xalign 0.260 yalign 0.232
     text "Yukari" xalign 0.35 yalign 0.195 color "#000" size 40
@@ -511,6 +511,8 @@ screen outsource():
     use side_nav
     window:
         style "outsource_window"
+
+    imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return() 
     frame:
         background None
         text "Produce 1" color "#000" xalign 0.5 yalign 0.10 size 55
@@ -566,8 +568,8 @@ screen side_nav():
             vbox: 
                 spacing 5
                 ypos 20
-                textbutton ("Anime Status")  action If(side_nav_interaction,ShowMenu("anime_status"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
-                textbutton ("Member Status")  action If(side_nav_interaction,ShowMenu("member_status"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
+                textbutton ("Anime Status")  action If(side_nav_interaction,ShowMenu("anime_status_sidenav"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
+                textbutton ("Member Status")  action If(side_nav_interaction,ShowMenu("member_status_sidenav"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 textbutton ("Tasks")  action If(side_nav_interaction,ShowMenu("task"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 textbutton ("Outsource")  action If(side_nav_interaction,ShowMenu("outsource"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 textbutton ("Upgrades")  action If(side_nav_interaction,ShowMenu("upgrade"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
@@ -582,4 +584,15 @@ screen start_game:
     use side_nav
     text str(task_ready)
     if task_ready:
-        timer 0.2 action [Return(),SetVariable("task_ready",False)]
+        timer 0.2 action [Return(),SetVariable("task_ready",False),renpy.curry(ResetTasksSelection)()]
+
+screen anime_status_sidenav:
+    tag menu
+    use anime_status
+    use side_nav
+
+screen member_status_sidenav:
+    tag menu
+    use member_status
+    use side_nav
+

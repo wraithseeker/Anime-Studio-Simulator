@@ -49,6 +49,12 @@
         sumiko_stats = Stats("Sumiko")
         yuuko_stats = Stats("Yuuko")
         shunsuke_stats = Stats("Shunsuke")
+        #some placeholder values
+        yukari_stats.proficiency = renpy.random.randint(1,10)
+        yuuko_stats.proficiency = renpy.random.randint(1,10)
+        sumiko_stats.proficiency = renpy.random.randint(1,10)
+        mayumi_stats.proficiency = renpy.random.randint(1,10)
+        shunsuke_stats.proficiency = renpy.random.randint(1,10)
 
     #game variables
     $current_week = 1

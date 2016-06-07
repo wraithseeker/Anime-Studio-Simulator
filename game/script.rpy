@@ -24,7 +24,7 @@ transform weekly_text_street_transform:
     linear 2 alpha 0.0
 # The game starts here.
 label start:
-    jump week_3_4
+    #jump week_3_4
     scene bg restaurant
     show yukari laugh_eyes_closed at pos_left
     show yuuko at pos_right
@@ -354,6 +354,7 @@ label week_2_3:
     scene bg street
     show yukari at left
     show mayumi_f at right
+    with dissolve
     $renpy.show("weekly_popup_text",what=Text("Friday",style="weekly_label_text"),at_list=[weekly_text_street_transform])
     "On Friday afternoon, Yukari meets up with Mayumi to do some research for [anime.name]. The two of them head over to the closest Animate store that they could locate."
     show yukari happy
@@ -386,7 +387,7 @@ label week_2_4:
     show sumiko at Position(xalign = 1.1,yalign = 1.0) behind yuuko
     show shunsuke at pos_middleright
     show mayumi at pos_farleft behind yukari
-    with dissolve
+    with fade
     "It's time for the weekly dinner gathering again! Yukari meets up with her friends in the restaurant to have a meal."
     show shunsuke happy
     ss "Have we gotten any additional investors yet?"
@@ -583,5 +584,72 @@ label week_3_4:
     m "Aw, that’s too bad."
     ss "She must really be sick."
     yuu "Yes. It was… difficult to get her to realize it, but I think I made her understand she needs time to recover."
+    
+label week_3_5:
+    scene bg restaurant with fade
+    show yukari worry at pos_left
+    show shunsuke at pos_middleright_half
+    show yuuko at Position(xalign = 1.0,yalign = 1.0)
+    show mayumi at pos_farleft behind yukari
+    with dissolve
+    "For the first time, Yukari feels stressed, not happy, when she goes to the restaurant with her friends."
+    show mayumi sad_angry
+    m "Looks like we’re in a pretty tough spot now that Sumiko is ill."
+    m "Yuuko, can you cover for your sister until she’s back, so we don’t fall too far behind?"
+    m "If we don’t meet the deadline the investors set for [anime.name], it’s all over."
+    show yuuko sad
+    yuu "I’ll work twice as hard to cover for her! I feel bad for her. Sumiko was so excited for [anime.name]."
+    yuu "She’d talk to me about her ideas all the time, even when we were back at home. I hope she listened to my advice about resting and isn’t secretly doing work now…"
+    show yukari sad
+    y "Sumiko’s art is only one of the issues we have to worry about. We still don’t have enough funding to finish [anime.name], and according to Mayumi, we’re currently behind schedule."
+    y "I wonder if we’ll get everything sorted out..."
+    "Right now, it doesn’t seem likely. A cold pit has formed in her stomach. Even the tempura no longer tastes good."
+    ss "We’ll try our best. Don’t be too pessimistic."
+    y "What if “our best” isn’t good enough?"
+    show shunsuke worry
+    ss "Are you feeling overworked? If you’re stressed, you can always talk to us. I could take on some more of the workload, and I’m sure Mayumi could, too."
+    show mayumi
+    show yuuko
+    m "Of course! Just tell us what you need!"
+    show yukari
+    y "I’m fine."
+    ss "I’m kind of worried about you. The past few days, you’ve seemed very busy and frustrated."
+    y "Don’t worry about me. I can cope with my workload, and I’m not too stressed out. After all, it’s my role to take care of all these responsibilities."
+    "She looks down at her food so she doesn’t have to meet Shunsuke’s gaze. He might realize she’s lying."
+    "As she eats, though, she wonders if he’s right. Maybe she does need to talk to someone about her worries."
+    "After everyone finishes dinner, Yukari glances at Mayumi."
+    menu:
+        "Confide in Mayumi":
+            hide mayumi
+            hide shunsuke
+            hide yuuko
+            show yukari at left
+            show mayumi_f at right
+            with dissolve
+            y "Mayumi, mind if we talk for a minute?"
+            m "Not at all. What’s up?"
+            y "I’m really starting to worry about this. I’m not sure we can complete [anime.name]."
+            m "Of course we can! Just because we’ve had a few setbacks doesn’t mean there’s no hope."
+            y "But the deadline is approaching and we’re falling behind. This is my dream. It’s hard to watch my dream crumble to dust…"
+            m "It’s not crumbling. Everything will be fine. You’ll see!"
+            y "I hope you’re right."
+            m "Have a little faith in my predictions!"
+            y "Haha, okay. Thanks, Mayumi. Talking to you always makes me feel better."
+        "I'm fine...":
+            "Yukari shakes her head. She’s the director. She can handle this herself."
+
+label week_3_6:
+    scene black with dissolve
+    "At last, the weekend arrives. Yukari debates about how she should spend it."
+    menu:
+        "Work on [anime.name]":
+            "Yukari spends the weekend working on the storyboards for [anime.name]."
+        "Ask her old friends out for a meal":
+            "Yukari asks her old friends out for a meal to catch up and also to get their opinions on [anime.name]."
+            #Depending on Yukari’s human relations variable, they either tell her they like <anime name> very much or they tell her they are not very fond of <anime name> 
+        "Watch some anime.":
+            "Yukari spends the weekend binge-watching her favorite anime series to relax."
+    "End of demo.. for now"
+
 
 
