@@ -9,6 +9,8 @@ define m = Character('Mayumi', color="#000",ctc="ctc_fixed",ctc_position="fixed"
 define s = Character('Sumiko', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define yuu = Character('Yuuko', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define ss = Character('Shunsuke', color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define bot = Character('Bot', color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define unknown = Character('???', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 
 transform weekly_text_transform:
     xalign 0.5 yalign 0.42 alpha 0.0
@@ -22,12 +24,13 @@ transform weekly_text_street_transform:
     linear 2 alpha 0.0
 # The game starts here.
 label start:
-    jump week_2_3
+    jump week_3_4
     scene bg restaurant
     show yukari laugh_eyes_closed at pos_left
     show yuuko at pos_right
     show sumiko at Position(xalign = 1.1,yalign = 1.0) behind yuuko
     show shunsuke at pos_middleright
+    show mayumi at pos_farleft behind yukari
     with dissolve
     y "I have great news to share with all of you regarding our anime project!"
     s "After planning for the past few weeks, I’m glad we finally have some news."
@@ -48,7 +51,7 @@ label start:
     show yukari
     y "For now, let's celebrate our funding!"
     y " We'll start working on the project next week. Our journey will be long and tough, but I believe we can pull through it together!"
-    show mayumi happy at pos_farleft behind yukari with dissolve
+    show mayumi happy
     m "Yeah! The details can wait. Let’s celebrate! "
     show yuuko happy
     show sumiko happy
@@ -375,5 +378,210 @@ label week_2_3:
     show mayumi_f
     y "Yukari and Mayumi spends some time looking around the store to try and figure out the latest anime trends in order to appeal to the masses for [anime.name]. "
     "As they head home after completing their research, it occurs to Yukari that maybe she shouldn’t take money with her the next time she conducts research."
+
+label week_2_4:
+    scene bg restaurant
+    show yukari at pos_left
+    show yuuko at pos_right
+    show sumiko at Position(xalign = 1.1,yalign = 1.0) behind yuuko
+    show shunsuke at pos_middleright
+    show mayumi at pos_farleft behind yukari
+    with dissolve
+    "It's time for the weekly dinner gathering again! Yukari meets up with her friends in the restaurant to have a meal."
+    show shunsuke happy
+    ss "Have we gotten any additional investors yet?"
+    show yukari worry
+    y "No, I haven't been looking around because we don't have much of a product to pitch to them. It was hard enough the first time. We need to focus on creating [anime.name] first."
+    show shunsuke sad
+    ss "Hmm… right now, I think raising additional funds is more important."
+    ss "Running out of money halfway through the project would be a nightmare."
+    show sumiko sigh
+    s "A “goodbye [anime.name]” sort of nightmare."
+    show mayumi worry
+    m "And we don’t want to wait too long. It’s so hard to get investors even interested in an idea. We tried so many times before without any luck!"
+    show mayumi laugh_eyes_closed
+    m "But don’t worry! If we start now and cast our net as wide as possible, we can complete [anime.name] with a comfortable budget."
+    show yukari sigh
+    y "After listening to you guys, I understand how important it is to get more funding. I didn’t realize it before. Sorry!"
+    y "Next week, I'll start sending out those dreadful proposals and try to set up meetings with potential investors. Ugh."
+    "Writing the proposals is boring and meeting with investors is even worse."
+    s "You don’t have to sound so gloomy about it."
+    show yukari tsundere
+    y "Want to trade places?"
+    s "Not a chance. Besides, I have too much work to do."
+    show yuuko happy
+    show yuuko happy
+    show shunsuke
+    show sumiko
+    yuu "Good luck, Yukari. Even though we can’t go with you, know that you have our support. We’re here for you."
+    m "If you run into any problems, feel free to let us know! Don't carry so much of a burden you get overly stressed out."
+    show yukari happy
+    y "Thanks. I’ll keep that in mind."
+label week_2_5:
+    scene black with dissolve
+    $week_2_5_choice = ""
+    "When the weekend comes, Yukari decides to spend time with her friends to relax in preparation for the tough week ahead."
+    "She calls up…"
+    menu:
+        "Mayumi":
+            $week_2_5_choice = "Mayumi"
+        "Shunsuke":
+            $week_2_5_choice = "Shunsuke"
+        "Yuuko and Sumiko":
+            $week_2_5_choice = "Yuuko and Sumiko"
+    "Yukari spends part of the weekend with [week_2_5_choice]."
+    "It’s a lot of fun. Thanks to [week_2_5_choice], she’s able to forget her worries for a while and de-stress. When the weekend ends, she feels confident."
+    y "No matter how tough it is, I have to buckle down and get those funds!"
+    scene studio with dissolve
+    $current_week = 3
+    call screen start_game
+label week_3_1:
+    scene studio
+    show yukari at left
+    show yuuko at right
+    with dissolve
+    $renpy.show("weekly_popup_text",what=Text("Monday",style="weekly_label_text"),at_list=[weekly_text_transform])
+    y "Are you finished with the character designs yet?"
+    yuu "Not yet, only the designs for the main cast is complete. I'm still working on the side characters."
+    show yuuko worry
+    yuu "I can't seem to get them right.. I feel like I'm in a creative block right now.."
+    show yukari laugh_eyes_closed
+    y "You’ll be fine! You’re a really talented artist to begin with. Did you know I was already a big fan of your art before we met? I loved it for a long time."
+    y "Those views and likes on your artwork show the truth!"
+    show yuuko sigh
+    yuu "That’s only because I got lucky. What about the proposals to pitch to the investors?"
+    hide weekly_popup_text
+    y " I wrote a few of them on the weekend. Finding suitable investors was already challenging enough."
+    show yukari
+    y "I’ll be sending them out later today. Let’s hope my mailbox doesn’t remain a ghost town."
+    "Her stomach tightens. If none of the investors are interested, it could be disastrous. Still, there’s no sense in worrying about it."
+    "Yukari heads back to her desk and gets to work, when a piece of anime news catches her eye. A recent anime release by one of the big shot studios appears to be going viral, possibly due to its unique premise."
+    y "Maybe I should reach out to some of the staff there to get some guidance on how to run my anime studio. Right now I feel like a headless chicken trying to cross the road…"
+    menu:
+        "Contact the studio for advice":
+            "The staff members are surprised to hear from Yukari, but not displeased. They give her some tips that'll be essential in the future."
+        "Why bother?":
+            "Nobody replies to Yukari’s email. Well, it can't be helped. They probably receive way too much spam and fan mail as it is, too much for them to bother responding."
+label week_3_2:
+    scene studio
+    show yukari sad_angry at left
+    with dissolve
+    $renpy.show("weekly_popup_text",what=Text("Tuesday",style="weekly_label_text"),at_list=[weekly_text_transform])
+    y "Agh! This is taking forever. I wish I could write a generic email and send it to all the investors, instead of writing personalized ones."
+    y "But everyone says generic emails are often ignored while personalized emails might catch their interest."
+    y "That small percentage chance is what we need right now, so I shouldn’t complain, I guess."
+    y "It’s so boring, though. I’ll try calling some of them up instead."
+    scene black with dissolve
+    "Ring ring.................. Ring ring...."
+    hide weekly_popup_text
+    bot "Thank you for calling (some company name)."
+    bot "For general inquiries, press 1. For support issues, please press 2. Press 0 to get in touch with a customer service representative."
+    y "Stupid automated software… Of course I’ll press 0; why do they even do this?"
+    "She glares at the foot and hits 0."
+    "Ring ring... Ring ring.."
+    bot "Please hold, as all our customer service operators are currently unavailable."
+    y "Great, now I have to listen to some weird music."
+    unknown "Hello, how may I help you?"
+    "Yukari gives the operator a simple pitch, describing the basics of [anime.name] in the hopes she’ll transfer the call to someone higher up."
+    unknown "[anime.name] sounds fantastic! I saved your contact details, and we’ll get back to you soon!"
+    unknown "Is there anything else I can help you with?"
+    y "No, thank you."
+    scene studio
+    show yukari sigh at left
+    with dissolve
+    y "Yukari hangs up the phone and sighs. They’ll get back to her. Sure. More likely, she failed her pitch once again and will never hear from them."
+    y "Why can’t they just tell me they’re not interested instead of leaving me hanging?"
+    "Yukari rubs her head. The pressure and stress is starting to get to her. She looks around the studio. Everyone else is hard at work."
+    "As much as she wants to complain to them about what happens, she knows it’s better if she doesn’t distract them."
+
+label week_3_3:
+    scene studio
+    show yukari worry at left
+    with dissolve
+    $renpy.show("weekly_popup_text",what=Text("Wednesday",style="weekly_label_text"),at_list=[weekly_text_transform])
+    "In the studio the next day, Yukari can’t help but worry about Sumiko. She doesn’t look well. She keeps coughing and works on her art in a drained, lifeless manner."
+    "Mayumi is intent on sorting the huge mountain of project files for [anime.name]. Shunsuke is also working with her on the script. Yuuko sits at her desk working on art."
+    "Perhaps they didn’t notice yet… or it could just be Yukari’s imagination."
+    menu:
+        "It's just my imagination...":
+            show yukari tsundere
+            y "I must be imagining things. All this stress is getting to me."
+        "Ask Sumiko if she's sick.":
+            show yukari sad
+            show sumiko at right with dissolve
+            y "Sumiko, are you getting sick? You look like you should see a doctor."
+            show sumiko sigh
+            s " I’m fine! What makes you think I’m sick?"
+            s "*cough cough*"
+            show yukari angry
+            y "Your body is honest, at least. We can’t have you falling sick right now when we have so much work to do. I’ll take you to the doctor!"
+            show sumiko worry
+            s "But what about my work?"
+            y "Losing some progress now is better than coming down with a serious illness that could jeopardize the whole project!"
+            s "Yes, ma’am..."
+            "Yukari takes Sumiko to see a doctor. She is indeed sick. She’ll be recuperating at home for the rest of the week and won’t be able to work on [anime.name] for the next few days."
+
+    hide weekly_popup_text
+
+label week_3_4:
+    scene studio
+    show yukari sad at left
+    show shunsuke at right
+    with dissolve
+    $renpy.show("weekly_popup_text",what=Text("Friday",style="weekly_label_text"),at_list=[weekly_text_transform])
+    ss "Here’s the script for episode 1. We can get started with the episode’s storyboard soon, too."
+    ss "Let me know what you think!"
+    "It takes Yukari a moment to realize he’s speaking to her."
+    y "What? Oh, right, the script for episode 1.  I’ll take a look at it later."
+    y "Who’s working on the storyboard? Me?"
+    ss "If not you, who else? You’re the one in charge, so you have the clearest picture of what [anime.name] should be like."
+    y "Yes, you’re right. Why did I even ask that question?"
+    y "Yukari rubs her head. She feels like she’s going to explode any minute now. Should she tell the others her concerns about funding?"
+    hide weekly_popup_text
+    menu:
+        "Raise the issue of funding":
+            show yukari sad at pos_left
+            show mayumi at pos_farleft behind yukari
+            show shunsuke at pos_middleright
+            show yuuko at pos_right
+            show sumiko at Position(xalign = 1.1,yalign = 1.0) behind yuuko
+            with dissolve
+            y "Hey, can I talk to everyone for a minute?"
+            show mayumi worry
+            m "What’s wrong?"
+            y "I’m worried about the funding. I haven’t found any more investors. No one seems interested."
+            ss "That’s not good."
+            y "I know! What are we going to do?"
+            show mayumi happy
+            m "Maybe we could have a bake sale!"
+            show shunsuke worry
+            ss "A bake sale? How will we find time for baking?"
+            show mayumi sad
+            m "Oh, right…"
+            show yuuko happy
+            yuu "If we find people in the community who are interested, they might help fund us."
+            show mayumi happy
+            show shunsuke
+            m "Yes! They won’t be able to give as much as investors, but if we get enough people interested, it could really help."
+            ss "That will also take time, though."
+            show yuuko
+            show mayumi
+            show yukari worry
+            y "Still, it’s a possibility. Thanks, guys."
+            "Even though they didn’t come to an answer, Yukari feels better just from talking about it. Between the four of them, maybe they can find a solution."
+        "I'm fine.":
+            "Yukari closes her eyes. She can handle this. No need to worry the others."
+    show yukari sad at pos_left
+    show mayumi at pos_farleft behind yukari
+    show shunsuke at pos_middleright
+    show yuuko worry at pos_right
+    show sumiko at Position(xalign = 1.1,yalign = 1.0) behind yuuko
+    with dissolve
+    yuu "Hey, everyone? Sumiko still needs more rest. She won’t be able to meet with us tonight for dinner."
+    show shunsuke sad
+    show mayumi sad
+    m "Aw, that’s too bad."
+    ss "She must really be sick."
+    yuu "Yes. It was… difficult to get her to realize it, but I think I made her understand she needs time to recover."
 
 

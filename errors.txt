@@ -2,8 +2,20 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 301: expected 'image_name_component' not found.
-    scene at studio
-          ^
+File "game/script.rpy", line 13: expected 'name' not found.
+    define ? = Character('???', color="#000",ctc="ctc_fixed",ctc_position="fixed")
+           ^
+
+File "game/script.rpy", line 484: expected statement.
+    ? "Hello, how may I help you?"
+    ^
+
+File "game/script.rpy", line 486: expected statement.
+    ? "[anime.name] sounds fantastic! I saved your contact details, and we’ll get back to you soon!"
+    ^
+
+File "game/script.rpy", line 487: expected statement.
+    ? "Is there anything else I can help you with?"
+    ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227
