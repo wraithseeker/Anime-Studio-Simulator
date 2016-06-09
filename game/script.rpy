@@ -25,6 +25,7 @@ transform weekly_text_street_transform:
 # The game starts here.
 label start:
     #jump week_3_4
+    jump week_1_3
     scene bg restaurant
     show yukari laugh_eyes_closed at pos_left
     show yuuko at pos_right
@@ -32,7 +33,7 @@ label start:
     show shunsuke at pos_middleright
     show mayumi at pos_farleft behind yukari
     with dissolve
-    y "I have great news to share with all of you regarding our anime project!"
+    y "Everyone, I have great news to share about our anime project!"
     s "After planning for the past few weeks, I’m glad we finally have some news."
     ss "What’s the news? You look really excited, so I guess it's related to our funding?"
     show yukari happy
@@ -202,14 +203,73 @@ label week_1_2:
     menu:
         "Read books about management":
             pass
-        "Networking with people":
+        "Network with people":
             pass
         "Supervise Yuuko & Sumiko":
             pass
 
-label week_1_3:
+# label week_1_3:
+#     scene bg studio
+#     show yukari at left
+#     show mayumi_f at pos_right
+#     with dissolve
+#     "It’s the third day of work on [anime.name]. Yukari looks around the studio and can’t help but grin. The team is hard at work. [anime.name] will be a reality. This is exactly what she’s always dreamed up."
+#     m "Hey Yukari, want to get lunch?"
+#     y "What? Now?"
+#     m "Yeah. I mean, the last two days you barely ate."
+#     y "Is it really okay for me to leave? I mean, I’m the director!"
+#     "Shunsuke looks up from his work."
+#     ss "The rest of us take lunch breaks. Logically, you can too."
+#     y "But..."
+#     s "Oh, go on! We promise not to burn down the studio!"
+#     "Their reassurances help her set aside her guilt."
+#     y "Well, all right!"
+#     scene bg cafe
+#     show yukari at left
+#     show mayumi_f at right
+#     with dissolve
+#     "The café is crowded, but they’re still able to find a place to sit without much difficulty."
+#     m "So, what does it feel like?"
+#     y "Huh?"
+#     m "You’re an anime director now!"
+#     y "Haha, yes, I guess I am... It still feels unreal. I have a lot of responsibilities if I want to make [anime.name] a success."
+#     m "Don’t forget to relax now and then."
+#     y "What makes you say that?"
+#     y "Hey, there’s no way they’d actually burn anything down, right?!"
+#     m "If you’re taking Sumiko’s jokes seriously, you definitely need to relax."
+#     y "Maybe you’re right."
+#     "She leans back in her seat and puts her worries out of her mind. One thing is certain: she can always count on Mayumi to make her feel better."
+#     scene bg studio
+#     "When they return, the studio is quiet. The other three are still hard at work."
+#     s "See? Nothing burned!"
+#     m "Aren’t you going to have lunch, too?"
+#     s "Yuuko and I brought food from home. As for Shunsuke..."
+#     "She lowers her voice to a stage whisper."
+#     s "I think maybe he’s a vampire!"
+#     ss " I heard that!"
+#     s "And?"
+#     ss "I ate earlier."
+#     s "Sure you did."
+#     ss "You really don’t think I eat?"
+#     s "I’ve never seen you eat."
+#     ss "I eat!"
+#     s "Prove it."
+#     ss "You need proof? Well just you wait!"
+#     s "I’m waiting, but nothing’s happening..."
+#     "Yukari clears her throat. They cut off their argument and look at her. Both look sheepish, although not quite as much as they should."
+#     y "We’ve got an anime to work on, remember?"
+#     ss "Aye, aye."
+#     s "Aw, fine..."
+#     "Ridiculous as it was, their argument gives the studio a lighthearted atmosphere." 
+#     "The rest of the day is punctuated by Sumiko waving crosses at Shunsuke and shoving her compact mirror in his face to check his reflection."
+#     "Even though he seems so serious and focused, he tolerates her jokes and gives only mock-angry comebacks."
+#     "Watching them makes Yukari smile. Shunsuke was the last member to join the team, so it’s good to see him fitting in."
+
+
+
+label week_1_5:
     scene black with dissolve
-    "A few days pass. It’s Friday."
+    "It’s Friday."
     "When Yukari first gathered the team to work on [anime.name], she made a promise with them to meet up and have dinner together every Friday."
     "Ever since then, they’ve all made it to this recurring event without fail."
     scene bg restaurant
@@ -251,7 +311,7 @@ label week_1_3:
     show yukari
     y "Don't belittle yourself so much! They look great, and that’s what matters! I like them, and next week we’ll have everyone take another look."
 
-label week_1_4:
+label week_1_6:
     scene black with dissolve
     "When the weekend comes, Yukari finds some free time at last. She wonders if she should get more work done on [anime.name] or take it easy for now."
     menu:
@@ -288,12 +348,15 @@ label week_2_1:
     ss "We should redo these designs so they display the characters’ traits and fit the story better."
     show yuuko_f worry
     yuu "I know the designs need to be refined, but I can’t completely redo them all."
-    yuu "It took me quite a while to get the designs right. I had a lot of trouble choosing the art style for [anime.name]."
+    yuu "It took me a long time to get the designs right. I had trouble choosing the art style for [anime.name]."
     show shunsuke angry
     ss "The one you chose just doesn’t work."
     show yuuko_f sigh
-    yuu "Art style and references have never been a problem for before, but I was usually drawing fan art. I guess I need to improve, fast."
-    yuu "But if I have to re-do all the character designs, I’m scared we won’t meet our deadline!"
+    yuu "Art style and references have never been a problem for me before, but I was usually drawing fan art. I guess I need to improve, fast."
+    yuu "But if I have to re-do all the character designs..."
+    "She falls silent."
+    s "You’re worried about the deadline, aren’t you?"
+    yuu "Yes. I don’t know if I can re-do them in time."
     ss "Yukari should be the one to decide. She’s in charge."
     show yukari sad
     y "Hmm…"
@@ -363,7 +426,7 @@ label week_2_3:
     m "Are you sure this is “research,” Yukari?"
     show yukari laugh_eyes_closed
     y " Of course. It’s all for the sake of [anime.name]."
-    "For the sake of [anime.name], Yukari checks out several other similar shops as well as Animate. She buys some figurines and goes shopping in the name of research."
+    "For the sake of [anime.name], Yukari checks out Animate and several other shops. She buys some figurines and goes shopping in the name of research."
     "Soon, her arms are loaded with bags of merchandise."
     show mayumi_f sigh
     m "Um, Yukari? What does this have to do with research?"
@@ -374,11 +437,11 @@ label week_2_3:
     m "We’re here to do research for [anime.name], remember?"
     show yukari laugh_eyes_closed
     y "Oh, right! Oops. Hehe, well, uh… there’s nothing wrong with a little fun, right?"
-    y "We can have fun and do research at the same time, It'll be a BLAST!"
+    y "We can have fun and do research at the same time. It'll be a BLAST!"
     show yukari
     show mayumi_f
-    y "Yukari and Mayumi spends some time looking around the store to try and figure out the latest anime trends in order to appeal to the masses for [anime.name]. "
-    "As they head home after completing their research, it occurs to Yukari that maybe she shouldn’t take money with her the next time she conducts research."
+    y "Yukari and Mayumi spends some time looking around the store to try and figure out the latest anime trends, so they can appeal to the masses with [anime.name]."
+    "As they head home afterwards, it occurs to Yukari that maybe she shouldn’t take money with her the next time she conducts research."
 
 label week_2_4:
     scene bg restaurant
@@ -388,7 +451,7 @@ label week_2_4:
     show shunsuke at pos_middleright
     show mayumi at pos_farleft behind yukari
     with fade
-    "It's time for the weekly dinner gathering again! Yukari meets up with her friends in the restaurant to have a meal."
+    "It's time for the weekly dinner gathering again! Yukari meets up with her friends at the restaurant."
     show shunsuke happy
     ss "Have we gotten any additional investors yet?"
     show yukari worry
@@ -403,25 +466,36 @@ label week_2_4:
     show mayumi laugh_eyes_closed
     m "But don’t worry! If we start now and cast our net as wide as possible, we can complete [anime.name] with a comfortable budget."
     show yukari sigh
-    y "After listening to you guys, I understand how important it is to get more funding. I didn’t realize it before. Sorry!"
+    "After listening to them, Yukari understands how important it is to get more funding."
+    "While they do need a solid product to attract investors with, money won’t come to them on its own. Waiting for something to happen accomplishes nothing."
+    y "You’re right. I’m sorry I didn’t realize it before."
+    "Unfortunately, that means it’s time for her least favorite part of the job."
     y "Next week, I'll start sending out those dreadful proposals and try to set up meetings with potential investors. Ugh."
     "Writing the proposals is boring and meeting with investors is even worse."
     s "You don’t have to sound so gloomy about it."
     show yukari tsundere
     y "Want to trade places?"
-    s "Not a chance. Besides, I have too much work to do."
+    s "Not a chance. I have enough on my plate as it is."
+    m "Oh? Then I’ll have your dessert!"
+    s "Wait, what? No!"
+    m "But you said..."
+    "While they argue, Yuuko rolls her eyes and turns to Yukari."
     show yuuko happy
     show yuuko happy
     show shunsuke
     show sumiko
-    yuu "Good luck, Yukari. Even though we can’t go with you, know that you have our support. We’re here for you."
-    m "If you run into any problems, feel free to let us know! Don't carry so much of a burden you get overly stressed out."
+    yuu "Good luck. Remember, even though we can’t go with you, you have our support. We’re here for you."
+    ss "We’ll help with any problems that come up."
+    "He glances at Sumiko and Mayumi, who continue to argue over Sumiko’s dessert."
+    show shunsuke sigh
+    ss "...I’m sure they agree."
+    "Yukari laughs. As crazy as her friends can be, just having them nearby makes her feel better."
     show yukari happy
-    y "Thanks. I’ll keep that in mind."
+    y "Thanks. You guys are the best."
 label week_2_5:
     scene black with dissolve
     $week_2_5_choice = ""
-    "When the weekend comes, Yukari decides to spend time with her friends to relax in preparation for the tough week ahead."
+    "When the weekend comes, Yukari decides to spend time with her friends to relax before for the tough week ahead."
     "She calls up…"
     menu:
         "Mayumi":
@@ -456,7 +530,7 @@ label week_3_1:
     show yukari
     y "I’ll be sending them out later today. Let’s hope my mailbox doesn’t remain a ghost town."
     "Her stomach tightens. If none of the investors are interested, it could be disastrous. Still, there’s no sense in worrying about it."
-    "Yukari heads back to her desk and gets to work, when a piece of anime news catches her eye. A recent anime release by one of the big shot studios appears to be going viral, possibly due to its unique premise."
+    "Yukari heads back to her desk and starts working, when a piece of anime news catches her eye. A recent anime release by one of the big shot studios appears to be going viral, possibly due to its unique premise."
     y "Maybe I should reach out to some of the staff there to get some guidance on how to run my anime studio. Right now I feel like a headless chicken trying to cross the road…"
     menu:
         "Contact the studio for advice":
@@ -469,24 +543,31 @@ label week_3_2:
     with dissolve
     $renpy.show("weekly_popup_text",what=Text("Tuesday",style="weekly_label_text"),at_list=[weekly_text_transform])
     y "Agh! This is taking forever. I wish I could write a generic email and send it to all the investors, instead of writing personalized ones."
-    y "But everyone says generic emails are often ignored while personalized emails might catch their interest."
-    y "That small percentage chance is what we need right now, so I shouldn’t complain, I guess."
+    y "But everyone says generic emails are often ignored while personalized emails have a better chance of catching their interest."
+    y "That greater chance is what we need right now, so I shouldn’t complain, I guess."
     y "It’s so boring, though. I’ll try calling some of them up instead."
+    "She picks up her cell phone and dials the number for one of the potential investors"
+    "It rings, and then.."
     scene black with dissolve
-    "Ring ring.................. Ring ring...."
     hide weekly_popup_text
     bot "Thank you for calling (some company name)."
-    bot "For general inquiries, press 1. For support issues, please press 2. Press 0 to get in touch with a customer service representative."
-    y "Stupid automated software… Of course I’ll press 0; why do they even do this?"
-    "She glares at the foot and hits 0."
-    "Ring ring... Ring ring.."
+    bot "Our office hours are from 9AM to 5 PM on weekdays and from 9 AM to 3 PM on Saturday. Our offices are closed on Sunday. For general inquiries, please press 1. For support issues, please press 2"
+    y "Stupid automated software..."
+    "The bot lists several other options, none of which are any help to Yukari."
+    bot "To speak with a customer service representative, please press 0 or remain on the line."
+    "She glares at the phone and hits 0."
+    "It rings again, and then the bot’s voice returns."
     bot "Please hold, as all our customer service operators are currently unavailable."
+    "High-pitched, somber chords fill the line."
     y "Great, now I have to listen to some weird music."
-    unknown "Hello, how may I help you?"
+    "The music continues until Yukari worries she might fall asleep, and then the line finally comes to life with a human voice."
+    unknown "Hello, thank you for calling. How may I help you? "
     "Yukari gives the operator a simple pitch, describing the basics of [anime.name] in the hopes she’ll transfer the call to someone higher up."
-    unknown "[anime.name] sounds fantastic! I saved your contact details, and we’ll get back to you soon!"
+    unknown "[anime.name] sounds fantastic! How can we get in touch with you?"
+    "Yukari quickly gives the operator her contact details."
     unknown "Is there anything else I can help you with?"
     y "No, thank you."
+    unknown "All right, have a wonderful day. We’ll get back to you soon!"
     scene studio
     show yukari sigh at left
     with dissolve
@@ -500,7 +581,8 @@ label week_3_3:
     show yukari worry at left
     with dissolve
     $renpy.show("weekly_popup_text",what=Text("Wednesday",style="weekly_label_text"),at_list=[weekly_text_transform])
-    "In the studio the next day, Yukari can’t help but worry about Sumiko. She doesn’t look well. She keeps coughing and works on her art in a drained, lifeless manner."
+    "The next day, Yukari can’t help but worry about Sumiko. She doesn’t look well. She keeps coughing and works on her art half-slumped in her chair. When she looks up, her eyes are dull."
+    "Yukari looks around."
     "Mayumi is intent on sorting the huge mountain of project files for [anime.name]. Shunsuke is also working with her on the script. Yuuko sits at her desk working on art."
     "Perhaps they didn’t notice yet… or it could just be Yukari’s imagination."
     menu:
@@ -530,7 +612,7 @@ label week_3_4:
     show shunsuke at right
     with dissolve
     $renpy.show("weekly_popup_text",what=Text("Friday",style="weekly_label_text"),at_list=[weekly_text_transform])
-    ss "Here’s the script for episode 1. We can get started with the episode’s storyboard soon, too."
+    ss "Here’s the script for the pilot episode. We can get started with the episode’s storyboard soon, too."
     ss "Let me know what you think!"
     "It takes Yukari a moment to realize he’s speaking to her."
     y "What? Oh, right, the script for episode 1.  I’ll take a look at it later."
@@ -615,7 +697,7 @@ label week_3_5:
     y "I’m fine."
     ss "I’m kind of worried about you. The past few days, you’ve seemed very busy and frustrated."
     y "Don’t worry about me. I can cope with my workload, and I’m not too stressed out. After all, it’s my role to take care of all these responsibilities."
-    "She looks down at her food so she doesn’t have to meet Shunsuke’s gaze. He might realize she’s lying."
+    "She looks down at her food to avoid Shunsuke's gaze. He might realize she’s lying."
     "As she eats, though, she wonders if he’s right. Maybe she does need to talk to someone about her worries."
     "After everyone finishes dinner, Yukari glances at Mayumi."
     menu:
@@ -626,14 +708,16 @@ label week_3_5:
             show yukari at left
             show mayumi_f at right
             with dissolve
-            y "Mayumi, mind if we talk for a minute?"
+            "When dinner ends, everyone says their farewells and begins to leave. Yukari catches Mayumi’s arm before she can go out the door."
+            y "Mind if we talk for a minute?"
             m "Not at all. What’s up?"
+            "Yukari waits a moment to make sure the others get far enough away so they won’t overhear or double back for something."
             y "I’m really starting to worry about this. I’m not sure we can complete [anime.name]."
             m "Of course we can! Just because we’ve had a few setbacks doesn’t mean there’s no hope."
             y "But the deadline is approaching and we’re falling behind. This is my dream. It’s hard to watch my dream crumble to dust…"
             m "It’s not crumbling. Everything will be fine. You’ll see!"
             y "I hope you’re right."
-            m "Have a little faith in my predictions!"
+            m "Have a little faith in my predictions! Have I ever been wrong?"
             y "Haha, okay. Thanks, Mayumi. Talking to you always makes me feel better."
         "I'm fine...":
             "Yukari shakes her head. She’s the director. She can handle this herself."
