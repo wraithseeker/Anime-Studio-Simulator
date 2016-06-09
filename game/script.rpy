@@ -25,7 +25,7 @@ transform weekly_text_street_transform:
 # The game starts here.
 label start:
     #jump week_3_4
-    jump week_1_3
+    #jump week_1_3
     scene bg restaurant
     show yukari laugh_eyes_closed at pos_left
     show yuuko at pos_right
