@@ -22,10 +22,16 @@ transform weekly_text_street_transform:
     linear 2 alpha 1.0
     pause 3.0
     linear 2 alpha 0.0
+
+transform popup_text_transform:
+    alpha 0.0 xalign 0.5 yalign 0.15
+    linear 1.0 alpha 1.0
+    pause 3
+    linear 1.0 yalign 0.0 alpha 0.0
 # The game starts here.
 label start:
     #jump week_3_4
-    #jump week_1_3
+    #jump week_1_1
     scene bg restaurant
     show yukari laugh_eyes_closed at pos_left
     show yuuko at pos_right
@@ -100,6 +106,7 @@ label week_1_1:
     show yuuko at pos_right
     with dissolve
     "On Monday, Yukari gathers everyone together at the studio. It’s time to discuss and finalize the details about [anime.name]."
+    $renpy.show("popup_text",what=Text("+ PROFICIENCY",style="popup_text"),at_list=[popup_text_transform])
     show mayumi worry at pos_farleft
     m "So… what type of anime is [anime.name], again?"
     show sumiko sigh

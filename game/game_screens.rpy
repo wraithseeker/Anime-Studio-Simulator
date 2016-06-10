@@ -512,7 +512,9 @@ screen outsource():
     window:
         style "outsource_window"
 
+    default outsource_tt = Tooltip("")
     imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return() 
+    text str(anime.op_ed)
     frame:
         background None
         text "Produce 1" color "#000" xalign 0.5 yalign 0.10 size 55
@@ -521,35 +523,140 @@ screen outsource():
             spacing 25
             xalign 0.25
             yalign 0.25
-            imagebutton auto "ui/outsource/plot_%s.png" style "outsource_buttons"
-            imagebutton idle "ui/outsource/character_dev.png" style "outsource_buttons"
-            imagebutton idle "ui/outsource/storyboard.png" style "outsource_buttons"
+            if outsource_plot_selected:
+                imagebutton:
+                    idle "ui/outsource/plot_hover.png"
+                    action SetVariable("outsource_plot_selected",False)
+                    style "outsource_buttons" 
+            else:
+                imagebutton:
+                    idle "ui/outsource/plot_idle.png"
+                    action SetVariable("outsource_plot_selected",True)
+                    style "outsource_buttons" 
+
+            if outsource_character_dev_selected:
+                imagebutton:
+                    idle "ui/outsource/character_dev_hover.png"
+                    action SetVariable("outsource_character_dev_selected",False)
+                    style "outsource_buttons" 
+            else:
+                imagebutton:
+                    idle "ui/outsource/character_dev.png"
+                    action SetVariable("outsource_character_dev_selected",True)
+                    style "outsource_buttons" 
+            if outsource_storyboard_selected:
+                imagebutton:
+                    idle "ui/outsource/storyboard_hover.png"
+                    action SetVariable("outsource_storyboard_selected",False)
+                    style "outsource_buttons" 
+            else:
+                imagebutton:
+                    idle "ui/outsource/storyboard.png"
+                    action SetVariable("outsource_storyboard_selected",True)
+                    style "outsource_buttons" 
         hbox:
             spacing 25
             xalign 0.25
             yalign 0.40
-            imagebutton idle "ui/outsource/character_design.png" style "outsource_buttons"
-            imagebutton idle "ui/outsource/animation.png" style "outsource_buttons"
-            imagebutton idle "ui/outsource/background.png" style "outsource_buttons"
+            if outsource_character_design_selected:
+                imagebutton:
+                    idle "ui/outsource/character_design_hover.png"
+                    action SetVariable("outsource_character_design_selected",False)
+                    style "outsource_buttons" 
+            else:
+                imagebutton:
+                    idle "ui/outsource/character_design.png"
+                    action SetVariable("outsource_character_design_selected",True)
+                    style "outsource_buttons" 
+            if outsource_animation_selected:
+                imagebutton:
+                    idle "ui/outsource/animation_hover.png"
+                    action SetVariable("outsource_animation_selected",False)
+                    style "outsource_buttons" 
+            else:
+                imagebutton:
+                    idle "ui/outsource/animation.png"
+                    action SetVariable("outsource_animation_selected",True)
+                    style "outsource_buttons" 
+            if outsource_background_selected:
+                imagebutton:
+                    idle "ui/outsource/background_hover.png"
+                    action SetVariable("outsource_background_selected",False)
+                    style "outsource_buttons" 
+            else:
+                imagebutton:
+                    idle "ui/outsource/background.png"
+                    action SetVariable("outsource_background_selected",True)
+                    style "outsource_buttons" 
         hbox:
             spacing 25
             xalign 0.25
             yalign 0.55
-            imagebutton idle "ui/outsource/op_ed.png" style "outsource_buttons"
-            imagebutton idle "ui/outsource/ost.png" style "outsource_buttons"
-            imagebutton idle "ui/outsource/voice_acting.png" style "outsource_buttons"
+            if outsource_op_ed_selected:
+                imagebutton:
+                    idle "ui/outsource/op_ed_hover.png"
+                    action SetVariable("outsource_op_ed_selected",False)
+                    style "outsource_buttons" 
+            else:
+                imagebutton:
+                    idle "ui/outsource/op_ed.png"
+                    action SetVariable("outsource_op_ed_selected",True)
+                    style "outsource_buttons" 
+            if outsource_ost_selected:
+                imagebutton:
+                    idle "ui/outsource/ost_hover.png"
+                    action SetVariable("outsource_ost_selected",False)
+                    style "outsource_buttons" 
+            else:
+                imagebutton:
+                    idle "ui/outsource/ost.png"
+                    action SetVariable("outsource_ost_selected",True)
+                    style "outsource_buttons" 
+            if outsource_voice_acting_selected:
+                imagebutton:
+                    idle "ui/outsource/voice_acting_hover.png"
+                    action SetVariable("outsource_voice_acting_selected",False)
+                    style "outsource_buttons" 
+            else:
+                imagebutton:
+                    idle "ui/outsource/voice_acting.png"
+                    action SetVariable("outsource_voice_acting_selected",True)
+                    style "outsource_buttons" 
         hbox:
             spacing 25
             xalign 0.30
             yalign 0.70
-            imagebutton idle "ui/outsource/quality_check.png" style "outsource_buttons"
-            imagebutton idle "ui/outsource/marketing.png" style "outsource_buttons"
+            if outsource_marketing_selected:
+                imagebutton:
+                    idle "ui/outsource/marketing_hover.png"
+                    action SetVariable("outsource_marketing_selected",False)
+                    style "outsource_buttons" 
+            else:
+                imagebutton:
+                    idle "ui/outsource/marketing.png"
+                    action SetVariable("outsource_marketing_selected",True)
+                    style "outsource_buttons" 
+            if outsource_quality_check_selected:
+                imagebutton:
+                    idle "ui/outsource/quality_check_hover.png"
+                    action SetVariable("outsource_quality_check_selected",False)
+                    style "outsource_buttons" 
+            else:
+                imagebutton:
+                    idle "ui/outsource/quality_check.png"
+                    action SetVariable("outsource_quality_check_selected",True)
+                    style "outsource_buttons" 
         hbox:
             xalign 0.35
             yalign 0.88
             add "ui/big_moneybag.png" xpos 92 ypos 24
-            text "5" color "#000" size 65 xpos 112 ypos 52
-            imagebutton auto "ui/outsource/done_%s.png" style "outsource_buttons_outsource" action Return()
+            text str(outsource_cost) color "#000" size 65 xpos 112 ypos 52
+            imagebutton:
+                auto "ui/outsource/done_%s.png" 
+                style "outsource_buttons_outsource" 
+                action [renpy.curry(OutsourceAnime)(anime)]
+        showif outsource_tooltip != "":
+            text outsource_tooltip color upgrade_tooltip_color size 40 xalign 0.37 yalign 0.75 at grow_success_text
 
 
 screen side_nav():

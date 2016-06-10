@@ -2,6 +2,8 @@
     $_game_menu_screen = "navigation"
     $upgrade_proficiency_value = 0.5
     $upgrade_proficiency_cost = 2
+    $outsource_cost = 1
+    $outsource_value = 1
     python:
         #A list of allowed stats to be modified during the game
         anime_stats = ["plot","character_development","storyboard",
@@ -65,7 +67,7 @@
     #15 stars is the max number of stars we have, * 100 to convert it to percentage
     $anime_story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15 * 100)
     $anime_art_progress = int((anime.character_design + anime.background + anime.animation) / 15 * 100)
-    $anime_music_progress = int((anime.op_and_ed + anime.ost + anime.voice_acting) / 15 * 100)
+    $anime_music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15 * 100)
 
     #upgrade screen
     $upgrade_tooltip_default = "Send your team for training! This will increase their Proficiency stats."
@@ -77,6 +79,22 @@
     $mayumi_upgrade_selected = False
     $shunsuke_upgrade_selected = False
     #task screen
+
+    #outsource screen
+
+    $outsource_tooltip = ""
+    
+    $outsource_plot_selected = False
+    $outsource_character_dev_selected = False
+    $outsource_storyboard_selected = False
+    $outsource_character_design_selected = False
+    $outsource_animation_selected = False
+    $outsource_background_selected = False
+    $outsource_op_ed_selected = False
+    $outsource_ost_selected = False
+    $outsource_voice_acting_selected = False
+    $outsource_marketing_selected = False
+    $outsource_quality_check_selected = False
 
     #boolean to know whether they are selected
     $somenumber = False

@@ -65,6 +65,77 @@
             upgrade_tooltip_color = "#c0392b"
             ui.timer(2.0,SetVariable("upgrade_tooltip",""))
             renpy.restart_interaction()
+    def OutsourceAnime(anime):
+        global outsource_tooltip
+        global upgrade_tooltip_color
+        selected_number = OutsourceGetSelectionCount()
+        if anime.funds > outsource_cost * selected_number:
+            if outsource_plot_selected:
+                setattr(anime,"plot",getattr(anime,"plot") + outsource_value)
+            if outsource_character_dev_selected:
+                setattr(anime,"character_development",getattr(anime,"character_development") + outsource_value)
+            if outsource_storyboard_selected:
+                setattr(anime,"storyboard",getattr(anime,"storyboard") + outsource_value)
+            if outsource_character_design_selected:
+                setattr(anime,"character_design",getattr(anime,"character_design") + outsource_value)
+            if outsource_animation_selected:
+                setattr(anime,"animation",getattr(anime,"animation") + outsource_value)
+            if outsource_background_selected:
+                setattr(anime,"background",getattr(anime,"background") + outsource_value)
+            if outsource_op_ed_selected:
+                setattr(anime,"op_ed",getattr(anime,"op_ed") + outsource_value)
+            if outsource_ost_selected:
+                setattr(anime,"ost",getattr(anime,"ost") + outsource_value)
+            if outsource_voice_acting_selected:
+                setattr(anime,"voice_acting",getattr(anime,"voice_acting") + outsource_value)
+            if outsource_marketing_selected:
+                setattr(anime,"marketing",getattr(anime,"marketing") + outsource_value)
+            if outsource_quality_check_selected:
+                setattr(anime,"quality_check",getattr(anime,"quality_check") + outsource_value)
+
+
+            if (outsource_plot_selected or outsource_character_dev_selected or outsource_storyboard_selected
+            or outsource_character_design_selected or outsource_animation_selected or outsource_background_selected
+            or outsource_op_ed_selected or outsource_ost_selected or outsource_voice_acting_selected
+            or outsource_marketing_selected or outsource_quality_check_selected):
+                outsource_tooltip = "Outsource Successful!"
+                upgrade_tooltip_color = "#2ecc71"
+                anime.funds -= outsource_cost * selected_number
+                ui.timer(2.0,SetVariable("outsource_tooltip",""))
+                renpy.restart_interaction()
+        else:
+            outsource_tooltip = "Not enough money!"
+            upgrade_tooltip_color = "#c0392b"
+            ui.timer(2.0,SetVariable("outsource_tooltip",""))
+            renpy.restart_interaction()
+
+    def OutsourceGetSelectionCount():
+        number = 0
+        if outsource_plot_selected:
+            number += 1
+        if outsource_character_dev_selected:
+            number += 1
+        if outsource_storyboard_selected:
+            number += 1
+        if outsource_character_design_selected:
+            number += 1
+        if outsource_animation_selected:
+            number += 1
+        if outsource_background_selected:
+            number += 1
+        if outsource_op_ed_selected:
+            number += 1
+        if outsource_ost_selected:
+            number += 1
+        if outsource_voice_acting_selected:
+            number += 1
+        if outsource_marketing_selected:
+            number += 1
+        if outsource_quality_check_selected:
+            number += 1
+        return number
+
+
 
     def UpgradeGetSelectionCount():
         number = 0

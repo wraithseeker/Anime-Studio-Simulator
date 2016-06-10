@@ -246,6 +246,12 @@ init -1:
         size 40
     style skip_indicator:
         size 35
+    style popup_text:
+        color "#27ae60"
+        size 60
+        outlines [(1,"#000",0,0)]
+        kerning 3
+        font "fonts/LiberationSans-Bold.ttf"
 
 
 init python:

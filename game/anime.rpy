@@ -19,7 +19,7 @@
             self._art_progress = 0
             #Music
             self._voice_acting = 0
-            self._op_and_ed = 0
+            self._op_ed = 0
             self._ost = 0
             self._music_bonus = 0
             self._music_progress = 0
@@ -120,12 +120,12 @@
 
         @property
 
-        def op_and_ed(self):
-            return self._op_and_ed
+        def op_ed(self):
+            return self._op_ed
 
-        @op_and_ed.setter
-        def op_and_ed(self,value):
-            self._op_and_ed = value
+        @op_ed.setter
+        def op_ed(self,value):
+            self._op_ed = value
 
 
         @property
@@ -156,6 +156,24 @@
         @funds.setter
         def funds(self,value):
             self._funds = value
+
+        @property
+
+        def marketing(self):
+            return self._marketing
+
+        @marketing.setter
+        def marketing(self,value):
+            self._marketing = value
+
+        @property
+
+        def quality_check(self):
+            return self._quality_check
+
+        @quality_check.setter
+        def quality_check(self,value):
+            self._quality_check = value
             
 
 

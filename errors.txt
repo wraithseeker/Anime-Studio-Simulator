@@ -2,7 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/game_screens.rpy", line 587: is not terminated with a newline. (Check strings and parenthesis.)
-            timer 0.2 action [renpy.curry(ResetCharacterTask(yukari_tasks)]
+File "game/functions.rpy", line 78: invalid syntax
+            if outsource_plot_selected or outsource_character_dev_selected or outsource_storyboard_selected
+    
 
 Ren'Py Version: Ren'Py 6.99.10.1227
