@@ -7,19 +7,27 @@
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
-        def addStats(self,anime):
+        def addStats(self,anime,stats_manager):
             for item in anime_stats:
                 if hasattr(self,item):
-                    renpy.notify(str(item) + " added")
+                    #renpy.notify(str(item) + " added")
                     setattr(anime,item,getattr(anime,item) + getattr(self,item))
 
-            #renpy.notify( "Some Message.")
+            for item in char_stats:
+                if hasattr(self,item):
+                    #renpy.notify(str(item) + " added")
+                    setattr(stats_manager,item,getattr(self,item) + getattr(stats_manager,item))
 
-        def removeStats(self,anime):
+        def removeStats(self,anime,stats_manager):
             for item in anime_stats:
                 if hasattr(self,item):
-                    renpy.notify(str(item) + " removed")
+                    #renpy.notify(str(item) + " removed")
                     setattr(anime,item,getattr(anime,item) - getattr(self,item))
+
+            for item in char_stats:
+                if hasattr(self,item):
+                    #renpy.notify(str(item) + " added")
+                    setattr(stats_manager,item,getattr(stats_manager,item) - getattr(self,item) )
 
         def getStats(self):
             msg = ""
@@ -28,15 +36,33 @@
             for index,item in enumerate(anime_stats):
                 if hasattr(self,item):
                     if getattr(self,item) > 0:
-                        attribute_number = "+" + str(getattr(self,item))
+                        attribute_number = "{size=+5}+{/size}" #+ str(getattr(self,item))
                         attribute_color = "{color=#27ae60}"
                         priority.append(True)
                     else:
-                        attribute_number = str(getattr(self,item))
+                        attribute_number = "{size=+10}-{/size}"#str(getattr(self,item))
                         attribute_color = "{color=#c0392b}"
                         priority.append(False)
-                    attribute_string.append("\n" + attribute_color + attribute_number + " " + item.title() + "{/color}")
+                    item_title = item.replace("_"," ")
+                    attribute_string.append("\n " + attribute_color + attribute_number + " " + "{font=fonts/Multicolore.otf}" + item_title + "{/font}" 
+                                            + "{/color}")
 
+            for index,item in enumerate(char_stats):
+                if hasattr(self,item):
+                    if getattr(self,item) > 0:
+                        attribute_number = "{size=+5}+{/size}"
+                        attribute_color = "{color=#27ae60}"
+                        priority.append(True)
+                    else:
+                        attribute_number = "{size=+10}-{/size}"
+                        attribute_color = "{color=#c0392b}"
+                        priority.append(False)
+                    if item == "stress":
+                        attribute_number = "{size=+10}-{/size}"
+                    item_title = item.replace("_"," ")
+                    attribute_string.append("\n " + attribute_color + attribute_number + " " + "{font=fonts/Multicolore.otf}" + item_title + "{/font}" 
+                                            + "{/color}")
+           
             return self.sortAttributes(attribute_string,priority)
 
         def sortAttributes(self,attributes,priorities):
@@ -55,6 +81,8 @@
                 else:
                     continue
             return sorted_attribute_string
+
+
 
 
 

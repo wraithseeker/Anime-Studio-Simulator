@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/functions.rpy", line 78: invalid syntax
-            if outsource_plot_selected or outsource_character_dev_selected or outsource_storyboard_selected
+File "game/tasks.rpy", line 60: invalid syntax
+                    if item == "stress"
     
 
 Ren'Py Version: Ren'Py 6.99.10.1227

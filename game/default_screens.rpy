@@ -11,9 +11,10 @@ transform float_btn_trans:
 
 screen say(who, what, side_image=None, two_window=False):
     # to do
-    default tt = Tooltip("") 
-    imagebutton auto "ui/float_buttons/anime_%s.png" style "float_anime" action ShowMenu("side_nav") at float_btn_trans hovered tt.Action("Anime Status")
-    imagebutton auto "ui/float_buttons/member_%s.png" style "float_member" action ShowMenu("member_status") at float_btn_trans hovered tt.Action("Member Status")
+    default tt = Tooltip("")
+    if show_floating_buttons:
+        imagebutton auto "ui/float_buttons/anime_%s.png" style "float_anime" action ShowMenu("side_nav") at float_btn_trans hovered tt.Action("Anime Status")
+        imagebutton auto "ui/float_buttons/member_%s.png" style "float_member" action ShowMenu("member_status") at float_btn_trans hovered tt.Action("Member Status")
     # Decide if we want to use the one-window or two-window variant.
     frame:
         background None

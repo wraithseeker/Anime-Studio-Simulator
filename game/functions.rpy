@@ -1,6 +1,11 @@
 ﻿init -100 python:
 
-    def ResetTasksSelection():
+    def AddTaskStats(person,stats):
+        for i in range(0,len(person)):
+            if person[i].selected:
+                person[i].addStats(anime,stats)
+
+    def EndTasks():
         global yukari_tasks
         global yuuko_tasks
         global sumiko_tasks
@@ -12,6 +17,11 @@
         global sumiko_task_selected
         global shunsuke_task_selected
         global mayumi_task_selected
+        AddTaskStats(yukari_tasks,yukari_stats)
+        AddTaskStats(yuuko_tasks,yuuko_stats)
+        AddTaskStats(sumiko_tasks,sumiko_stats)
+        AddTaskStats(shunsuke_tasks,shunsuke_stats)
+        AddTaskStats(mayumi_tasks,mayumi_stats)
         ResetCharacterTask(yukari_tasks)
         ResetCharacterTask(yuuko_tasks)
         ResetCharacterTask(sumiko_tasks)
@@ -35,8 +45,8 @@
     def UpgradeCharacters(yukari,mayumi,shunsuke,sumiko,yuuko):
         global upgrade_tooltip
         global upgrade_tooltip_color
-        selected_number = UpgradeGetSelectionCount()
-        if anime.funds > upgrade_proficiency_cost * selected_number:
+        global upgrade_selection_count
+        if anime.funds >= upgrade_proficiency_cost * upgrade_selection_count:
             message = "Proficiency successfully increased for"
             if yukari_upgrade_selected:
                 setattr(yukari,"proficiency",getattr(yukari,"proficiency") + upgrade_proficiency_value)
@@ -55,13 +65,13 @@
                 message = message + " \nYuuko"
 
             if yukari_upgrade_selected or mayumi_upgrade_selected or shunsuke_upgrade_selected or sumiko_upgrade_selected or yuuko_upgrade_selected:
-                upgrade_tooltip = "Upgrade Successful!"
+                upgrade_tooltip = "Success!"
                 upgrade_tooltip_color = "#2ecc71"
-                anime.funds -= upgrade_proficiency_cost * selected_number
+                anime.funds -= upgrade_proficiency_cost * upgrade_selection_count
                 ui.timer(2.0,SetVariable("upgrade_tooltip",""))
                 renpy.restart_interaction()
         else:
-            upgrade_tooltip = "Not enough money!"
+            upgrade_tooltip = "Not enough funds!"
             upgrade_tooltip_color = "#c0392b"
             ui.timer(2.0,SetVariable("upgrade_tooltip",""))
             renpy.restart_interaction()
@@ -69,7 +79,7 @@
         global outsource_tooltip
         global upgrade_tooltip_color
         selected_number = OutsourceGetSelectionCount()
-        if anime.funds > outsource_cost * selected_number:
+        if anime.funds >= outsource_cost * selected_number:
             if outsource_plot_selected:
                 setattr(anime,"plot",getattr(anime,"plot") + outsource_value)
             if outsource_character_dev_selected:
@@ -98,13 +108,13 @@
             or outsource_character_design_selected or outsource_animation_selected or outsource_background_selected
             or outsource_op_ed_selected or outsource_ost_selected or outsource_voice_acting_selected
             or outsource_marketing_selected or outsource_quality_check_selected):
-                outsource_tooltip = "Outsource Successful!"
+                outsource_tooltip = "Success!"
                 upgrade_tooltip_color = "#2ecc71"
                 anime.funds -= outsource_cost * selected_number
                 ui.timer(2.0,SetVariable("outsource_tooltip",""))
                 renpy.restart_interaction()
         else:
-            outsource_tooltip = "Not enough money!"
+            outsource_tooltip = "Not enough funds!"
             upgrade_tooltip_color = "#c0392b"
             ui.timer(2.0,SetVariable("outsource_tooltip",""))
             renpy.restart_interaction()
@@ -135,18 +145,3 @@
             number += 1
         return number
 
-
-
-    def UpgradeGetSelectionCount():
-        number = 0
-        if yukari_upgrade_selected:
-            number += 1
-        if mayumi_upgrade_selected:
-            number += 1
-        if shunsuke_upgrade_selected:
-            number += 1
-        if sumiko_upgrade_selected:
-            number += 1
-        if yuuko_upgrade_selected:
-            number += 1
-        return number

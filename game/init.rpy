@@ -8,7 +8,7 @@
         #A list of allowed stats to be modified during the game
         anime_stats = ["plot","character_development","storyboard",
                         "character_design","background","animation",
-                        "voice_acting","op_and_ed","ost",
+                        "voice_acting","op_ed","ost",
                         "quality_check","marketing","funds"]
         char_stats = ["stress","proficiency","happiness","human_relations"]
 
@@ -25,26 +25,26 @@
 
         anime.ost = 5
 
-        yukari_tasks = [Tasks("Marketing","Do some Marketing",storyboard = 3,plot=-1)
-                        ,Tasks("Networking","Do some networking",plot=2)
-                        ,Tasks("Practise","Do some practise",plot=3)
-                        ,Tasks("Relax","Relax",plot=4)]
+        yukari_tasks = [Tasks("Raise Funds","Raise some money for [anime.name].",funds=1)
+                        ,Tasks("Networking","Mingle around with people in the anime industry.",marketing=1)
+                        ,Tasks("Read Books","Read books for knowledge.",proficiency=0.5)
+                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=1)]
 
-        yuuko_tasks = [Tasks("Sketch Character","Sketch Character",storyboard = 3,plot=-1)
-                        ,Tasks("Doodle","Doodling",plot=2)
-                        ,Tasks("Relax","Focus on relaxing",plot=3)]
+        yuuko_tasks = [Tasks("Sketch Character","Sketch some character designs.",character_design=1)
+                        ,Tasks("Doodle","Doodle on a piece of paper.",proficiency=0.5)
+                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=1)]
 
-        sumiko_tasks = [Tasks("Sketch Background","Sketch Character",storyboard = 3,plot=-1)
-                        ,Tasks("Practise Drawing","Doodling",plot=2)
-                        ,Tasks("Relax","Focus on relaxing",plot=3)]
+        sumiko_tasks = [Tasks("Sketch Background","Sketch some backgrounds.",background=1)
+                        ,Tasks("Doodle","Doodle on a piece of paper.",proficiency=0.5)
+                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=1)]
 
-        mayumi_tasks = [Tasks("Compose Music","Sketch Character",storyboard = 3,plot=-1)
-                        ,Tasks("Practise","Doodling",plot=2)
-                        ,Tasks("Relax","Focus on relaxing",plot=3)]
+        mayumi_tasks = [Tasks("Compose Music","Compose OST for [anime.name].",ost=1)
+                        ,Tasks("Practice","Get inspiration from other artists.",proficiency=0.5)
+                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=1)]
 
-        shunsuke_tasks = [Tasks("Write Story","Sketch Character",storyboard = 3,plot=-1)
-                        ,Tasks("Practise Writing","Doodling",plot=2)
-                        ,Tasks("Relax","Focus on relaxing",plot=3)]
+        shunsuke_tasks = [Tasks("Writing","Work on the scenario for [anime.name].",storyboard = 1)
+                        ,Tasks("Practice","Hone your writing skills",proficiency=0.5)
+                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=1)]
 
         yukari_stats = Stats("Yukari")
         mayumi_stats = Stats("Mayumi")
@@ -63,6 +63,7 @@
     $game_casual = False
     $task_ready = False
     $side_nav_interaction = True
+    $show_floating_buttons = True
     $upgrade_tooltip_color = "#2ecc71"
     #15 stars is the max number of stars we have, * 100 to convert it to percentage
     $anime_story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15 * 100)
@@ -71,8 +72,9 @@
 
     #upgrade screen
     $upgrade_tooltip_default = "Send your team for training! This will increase their Proficiency stats."
-    $upgrade_tooltip_complete = "Upgrade successful!"
+    $upgrade_tooltip_complete = "Success!"
     $upgrade_tooltip = ""
+    $upgrade_selection_count = 0
     $yukari_upgrade_selected = False
     $yuuko_upgrade_selected = False
     $sumiko_upgrade_selected = False
@@ -83,7 +85,7 @@
     #outsource screen
 
     $outsource_tooltip = ""
-    
+    $outsource_selection_count = 0
     $outsource_plot_selected = False
     $outsource_character_dev_selected = False
     $outsource_storyboard_selected = False

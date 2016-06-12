@@ -138,7 +138,7 @@ init -1:
     style task_stats_tooltip:
         size 30
         color "#000"
-        font 'fonts/LiberationSans-BoldItalic.ttf'
+        font 'fonts/LiberationSans-Bold.ttf'
     style anime_status_window:
         background "ui/anime_status/anime_status_screen.png"
     style side_nav:
@@ -187,8 +187,8 @@ init -1:
         xysize(300,125)
     style outsource_buttons_outsource:
         xysize(300,125)
-        xpos 313
-        ypos 2
+        xalign 0.6
+        yalign 0.88
     style upgrade_button:
         xysize(300,125)
         xalign 0.6

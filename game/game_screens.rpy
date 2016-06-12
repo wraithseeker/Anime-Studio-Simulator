@@ -1,12 +1,13 @@
 ﻿screen task():
     tag menu
     use side_nav
-    default task_tt_description = Tooltip("Sends Yukari to do marketing tasks") 
-    default task_tt_stats = Tooltip("{color=#27ae60}+1 Marketing{/color}\n{color=#c0392b}-1 Happiness{/color}")
+    default task_tt_description = Tooltip("Select some tasks for your team members to do.") 
+    default task_tt_stats = Tooltip("")
     window:
         style "task_window"
 
-    imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return() 
+    imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return()
+
     frame:
         background None
         xysize(545,230)
@@ -32,7 +33,6 @@
                         text_style "task_text_selected" 
                         style "task_button" 
                         action [SetField(yukari_tasks[i],"selected",False),
-                                renpy.curry(yukari_tasks[i].removeStats)(anime),
                                 SetVariable("yukari_task_selected",False)]
                 else:
                     textbutton yukari_tasks[i].title:
@@ -42,7 +42,6 @@
                                 ,task_tt_description.Action(yukari_tasks[i].description)] 
                         action If ((yukari_task_selected == False),
                                 [SetField(yukari_tasks[i],"selected",True),
-                                renpy.curry(yukari_tasks[i].addStats)(anime),
                                 SetVariable("yukari_task_selected",True)])  
 
     hbox:
@@ -60,7 +59,6 @@
                         text_style "task_text_selected" 
                         style "task_button" 
                         action [SetField(yuuko_tasks[i],"selected",False),
-                                renpy.curry(yuuko_tasks[i].removeStats)(anime),
                                 SetVariable("yuuko_task_selected",False)]
                 else:
                     textbutton yuuko_tasks[i].title:
@@ -70,7 +68,6 @@
                                 ,task_tt_description.Action(yuuko_tasks[i].description)] 
                         action If ((yuuko_task_selected == False),
                                 [SetField(yuuko_tasks[i],"selected",True),
-                                renpy.curry(yuuko_tasks[i].addStats)(anime),
                                 SetVariable("yuuko_task_selected",True)])  
 
     hbox:
@@ -88,7 +85,6 @@
                         text_style "task_text_selected" 
                         style "task_button" 
                         action [SetField(mayumi_tasks[i],"selected",False),
-                                renpy.curry(mayumi_tasks[i].removeStats)(anime),
                                 SetVariable("mayumi_task_selected",False)]
                 else:
                     textbutton mayumi_tasks[i].title:
@@ -98,7 +94,6 @@
                                 ,task_tt_description.Action(mayumi_tasks[i].description)] 
                         action If ((mayumi_task_selected == False),
                                 [SetField(mayumi_tasks[i],"selected",True),
-                                renpy.curry(mayumi_tasks[i].addStats)(anime),
                                 SetVariable("mayumi_task_selected",True)]) 
 
     hbox:
@@ -116,7 +111,6 @@
                         text_style "task_text_selected" 
                         style "task_button" 
                         action [SetField(shunsuke_tasks[i],"selected",False),
-                                renpy.curry(shunsuke_tasks[i].removeStats)(anime),
                                 SetVariable("shunsuke_task_selected",False)]
                 else:
                     textbutton shunsuke_tasks[i].title:
@@ -126,7 +120,6 @@
                                 ,task_tt_description.Action(shunsuke_tasks[i].description)] 
                         action If ((shunsuke_task_selected == False),
                                 [SetField(shunsuke_tasks[i],"selected",True),
-                                renpy.curry(shunsuke_tasks[i].addStats)(anime),
                                 SetVariable("shunsuke_task_selected",True)]) 
     hbox:
         xalign 0.565
@@ -143,7 +136,6 @@
                         text_style "task_text_selected" 
                         style "task_button" 
                         action [SetField(sumiko_tasks[i],"selected",False),
-                                renpy.curry(sumiko_tasks[i].removeStats)(anime),
                                 SetVariable("sumiko_task_selected",False)]
                 else:
                     textbutton sumiko_tasks[i].title:
@@ -153,7 +145,6 @@
                                 ,task_tt_description.Action(sumiko_tasks[i].description)] 
                         action If ((sumiko_task_selected == False),
                                 [SetField(sumiko_tasks[i],"selected",True),
-                                renpy.curry(sumiko_tasks[i].addStats)(anime),
                                 SetVariable("sumiko_task_selected",True)]) 
 
 
@@ -171,64 +162,64 @@ screen upgrade():
     default upgrade_tt = Tooltip(upgrade_tooltip_default)
     window:
         style "upgrade_window"
-
+    text str(upgrade_selection_count)
     imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return()
     hbox:
-        xalign 0.24
+        xalign 0.19
         yalign 0.25
         spacing 50
         if yukari_upgrade_selected:
             imagebutton:
                 idle "char_image/upgrade/yukari_upgrade_selected.png"
-                action SetVariable("yukari_upgrade_selected",False)
+                action [SetVariable("yukari_upgrade_selected",False),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
         else:
             imagebutton:
                 idle "char_image/upgrade/yukari_upgrade_idle.png"
-                action SetVariable("yukari_upgrade_selected",True)
+                action [SetVariable("yukari_upgrade_selected",True),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
                 hovered upgrade_tt.Action("Send Yukari to meet veterans in the anime industry to broaden her knowledge of the industry.")
 
         if yuuko_upgrade_selected:
             imagebutton:
                 idle "char_image/upgrade/yuuko_upgrade_selected.png"
-                action SetVariable("yuuko_upgrade_selected",False)
+                action [SetVariable("yuuko_upgrade_selected",False),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
         else:
             imagebutton:
                 idle "char_image/upgrade/yuuko_upgrade_idle.png"
-                action SetVariable("yuuko_upgrade_selected",True)
+                action [SetVariable("yuuko_upgrade_selected",True),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
                 hovered upgrade_tt.Action("Pair Yuuko up with professional artists in the anime industry.")
 
         if sumiko_upgrade_selected:
             imagebutton:
                 idle "char_image/upgrade/sumiko_upgrade_selected.png"
-                action SetVariable("sumiko_upgrade_selected",False)
+                action [SetVariable("sumiko_upgrade_selected",False),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
         else:
             imagebutton:
                 idle "char_image/upgrade/sumiko_upgrade_idle.png"
-                action SetVariable("sumiko_upgrade_selected",True)
+                action [SetVariable("sumiko_upgrade_selected",True),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
                 hovered upgrade_tt.Action("Give Sumiko some time to meditate and trek in the nearby mountains.")
 
         if mayumi_upgrade_selected:
             imagebutton:
                 idle "char_image/upgrade/mayumi_upgrade_selected.png"
-                action SetVariable("mayumi_upgrade_selected",False)
+                action [SetVariable("mayumi_upgrade_selected",False),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
         else:
             imagebutton:
                 idle "char_image/upgrade/mayumi_upgrade_idle.png"
-                action SetVariable("mayumi_upgrade_selected",True)
+                action [SetVariable("mayumi_upgrade_selected",True),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
                 hovered upgrade_tt.Action("Send Mayumi to musical bootcamps to hone her skills.")
 
         if shunsuke_upgrade_selected:
             imagebutton:
                 idle "char_image/upgrade/shunsuke_upgrade_selected.png"
-                action SetVariable("shunsuke_upgrade_selected",False)
+                action [SetVariable("shunsuke_upgrade_selected",False),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
         else:
             imagebutton:
                 idle "char_image/upgrade/shunsuke_upgrade_idle.png"
-                action SetVariable("shunsuke_upgrade_selected",True)
+                action [SetVariable("shunsuke_upgrade_selected",True),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
                 hovered upgrade_tt.Action("Invite a veteran writer to review Shunsuke's writing.")
 
-        add "ui/big_moneybag.png" xpos -650 ypos 649
-        text str(upgrade_proficiency_cost) color "#000" size 65 xpos -680 ypos 678
+    add "ui/big_moneybag.png" xalign 0.35 yalign 0.86
+    text str(upgrade_proficiency_cost * upgrade_selection_count ) color "#000" size 65 xalign 0.405 yalign 0.86
 
     imagebutton:
         auto "ui/upgrade_screen/done_%s.png" 
@@ -514,7 +505,6 @@ screen outsource():
 
     default outsource_tt = Tooltip("")
     imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return() 
-    text str(anime.op_ed)
     frame:
         background None
         text "Produce 1" color "#000" xalign 0.5 yalign 0.10 size 55
@@ -526,33 +516,33 @@ screen outsource():
             if outsource_plot_selected:
                 imagebutton:
                     idle "ui/outsource/plot_hover.png"
-                    action SetVariable("outsource_plot_selected",False)
+                    action [SetVariable("outsource_plot_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
                     style "outsource_buttons" 
             else:
                 imagebutton:
                     idle "ui/outsource/plot_idle.png"
-                    action SetVariable("outsource_plot_selected",True)
+                    action [SetVariable("outsource_plot_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
                     style "outsource_buttons" 
 
             if outsource_character_dev_selected:
                 imagebutton:
                     idle "ui/outsource/character_dev_hover.png"
-                    action SetVariable("outsource_character_dev_selected",False)
+                    action [SetVariable("outsource_character_dev_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
                     style "outsource_buttons" 
             else:
                 imagebutton:
                     idle "ui/outsource/character_dev.png"
-                    action SetVariable("outsource_character_dev_selected",True)
+                    action [SetVariable("outsource_character_dev_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
                     style "outsource_buttons" 
             if outsource_storyboard_selected:
                 imagebutton:
                     idle "ui/outsource/storyboard_hover.png"
-                    action SetVariable("outsource_storyboard_selected",False)
+                    action [SetVariable("outsource_storyboard_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
                     style "outsource_buttons" 
             else:
                 imagebutton:
                     idle "ui/outsource/storyboard.png"
-                    action SetVariable("outsource_storyboard_selected",True)
+                    action [SetVariable("outsource_storyboard_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
                     style "outsource_buttons" 
         hbox:
             spacing 25
@@ -561,32 +551,32 @@ screen outsource():
             if outsource_character_design_selected:
                 imagebutton:
                     idle "ui/outsource/character_design_hover.png"
-                    action SetVariable("outsource_character_design_selected",False)
+                    action [SetVariable("outsource_character_design_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
                     style "outsource_buttons" 
             else:
                 imagebutton:
                     idle "ui/outsource/character_design.png"
-                    action SetVariable("outsource_character_design_selected",True)
+                    action [SetVariable("outsource_character_design_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
                     style "outsource_buttons" 
             if outsource_animation_selected:
                 imagebutton:
                     idle "ui/outsource/animation_hover.png"
-                    action SetVariable("outsource_animation_selected",False)
+                    action [SetVariable("outsource_animation_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
                     style "outsource_buttons" 
             else:
                 imagebutton:
                     idle "ui/outsource/animation.png"
-                    action SetVariable("outsource_animation_selected",True)
+                    action [SetVariable("outsource_animation_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
                     style "outsource_buttons" 
             if outsource_background_selected:
                 imagebutton:
                     idle "ui/outsource/background_hover.png"
-                    action SetVariable("outsource_background_selected",False)
+                    action [SetVariable("outsource_background_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
                     style "outsource_buttons" 
             else:
                 imagebutton:
                     idle "ui/outsource/background.png"
-                    action SetVariable("outsource_background_selected",True)
+                    action [SetVariable("outsource_background_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
                     style "outsource_buttons" 
         hbox:
             spacing 25
@@ -595,32 +585,32 @@ screen outsource():
             if outsource_op_ed_selected:
                 imagebutton:
                     idle "ui/outsource/op_ed_hover.png"
-                    action SetVariable("outsource_op_ed_selected",False)
+                    action [SetVariable("outsource_op_ed_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
                     style "outsource_buttons" 
             else:
                 imagebutton:
                     idle "ui/outsource/op_ed.png"
-                    action SetVariable("outsource_op_ed_selected",True)
+                    action [SetVariable("outsource_op_ed_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
                     style "outsource_buttons" 
             if outsource_ost_selected:
                 imagebutton:
                     idle "ui/outsource/ost_hover.png"
-                    action SetVariable("outsource_ost_selected",False)
+                    action [SetVariable("outsource_ost_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
                     style "outsource_buttons" 
             else:
                 imagebutton:
                     idle "ui/outsource/ost.png"
-                    action SetVariable("outsource_ost_selected",True)
+                    action [SetVariable("outsource_ost_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
                     style "outsource_buttons" 
             if outsource_voice_acting_selected:
                 imagebutton:
                     idle "ui/outsource/voice_acting_hover.png"
-                    action SetVariable("outsource_voice_acting_selected",False)
+                    action [SetVariable("outsource_voice_acting_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
                     style "outsource_buttons" 
             else:
                 imagebutton:
                     idle "ui/outsource/voice_acting.png"
-                    action SetVariable("outsource_voice_acting_selected",True)
+                    action [SetVariable("outsource_voice_acting_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
                     style "outsource_buttons" 
         hbox:
             spacing 25
@@ -629,34 +619,32 @@ screen outsource():
             if outsource_marketing_selected:
                 imagebutton:
                     idle "ui/outsource/marketing_hover.png"
-                    action SetVariable("outsource_marketing_selected",False)
+                    action [SetVariable("outsource_marketing_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
                     style "outsource_buttons" 
             else:
                 imagebutton:
                     idle "ui/outsource/marketing.png"
-                    action SetVariable("outsource_marketing_selected",True)
+                    action [SetVariable("outsource_marketing_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
                     style "outsource_buttons" 
             if outsource_quality_check_selected:
                 imagebutton:
                     idle "ui/outsource/quality_check_hover.png"
-                    action SetVariable("outsource_quality_check_selected",False)
+                    action [SetVariable("outsource_quality_check_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
                     style "outsource_buttons" 
             else:
                 imagebutton:
                     idle "ui/outsource/quality_check.png"
-                    action SetVariable("outsource_quality_check_selected",True)
+                    action [SetVariable("outsource_quality_check_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
                     style "outsource_buttons" 
-        hbox:
-            xalign 0.35
-            yalign 0.88
-            add "ui/big_moneybag.png" xpos 92 ypos 24
-            text str(outsource_cost) color "#000" size 65 xpos 112 ypos 52
-            imagebutton:
-                auto "ui/outsource/done_%s.png" 
-                style "outsource_buttons_outsource" 
-                action [renpy.curry(OutsourceAnime)(anime)]
+  
+        add "ui/big_moneybag.png" xalign 0.35 yalign 0.86
+        text str(outsource_selection_count * outsource_cost) color "#000" size 65 xalign 0.405 yalign 0.86
+        imagebutton:
+            auto "ui/outsource/done_%s.png" 
+            style "outsource_buttons_outsource" 
+            action [renpy.curry(OutsourceAnime)(anime)]
         showif outsource_tooltip != "":
-            text outsource_tooltip color upgrade_tooltip_color size 40 xalign 0.37 yalign 0.75 at grow_success_text
+            text outsource_tooltip color upgrade_tooltip_color size 40 xalign 0.37 yalign 0.78 at grow_success_text
 
 
 screen side_nav():
@@ -689,9 +677,9 @@ screen side_nav():
 
 screen start_game:
     use side_nav
-    text str(task_ready)
+    #text str(task_ready)
     if task_ready:
-        timer 0.2 action [Return(),SetVariable("task_ready",False),renpy.curry(ResetTasksSelection)()]
+        timer 0.2 action [Return(),SetVariable("task_ready",False),renpy.curry(EndTasks)()]
 
 screen anime_status_sidenav:
     tag menu

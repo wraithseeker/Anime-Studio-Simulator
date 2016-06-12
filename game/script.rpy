@@ -31,7 +31,7 @@ transform popup_text_transform:
 # The game starts here.
 label start:
     #jump week_3_4
-    #jump week_1_1
+    #jump pre_game
     scene bg restaurant
     show yukari laugh_eyes_closed at pos_left
     show yuuko at pos_right
@@ -89,10 +89,12 @@ label pre_game:
     $current_label = "scene_1"
     show screen start_game
     $side_nav_interaction = False
+    $show_floating_buttons = False
     "This is where you'll oversee the production of [anime.name]. The deadline for [anime.name] will be during {font=fonts/LiberationSans-Bold.ttf}Week 10{/font}."
-    "The most important thing is to choose tasks for your team member under {font=fonts/LiberationSans-Bold.ttf}'Tasks'{/font}. After that you can end your turn by selecting the {font=fonts/LiberationSans-Bold.ttf}'Done'{/font} button."
+    "The most important thing is to select tasks for your team member under {font=fonts/LiberationSans-Bold.ttf}Tasks{/font}. After that you can end your turn by selecting the {font=fonts/LiberationSans-Bold.ttf}Done{/font} button."
     "Good luck with [anime.name]!"
     $side_nav_interaction = True
+    $show_floating_buttons = True
     hide screen start_game
     call screen start_game
 
