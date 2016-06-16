@@ -93,7 +93,7 @@ init -1:
         #background None
         left_margin 500
         right_margin 550
-        top_margin 16
+        top_margin 6
         bottom_margin 50
         left_padding 30
         right_padding 10
@@ -109,7 +109,7 @@ init -1:
     style quick_menu_box:
         background None
         xalign 0.64
-        yalign 0.78
+        yalign 0.77
     style save_button_text:
         size 35
         color "#000"

@@ -36,8 +36,9 @@
                                 SetVariable("yukari_task_selected",False)]
                 else:
                     textbutton yukari_tasks[i].title:
-                        text_style "task_text" 
-                        style "task_button" 
+                        text_style "task_text"
+                        #text_style If (yukari_task_selected == False, "task_text")
+                        style "task_button"
                         hovered [task_tt_stats.Action(yukari_tasks[i].getStats())
                                 ,task_tt_description.Action(yukari_tasks[i].description)] 
                         action If ((yukari_task_selected == False),

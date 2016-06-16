@@ -183,7 +183,7 @@ init -1 python hide:
 
     ## Music that is played while the user is at the main menu.
 
-    # config.main_menu_music = "main_menu_theme.ogg"
+    config.main_menu_music = "music/mainmenu.mp3"
 
 
     #########################################
@@ -278,8 +278,9 @@ init -1 python hide:
 
     ## The default auto-forward time setting.
 
-    config.default_afm_time = 1
-    config.default_afm_time = True
+    config.default_afm_time = 10
+    config.default_music_volume = 0.65
+    config.default_sfx_volume = 0.65
 
     #########################################
     ## More customizations can go here.

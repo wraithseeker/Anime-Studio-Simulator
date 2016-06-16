@@ -119,9 +119,10 @@ image money = "ui/money_bag.png"
 
 image ctc_fixed:
     "ui/ctc.png"
-    xalign 0.7
-    yalign 0.93
-    size (32, 32) 
+    xalign 0.7 yalign 0.93 size (32, 32) alpha 0.1
+    linear 0.4 alpha 1.0
+    2.0
+    #repeat
 # image yukari = "yukari.png"
 # image yukari_charge = "yukari_charge.png"
 # image yukari_success = "yukari_yes.png"

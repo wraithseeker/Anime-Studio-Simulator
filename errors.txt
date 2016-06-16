@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/tasks.rpy", line 60: invalid syntax
-                    if item == "stress"
-    
+File "game/script.rpy", line 408: expected 'simple_expression' not found.
+    scene cafe with
+                   ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

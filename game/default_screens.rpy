@@ -35,7 +35,7 @@ screen say(who, what, side_image=None, two_window=False):
             if who:
                 text who id "who" font "fonts/Multicolore.otf" bold False size 35
 
-            text what id "what" color "#000" font "fonts/LiberationSans-Regular.ttf" size 30 #outlines [(0.5, "#C8F7C5", 0, 0)]
+            text what id "what" color "#000" font "fonts/LiberationSans-Regular.ttf" size 30
     
 
     else:
