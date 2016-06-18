@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 408: expected 'simple_expression' not found.
-    scene cafe with
-                   ^
+File "game/random_events.rpy", line 7: expected 'simple_expression' not found.
+    scene street with
+                     ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

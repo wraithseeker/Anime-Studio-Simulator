@@ -169,7 +169,8 @@ init -1 python hide:
 
     ## Sounds that are used when button and imagemaps are clicked.
 
-    # style.button.activate_sound = "click.wav"
+    #style.button.activate_sound = "music/selection2.ogg"
+    style.button.hover_sound = "music/mouseover1.ogg"
     # style.imagemap.activate_sound = "click.wav"
 
     ## Sounds that are used when entering and exiting the game menu.

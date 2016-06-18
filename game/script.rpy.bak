@@ -31,14 +31,14 @@ transform popup_text_transform:
 # The game starts here.
 
 label start:
-    $first_w_events = ["rande_1","rande_2"]
        #jump week_3_2
     #jump pre_game
     #jump week_3_1
-    jump rande_3
-    $rand_choice = renpy.random.choice(first_w_events)
-    $first_w_events.remove(rand_choice)
-    call expression rand_choice
+    #jump week_1_1
+    $first_w_events.remove(renpy.random.choice(first_w_events))
+    #$rand_choice = renpy.random.choice(first_w_events)
+    "[first_w_events]"
+    call expression renpy.random.choice(first_w_events)
     scene black with dissolve
     "Welcome to the demo version of Anime Studio Simulator. For our music, we have a few pieces composed for our OST while the rest of them are royalty free placeholders. Some scenes do not have an OST yet."
     "The demo version covers the events of the game up till week 3 with a total of 12 weeks planned for the game's release."
@@ -547,9 +547,7 @@ label week_2_1:
             "Shunsuke is right. While they may have a tight deadline to finish the 6 episodes of [anime.name], rushing things might not be the best."
             "Yukari decides it’s best to work with a firm foundation instead of a shaky one. The character designs need to be re-done to match the scenario, or else the project’s value will ultimately be lowered."
 
-    $rand_choice = renpy.random.choice(first_w_events)
-    $first_w_events.remove(rand_choice)
-    call expression rand_choice
+    call expression renpy.random.choice(first_w_events)
 label week_2_2:
     scene studio with fade
     show yukari at pos_left
