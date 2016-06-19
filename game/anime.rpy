@@ -36,7 +36,9 @@
 
         @plot.setter
         def plot(self,value):
-            self._plot = value
+            if 0 <= value <= 5:
+                self._plot = value
+           
 
         @property
 
@@ -45,9 +47,8 @@
 
         @storyboard.setter
         def storyboard(self,value):
-            if value > 5:
-                value -= value % 5
-            self._storyboard = value
+            if 0 <= value <= 5:
+                self._storyboard = value
 
         @property
 
@@ -56,7 +57,8 @@
 
         @character_development.setter
         def character_development(self,value):
-            self._character_development = value
+            if 0 <= value <= 5:
+                self._character_development = value
 
 
         @property
@@ -76,7 +78,8 @@
 
         @character_design.setter
         def character_design(self,value):
-            self._character_design = value
+            if 0 <= value <= 5:
+                self._character_design = value
 
         @property
 
@@ -85,7 +88,8 @@
 
         @background.setter
         def background(self,value):
-            self._background = value
+            if 0 <= value <= 5:
+                self._background = value
 
 
         @property
@@ -95,7 +99,8 @@
 
         @animation.setter
         def animation(self,value):
-            self._animation = value
+            if 0 <= value <= 5:
+                self._animation = value
 
 
         @property
@@ -115,7 +120,8 @@
 
         @voice_acting.setter
         def voice_acting(self,value):
-            self._voice_acting = value
+            if 0 <= value <= 5:
+                self._voice_acting = value
 
 
         @property
@@ -125,7 +131,8 @@
 
         @op_ed.setter
         def op_ed(self,value):
-            self._op_ed = value
+            if 0 <= value <= 5:
+                self._op_ed = value
 
 
         @property
@@ -135,7 +142,8 @@
 
         @ost.setter
         def ost(self,value):
-            self._ost = value
+            if 0 <= value <= 5:
+                self._ost = value
 
 
         @property
@@ -164,7 +172,8 @@
 
         @marketing.setter
         def marketing(self,value):
-            self._marketing = value
+            if 0 <= value <= 5:
+                self._marketing = value
 
         @property
 
@@ -173,7 +182,8 @@
 
         @quality_check.setter
         def quality_check(self,value):
-            self._quality_check = value
+            if 0 <= value <= 5:
+                self._quality_check = value
             
 
 

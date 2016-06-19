@@ -242,13 +242,13 @@ game/images/Yuuko/worry.png matches ** ([u'all']).
 game/init.rpy matches ** ([u'all']).
 game/init.rpyc matches ** ([u'all']).
 game/music/ matches ** ([u'all']).
+game/music/.DS_Store matches **/.** (None).
+game/music/1.ogg matches ** ([u'all']).
 game/music/dashboard.mp3 matches ** ([u'all']).
+game/music/hover.ogg matches ** ([u'all']).
 game/music/mainmenu.mp3 matches ** ([u'all']).
 game/music/mainmenu1.mp3 matches ** ([u'all']).
-game/music/mouseover1.ogg matches ** ([u'all']).
-game/music/mouseover2.ogg matches ** ([u'all']).
-game/music/selection1.ogg matches ** ([u'all']).
-game/music/selection2.ogg matches ** ([u'all']).
+game/music/select.ogg matches ** ([u'all']).
 game/options.rpy matches ** ([u'all']).
 game/options.rpy.bak matches **.bak (None).
 game/options.rpyc matches ** ([u'all']).
@@ -1568,10 +1568,6 @@ renpy.exe doesn't match anything.
 renpy.exe matches None (None).
 renpy.py matches renpy.py ([u'renpy']).
 renpy.sh matches renpy.sh ([u'linux', u'mac']).
-screenshot0001.png doesn't match anything.
-screenshot0001.png matches None (None).
-screenshot0002.png doesn't match anything.
-screenshot0002.png matches None (None).
 templates/ doesn't match anything.
 templates/ matches None (None).
 the_question/ doesn't match anything.

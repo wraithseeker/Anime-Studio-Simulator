@@ -139,6 +139,7 @@ label rande_3:
             s "We should’ve gone for that breakfast…"
             show yuuko sad
             "Yuuko gives her sister a sad nod, but it’s too late now. They trudge forward to help Yukari clean."
+    return
 label rande_4:
     scene street with fade
     show mayumi at left
@@ -183,10 +184,10 @@ label rande_4:
             "Mayumi reluctantly returns back to the office."
             y "Hey, did you see ABC store is going out of business?"
             y "They’re having an epic sale!"
-            show yukari happy
+            show yukari_f happy
             y " I got this bangle for just $5!"
             m "Aw, I should have gone in…"
-
+    return
 label rande_5:
     scene studio with fade
     show yukari at left with dissolve
@@ -220,6 +221,7 @@ label rande_5:
             yuu "Kind of reminds me of a garden we used to play in. Do you remember?"
             "The sisters reminisce as they sit at their desks, but it doesn’t take away from their work. Instead, both seem more at ease and inspired."
             "A fresher atmosphere in the studio is just what they needed."
+    return
 
 label rande_6:
  scene street with fade
@@ -258,6 +260,7 @@ label rande_6:
         ss "Not only do I not have my phone, but I’m going to be late for the meeting."
         office_l "Oh no… my purse…"
         ss "This will be hard to explain to Yukari…"
+return
 label rande_7:
     scene cafe with fade
     show yukari at left
@@ -305,5 +308,6 @@ label rande_7:
             m "Aw, isn't he cute?"
             show yukari happy
             y "Yukari rolls her eyes again, but smiles. She’s glad she didn’t chase the kid away after all."
+    return
 
 

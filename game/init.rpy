@@ -1,4 +1,35 @@
-﻿init: 
+﻿label start:
+    #initialize the class objects at runtime here instead of python init so object will be saved
+    $anime = Anime("Macross Delta")
+    $anime.funds = 20
+    $anime.plot = 2.5
+    $anime.storyboard = 3
+    $anime.character_development = 0.5
+    $anime.character_design = 1.5
+    $anime.background = 2.5
+    $anime.animation = 3.5
+    $anime.ost = 2
+    $anime.op_ed = 1
+    $anime.voice_acting = 0.5
+    #stats for characters
+    $yukari_stats = Stats("Yukari")
+    $mayumi_stats = Stats("Mayumi")
+    $sumiko_stats = Stats("Sumiko")
+    $yuuko_stats = Stats("Yuuko")
+    $shunsuke_stats = Stats("Shunsuke")
+    #some placeholder values
+    $yukari_stats.proficiency = renpy.random.randint(1,10)
+    $yuuko_stats.proficiency = renpy.random.randint(1,10)
+    $sumiko_stats.proficiency = renpy.random.randint(1,10)
+    $mayumi_stats.proficiency = renpy.random.randint(1,10)
+    $shunsuke_stats.proficiency = renpy.random.randint(1,10)
+    #15 stars is the max number of stars we have, * 100 to convert it to percentage
+    $anime_story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
+    $anime_art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
+    $anime_music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
+    jump game_start
+
+init: 
     $_game_menu_screen = "navigation"
     $upgrade_proficiency_value = 0.5
     $upgrade_proficiency_cost = 2
@@ -11,19 +42,6 @@
                         "voice_acting","op_ed","ost",
                         "quality_check","marketing","funds"]
         char_stats = ["stress","proficiency","happiness","human_relations"]
-
-        anime = Anime("Macross Delta")
-        anime.funds = 20
-        anime.plot = 2.5
-        anime.storyboard = 3
-        anime.character_development = 0.5
-
-
-        anime.character_design = 1.5
-        anime.background = 2.5
-        anime.animation = 3.5
-
-        anime.ost = 5
 
         yukari_tasks = [Tasks("Raise Funds","Raise some money for [anime.name].",funds=1)
                         ,Tasks("Networking","Mingle around with people in the anime industry.",marketing=1)
@@ -46,18 +64,6 @@
                         ,Tasks("Practice","Hone your writing skills",proficiency=0.5)
                         ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=1)]
 
-        yukari_stats = Stats("Yukari")
-        mayumi_stats = Stats("Mayumi")
-        sumiko_stats = Stats("Sumiko")
-        yuuko_stats = Stats("Yuuko")
-        shunsuke_stats = Stats("Shunsuke")
-        #some placeholder values
-        yukari_stats.proficiency = renpy.random.randint(1,10)
-        yuuko_stats.proficiency = renpy.random.randint(1,10)
-        sumiko_stats.proficiency = renpy.random.randint(1,10)
-        mayumi_stats.proficiency = renpy.random.randint(1,10)
-        shunsuke_stats.proficiency = renpy.random.randint(1,10)
-
     #game variables
     $current_week = 1
     $game_casual = False
@@ -65,10 +71,6 @@
     $side_nav_interaction = True
     $show_floating_buttons = True
     $upgrade_tooltip_color = "#2ecc71"
-    #15 stars is the max number of stars we have, * 100 to convert it to percentage
-    $anime_story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15 * 100)
-    $anime_art_progress = int((anime.character_design + anime.background + anime.animation) / 15 * 100)
-    $anime_music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15 * 100)
 
     #upgrade screen
     $upgrade_tooltip_default = "Send your team for training! This will increase their Proficiency stats."

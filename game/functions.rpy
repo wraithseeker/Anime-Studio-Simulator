@@ -79,6 +79,10 @@
         global outsource_tooltip
         global upgrade_tooltip_color
         global outsource_selection_count
+        global anime_story_progress
+        global anime_art_progress
+        global anime_music_progress
+        
         if anime.funds >= outsource_cost * outsource_selection_count:
             if outsource_plot_selected:
                 setattr(anime,"plot",getattr(anime,"plot") + outsource_value)
@@ -112,6 +116,9 @@
                 upgrade_tooltip_color = "#2ecc71"
                 anime.funds -= outsource_cost * outsource_selection_count
                 ui.timer(2.0,SetVariable("outsource_tooltip",""))
+                anime_story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
+                anime_art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
+                anime_music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
                 renpy.restart_interaction()
         else:
             outsource_tooltip = "Not enough funds!"

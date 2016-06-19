@@ -7,7 +7,6 @@
         style "task_window"
 
     imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return()
-
     frame:
         background None
         xysize(545,230)
@@ -37,12 +36,11 @@
                 else:
                     textbutton yukari_tasks[i].title:
                         text_style "task_text"
-                        #text_style If (yukari_task_selected == False, "task_text")
                         style "task_button"
                         hovered [task_tt_stats.Action(yukari_tasks[i].getStats())
                                 ,task_tt_description.Action(yukari_tasks[i].description)] 
-                        action If ((yukari_task_selected == False),
-                                [SetField(yukari_tasks[i],"selected",True),
+                        action If ((yukari_tasks[i].selected == False),
+                                [renpy.curry(ResetCharacterTask)(yukari_tasks),SetField(yukari_tasks[i],"selected",True),
                                 SetVariable("yukari_task_selected",True)])  
 
     hbox:
@@ -67,8 +65,8 @@
                         style "task_button" 
                         hovered [task_tt_stats.Action(yuuko_tasks[i].getStats())
                                 ,task_tt_description.Action(yuuko_tasks[i].description)] 
-                        action If ((yuuko_task_selected == False),
-                                [SetField(yuuko_tasks[i],"selected",True),
+                        action If ((yuuko_tasks[i].selected == False),
+                                [renpy.curry(ResetCharacterTask)(yuuko_tasks),SetField(yuuko_tasks[i],"selected",True),
                                 SetVariable("yuuko_task_selected",True)])  
 
     hbox:
@@ -93,8 +91,8 @@
                         style "task_button" 
                         hovered [task_tt_stats.Action(mayumi_tasks[i].getStats())
                                 ,task_tt_description.Action(mayumi_tasks[i].description)] 
-                        action If ((mayumi_task_selected == False),
-                                [SetField(mayumi_tasks[i],"selected",True),
+                        action If ((mayumi_tasks[i].selected == False),
+                                [renpy.curry(ResetCharacterTask)(mayumi_tasks),SetField(mayumi_tasks[i],"selected",True),
                                 SetVariable("mayumi_task_selected",True)]) 
 
     hbox:
@@ -119,9 +117,9 @@
                         style "task_button" 
                         hovered [task_tt_stats.Action(shunsuke_tasks[i].getStats())
                                 ,task_tt_description.Action(shunsuke_tasks[i].description)] 
-                        action If ((shunsuke_task_selected == False),
-                                [SetField(shunsuke_tasks[i],"selected",True),
-                                SetVariable("shunsuke_task_selected",True)]) 
+                        action If ((shunsuke_tasks[i].selected == False),
+                                [renpy.curry(ResetCharacterTask)(shunsuke_tasks),SetField(shunsuke_tasks[i],"selected",True),
+                                SetVariable("shunsuke_task_selected",True)])  
     hbox:
         xalign 0.565
         yalign 0.55
@@ -144,8 +142,8 @@
                         style "task_button" 
                         hovered [task_tt_stats.Action(sumiko_tasks[i].getStats())
                                 ,task_tt_description.Action(sumiko_tasks[i].description)] 
-                        action If ((sumiko_task_selected == False),
-                                [SetField(sumiko_tasks[i],"selected",True),
+                        action If ((sumiko_tasks[i].selected == False),
+                                [renpy.curry(ResetCharacterTask)(sumiko_tasks),SetField(sumiko_tasks[i],"selected",True),
                                 SetVariable("sumiko_task_selected",True)]) 
 
 
@@ -163,7 +161,6 @@ screen upgrade():
     default upgrade_tt = Tooltip(upgrade_tooltip_default)
     window:
         style "upgrade_window"
-    text str(upgrade_selection_count)
     imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return()
     hbox:
         xalign 0.19

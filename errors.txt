@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/random_events.rpy", line 273: choice menuitem expects a non-empty block.
-    "Get the child to leave":
-                             ^
+File "game/game_screens.rpy", line 39: Line is indented, but the preceding textbutton statement does not expect a block. Please check this line's indentation.
+    text_style "task_text"
+    ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

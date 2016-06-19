@@ -216,7 +216,7 @@ init -1:
         size 25
         color "#000"
         hover_color "#27ae60"
-        selected_color "#27ae60"
+        #selected_color "#27ae60"
     style task_text_selected:
         size 25
         color "27ae60"

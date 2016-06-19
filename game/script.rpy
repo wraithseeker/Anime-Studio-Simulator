@@ -30,17 +30,21 @@ transform popup_text_transform:
     linear 1.0 yalign 0.0 alpha 0.0
 # The game starts here.
 
-label start:
+label game_start:
     $first_w_events = ["rande_1","rande_2","rande_3","rande_4","rande_5","rande_6","rande_7"]
-       #jump week_3_2
-    #jump pre_game
-    #jump week_3_1
-    #jump week_2_1
+    #start of the game
     scene black with dissolve
     "Welcome to the demo version of Anime Studio Simulator. For our music, we have a few pieces composed for our OST while the rest of them are royalty free placeholders. Some scenes do not have an OST yet."
     "The demo version covers the events of the game up till week 3 with a total of 12 weeks planned for the game's release."
     "We hope you enjoy playing the demo version of Anime Studio Simulator!"
     stop music
+
+# label tester:
+#     "lets test anime character design variable"
+#     "[anime.character_design] value, let's add 2 to it"
+#     $anime.character_design = anime.character_design + 2
+#     "[anime.character_design] value"
+#     "Now why doesn't object get saved?"
 
 label week_0_1:
     scene black with dissolve
@@ -180,6 +184,7 @@ label pre_game:
     $show_floating_buttons = True
     hide screen start_game
     play music "music/dashboard.mp3"
+    $renpy.retain_after_load()
     call screen start_game
     stop music
 
@@ -497,6 +502,7 @@ label week_1_6:
     scene studio with dissolve
     $current_week = 2
     call screen start_game
+    $renpy.retain_after_load()
 
 transform flip:
     xzoom -1
@@ -546,7 +552,7 @@ label week_2_1:
 
     $rand_choice = renpy.random.choice(first_w_events)
     $first_w_events.remove(rand_choice)
-    call expression rand_choice
+    call expression rand_choice from _call_expression
 label week_2_2:
     scene studio with fade
     show yukari at pos_left
@@ -594,7 +600,7 @@ label week_2_2:
             y "Sorry, Shunsuke, but I agree with Mayumi. We’ve already got a lot on our plate, and we don’t want to cause feature creep for [anime.name]."
     $rand_choice = renpy.random.choice(first_w_events)
     $first_w_events.remove(rand_choice)
-    call expression rand_choice
+    call expression rand_choice from _call_expression_1
 label week_2_3:
     scene bg street with fade
     show yukari at left
@@ -692,6 +698,7 @@ label week_2_5:
     scene studio with dissolve
     $current_week = 3
     call screen start_game
+    $renpy.retain_after_load()
 label week_3_1:
     scene studio
     show yukari at left
@@ -721,7 +728,7 @@ label week_3_1:
             "Nobody replies to Yukari’s email. Well, it can't be helped. They probably receive way too much spam and fan mail as it is, too much for them to bother responding."
     $rand_choice = renpy.random.choice(first_w_events)
     $first_w_events.remove(rand_choice)
-    call expression rand_choice
+    call expression rand_choice from _call_expression_2
 label week_3_2:
     scene studio with fade
     show yukari sad_angry at left
@@ -792,7 +799,7 @@ label week_3_3:
     hide weekly_popup_text
     $rand_choice = renpy.random.choice(first_w_events)
     $first_w_events.remove(rand_choice)
-    call expression rand_choice
+    call expression rand_choice from _call_expression_3
 
 label week_3_4:
     scene studio with fade

@@ -31,14 +31,11 @@ transform popup_text_transform:
 # The game starts here.
 
 label start:
+    $first_w_events = ["rande_1","rande_2","rande_3","rande_4","rande_5","rande_6","rande_7"]
        #jump week_3_2
     #jump pre_game
     #jump week_3_1
-    #jump week_1_1
-    $first_w_events.remove(renpy.random.choice(first_w_events))
-    #$rand_choice = renpy.random.choice(first_w_events)
-    "[first_w_events]"
-    call expression renpy.random.choice(first_w_events)
+    #jump week_2_1
     scene black with dissolve
     "Welcome to the demo version of Anime Studio Simulator. For our music, we have a few pieces composed for our OST while the rest of them are royalty free placeholders. Some scenes do not have an OST yet."
     "The demo version covers the events of the game up till week 3 with a total of 12 weeks planned for the game's release."
@@ -547,7 +544,9 @@ label week_2_1:
             "Shunsuke is right. While they may have a tight deadline to finish the 6 episodes of [anime.name], rushing things might not be the best."
             "Yukari decides it’s best to work with a firm foundation instead of a shaky one. The character designs need to be re-done to match the scenario, or else the project’s value will ultimately be lowered."
 
-    call expression renpy.random.choice(first_w_events)
+    $rand_choice = renpy.random.choice(first_w_events)
+    $first_w_events.remove(rand_choice)
+    call expression rand_choice
 label week_2_2:
     scene studio with fade
     show yukari at pos_left
@@ -593,6 +592,9 @@ label week_2_2:
         "Heed Mayumi's advice":
             show yukari worry
             y "Sorry, Shunsuke, but I agree with Mayumi. We’ve already got a lot on our plate, and we don’t want to cause feature creep for [anime.name]."
+    $rand_choice = renpy.random.choice(first_w_events)
+    $first_w_events.remove(rand_choice)
+    call expression rand_choice
 label week_2_3:
     scene bg street with fade
     show yukari at left
@@ -717,6 +719,9 @@ label week_3_1:
             "The staff members are surprised to hear from Yukari, but not displeased. They give her some tips that'll be essential in the future."
         "Why bother?":
             "Nobody replies to Yukari’s email. Well, it can't be helped. They probably receive way too much spam and fan mail as it is, too much for them to bother responding."
+    $rand_choice = renpy.random.choice(first_w_events)
+    $first_w_events.remove(rand_choice)
+    call expression rand_choice
 label week_3_2:
     scene studio with fade
     show yukari sad_angry at left
@@ -785,6 +790,9 @@ label week_3_3:
             "Yukari takes Sumiko to see a doctor. She is indeed sick. She’ll be recuperating at home for the rest of the week and won’t be able to work on [anime.name] for the next few days."
 
     hide weekly_popup_text
+    $rand_choice = renpy.random.choice(first_w_events)
+    $first_w_events.remove(rand_choice)
+    call expression rand_choice
 
 label week_3_4:
     scene studio with fade
