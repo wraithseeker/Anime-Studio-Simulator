@@ -7,7 +7,7 @@
     $anime.character_development = 0.5
     $anime.character_design = 1.5
     $anime.background = 2.5
-    $anime.animation = 3.5
+    $anime.animation = 5.5
     $anime.ost = 2
     $anime.op_ed = 1
     $anime.voice_acting = 0.5

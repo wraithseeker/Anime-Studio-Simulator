@@ -38,6 +38,8 @@
         def plot(self,value):
             if 0 <= value <= 5:
                 self._plot = value
+            elif value > 5:
+                self._plot = 5
            
 
         @property
@@ -49,6 +51,8 @@
         def storyboard(self,value):
             if 0 <= value <= 5:
                 self._storyboard = value
+            elif value > 5:
+                self._storyboard = 5
 
         @property
 
@@ -59,7 +63,8 @@
         def character_development(self,value):
             if 0 <= value <= 5:
                 self._character_development = value
-
+            elif value > 5:
+                self._character_development = 5
 
         @property
 
@@ -80,6 +85,8 @@
         def character_design(self,value):
             if 0 <= value <= 5:
                 self._character_design = value
+            elif value > 5:
+                self._character_design = 5
 
         @property
 
@@ -90,7 +97,8 @@
         def background(self,value):
             if 0 <= value <= 5:
                 self._background = value
-
+            elif value > 5:
+                self._background = 5
 
         @property
 
@@ -101,7 +109,8 @@
         def animation(self,value):
             if 0 <= value <= 5:
                 self._animation = value
-
+            elif value > 5:
+                self._animation = 5
 
         @property
 
@@ -122,6 +131,8 @@
         def voice_acting(self,value):
             if 0 <= value <= 5:
                 self._voice_acting = value
+            elif value > 5:
+                self._voice_acting = 5
 
 
         @property
@@ -133,6 +144,8 @@
         def op_ed(self,value):
             if 0 <= value <= 5:
                 self._op_ed = value
+            elif value > 5:
+                self._op_ed = 5
 
 
         @property
@@ -144,6 +157,8 @@
         def ost(self,value):
             if 0 <= value <= 5:
                 self._ost = value
+            elif value > 5:
+                self._ost = 5
 
 
         @property

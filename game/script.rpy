@@ -501,8 +501,10 @@ label week_1_6:
             pass
     scene studio with dissolve
     $current_week = 2
-    call screen start_game
+    play music "music/dashboard.mp3"
     $renpy.retain_after_load()
+    call screen start_game
+    stop music
 
 transform flip:
     xzoom -1
@@ -697,8 +699,11 @@ label week_2_5:
     y "No matter how tough it is, I have to buckle down and get those funds!"
     scene studio with dissolve
     $current_week = 3
-    call screen start_game
+    play music "music/dashboard.mp3"
     $renpy.retain_after_load()
+    call screen start_game
+    stop music
+    
 label week_3_1:
     scene studio
     show yukari at left
