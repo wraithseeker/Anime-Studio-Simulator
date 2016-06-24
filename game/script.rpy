@@ -33,7 +33,7 @@ transform popup_text_transform:
 label game_start:
     $first_w_events = ["rande_1","rande_2","rande_3","rande_4","rande_5","rande_6","rande_7"]
     #start of the game
-    jump week_3_2
+    #jump week_3_2
     scene black with dissolve
     stop music
     play music "music/normal_happy_ost.ogg" fadein 1.0
