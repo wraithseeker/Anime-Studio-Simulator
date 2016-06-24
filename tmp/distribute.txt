@@ -249,6 +249,7 @@ game/music/hover.ogg matches ** ([u'all']).
 game/music/mainmenu.mp3 matches ** ([u'all']).
 game/music/mainmenu1.mp3 matches ** ([u'all']).
 game/music/select.ogg matches ** ([u'all']).
+game/music/song.ogg matches ** ([u'all']).
 game/options.rpy matches ** ([u'all']).
 game/options.rpy.bak matches **.bak (None).
 game/options.rpyc matches ** ([u'all']).

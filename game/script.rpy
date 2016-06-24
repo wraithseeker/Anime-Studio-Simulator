@@ -33,11 +33,14 @@ transform popup_text_transform:
 label game_start:
     $first_w_events = ["rande_1","rande_2","rande_3","rande_4","rande_5","rande_6","rande_7"]
     #start of the game
+    jump week_3_2
     scene black with dissolve
+    stop music
+    play music "music/normal_happy_ost.ogg" fadein 1.0
     "Welcome to the demo version of Anime Studio Simulator. For our music, we have a few pieces composed for our OST while the rest of them are royalty free placeholders. Some scenes do not have an OST yet."
     "The demo version covers the events of the game up till week 3 with a total of 12 weeks planned for the game's release."
     "We hope you enjoy playing the demo version of Anime Studio Simulator!"
-    stop music
+
 
 # label tester:
 #     "lets test anime character design variable"
@@ -183,7 +186,7 @@ label pre_game:
     $side_nav_interaction = True
     $show_floating_buttons = True
     hide screen start_game
-    play music "music/dashboard.mp3"
+    play music "music/dashboard.mp3" fadein 1.0
     $renpy.retain_after_load()
     call screen start_game
     stop music
@@ -461,6 +464,7 @@ label week_1_5:
     with dissolve
     "What a stroke of luck that Sumiko and Yuuko’s family owns a classy restaurant like this. Yukari and the others can dine in style with good friends and a discounted bill."
     show yukari happy
+    play sound "music/eat_crunchy.ogg"
     y "The tempura in this shop is always so good! Maybe it's just because I love tempura so much."
     show sumiko sigh
     s "Don't lie, you’re not fooling anyone."
@@ -476,6 +480,7 @@ label week_1_5:
     y "Hey! <anime A character name> may have introduced me to tempura, but now I really love it!"
     show mayumi happy
     m "I wish my favorite characters introduced me to new foods…"
+    play sound "music/stirring_ice_cream.ogg"
     "She stirs her spoon into her half-melted cup of ice cream and pouts for a moment, but then her expression brightens."
     show yukari
     m "Speaking of characters, are our characters almost done? How close are we?"
@@ -501,7 +506,7 @@ label week_1_6:
             pass
     scene studio with dissolve
     $current_week = 2
-    play music "music/dashboard.mp3"
+    play music "music/dashboard.mp3" fadein 1.0
     $renpy.retain_after_load()
     call screen start_game
     stop music
@@ -667,6 +672,7 @@ label week_2_4:
     y "Want to trade places?"
     s "Not a chance. I have enough on my plate as it is."
     m "Oh? Then I’ll have your dessert!"
+    play sound "music/stealing_a_plate_from_someone.ogg"
     s "Wait, what? No!"
     m "But you said..."
     "While they argue, Yuuko rolls her eyes and turns to Yukari."
@@ -699,11 +705,11 @@ label week_2_5:
     y "No matter how tough it is, I have to buckle down and get those funds!"
     scene studio with dissolve
     $current_week = 3
-    play music "music/dashboard.mp3"
+    play music "music/dashboard.mp3" fadein 1.0
     $renpy.retain_after_load()
     call screen start_game
     stop music
-    
+
 label week_3_1:
     scene studio
     show yukari at left
@@ -743,7 +749,9 @@ label week_3_2:
     y "But everyone says generic emails are often ignored while personalized emails have a better chance of catching their interest."
     y "That greater chance is what we need right now, so I shouldn’t complain, I guess."
     y "It’s so boring, though. I’ll try calling some of them up instead."
+    play sound "music/dialing_numbers.ogg"
     "She picks up her cell phone and dials the number for one of the potential investors."
+
     "It rings, and then.."
     scene black with dissolve
     hide weekly_popup_text
@@ -753,11 +761,14 @@ label week_3_2:
     "The recorded voice lists several other options, none of which are any help to Yukari."
     bot "To speak with a customer service representative, please press 0 or remain on the line."
     "She glares at the phone and hits 0."
+    play sound "music/dial_tone.ogg"
     "It rings again, and then the bot’s voice returns."
     bot "Please hold, as all our customer service operators are currently unavailable."
+    play sound "music/annoying_ringtone.ogg"
     "High-pitched, somber chords fill the line."
     y "Great, now I have to listen to some weird music."
     "The music continues until Yukari worries she might fall asleep, and then the line finally comes to life with a human voice."
+    stop sound fadeout 0.5
     unknown "Hello, thank you for calling. How may I help you?"
     "Yukari gives the operator a simple pitch, describing the basics of [anime.name] in the hopes she’ll transfer the call to someone higher up."
     unknown "[anime.name] sounds fantastic! How can we get in touch with you?"
@@ -768,6 +779,7 @@ label week_3_2:
     scene studio
     show yukari sigh at left
     with dissolve
+    play sound "music/hanging_up_phone.ogg"
     y "Yukari hangs up the phone and sighs. They’ll get back to her. Sure. More likely, she failed her pitch once again and will never hear from them."
     y "Why can’t they just tell me they’re not interested instead of leaving me hanging?"
     "Yukari rubs her head. The pressure and stress is starting to get to her. She looks around the studio. Everyone else is hard at work."
