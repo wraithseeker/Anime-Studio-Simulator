@@ -281,7 +281,7 @@ init -1 python hide:
 
     config.default_afm_time = 10
     config.default_music_volume = 0.65
-    config.default_sfx_volume = 0.65
+    config.default_sfx_volume = 1.0
 
     #########################################
     ## More customizations can go here.
