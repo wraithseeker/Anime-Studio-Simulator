@@ -13,13 +13,20 @@ screen say(who, what, side_image=None, two_window=False):
     # to do
     default tt = Tooltip("")
     if show_floating_buttons:
+        frame:
+            xalign 1.0
+            yalign 0.0
+            xysize (262,74)
+            background "ui/day_box.png"
+            textbutton currentDay() action NullAction() style "float_date" text_style "float_date_text"
+
         imagebutton auto "ui/float_buttons/anime_%s.png" style "float_anime" action ShowMenu("anime_status") at float_btn_trans hovered tt.Action("Anime Status")
         imagebutton auto "ui/float_buttons/member_%s.png" style "float_member" action ShowMenu("member_status") at float_btn_trans hovered tt.Action("Member Status")
     # Decide if we want to use the one-window or two-window variant.
     frame:
         background None
-        xalign 0.92
-        yalign 0.1
+        xalign 0.98
+        yalign 0.165
         text tt.value style "tooltip_value"
     if not two_window:
 

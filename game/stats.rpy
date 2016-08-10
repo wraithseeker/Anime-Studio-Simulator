@@ -2,7 +2,7 @@
     class Stats(object):
         def __init__(self,name):
             self.name = name
-            self._human_relations = 0
+            self._management = 0
             self._stress = 2
             self._proficiency = 0
             self._happiness = 10
@@ -45,15 +45,15 @@
                 renpy.notify( "Proficiency must be between 0 to 10. Value is " + str(self._proficiency))
 
         @property
-        def human_relations(self):
-            return self._human_relations
+        def management(self):
+            return self._management
 
-        @human_relations.setter
-        def human_relations(self,value):
+        @management.setter
+        def management(self,value):
             if 0 <= value <= 10:
-                self._human_relations = value
+                self._management = value
             else:
-                #renpy.notify( "Human Relations must be between 0 to 10.")
+                #renpy.notify( "Management must be between 0 to 10.")
                 pass
 
 

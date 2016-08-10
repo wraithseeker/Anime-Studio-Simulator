@@ -2,8 +2,12 @@
 errors listed below, and try again.
 
 
-File "game/anime.rpy", line 105: invalid syntax
-                self._animation = 
-    
+File "game/script.rpy", line 63: expected statement.
+    getNextDay(current_day)
+                           ^
+
+File "game/script.rpy", line 67: expected statement.
+    getNextDay(current_day)
+                           ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

@@ -41,7 +41,7 @@ init:
                         "character_design","background","animation",
                         "voice_acting","op_ed","ost",
                         "quality_check","marketing","funds"]
-        char_stats = ["stress","proficiency","happiness","human_relations"]
+        char_stats = ["stress","proficiency","happiness","management"]
 
         yukari_tasks = [Tasks("Raise Funds","Raise some money for [anime.name].",funds=1)
                         ,Tasks("Networking","Mingle around with people in the anime industry.",marketing=1)
@@ -66,6 +66,9 @@ init:
 
     #game variables
     $current_week = 1
+    # Day limits, 0 = monday, 5 = Weekend
+    $days_array = ["Monday","Tuesday","Wednesday","Thursday","Friday","Weekends"]
+    $current_day = 0
     $game_casual = False
     $task_ready = False
     $side_nav_interaction = True

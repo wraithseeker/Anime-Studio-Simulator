@@ -104,6 +104,7 @@ init -1:
         color "#77736F"
         hover_color "#000"
         selected_color "#000"
+        font "fonts/LiberationSans-Regular.ttf"
     style quick_menu_text_button:
         background None
     style quick_menu_box:
@@ -123,13 +124,24 @@ init -1:
          background None
          xysize (74,79)
          selected_background "ui/load/filepicker_nav_button_selected.png"
+    style float_date:
+        # xalign 0.9
+        # yalign 0.05
+        xalign 0.5
+        yalign 0.5
+        text_align 0.5
+    style float_date_text:
+        color "#000"
+        size 42
+        font 'fonts/FiraSans-Regular.ttf'
+      
     style float_anime:
-        xalign 0.9 
-        yalign 0.02
+        xalign 0.925
+        yalign 0.085
         #hover_background "ui/float_buttons/anime_status.png"
     style float_member:
-        xalign 0.95 
-        yalign 0.02
+        xalign 0.975
+        yalign 0.085
     style tooltip_value is text:
         size 30
     style task_tooltip:

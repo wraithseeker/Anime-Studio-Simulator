@@ -34,9 +34,13 @@ label game_start:
     $first_w_events = ["rande_1","rande_2","rande_3","rande_4","rande_5","rande_6","rande_7"]
     #start of the game
     #jump week_3_2
-    scene black with dissolve
+    #scene black with dissolve
+    # the command to move to next day
+    $nextDay()
+    scene image "sketch.png"
     stop music
     play music "music/normal_happy_ost.ogg" fadein 1.0
+    y "this is some text"
     "Welcome to the demo version of Anime Studio Simulator. For our music, we have a few pieces composed for our OST while the rest of them are royalty free placeholders. Some scenes do not have an OST yet."
     "The demo version covers the events of the game up till week 3 with a total of 12 weeks planned for the game's release."
     "We hope you enjoy playing the demo version of Anime Studio Simulator!"

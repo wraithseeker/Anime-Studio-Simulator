@@ -385,7 +385,7 @@ screen member_status():
             right_bar Frame("ui/member_status/member_bar_empty.png")
             thumb_shadow None
             thumb None
-        bar value StaticValue(yukari_stats.human_relations,10):
+        bar value StaticValue(yukari_stats.management,10):
             xmaximum 168
             ymaximum 21
             left_bar Frame("ui/member_status/member_purple_bar_full.png")

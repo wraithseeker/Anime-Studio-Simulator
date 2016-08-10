@@ -1,5 +1,18 @@
 ﻿init -100 python:
 
+    def nextDay():
+        global current_day
+        if current_day < 5:
+            # if its not at the end of the week, cycle through days
+            current_day += 1
+        else:
+            # revert back to monday
+            current_day = 0
+    def currentDay():
+        global current_day
+        return days_array[current_day]
+
+
     def AddTaskStats(person,stats):
         for i in range(0,len(person)):
             if person[i].selected:
