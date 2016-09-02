@@ -18,7 +18,8 @@ screen say(who, what, side_image=None, two_window=False):
             yalign 0.0
             xysize (262,74)
             background "ui/day_box.png"
-            textbutton currentDay() action NullAction() style "float_date" text_style "float_date_text"
+            textbutton currentDay() action NullAction() style "float_day" text_style "float_day_text"
+            textbutton currentDate() action NullAction() style "float_date" text_style "float_date_text"
 
         imagebutton auto "ui/float_buttons/anime_%s.png" style "float_anime" action ShowMenu("anime_status") at float_btn_trans hovered tt.Action("Anime Status")
         imagebutton auto "ui/float_buttons/member_%s.png" style "float_member" action ShowMenu("member_status") at float_btn_trans hovered tt.Action("Member Status")
@@ -103,7 +104,7 @@ screen choice(items):
                         xpadding 35
                         style "menu_choice_button"
                         background Frame("ui/textbox.png",10,10)
-                        text caption style "menu_choice" color "#000" size 35
+                        text caption style "menu_choice" color "#000" size 35 hover_color "#2ecc71"
 
                 else:
                     text caption style "menu_caption"

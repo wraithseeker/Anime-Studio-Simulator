@@ -13,7 +13,7 @@
         xalign 0.53
         yalign 0.22 
         vbox:
-            spacing 30
+            spacing 5
             text task_tt_description.value style "task_tooltip" text_align 0.0
             text task_tt_stats.value style "task_stats_tooltip" text_align 0.0
     hbox:
@@ -96,7 +96,7 @@
                                 SetVariable("mayumi_task_selected",True)]) 
 
     hbox:
-        xalign 0.576
+        xalign 0.526
         yalign 0.858
         add "char_image/shunsuke.png" 
         text "Shunsuke" style "char_title_text"
@@ -688,4 +688,99 @@ screen member_status_sidenav:
     tag menu
     use member_status
     use side_nav
+
+screen progress_report:
+    tag menu
+    use side_nav
+    default task_tt_description = Tooltip("Select some tasks for your team members to do.") 
+    default task_tt_stats = Tooltip("")
+    window:
+        background "ui/progress_report.png"
+    imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return()
+    text "Week " + str(current_week) + " Progress Report" style "progress_title"
+    frame:
+        background None
+        xysize(545,230)
+        xalign 0.53
+        yalign 0.22 
+        vbox:
+            spacing 30
+            text "Anime" + " Updates" style "char_title_text"
+        vbox:
+            ypos 55
+            xpos 50
+            spacing -15
+            text "{color=#27ae60}{font=fonts/Delius-Regular.ttf}{size=+15}+{/size}{/font} Funds{/color}" style "progress_text"
+            text "{color=#c0392b}{font=fonts/Delius-Regular.ttf}{size=+15}-{/size}{/font} Marketing{/color}" style "progress_text"
+            text "{color=#c0392b}{font=fonts/Delius-Regular.ttf}{size=+15}-{/size}{/font} CHARA.DESIGN{/color}" style "progress_text"
+    hbox:
+        xalign 0.097
+        yalign 0.232
+        add "char_image/yukari.png" 
+        text "Yukari" style "char_title_text"
+        #SetDict is used to modify arrays, SetField is to modify the field of an object's value
+        vbox:
+            ypos 65
+            xpos -130
+            spacing 10
+            for i in range(0,len(yukari_tasks)):
+                textbutton yukari_tasks[i].title:
+                    text_style "task_text" 
+                    style "task_button" 
+
+    hbox:
+        xalign 0.097
+        yalign 0.55
+        add "char_image/yuuko.png" 
+        text "Yuuko" style "char_title_text" xpos 15
+        vbox:
+            ypos 65
+            xpos -130
+            spacing 10
+            for i in range(0,len(yuuko_tasks)):
+                textbutton yuuko_tasks[i].title:
+                    text_style "task_text" 
+                    style "task_button"   
+
+    hbox:
+        xalign 0.097
+        yalign 0.862
+        add "char_image/mayumi.png" 
+        text "Mayumi" style "char_title_text" xpos 15
+        vbox:
+            ypos 65
+            xpos -146
+            spacing 10
+            for i in range(0,len(mayumi_tasks)):
+                textbutton mayumi_tasks[i].title:
+                    text_style "task_text" 
+                    style "task_button"  
+                       
+
+    hbox:
+        xalign 0.526
+        yalign 0.858
+        add "char_image/shunsuke.png" 
+        text "Shunsuke" style "char_title_text" xpos 15
+        vbox:
+            ypos 65
+            xpos -205
+            spacing 10
+            for i in range(0,len(shunsuke_tasks)):
+               textbutton shunsuke_tasks[i].title:
+                    text_style "task_text" 
+                    style "task_button"  
+    hbox:
+        xalign 0.565
+        yalign 0.55
+        add "char_image/sumiko.png" ypos -5 
+        text "Sumiko" style "char_title_text" xpos 15
+        vbox:
+            ypos 65
+            xpos -145
+            spacing 10
+            for i in range(0,len(sumiko_tasks)):
+               textbutton sumiko_tasks[i].title:
+                    text_style "task_text" 
+                    style "task_button"  
 

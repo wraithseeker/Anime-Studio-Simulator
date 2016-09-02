@@ -12,22 +12,6 @@ define ss = Character('Shunsuke', color="#000",ctc="ctc_fixed",ctc_position="fix
 define bot = Character('Recorded Voice', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define unknown = Character('???', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 
-transform weekly_text_transform:
-    xalign 0.5 yalign 0.42 alpha 0.0
-    linear 2 alpha 1.0
-    pause 3.0
-    linear 2 alpha 0.0
-transform weekly_text_street_transform:
-    xalign 0.5 yalign 0.24 alpha 0.0
-    linear 2 alpha 1.0
-    pause 3.0
-    linear 2 alpha 0.0
-
-transform popup_text_transform:
-    alpha 0.0 xalign 0.5 yalign 0.15
-    linear 1.0 alpha 1.0
-    pause 3
-    linear 1.0 yalign 0.0 alpha 0.0
 # The game starts here.
 
 label game_start:
@@ -37,10 +21,11 @@ label game_start:
     #scene black with dissolve
     # the command to move to next day
     $nextDay()
-    scene image "sketch.png"
+    scene image "cg/flashback.png"
     stop music
     play music "music/normal_happy_ost.ogg" fadein 1.0
     y "this is some text"
+    call screen progress_report
     "Welcome to the demo version of Anime Studio Simulator. For our music, we have a few pieces composed for our OST while the rest of them are royalty free placeholders. Some scenes do not have an OST yet."
     "The demo version covers the events of the game up till week 3 with a total of 12 weeks planned for the game's release."
     "We hope you enjoy playing the demo version of Anime Studio Simulator!"
@@ -63,6 +48,7 @@ label week_0_1:
     show mayumi_f at right
     with dissolve
     y "Mayumi! Over here!"
+    $nextDay()
     "She waves to her best friend, who crosses the room and joins her at the table."
     m "I got your message. What’s up?"
     y "I’ve found a character artist for our anime project."
@@ -197,7 +183,6 @@ label pre_game:
 
 label week_1_1:
     scene bg studio
-    $renpy.show("weekly_popup_text",what=Text("Monday",style="weekly_label_text"),at_list=[weekly_text_transform])
     show yukari at pos_left
     show mayumi at pos_farleft behind yukari
     show shunsuke at pos_middleright
@@ -205,12 +190,10 @@ label week_1_1:
     show yuuko at pos_right
     with dissolve
     "On Monday, Yukari gathers everyone together at the studio. It’s time to discuss and finalize the details about [anime.name]."
-    #$renpy.show("popup_text",what=Text("+ PROFICIENCY",style="popup_text"),at_list=[popup_text_transform])
     show mayumi worry at pos_farleft
     m "So… what type of anime is [anime.name], again?"
     show sumiko sigh
     s "We’ve been talking about it for weeks, and you still don’t know?"
-    hide weekly_popup_text
     show mayumi tsundere
     m " I was listening to music!"
     ss "Every time it came up?"
@@ -301,11 +284,9 @@ label week_1_1:
 label week_1_2:
     scene bg studio with fade
     show yukari sad at pos_farleft
-    $renpy.show("weekly_popup_text",what=Text("Tuesday",style="weekly_label_text"),at_list=[weekly_text_transform])
     "Although the others have their tasks set out for them, Yukari realizes there isn’t much she can do at this stage in the process. The same goes for Mayumi."
     "Yukari paces in frustration. She can’t sit around and do nothing."
     "After taking a moment to think of possible things she can do to help, Yukari decides to…"
-    hide weekly_popup_text
     menu:
         "Read books about management":
             pass
@@ -319,7 +300,6 @@ label week_1_3:
     show yukari at left
     show mayumi_f at Position(xalign=0.85,yalign=1.0)
     with dissolve
-    $renpy.show("weekly_popup_text",what=Text("Wednesday",style="weekly_label_text"),at_list=[weekly_text_transform])
     "It’s the third day of work on [anime.name]. Yukari looks around the studio and can’t help but grin. The team is hard at work. [anime.name] will be a reality. This is exactly what she’s always dreamed up."
     m "Hey Yukari, want to get lunch?"
     show yukari worry
@@ -333,7 +313,6 @@ label week_1_3:
     show sumiko tsundere at pos_outerright behind mayumi_f with dissolve 
     s "Oh, go on! We promise not to burn down the studio!"
     "Their reassurances help her set aside her guilt."
-    hide weekly_popup_text
     show yukari happy
     y "Well, all right!"
     scene bg cafe with fade
@@ -399,7 +378,6 @@ label week_1_3:
 
 label week_1_4:
     scene studio with fade
-    $renpy.show("weekly_popup_text",what=Text("Thursday",style="weekly_label_text"),at_list=[weekly_text_transform])
     "The next day, Shunsuke makes good on his promise to prove he actually eats, and brings enough food from home for everyone to share."
     show sumiko at pos_middleright_half
     show yukari at pos_left
@@ -524,14 +502,12 @@ label week_2_1:
     show shunsuke at pos_middleright_half
     show yuuko_f at pos_farleft behind yukari
     with dissolve
-    $renpy.show("weekly_popup_text",what=Text("Monday",style="weekly_label_text"),at_list=[weekly_text_transform])
     "On Monday, Yukari spends some time going through the scenario for [anime.name]. Then she gathers everyone together to look at the character designs."
     y "I think they’re fine. I don’t see any major flaws. What do the rest of you think?"
     show shunsuke sad
     ss "Well…"
     show sumiko angry
     s "Uh-oh. Dramatic pause from Shunsuke. Here comes trouble…"
-    hide weekly_popup_text
     show yukari sad
     "Yukari fidgets silently and braces herself. There’s nothing wrong with constructive criticism, but if he presents his issues with the art poorly, it could cause their team’s first major disagreement."
     show shunsuke sad_angry
@@ -571,7 +547,6 @@ label week_2_2:
     show sumiko laugh_eyes_closed at pos_middleright_half
     show shunsuke at Position(xalign = 1.05,yalign = 1.0)
     with dissolve
-    $renpy.show("weekly_popup_text",what=Text("Wednesday",style="weekly_label_text"),at_list=[weekly_text_transform])
     s "Now that we’ve straightened out the scenario and character designs for [anime.name], why don’t we try to do some pre-release marketing?"
     y "Pre-release marketing?"
     show sumiko happy
@@ -585,7 +560,6 @@ label week_2_2:
     show sumiko tsundere
     s "That’s not something easy to forget."
     show mayumi happy
-    hide weekly_popup_text
     m "Do you think you can do pre-release marketing without spending money? It’d be pretty neat if we could!"
     show sumiko
     s "Marketing without money? How?"
@@ -617,7 +591,6 @@ label week_2_3:
     show yukari at left
     show mayumi_f at right
     with dissolve
-    $renpy.show("weekly_popup_text",what=Text("Friday",style="weekly_label_text"),at_list=[weekly_text_street_transform])
     "On Friday afternoon, Yukari meets up with Mayumi to do some research for [anime.name]. The two of them head over to the closest Animate store that they could locate."
     show yukari happy
     y "There! That’s Animate. They have a huge collection of anime merchandise for sale!"
@@ -631,7 +604,6 @@ label week_2_3:
     m "Um, Yukari? What does this have to do with research?"
     show yukari happy
     y "Research?"
-    hide weekly_popup_text
     show mayumi_f angry
     m "We’re here to do research for [anime.name], remember?"
     show yukari laugh_eyes_closed
@@ -719,7 +691,6 @@ label week_3_1:
     show yukari at left
     show yuuko at right
     with dissolve
-    $renpy.show("weekly_popup_text",what=Text("Monday",style="weekly_label_text"),at_list=[weekly_text_transform])
     y "Are you finished with the character designs yet?"
     yuu "Not yet, only the designs for the main cast is complete. I'm still working on the side characters."
     show yuuko worry
@@ -729,7 +700,6 @@ label week_3_1:
     y "Those views and likes on your artwork show the truth!"
     show yuuko sigh
     yuu "That’s only because I got lucky. What about the proposals to pitch to the investors?"
-    hide weekly_popup_text
     y " I wrote a few of them on the weekend. Finding suitable investors was already challenging enough."
     show yukari
     y "I’ll be sending them out later today. Let’s hope my mailbox doesn’t remain a ghost town."
@@ -748,7 +718,6 @@ label week_3_2:
     scene studio with fade
     show yukari sad_angry at left
     with dissolve
-    $renpy.show("weekly_popup_text",what=Text("Tuesday",style="weekly_label_text"),at_list=[weekly_text_transform])
     y "Agh! This is taking forever. I wish I could write a generic email and send it to all the investors, instead of writing personalized ones."
     y "But everyone says generic emails are often ignored while personalized emails have a better chance of catching their interest."
     y "That greater chance is what we need right now, so I shouldn’t complain, I guess."
@@ -758,7 +727,6 @@ label week_3_2:
 
     "It rings, and then.."
     scene black with dissolve
-    hide weekly_popup_text
     bot "Thank you for calling ABC company."
     bot "Our office hours are from 9AM to 5 PM on weekdays and from 9 AM to 3 PM on Saturday. Our offices are closed on Sunday. For general inquiries, please press 1. For support issues, please press 2."
     y "Stupid automated software..."
@@ -793,7 +761,6 @@ label week_3_3:
     scene studio with fade
     show yukari worry at left
     with dissolve
-    $renpy.show("weekly_popup_text",what=Text("Wednesday",style="weekly_label_text"),at_list=[weekly_text_transform])
     "The next day, Yukari can’t help but worry about Sumiko. She doesn’t look well. She keeps coughing and works on her art half-slumped in her chair. When she looks up, her eyes are dull."
     "Yukari looks around."
     "Mayumi is intent on sorting the huge mountain of project files for [anime.name]. Shunsuke is also working with her on the script. Yuuko sits at her desk working on art."
@@ -816,8 +783,6 @@ label week_3_3:
             y "Losing some progress now is better than coming down with a serious illness that could jeopardize the whole project!"
             s "Yes, ma’am..."
             "Yukari takes Sumiko to see a doctor. She is indeed sick. She’ll be recuperating at home for the rest of the week and won’t be able to work on [anime.name] for the next few days."
-
-    hide weekly_popup_text
     $rand_choice = renpy.random.choice(first_w_events)
     $first_w_events.remove(rand_choice)
     call expression rand_choice from _call_expression_3
@@ -827,7 +792,6 @@ label week_3_4:
     show yukari sad at left
     show shunsuke at right
     with dissolve
-    $renpy.show("weekly_popup_text",what=Text("Friday",style="weekly_label_text"),at_list=[weekly_text_transform])
     ss "Here’s the script for the pilot episode. We can get started with the episode’s storyboard soon, too."
     ss "Let me know what you think!"
     "It takes Yukari a moment to realize he’s speaking to her."
@@ -836,7 +800,6 @@ label week_3_4:
     ss "If not you, who else? You’re the one in charge, so you have the clearest picture of what [anime.name] should be like."
     y "Yes, you’re right. Why did I even ask that question?"
     y "Yukari rubs her head. She feels like she’s going to explode any minute now. Should she tell the others her concerns about funding?"
-    hide weekly_popup_text
     menu:
         "Raise the issue of funding":
             show yukari sad at pos_left

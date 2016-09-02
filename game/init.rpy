@@ -29,6 +29,9 @@
     $anime_music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
     jump game_start
 
+init python:
+    import datetime
+
 init: 
     $_game_menu_screen = "navigation"
     $upgrade_proficiency_value = 0.5
@@ -46,7 +49,7 @@ init:
         yukari_tasks = [Tasks("Raise Funds","Raise some money for [anime.name].",funds=1)
                         ,Tasks("Networking","Mingle around with people in the anime industry.",marketing=1)
                         ,Tasks("Read Books","Read books for knowledge.",proficiency=0.5)
-                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=1)]
+                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=-1)]
 
         yuuko_tasks = [Tasks("Sketch Character","Sketch some character designs.",character_design=1)
                         ,Tasks("Doodle","Doodle on a piece of paper.",proficiency=0.5)
@@ -66,9 +69,11 @@ init:
 
     #game variables
     $current_week = 1
-    # Day limits, 0 = monday, 5 = Weekend
-    $days_array = ["Monday","Tuesday","Wednesday","Thursday","Friday","Weekends"]
+    # Day limits, 0 = Mon, 5 = Sat
+    # current_date e.g '8/30'
+    $days_array = ["Mon","Tues","Wed","Thurs","Fri","Sat"]
     $current_day = 0
+    $current_date = datetime.date(2016,3,20)
     $game_casual = False
     $task_ready = False
     $side_nav_interaction = True

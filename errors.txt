@@ -2,12 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 63: expected statement.
-    getNextDay(current_day)
-                           ^
-
-File "game/script.rpy", line 67: expected statement.
-    getNextDay(current_day)
-                           ^
+File "game/game_screens.rpy", line 742: u'text_style' is not a keyword argument or valid child for the text statement.
+    text_style "task_text" 
+              ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

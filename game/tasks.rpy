@@ -36,7 +36,7 @@
             for index,item in enumerate(anime_stats):
                 if hasattr(self,item):
                     if getattr(self,item) > 0:
-                        attribute_number = "{size=+5}+{/size}" #+ str(getattr(self,item))
+                        attribute_number = "{size=+10}+{/size}" #+ str(getattr(self,item))
                         attribute_color = "{color=#27ae60}"
                         priority.append(True)
                     else:
@@ -44,13 +44,13 @@
                         attribute_color = "{color=#c0392b}"
                         priority.append(False)
                     item_title = item.replace("_"," ")
-                    attribute_string.append("\n " + attribute_color + attribute_number + " " + "{font=fonts/Multicolore.otf}" + item_title + "{/font}" 
+                    attribute_string.append("\n " + attribute_color + attribute_number + " " + "{font=fonts/Multicolore.otf}{size=25}" + item_title + "{/font}{/size}" 
                                             + "{/color}")
 
             for index,item in enumerate(char_stats):
                 if hasattr(self,item):
                     if getattr(self,item) > 0:
-                        attribute_number = "{size=+5}+{/size}"
+                        attribute_number = "{size=+10}+{/size}"
                         attribute_color = "{color=#27ae60}"
                         priority.append(True)
                     else:
@@ -60,7 +60,7 @@
                     if item == "stress":
                         attribute_number = "{size=+10}-{/size}"
                     item_title = item.replace("_"," ")
-                    attribute_string.append("\n " + attribute_color + attribute_number + " " + "{font=fonts/Multicolore.otf}" + item_title + "{/font}" 
+                    attribute_string.append("\n " + attribute_color + attribute_number + " " + "{font=fonts/Multicolore.otf}{size=25}" + item_title + "{/font}{/size}" 
                                             + "{/color}")
            
             return self.sortAttributes(attribute_string,priority)

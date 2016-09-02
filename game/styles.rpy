@@ -127,14 +127,23 @@ init -1:
     style float_date:
         # xalign 0.9
         # yalign 0.05
-        xalign 0.5
+        xalign 0.70
         yalign 0.5
         text_align 0.5
     style float_date_text:
         color "#000"
+        size 36
+        font 'fonts/FiraSans-Regular.ttf'
+    style float_day_text:
+        color "#000"
         size 42
         font 'fonts/FiraSans-Regular.ttf'
-      
+    style float_day:
+        # xalign 0.9
+        # yalign 0.05
+        xalign 0.10
+        yalign 0.5
+        text_align 0.5
     style float_anime:
         xalign 0.925
         yalign 0.085
@@ -150,7 +159,7 @@ init -1:
     style task_stats_tooltip:
         size 30
         color "#000"
-        font 'fonts/LiberationSans-Bold.ttf'
+        font 'fonts/Delius-Regular.ttf'
     style anime_status_window:
         background "ui/anime_status/anime_status_screen.png"
     style side_nav:
@@ -264,6 +273,14 @@ init -1:
         outlines [(1,"#000",0,0)]
         kerning 3
         font "fonts/LiberationSans-Bold.ttf"
+    style progress_title:
+        size 55
+        color "#000"
+        xalign 0.118
+        yalign 0.10
+    style progress_text:
+        size 25
+        color "#000"
 
 
 init python:

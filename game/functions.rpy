@@ -2,16 +2,23 @@
 
     def nextDay():
         global current_day
+        global current_date
         if current_day < 5:
             # if its not at the end of the week, cycle through days
             current_day += 1
         else:
             # revert back to monday
             current_day = 0
+        current_date += datetime.timedelta(days=1)
     def currentDay():
         global current_day
         return days_array[current_day]
 
+    def currentDate():
+        global current_date
+        #date = current_date.strftime('%m/%d')
+        date = '{d.month}/{d.day}'.format(d=current_date)
+        return date
 
     def AddTaskStats(person,stats):
         for i in range(0,len(person)):
