@@ -6,8 +6,38 @@
             self._stress = 2
             self._proficiency = 0
             self._happiness = 10
+            self.db_stats = ["stress","proficiency","happiness","management"]
+            self.db_displayed_stats = []
+            for i in range (0,len(self.db_stats)):
+                setattr(self,"prev_" + self.db_stats[i],0)
 
-            
+        def storePreviousWeekValues(self):
+            for i in range (0,len(self.db_stats)):
+                setattr(self,"prev_" + self.db_stats[i],getattr(self,self.db_stats[i]))
+            self.db_displayed_stats = []
+
+        def getStatChanges(self,stat):
+            current_stat = getattr(self,stat)
+            prev_stats = getattr(self,"prev_" + stat)
+            new_stats = current_stat - prev_stats
+            if (new_stats == current_stat):
+                return
+            positive = "{color=#27ae60}{font=fonts/Delius-Regular.ttf}{size=+15}+ {/size}{/font}"
+            negative = "{color=#c0392b}{font=fonts/Delius-Regular.ttf}{size=+15}- {/size}{/font}"
+            end_tag = "{/color}"
+            if (new_stats > 0 ):
+                #positive increase in stats
+                text = positive + stat + end_tag
+                self.db_displayed_stats.insert(0,text)
+            else:
+                #negative increase in stats
+                text = negative + stat + end_tag
+                self.db_displayed_stats.append(text)
+
+        def updateDashboard(self):
+            for i in range (0,len(self.db_stats)):
+                self.getStatChanges(self.db_stats[i])
+
         @property
 
         def stress(self):

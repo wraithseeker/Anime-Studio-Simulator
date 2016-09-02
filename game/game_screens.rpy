@@ -677,7 +677,7 @@ screen start_game:
     use side_nav
     #text str(task_ready)
     if task_ready:
-        timer 0.2 action [Return(),SetVariable("task_ready",False),renpy.curry(EndTasks)()]
+        timer 0.2 action [Return(),SetVariable("task_ready",False),renpy.curry(EndTasks)(),renpy.curry(EndTurn)()]
 
 screen anime_status_sidenav:
     tag menu
@@ -691,7 +691,7 @@ screen member_status_sidenav:
 
 screen progress_report:
     tag menu
-    use side_nav
+    #use side_nav
     default task_tt_description = Tooltip("Select some tasks for your team members to do.") 
     default task_tt_stats = Tooltip("")
     window:
@@ -702,17 +702,28 @@ screen progress_report:
         background None
         xysize(545,230)
         xalign 0.53
-        yalign 0.22 
+        yalign 0.232
         vbox:
-            spacing 30
             text "Anime" + " Updates" style "char_title_text"
-        vbox:
-            ypos 55
-            xpos 50
-            spacing -15
-            text "{color=#27ae60}{font=fonts/Delius-Regular.ttf}{size=+15}+{/size}{/font} Funds{/color}" style "progress_text"
-            text "{color=#c0392b}{font=fonts/Delius-Regular.ttf}{size=+15}-{/size}{/font} Marketing{/color}" style "progress_text"
-            text "{color=#c0392b}{font=fonts/Delius-Regular.ttf}{size=+15}-{/size}{/font} CHARA.DESIGN{/color}" style "progress_text"
+            ypos -5
+            xpos 75
+        hbox:
+            vbox:
+                xpos 25
+                ypos 40
+                spacing -15
+                for i in range (0,len(anime.db_positive)):
+                    text anime.db_positive[i] style "progress_text"
+            vbox:
+                xpos 55
+                ypos 40
+                spacing -15
+                for i in range (0,len(anime.db_negative)):
+                    text anime.db_negative[i] style "progress_text"
+
+            # text anime.getStatChanges("funds") style "progress_text"
+            # text "{color=#c0392b}{font=fonts/Delius-Regular.ttf}{size=+15}-{/size}{/font} Marketing{/color}" style "progress_text"
+            # text "{color=#c0392b}{font=fonts/Delius-Regular.ttf}{size=+15}-{/size}{/font} CHARA.DESIGN{/color}" style "progress_text"
     hbox:
         xalign 0.097
         yalign 0.232
@@ -720,67 +731,57 @@ screen progress_report:
         text "Yukari" style "char_title_text"
         #SetDict is used to modify arrays, SetField is to modify the field of an object's value
         vbox:
-            ypos 65
+            ypos 45
             xpos -130
-            spacing 10
-            for i in range(0,len(yukari_tasks)):
-                textbutton yukari_tasks[i].title:
-                    text_style "task_text" 
-                    style "task_button" 
+            spacing -15
+            for i in range (0,len(yukari_stats.db_displayed_stats)):
+                text yukari_stats.db_displayed_stats[i] style "progress_text"
 
     hbox:
         xalign 0.097
         yalign 0.55
         add "char_image/yuuko.png" 
-        text "Yuuko" style "char_title_text" xpos 15
+        text "Yuuko" style "char_title_text"
         vbox:
-            ypos 65
+            ypos 45
             xpos -130
-            spacing 10
-            for i in range(0,len(yuuko_tasks)):
-                textbutton yuuko_tasks[i].title:
-                    text_style "task_text" 
-                    style "task_button"   
+            spacing -15
+            for i in range (0,len(yuuko_stats.db_displayed_stats)):
+                text yuuko_stats.db_displayed_stats[i] style "progress_text" 
 
     hbox:
         xalign 0.097
         yalign 0.862
         add "char_image/mayumi.png" 
-        text "Mayumi" style "char_title_text" xpos 15
+        text "Mayumi" style "char_title_text" xpos 27
         vbox:
-            ypos 65
-            xpos -146
-            spacing 10
-            for i in range(0,len(mayumi_tasks)):
-                textbutton mayumi_tasks[i].title:
-                    text_style "task_text" 
-                    style "task_button"  
+            ypos 45
+            xpos -145
+            spacing -15
+            for i in range (0,len(mayumi_stats.db_displayed_stats)):
+                text mayumi_stats.db_displayed_stats[i] style "progress_text"
                        
 
     hbox:
-        xalign 0.526
+        xalign 0.545
         yalign 0.858
         add "char_image/shunsuke.png" 
         text "Shunsuke" style "char_title_text" xpos 15
         vbox:
-            ypos 65
-            xpos -205
-            spacing 10
-            for i in range(0,len(shunsuke_tasks)):
-               textbutton shunsuke_tasks[i].title:
-                    text_style "task_text" 
-                    style "task_button"  
+            ypos 45
+            xpos -195
+            spacing -15
+            for i in range (0,len(shunsuke_stats.db_displayed_stats)):
+                text shunsuke_stats.db_displayed_stats[i] style "progress_text"
     hbox:
-        xalign 0.565
+        xalign 0.52
         yalign 0.55
         add "char_image/sumiko.png" ypos -5 
         text "Sumiko" style "char_title_text" xpos 15
         vbox:
-            ypos 65
-            xpos -145
-            spacing 10
-            for i in range(0,len(sumiko_tasks)):
-               textbutton sumiko_tasks[i].title:
-                    text_style "task_text" 
-                    style "task_button"  
+            ypos 45
+            xpos -130
+            spacing -15
+            for i in range (0,len(sumiko_stats.db_displayed_stats)):
+                text sumiko_stats.db_displayed_stats[i] style "progress_text"
 

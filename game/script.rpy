@@ -25,6 +25,58 @@ label game_start:
     stop music
     play music "music/normal_happy_ost.ogg" fadein 1.0
     y "this is some text"
+    $anime.prev_marketing = 2
+    $anime.marketing = 2
+
+    $anime.prev_voice_acting = 6
+    $anime.voice_acting = 6
+    $anime.prev_funds = 10
+    $anime.funds = 10
+    $anime.prev_character_development = 1
+    $anime.character_development = 1
+    $anime.character_development += 2
+    $anime.character_design = 2
+    $anime.prev_character_design = 2
+    $anime.character_design -= 1
+    $anime.funds += 10
+    $anime.voice_acting += 4
+    $anime.marketing -= 0.5
+    $anime.updateDashboard()
+
+    $yukari_stats.management = 3
+    $yukari_stats.prev_management = 2
+    $yukari_stats.stress = 2
+    $yukari_stats.prev_stress = 3
+    $yukari_stats.proficiency = 3
+    $yukari_stats.prev_proficiency = 2
+
+    $yuuko_stats.stress = 2
+    $yuuko_stats.prev_stress = 3
+    $yuuko_stats.proficiency = 3
+    $yuuko_stats.prev_proficiency = 2
+
+    $sumiko_stats.stress = 2
+    $sumiko_stats.prev_stress = 3
+    $sumiko_stats.proficiency = 3
+    $sumiko_stats.prev_proficiency = 2
+
+    $shunsuke_stats.stress = 2
+    $shunsuke_stats.prev_stress = 3
+    $shunsuke_stats.proficiency = 3
+    $shunsuke_stats.prev_proficiency = 2
+
+    $mayumi_stats.stress = 2
+    $mayumi_stats.prev_stress = 3
+    $mayumi_stats.proficiency = 3
+    $mayumi_stats.prev_proficiency = 2
+
+
+    $yukari_stats.updateDashboard()
+    $mayumi_stats.updateDashboard()
+    $shunsuke_stats.updateDashboard()
+    $sumiko_stats.updateDashboard()
+    $yuuko_stats.updateDashboard()
+    y "previous value of marketing is [anime.prev_marketing]. Current value is [anime.marketing]"
     call screen progress_report
     "Welcome to the demo version of Anime Studio Simulator. For our music, we have a few pieces composed for our OST while the rest of them are royalty free placeholders. Some scenes do not have an OST yet."
     "The demo version covers the events of the game up till week 3 with a total of 12 weeks planned for the game's release."
@@ -483,6 +535,8 @@ label week_1_6:
     "When the weekend comes, Yukari finds some free time at last. She wonders if she should get more work done on [anime.name] or take it easy for now."
     menu:
         "Have some fun":
+            $anime.funds += 10
+            $anime.marketing -= 4
             pass
         "Work on [anime.name]":
             pass
@@ -490,6 +544,7 @@ label week_1_6:
     $current_week = 2
     play music "music/dashboard.mp3" fadein 1.0
     $renpy.retain_after_load()
+    call screen progress_report
     call screen start_game
     stop music
 

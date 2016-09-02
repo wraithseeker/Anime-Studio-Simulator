@@ -20,6 +20,10 @@
         date = '{d.month}/{d.day}'.format(d=current_date)
         return date
 
+    def EndTurn():
+        global anime
+        anime.storePreviousWeekValues()
+
     def AddTaskStats(person,stats):
         for i in range(0,len(person)):
             if person[i].selected:

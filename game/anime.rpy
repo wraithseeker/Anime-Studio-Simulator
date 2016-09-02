@@ -3,8 +3,16 @@
     class Anime(object):
         def __init__(self,name):
             self.name = name
-            #main
+            #main variables, prev = previous week
             self._funds = 0
+            #db progress variables
+            self.db_stats = ["plot","character_development","storyboard",
+                                    "character_design","background","animation",
+                                    "voice_acting","op_ed","ost","quality_check","marketing","funds"]
+            self.db_positive = []
+            self.db_negative = []
+            for i in range (0,len(self.db_stats)):
+                setattr(self,"prev_" + self.db_stats[i],0)
             # Story
             self._plot = 0
             self._character_development = 0
@@ -27,6 +35,41 @@
             #Misc
             self._quality_check = 0
             self._marketing = 0
+
+
+        def storePreviousWeekValues(self):
+            for i in range (0,len(self.db_stats)):
+                setattr(self,"prev_" + self.db_stats[i],getattr(self,self.db_stats[i]))
+            self.db_positive = []
+            self.db_negative = []
+
+        def getStatChanges(self,stat):
+            current_stat = getattr(self,stat)
+            prev_stats = getattr(self,"prev_" + stat)
+            new_stats = current_stat - prev_stats
+            if stat == "character_development":
+                displayed_stat = "character dev"
+            elif stat == "character_design":
+                displayed_stat = "char. design"
+            else:
+                displayed_stat = stat.replace("_"," ")
+            if (new_stats == current_stat):
+                return
+            positive = "{color=#27ae60}{font=fonts/Delius-Regular.ttf}{size=+15}+ {/size}{/font}"
+            negative = "{color=#c0392b}{font=fonts/Delius-Regular.ttf}{size=+15}- {/size}{/font}"
+            end_tag = "{/color}"
+            if (new_stats > 0 ):
+                #positive increase in stats
+                text = positive + displayed_stat + end_tag
+                self.db_positive.append(text)
+            else:
+                #negative increase in stats
+                text = negative + displayed_stat + end_tag
+                self.db_negative.append(text)
+
+        def updateDashboard(self):
+            for i in range (0,len(self.db_stats)):
+                self.getStatChanges(self.db_stats[i])
 
         #story
         @property
