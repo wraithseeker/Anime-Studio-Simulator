@@ -24,20 +24,23 @@
     $mayumi_stats.proficiency = renpy.random.randint(1,10)
     $shunsuke_stats.proficiency = renpy.random.randint(1,10)
     #15 stars is the max number of stars we have, * 100 to convert it to percentage
-    $anime_story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
-    $anime_art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
-    $anime_music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
+    $anime.story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
+    $anime.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
+    $anime.music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
     jump game_start
 
 init python:
     import datetime
+    GREEN_COLOR = "{color=#1E824C}"
+    RED_COLOR = "{color=#C0392B}"
+    MINUS_SIGN = "{font=fonts/Delius-Regular.ttf}{size=+15}- {/size}{/font}"
+    POSITIVE_SIGN = "{font=fonts/Delius-Regular.ttf}{size=+15}+ {/size}{/font}"
+    CLOSE_COLOR_TAG = "{/color}"
 
 init: 
     $_game_menu_screen = "navigation"
     $upgrade_proficiency_value = 0.5
     $upgrade_proficiency_cost = 2
-    $outsource_cost = 1
-    $outsource_value = 1
     python:
         #A list of allowed stats to be modified during the game
         anime_stats = ["plot","character_development","storyboard",
@@ -95,21 +98,11 @@ init:
     #outsource screen
 
     $outsource_tooltip = ""
-    $outsource_selection_count = 0
-    $outsource_plot_selected = False
-    $outsource_character_dev_selected = False
-    $outsource_storyboard_selected = False
-    $outsource_character_design_selected = False
-    $outsource_animation_selected = False
-    $outsource_background_selected = False
-    $outsource_op_ed_selected = False
-    $outsource_ost_selected = False
-    $outsource_voice_acting_selected = False
-    $outsource_marketing_selected = False
-    $outsource_quality_check_selected = False
-
+    $outsource = Outsource()
+    $outsource.selection_count = 0
+    $outsource.cost = 1
+    $outsource.value = 1
     #boolean to know whether they are selected
-    $somenumber = False
     $yukari_task_selected = False
     $yuuko_task_selected = False
     $sumiko_task_selected = False

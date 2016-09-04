@@ -22,7 +22,19 @@
 
     def EndTurn():
         global anime
+        global outsource
         anime.storePreviousWeekValues()
+        StorePreviousWeekValuesForStats()
+        EndTasks()
+        outsource.reset()
+
+    def StorePreviousWeekValuesForStats():
+        yukari_stats.storePreviousWeekValues()
+        yuuko_stats.storePreviousWeekValues()
+        mayumi_stats.storePreviousWeekValues()
+        sumiko_stats.storePreviousWeekValues()
+        shunsuke_stats.storePreviousWeekValues()
+
 
     def AddTaskStats(person,stats):
         for i in range(0,len(person)):
@@ -63,7 +75,13 @@
         for i in range(0,len(item)):
             item[i].selected = False
 
-
+    def UpdateProgressReport():
+        anime.updateDashboard()
+        yukari_stats.updateDashboard()
+        mayumi_stats.updateDashboard()
+        shunsuke_stats.updateDashboard()
+        sumiko_stats.updateDashboard()
+        yuuko_stats.updateDashboard()
        
 
     def UpgradeCharacters(yukari,mayumi,shunsuke,sumiko,yuuko):
@@ -99,53 +117,31 @@
             upgrade_tooltip_color = "#c0392b"
             ui.timer(2.0,SetVariable("upgrade_tooltip",""))
             renpy.restart_interaction()
-    def OutsourceAnime(anime):
+    def OutsourceAnime():
         global outsource_tooltip
         global upgrade_tooltip_color
-        global outsource_selection_count
-        global anime_story_progress
-        global anime_art_progress
-        global anime_music_progress
-        
-        if anime.funds >= outsource_cost * outsource_selection_count:
-            if outsource_plot_selected:
-                setattr(anime,"plot",getattr(anime,"plot") + outsource_value)
-            if outsource_character_dev_selected:
-                setattr(anime,"character_development",getattr(anime,"character_development") + outsource_value)
-            if outsource_storyboard_selected:
-                setattr(anime,"storyboard",getattr(anime,"storyboard") + outsource_value)
-            if outsource_character_design_selected:
-                setattr(anime,"character_design",getattr(anime,"character_design") + outsource_value)
-            if outsource_animation_selected:
-                setattr(anime,"animation",getattr(anime,"animation") + outsource_value)
-            if outsource_background_selected:
-                setattr(anime,"background",getattr(anime,"background") + outsource_value)
-            if outsource_op_ed_selected:
-                setattr(anime,"op_ed",getattr(anime,"op_ed") + outsource_value)
-            if outsource_ost_selected:
-                setattr(anime,"ost",getattr(anime,"ost") + outsource_value)
-            if outsource_voice_acting_selected:
-                setattr(anime,"voice_acting",getattr(anime,"voice_acting") + outsource_value)
-            if outsource_marketing_selected:
-                setattr(anime,"marketing",getattr(anime,"marketing") + outsource_value)
-            if outsource_quality_check_selected:
-                setattr(anime,"quality_check",getattr(anime,"quality_check") + outsource_value)
-
-
-            if (outsource_plot_selected or outsource_character_dev_selected or outsource_storyboard_selected
-            or outsource_character_design_selected or outsource_animation_selected or outsource_background_selected
-            or outsource_op_ed_selected or outsource_ost_selected or outsource_voice_acting_selected
-            or outsource_marketing_selected or outsource_quality_check_selected):
+        global outsource
+        global anime
+        if anime.funds >= outsource.cost * outsource.selection_count:
+            outsource_success = outsource.start()
+            if outsource_success:
                 outsource_tooltip = "Success!"
                 upgrade_tooltip_color = "#2ecc71"
-                anime.funds -= outsource_cost * outsource_selection_count
+                anime.funds -= outsource.cost * outsource.selection_count
+                outsource.selection_count = 0
                 ui.timer(2.0,SetVariable("outsource_tooltip",""))
-                anime_story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
-                anime_art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
-                anime_music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
-                renpy.restart_interaction()
+                anime.story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
+                anime.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
+                anime.music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
+                renpy.restart_interaction()      
         else:
             outsource_tooltip = "Not enough funds!"
             upgrade_tooltip_color = "#c0392b"
             ui.timer(2.0,SetVariable("outsource_tooltip",""))
             renpy.restart_interaction()
+       
+    #enum support
+    class enum(object):
+        def __init__(self,*sequential, **named):
+            enums = dict(zip(sequential, range(len(sequential))), **named)
+            return type('Enum', (), enums)

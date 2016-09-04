@@ -2,7 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/game_screens.rpy", line 737: is not terminated with a newline. (Check strings and parenthesis.)
-                for i in range (0,len(yukari_stats.db_shown_stats):
+File "game/game_screens.rpy", line 901: u'background' is not a keyword argument or valid child for the hbox statement.
+    background "#000"
+              ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

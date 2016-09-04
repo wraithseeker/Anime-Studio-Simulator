@@ -22,16 +22,22 @@
             new_stats = current_stat - prev_stats
             if (new_stats == current_stat):
                 return
-            positive = "{color=#27ae60}{font=fonts/Delius-Regular.ttf}{size=+15}+ {/size}{/font}"
-            negative = "{color=#c0392b}{font=fonts/Delius-Regular.ttf}{size=+15}- {/size}{/font}"
+            positive = GREEN_COLOR + POSITIVE_SIGN
+            negative = RED_COLOR + MINUS_SIGN
             end_tag = "{/color}"
             if (new_stats > 0 ):
-                #positive increase in stats
-                text = positive + stat + end_tag
+                #increase in stats
+                if stat == "stress":
+                    text = RED_COLOR + POSITIVE_SIGN + stat + " increased" + end_tag
+                else:
+                    text = positive + stat + end_tag
                 self.db_displayed_stats.insert(0,text)
             else:
-                #negative increase in stats
-                text = negative + stat + end_tag
+                #decrease in stats
+                if stat == "stress":
+                    text = GREEN_COLOR + MINUS_SIGN + stat + " decreased" + end_tag
+                else:
+                    text = negative + stat + end_tag
                 self.db_displayed_stats.append(text)
 
         def updateDashboard(self):

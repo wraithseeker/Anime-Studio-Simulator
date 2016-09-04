@@ -269,13 +269,14 @@ screen anime_status():
             #add "ui/anime_status/diamond_full.png" ypos -125 xpos 340
         
 
-    bar value StaticValue(anime_story_progress,100):
+    bar value StaticValue(anime.story_progress,100):
         ymaximum 23
         xmaximum 407
         left_bar Frame("ui/anime_status/blue_bar_full.png")
         right_bar Frame("ui/anime_status/status_bar_empty.png")
         thumb_shadow None
         thumb None
+        thumb_offset 0
         xalign 0.2 yalign 0.205
 
     #art
@@ -300,13 +301,14 @@ screen anime_status():
                 for e in range(0,empty_stars):
                     add "ui/anime_status/star_empty.png"
 
-    bar value StaticValue(anime_art_progress,100):
+    bar value StaticValue(anime.art_progress,100):
         ymaximum 23
         xmaximum 407
         left_bar Frame("ui/anime_status/orange_bar_full.png")
         right_bar Frame("ui/anime_status/status_bar_empty.png")
         thumb_shadow None
         thumb None
+        thumb_offset 0
         xalign 0.2 yalign 0.459
 
     #music
@@ -330,13 +332,14 @@ screen anime_status():
                     add "ui/anime_status/star_half.png"
                 for e in range(0,empty_stars):
                     add "ui/anime_status/star_empty.png"
-    bar value StaticValue(anime_music_progress,100):
+    bar value StaticValue(anime.music_progress,100):
         ymaximum 23
         xmaximum 407
         left_bar Frame("ui/anime_status/brown_bar_full.png")
         right_bar Frame("ui/anime_status/status_bar_empty.png")
         thumb_shadow None
         thumb None
+        thumb_offset 0
         xalign 0.2 yalign 0.715
 
 
@@ -503,6 +506,7 @@ screen outsource():
 
     default outsource_tt = Tooltip("")
     imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return() 
+    text str(outsource.selection_count) size 30
     frame:
         background None
         text "Produce 1" color "#000" xalign 0.5 yalign 0.10 size 55
@@ -511,136 +515,182 @@ screen outsource():
             spacing 25
             xalign 0.25
             yalign 0.25
-            if outsource_plot_selected:
+            if outsource.plot == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/plot_hover.png"
-                    action [SetVariable("outsource_plot_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
+                    action [SetField(outsource,"plot",Outsource.NOT_SELECTED),SetField(outsource,"selection_count",outsource.selection_count - 1)]
                     style "outsource_buttons" 
-            else:
+            elif outsource.plot == Outsource.NOT_SELECTED:
                 imagebutton:
                     idle "ui/outsource/plot_idle.png"
-                    action [SetVariable("outsource_plot_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
+                    action [SetField(outsource,"plot",Outsource.SELECTED),SetField(outsource,"selection_count",outsource.selection_count + 1)]
+                    style "outsource_buttons"
+            else:
+                #disabled
+                imagebutton:
+                    idle "ui/outsource/plot_transparent.png"
                     style "outsource_buttons" 
 
-            if outsource_character_dev_selected:
+            if outsource.character_development == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/character_dev_hover.png"
-                    action [SetVariable("outsource_character_dev_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
+                    action [SetField(outsource,"character_development",Outsource.NOT_SELECTED),SetField(outsource,"selection_count",outsource.selection_count - 1)]
                     style "outsource_buttons" 
-            else:
+            elif outsource.character_development == Outsource.NOT_SELECTED:
                 imagebutton:
-                    idle "ui/outsource/character_dev.png"
-                    action [SetVariable("outsource_character_dev_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
-                    style "outsource_buttons" 
-            if outsource_storyboard_selected:
+                    idle "ui/outsource/character_dev_idle.png"
+                    action [SetField(outsource,"character_development",Outsource.SELECTED),SetField(outsource,"selection_count",outsource.selection_count + 1)]
+                    style "outsource_buttons"
+            else:
+                #disabled
+                imagebutton:
+                    idle "ui/outsource/character_dev_transparent.png"
+                    style "outsource_buttons"  
+            if outsource.storyboard == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/storyboard_hover.png"
-                    action [SetVariable("outsource_storyboard_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
+                    action [SetField(outsource,"storyboard",Outsource.NOT_SELECTED),SetField(outsource,"selection_count",outsource.selection_count - 1)]
                     style "outsource_buttons" 
+            elif outsource.storyboard == Outsource.NOT_SELECTED:
+                imagebutton:
+                    idle "ui/outsource/storyboard_idle.png"
+                    action [SetField(outsource,"storyboard",Outsource.SELECTED),SetField(outsource,"selection_count",outsource.selection_count + 1)]
+                    style "outsource_buttons"
             else:
                 imagebutton:
-                    idle "ui/outsource/storyboard.png"
-                    action [SetVariable("outsource_storyboard_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
-                    style "outsource_buttons" 
+                    idle "ui/outsource/storyboard_transparent.png"
+                    style "outsource_buttons"  
         hbox:
             spacing 25
             xalign 0.25
             yalign 0.40
-            if outsource_character_design_selected:
+            if outsource.character_design == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/character_design_hover.png"
-                    action [SetVariable("outsource_character_design_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
+                    action [SetField(outsource,"character_design",Outsource.NOT_SELECTED),SetField(outsource,"selection_count",outsource.selection_count - 1)]
                     style "outsource_buttons" 
+            elif outsource.character_design == Outsource.NOT_SELECTED:
+                imagebutton:
+                    idle "ui/outsource/character_design_idle.png"
+                    action [SetField(outsource,"character_design",Outsource.SELECTED),SetField(outsource,"selection_count",outsource.selection_count + 1)]
+                    style "outsource_buttons"
             else:
                 imagebutton:
-                    idle "ui/outsource/character_design.png"
-                    action [SetVariable("outsource_character_design_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
+                    idle "ui/outsource/character_design_transparent.png"
                     style "outsource_buttons" 
-            if outsource_animation_selected:
+            if outsource.animation == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/animation_hover.png"
-                    action [SetVariable("outsource_animation_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
+                    action [SetField(outsource,"animation",Outsource.NOT_SELECTED),SetField(outsource,"selection_count",outsource.selection_count - 1)]
                     style "outsource_buttons" 
+            elif outsource.animation == Outsource.NOT_SELECTED:
+                imagebutton:
+                    idle "ui/outsource/animation_idle.png"
+                    action [SetField(outsource,"animation",Outsource.SELECTED),SetField(outsource,"selection_count",outsource.selection_count + 1)]
+                    style "outsource_buttons"
             else:
                 imagebutton:
-                    idle "ui/outsource/animation.png"
-                    action [SetVariable("outsource_animation_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
+                    idle "ui/outsource/animation_transparent.png"
                     style "outsource_buttons" 
-            if outsource_background_selected:
+            if outsource.background == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/background_hover.png"
-                    action [SetVariable("outsource_background_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
+                    action [SetField(outsource,"background",Outsource.NOT_SELECTED),SetField(outsource,"selection_count",outsource.selection_count - 1)]
                     style "outsource_buttons" 
+            elif outsource.background == Outsource.NOT_SELECTED:
+                imagebutton:
+                    idle "ui/outsource/background_idle.png"
+                    action [SetField(outsource,"background",Outsource.SELECTED),SetField(outsource,"selection_count",outsource.selection_count + 1)]
+                    style "outsource_buttons"
             else:
                 imagebutton:
-                    idle "ui/outsource/background.png"
-                    action [SetVariable("outsource_background_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
-                    style "outsource_buttons" 
+                    idle "ui/outsource/background_transparent.png"
+                    style "outsource_buttons"  
         hbox:
             spacing 25
             xalign 0.25
             yalign 0.55
-            if outsource_op_ed_selected:
+            if outsource.op_ed == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/op_ed_hover.png"
-                    action [SetVariable("outsource_op_ed_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
+                    action [SetField(outsource,"op_ed",Outsource.NOT_SELECTED),SetField(outsource,"selection_count",outsource.selection_count - 1)]
                     style "outsource_buttons" 
+            elif outsource.op_ed == Outsource.NOT_SELECTED:
+                imagebutton:
+                    idle "ui/outsource/op_ed_idle.png"
+                    action [SetField(outsource,"op_ed",Outsource.SELECTED),SetField(outsource,"selection_count",outsource.selection_count + 1)]
+                    style "outsource_buttons"
             else:
                 imagebutton:
-                    idle "ui/outsource/op_ed.png"
-                    action [SetVariable("outsource_op_ed_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
+                    idle "ui/outsource/op_ed_transparent.png"
                     style "outsource_buttons" 
-            if outsource_ost_selected:
+            if outsource.ost == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/ost_hover.png"
-                    action [SetVariable("outsource_ost_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
+                    action [SetField(outsource,"ost",Outsource.NOT_SELECTED),SetField(outsource,"selection_count",outsource.selection_count - 1)]
                     style "outsource_buttons" 
+            elif outsource.ost == Outsource.NOT_SELECTED:
+                imagebutton:
+                    idle "ui/outsource/ost_idle.png"
+                    action [SetField(outsource,"ost",Outsource.SELECTED),SetField(outsource,"selection_count",outsource.selection_count + 1)]
+                    style "outsource_buttons"
             else:
                 imagebutton:
-                    idle "ui/outsource/ost.png"
-                    action [SetVariable("outsource_ost_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
+                    idle "ui/outsource/ost_transparent.png"
                     style "outsource_buttons" 
-            if outsource_voice_acting_selected:
+            if outsource.voice_acting == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/voice_acting_hover.png"
-                    action [SetVariable("outsource_voice_acting_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
+                    action [SetField(outsource,"voice_acting",Outsource.NOT_SELECTED),SetField(outsource,"selection_count",outsource.selection_count - 1)]
                     style "outsource_buttons" 
+            elif outsource.voice_acting == Outsource.NOT_SELECTED:
+                imagebutton:
+                    idle "ui/outsource/voice_acting_idle.png"
+                    action [SetField(outsource,"voice_acting",Outsource.SELECTED),SetField(outsource,"selection_count",outsource.selection_count + 1)]
+                    style "outsource_buttons"
             else:
                 imagebutton:
-                    idle "ui/outsource/voice_acting.png"
-                    action [SetVariable("outsource_voice_acting_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
-                    style "outsource_buttons" 
+                    idle "ui/outsource/voice_acting_transparent.png"
+                    style "outsource_buttons"  
         hbox:
             spacing 25
             xalign 0.30
             yalign 0.70
-            if outsource_marketing_selected:
+            if outsource.marketing == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/marketing_hover.png"
-                    action [SetVariable("outsource_marketing_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
+                    action [SetField(outsource,"marketing",Outsource.NOT_SELECTED),SetField(outsource,"selection_count",outsource.selection_count - 1)]
                     style "outsource_buttons" 
+            elif outsource.marketing == Outsource.NOT_SELECTED:
+                imagebutton:
+                    idle "ui/outsource/marketing_idle.png"
+                    action [SetField(outsource,"marketing",Outsource.SELECTED),SetField(outsource,"selection_count",outsource.selection_count + 1)]
+                    style "outsource_buttons"
             else:
                 imagebutton:
-                    idle "ui/outsource/marketing.png"
-                    action [SetVariable("outsource_marketing_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
+                    idle "ui/outsource/marketing_transparent.png"
                     style "outsource_buttons" 
-            if outsource_quality_check_selected:
+            if outsource.quality_check == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/quality_check_hover.png"
-                    action [SetVariable("outsource_quality_check_selected",False),SetVariable("outsource_selection_count",outsource_selection_count - 1)]
+                    action [SetField(outsource,"quality_check",Outsource.NOT_SELECTED),SetField(outsource,"selection_count",outsource.selection_count - 1)]
                     style "outsource_buttons" 
+            elif outsource.quality_check == Outsource.NOT_SELECTED:
+                imagebutton:
+                    idle "ui/outsource/quality_check_idle.png"
+                    action [SetField(outsource,"quality_check",Outsource.SELECTED),SetField(outsource,"selection_count",outsource.selection_count + 1)]
+                    style "outsource_buttons"
             else:
                 imagebutton:
-                    idle "ui/outsource/quality_check.png"
-                    action [SetVariable("outsource_quality_check_selected",True),SetVariable("outsource_selection_count",outsource_selection_count + 1)]
-                    style "outsource_buttons" 
+                    idle "ui/outsource/quality_check_transparent.png"
+                    style "outsource_buttons"  
   
         add "ui/big_moneybag.png" xalign 0.35 yalign 0.86
-        text str(outsource_selection_count * outsource_cost) color "#000" size 65 xalign 0.405 yalign 0.86
+        text str(outsource.selection_count * outsource.cost) color "#000" size 65 xalign 0.405 yalign 0.86
         imagebutton:
             auto "ui/outsource/done_%s.png" 
             style "outsource_buttons_outsource" 
-            action [renpy.curry(OutsourceAnime)(anime)]
+            action [renpy.curry(OutsourceAnime)()]
         showif outsource_tooltip != "":
             text outsource_tooltip color upgrade_tooltip_color size 40 xalign 0.37 yalign 0.78 at grow_success_text
 
@@ -666,7 +716,7 @@ screen side_nav():
                 textbutton ("Tasks")  action If(side_nav_interaction,ShowMenu("task"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 textbutton ("Outsource")  action If(side_nav_interaction,ShowMenu("outsource"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 textbutton ("Upgrades")  action If(side_nav_interaction,ShowMenu("upgrade"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
-                textbutton ("Options")  action If (side_nav_interaction,ShowMenu("preferences")) text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
+                textbutton ("Progress")  action If (side_nav_interaction,ShowMenu("progress_report")) text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 # textbutton ("Monday")  action ShowMenu("load")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                
         vbox:
@@ -677,7 +727,7 @@ screen start_game:
     use side_nav
     #text str(task_ready)
     if task_ready:
-        timer 0.2 action [Return(),SetVariable("task_ready",False),renpy.curry(EndTasks)(),renpy.curry(EndTurn)()]
+        timer 0.2 action [Return(),SetVariable("task_ready",False),renpy.curry(EndTurn)()]
 
 screen anime_status_sidenav:
     tag menu
@@ -691,35 +741,85 @@ screen member_status_sidenav:
 
 screen progress_report:
     tag menu
-    #use side_nav
+    use side_nav
     default task_tt_description = Tooltip("Select some tasks for your team members to do.") 
     default task_tt_stats = Tooltip("")
     window:
         background "ui/progress_report.png"
     imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return()
     text "Week " + str(current_week) + " Progress Report" style "progress_title"
+    if anime.checkCategory("story") == Anime.CATEGORY_POSITIVE:
+        text GREEN_COLOR + POSITIVE_SIGN color "#000" yalign 0.285 xalign 0.09 size 25
+    elif anime.checkCategory("story") == Anime.CATEGORY_NEGATIVE:
+        text RED_COLOR + MINUS_SIGN color "#000" yalign 0.285 xalign 0.09 size 25
     frame:
         background None
         xysize(545,230)
         xalign 0.53
         yalign 0.232
+
+        if anime.checkCategory("story") == Anime.CATEGORY_POSITIVE:
+            text GREEN_COLOR + POSITIVE_SIGN color "#000" yalign 0.25 xalign 0.02 size 25
+            text "Story" color "#1E824C" yalign 0.325 xalign 0.09 size 25
+        elif anime.checkCategory("story") == Anime.CATEGORY_NEGATIVE:
+            text RED_COLOR + MINUS_SIGN color "#000" yalign 0.25 xalign 0.02 size 25
+            text "Story" color "#C0392B" yalign 0.325 xalign 0.09 size 25
+        else:
+            text "Story" color "#C0392B" yalign 0.325 xalign 0.09 size 25
+
+        if anime.checkCategory("art") == Anime.CATEGORY_POSITIVE:
+            text GREEN_COLOR + POSITIVE_SIGN color "#000" yalign 0.460 xalign 0.02 size 25
+            text "Art" color "#1E824C" yalign 0.5 xalign 0.085 size 25
+        elif anime.checkCategory("art") == Anime.CATEGORY_NEGATIVE:
+            text RED_COLOR + MINUS_SIGN color "#000" yalign 0.460 xalign 0.02 size 25
+            text "Art" color "#C0392B" yalign 0.5 xalign 0.085 size 25
+        else:
+            text "Art" color "#000" yalign 0.5 xalign 0.085 size 25
+
+        if anime.checkCategory("music") == Anime.CATEGORY_POSITIVE:
+            text GREEN_COLOR + POSITIVE_SIGN color "#000" yalign 0.67 xalign 0.02 size 25
+            text "Music" color "#1E824C" yalign 0.675 xalign 0.09 size 25
+        elif anime.checkCategory("music") == Anime.CATEGORY_NEGATIVE:
+            text RED_COLOR + MINUS_SIGN color "#000" yalign 0.67 xalign 0.02 size 25
+            text "Music" color "#C0392B" yalign 0.675 xalign 0.09 size 25
+        else:
+            text "Music" color "#000" yalign 0.675 xalign 0.09 size 25
+
+
+
+        textbutton "More Details" xalign 0.5 yalign 0.95 background None text_style "progress_details" action ShowMenu("anime_report")
         vbox:
-            text "Anime" + " Updates" style "char_title_text"
-            ypos -5
-            xpos 75
-        hbox:
+            text "Anime Progress" style "char_title_text"
+            ypos -7
+            xpos 15
             vbox:
-                xpos 25
-                ypos 40
-                spacing -15
-                for i in range (0,len(anime.db_positive)):
-                    text anime.db_positive[i] style "progress_text"
-            vbox:
-                xpos 55
-                ypos 40
-                spacing -15
-                for i in range (0,len(anime.db_negative)):
-                    text anime.db_negative[i] style "progress_text"
+                spacing 12
+                ypos 27
+                xpos 145
+                bar value StaticValue(anime.story_progress,100):
+                    ymaximum 23
+                    xmaximum 300
+                    left_bar Frame("ui/anime_status/blue_bar_full.png")
+                    right_bar Frame("ui/anime_status/status_bar_empty.png")
+                    thumb_shadow None
+                    thumb_offset 0
+                    thumb None
+                bar value StaticValue(anime.art_progress,100):
+                    ymaximum 23
+                    xmaximum 300
+                    thumb_offset 0
+                    left_bar Frame("ui/anime_status/orange_bar_full.png")
+                    right_bar Frame("ui/anime_status/status_bar_empty.png")
+                    thumb_shadow None
+                    thumb None
+                bar value StaticValue(anime.music_progress,100):
+                    ymaximum 23
+                    xmaximum 300
+                    thumb_offset 0
+                    left_bar Frame("ui/anime_status/brown_bar_full.png")
+                    right_bar Frame("ui/anime_status/status_bar_empty.png")
+                    thumb_shadow None
+                    thumb None
 
             # text anime.getStatChanges("funds") style "progress_text"
             # text "{color=#c0392b}{font=fonts/Delius-Regular.ttf}{size=+15}-{/size}{/font} Marketing{/color}" style "progress_text"
@@ -750,7 +850,7 @@ screen progress_report:
                 text yuuko_stats.db_displayed_stats[i] style "progress_text" 
 
     hbox:
-        xalign 0.097
+        xalign 0.10
         yalign 0.862
         add "char_image/mayumi.png" 
         text "Mayumi" style "char_title_text" xpos 27
@@ -760,10 +860,9 @@ screen progress_report:
             spacing -15
             for i in range (0,len(mayumi_stats.db_displayed_stats)):
                 text mayumi_stats.db_displayed_stats[i] style "progress_text"
-                       
 
     hbox:
-        xalign 0.545
+        xalign 0.585
         yalign 0.858
         add "char_image/shunsuke.png" 
         text "Shunsuke" style "char_title_text" xpos 15
@@ -774,7 +873,7 @@ screen progress_report:
             for i in range (0,len(shunsuke_stats.db_displayed_stats)):
                 text shunsuke_stats.db_displayed_stats[i] style "progress_text"
     hbox:
-        xalign 0.52
+        xalign 0.550
         yalign 0.55
         add "char_image/sumiko.png" ypos -5 
         text "Sumiko" style "char_title_text" xpos 15
@@ -784,4 +883,39 @@ screen progress_report:
             spacing -15
             for i in range (0,len(sumiko_stats.db_displayed_stats)):
                 text sumiko_stats.db_displayed_stats[i] style "progress_text"
+
+screen anime_report:
+    tag menu
+    frame:
+        xysize(900,600)
+        xalign 0.5
+        yalign 0.35
+        xpadding 25
+        ypadding 72
+        background Frame("ui/blank_screen_large.png")
+        text "Anime Progress Report" size 50 color "#000" xpos 55
+    frame:
+        xalign 0.43
+        yalign 0.44
+        xysize (260,370)
+        background None
+        vbox:
+            spacing -15
+            for i in range (0,len(anime.db_positive)):
+                text anime.db_positive[i] style "progress_text"
+            # for i in range (0,2):
+            #     text RED_COLOR + MINUS_SIGN + "Marketing" style "progress_text"
+    frame:
+        xalign 0.61
+        yalign 0.44
+        background None
+        xysize (260,370)
+        vbox:
+            spacing -15
+            for i in range (0,len(anime.db_negative)):
+                text anime.db_negative[i] style "progress_text"
+            # for i in range (0,5):
+            #     text GREEN_COLOR + MINUS_SIGN + "VOICE ACTING" style "progress_text"
+
+    imagebutton auto "ui/load/close_button_%s.png" xalign 0.69 yalign 0.22 action ShowMenu("progress_report")
 

@@ -281,6 +281,15 @@ init -1:
     style progress_text:
         size 25
         color "#000"
+    style progress_details:
+        size 25
+        color "#000" 
+        hover_color "#27ae60"
+    style progress_anime_text:
+        color "#000" 
+        yalign 0.25
+        xalign 0.02 
+        size 25
 
 
 init python:

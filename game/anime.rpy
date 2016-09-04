@@ -1,6 +1,11 @@
 ﻿init -100 python:
     #TO DO add hard limit for anime , tasks , stats so they can't go out of max limit
     class Anime(object):
+        #enums 
+        CATEGORY_NONE = 0
+        CATEGORY_POSITIVE = 1
+        CATEGORY_NEGATIVE = 2
+
         def __init__(self,name):
             self.name = name
             #main variables, prev = previous week
@@ -55,8 +60,8 @@
                 displayed_stat = stat.replace("_"," ")
             if (new_stats == current_stat):
                 return
-            positive = "{color=#27ae60}{font=fonts/Delius-Regular.ttf}{size=+15}+ {/size}{/font}"
-            negative = "{color=#c0392b}{font=fonts/Delius-Regular.ttf}{size=+15}- {/size}{/font}"
+            positive = GREEN_COLOR + POSITIVE_SIGN
+            negative = RED_COLOR + MINUS_SIGN
             end_tag = "{/color}"
             if (new_stats > 0 ):
                 #positive increase in stats
@@ -71,6 +76,36 @@
             for i in range (0,len(self.db_stats)):
                 self.getStatChanges(self.db_stats[i])
 
+        def checkCategory(self,category):
+            #0 = none, 1 = positive, 2 = negative
+            if category == "story":
+                prev_progress = self.prev_plot + self.prev_character_development + self.prev_storyboard
+                new_progress = self.plot + self.character_development + self.storyboard
+                if (new_progress == prev_progress ):
+                    return 0
+                elif (new_progress - prev_progress > 0):
+                    return 1
+                elif (new_progress - prev_progress < 0):
+                    return 2
+            elif category == "art":
+                prev_progress = self.prev_character_design + self.prev_background + self.prev_animation
+                new_progress = self.character_design + self.background + self.animation
+                if (new_progress == prev_progress ):
+                    return 0
+                elif (new_progress - prev_progress > 0):
+                    return 1
+                elif (new_progress - prev_progress < 0):
+                    return 2
+            else:
+                #music
+                prev_progress = self.prev_voice_acting + self.prev_op_ed + self.prev_ost
+                new_progress = self.voice_acting + self.op_ed + self.ost
+                if (new_progress == prev_progress ):
+                    return 0
+                elif (new_progress - prev_progress > 0):
+                    return 1
+                elif (new_progress - prev_progress < 0):
+                    return 2
         #story
         @property
 
