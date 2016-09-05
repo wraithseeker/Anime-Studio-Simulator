@@ -27,6 +27,18 @@
         StorePreviousWeekValuesForStats()
         EndTasks()
         outsource.reset()
+        ResetUpgrades()
+    def ResetUpgrades():
+        global yukari_upgrade
+        global mayumi_upgrade
+        global shunsuke_upgrade
+        global sumiko_upgrade
+        global yuuko_upgrade
+        yukari_upgrade = Outsource.NOT_SELECTED
+        mayumi_upgrade = Outsource.NOT_SELECTED
+        shunsuke_upgrade = Outsource.NOT_SELECTED
+        sumiko_upgrade = Outsource.NOT_SELECTED
+        yuuko_upgrade = Outsource.NOT_SELECTED
 
     def StorePreviousWeekValuesForStats():
         yukari_stats.storePreviousWeekValues()
@@ -88,28 +100,45 @@
         global upgrade_tooltip
         global upgrade_tooltip_color
         global upgrade_selection_count
+        global yukari_upgrade
+        global mayumi_upgrade
+        global shunsuke_upgrade
+        global sumiko_upgrade
+        global yuuko_upgrade
         if anime.funds >= upgrade_proficiency_cost * upgrade_selection_count:
             message = "Proficiency successfully increased for"
-            if yukari_upgrade_selected:
+            upgrade_success = False
+            if yukari_upgrade == Outsource.SELECTED:
                 setattr(yukari,"proficiency",getattr(yukari,"proficiency") + upgrade_proficiency_value)
                 message = message + " \nYukari"
-            if mayumi_upgrade_selected:
+                upgrade_success = True
+                yukari_upgrade = Outsource.DISABLED
+            if mayumi_upgrade == Outsource.SELECTED:
                 setattr(mayumi,"proficiency",getattr(mayumi,"proficiency") + upgrade_proficiency_value)
                 message = message + " \nMayumi"
-            if shunsuke_upgrade_selected:
+                upgrade_success = True
+                mayumi_upgrade = Outsource.DISABLED
+            if shunsuke_upgrade == Outsource.SELECTED:
                 setattr(shunsuke,"proficiency",getattr(shunsuke,"proficiency") + upgrade_proficiency_value)
                 message = message + " \nShunsuke"
-            if sumiko_upgrade_selected:
+                upgrade_success = True
+                shunsuke_upgrade = Outsource.DISABLED
+            if sumiko_upgrade == Outsource.SELECTED:
                 setattr(sumiko,"proficiency",getattr(sumiko,"proficiency") + upgrade_proficiency_value)
                 message = message + " \nSumiko"
-            if yuuko_upgrade_selected:
+                upgrade_success = True
+                sumiko_upgrade = Outsource.DISABLED
+            if yuuko_upgrade == Outsource.SELECTED:
                 setattr(yuuko,"proficiency",getattr(yuuko,"proficiency") + upgrade_proficiency_value)
                 message = message + " \nYuuko"
+                upgrade_success = True
+                yuuko_upgrade = Outsource.DISABLED
 
-            if yukari_upgrade_selected or mayumi_upgrade_selected or shunsuke_upgrade_selected or sumiko_upgrade_selected or yuuko_upgrade_selected:
+            if upgrade_success:
                 upgrade_tooltip = "Success!"
                 upgrade_tooltip_color = "#2ecc71"
                 anime.funds -= upgrade_proficiency_cost * upgrade_selection_count
+                upgrade_selection_count = 0
                 ui.timer(2.0,SetVariable("upgrade_tooltip",""))
                 renpy.restart_interaction()
         else:
@@ -139,9 +168,3 @@
             upgrade_tooltip_color = "#c0392b"
             ui.timer(2.0,SetVariable("outsource_tooltip",""))
             renpy.restart_interaction()
-       
-    #enum support
-    class enum(object):
-        def __init__(self,*sequential, **named):
-            enums = dict(zip(sequential, range(len(sequential))), **named)
-            return type('Enum', (), enums)

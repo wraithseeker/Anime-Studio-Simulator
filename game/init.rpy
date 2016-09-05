@@ -3,14 +3,14 @@
     $anime = Anime("Macross Delta")
     $anime.funds = 20
     $anime.plot = 2.5
-    $anime.storyboard = 3
-    $anime.character_development = 0.5
-    $anime.character_design = 1.5
-    $anime.background = 2.5
-    $anime.animation = 3.5
-    $anime.ost = 2
-    $anime.op_ed = 1
-    $anime.voice_acting = 0.5
+    # $anime.storyboard = 3
+    # $anime.character_development = 0.5
+    # $anime.character_design = 1.5
+    # $anime.background = 2.5
+    # $anime.animation = 3.5
+    # $anime.ost = 2
+    # $anime.op_ed = 1
+    # $anime.voice_acting = 0.5
     #stats for characters
     $yukari_stats = Stats("Yukari")
     $mayumi_stats = Stats("Mayumi")
@@ -49,7 +49,7 @@ init:
                         "quality_check","marketing","funds"]
         char_stats = ["stress","proficiency","happiness","management"]
 
-        yukari_tasks = [Tasks("Raise Funds","Raise some money for [anime.name].",funds=1)
+        yukari_tasks = [Tasks("Raise Funds","Raise some money for [anime.name].",funds=1,stress=1,proficiency=-2,character_development = 2)
                         ,Tasks("Networking","Mingle around with people in the anime industry.",marketing=1)
                         ,Tasks("Read Books","Read books for knowledge.",proficiency=0.5)
                         ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=-1)]
@@ -82,17 +82,18 @@ init:
     $side_nav_interaction = True
     $show_floating_buttons = True
     $upgrade_tooltip_color = "#2ecc71"
+    $initial_week = True
 
     #upgrade screen
     $upgrade_tooltip_default = "Send your team for training! This will increase their Proficiency stats."
     $upgrade_tooltip_complete = "Success!"
     $upgrade_tooltip = ""
     $upgrade_selection_count = 0
-    $yukari_upgrade_selected = False
-    $yuuko_upgrade_selected = False
-    $sumiko_upgrade_selected = False
-    $mayumi_upgrade_selected = False
-    $shunsuke_upgrade_selected = False
+    $yukari_upgrade = Outsource.NOT_SELECTED
+    $yuuko_upgrade = Outsource.NOT_SELECTED
+    $sumiko_upgrade = Outsource.NOT_SELECTED
+    $mayumi_upgrade = Outsource.NOT_SELECTED
+    $shunsuke_upgrade = Outsource.NOT_SELECTED
     #task screen
 
     #outsource screen

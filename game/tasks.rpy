@@ -4,8 +4,11 @@
             self.title = title
             self.description = description
             self.selected = False
+            self.positive_stats = []
+            self.negative_stats = []
             for key, value in kwargs.items():
                 setattr(self, key, value)
+            self.sortStats()
 
         def addStats(self,anime,stats_manager):
             for item in anime_stats:
@@ -29,58 +32,41 @@
                     #renpy.notify(str(item) + " added")
                     setattr(stats_manager,item,getattr(stats_manager,item) - getattr(self,item) )
 
-        def getStats(self):
-            msg = ""
-            priority = []
-            attribute_string = []
+        def sortStats(self):
+
             for index,item in enumerate(anime_stats):
                 if hasattr(self,item):
+                    item_title = item.replace("_"," ").replace("development","dev")
                     if getattr(self,item) > 0:
-                        attribute_number = "{size=+10}+{/size}" #+ str(getattr(self,item))
-                        attribute_color = "{color=#27ae60}"
-                        priority.append(True)
+                        stat_text = GREEN_COLOR + POSITIVE_SIGN
+                        self.positive_stats.append("\n" + stat_text + item_title)
                     else:
-                        attribute_number = "{size=+10}-{/size}"#str(getattr(self,item))
-                        attribute_color = "{color=#c0392b}"
-                        priority.append(False)
-                    item_title = item.replace("_"," ")
-                    attribute_string.append("\n " + attribute_color + attribute_number + " " + "{font=fonts/Multicolore.otf}{size=25}" + item_title + "{/font}{/size}" 
-                                            + "{/color}")
+                        stat_text = RED_COLOR + MINUS_SIGN
+                        self.negative_stats.append("\n" + stat_text + item_title)
 
             for index,item in enumerate(char_stats):
                 if hasattr(self,item):
                     if getattr(self,item) > 0:
-                        attribute_number = "{size=+10}+{/size}"
-                        attribute_color = "{color=#27ae60}"
-                        priority.append(True)
+                        if item == "stress":
+                            stat_text = RED_COLOR + POSITIVE_SIGN
+                            item_title = item + " increased"
+                            self.negative_stats.append("\n" + stat_text + item_title)
+
+                        else:
+                            stat_text = GREEN_COLOR + POSITIVE_SIGN
+                            item_title = item.replace("_"," ")
+                            self.positive_stats.append("\n" + stat_text + item_title)
+
                     else:
-                        attribute_number = "{size=+10}-{/size}"
-                        attribute_color = "{color=#c0392b}"
-                        priority.append(False)
-                    if item == "stress":
-                        attribute_number = "{size=+10}-{/size}"
-                    item_title = item.replace("_"," ")
-                    attribute_string.append("\n " + attribute_color + attribute_number + " " + "{font=fonts/Multicolore.otf}{size=25}" + item_title + "{/font}{/size}" 
-                                            + "{/color}")
-           
-            return self.sortAttributes(attribute_string,priority)
+                        if item == "stress":
+                            stat_text = GREEN_COLOR + MINUS_SIGN
+                            item_title = item + " decreased"
+                            self.positive_stats.append("\n" + stat_text + item_title)
+                        else:
+                            stat_text = RED_COLOR + MINUS_SIGN
+                            item_title = item.replace("_"," ")
+                            self.negative_stats.append("\n" + stat_text + item_title)
 
-        def sortAttributes(self,attributes,priorities):
-            sorted_attribute_string = []
-            # if it is adding stats, we want to put them to our string first
-            for index,priority in enumerate(priorities):
-                if priority is True:
-                    sorted_attribute_string.append(attributes[index])
-                else:
-                    continue
-
-            # next we get our negative stats
-            for index,priority in enumerate(priorities):
-                if priority is False:
-                    sorted_attribute_string.append(attributes[index])
-                else:
-                    continue
-            return sorted_attribute_string
 
 
 

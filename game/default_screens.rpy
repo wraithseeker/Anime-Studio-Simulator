@@ -103,7 +103,7 @@ screen choice(items):
                         ypadding 20
                         xpadding 35
                         style "menu_choice_button"
-                        background Frame("ui/textbox.png",10,10)
+                        background Frame("ui/textbox.png",10,10)#"#000"
                         text caption style "menu_choice" color "#000" size 35 hover_color "#2ecc71"
 
                 else:

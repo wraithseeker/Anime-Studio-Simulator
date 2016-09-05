@@ -157,9 +157,9 @@ init -1:
         size 30
         color "#000"
     style task_stats_tooltip:
-        size 30
+        size 23
         color "#000"
-        font 'fonts/Delius-Regular.ttf'
+        #font 'fonts/Delius-Regular.ttf'
     style anime_status_window:
         background "ui/anime_status/anime_status_screen.png"
     style side_nav:

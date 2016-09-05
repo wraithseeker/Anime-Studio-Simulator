@@ -2,7 +2,8 @@
     tag menu
     use side_nav
     default task_tt_description = Tooltip("Select some tasks for your team members to do.") 
-    default task_tt_stats = Tooltip("")
+    default task_tt_positive_stats = Tooltip("")
+    default task_tt_negative_stats = Tooltip("")
     window:
         style "task_window"
 
@@ -15,7 +16,10 @@
         vbox:
             spacing 5
             text task_tt_description.value style "task_tooltip" text_align 0.0
-            text task_tt_stats.value style "task_stats_tooltip" text_align 0.0
+            hbox:
+                spacing 20
+                text task_tt_positive_stats.value style "task_stats_tooltip" text_align 0.0
+                text task_tt_negative_stats.value style "task_stats_tooltip" text_align 0.0
     hbox:
         xalign 0.097
         yalign 0.232
@@ -37,7 +41,8 @@
                     textbutton yukari_tasks[i].title:
                         text_style "task_text"
                         style "task_button"
-                        hovered [task_tt_stats.Action(yukari_tasks[i].getStats())
+                        hovered [task_tt_positive_stats.Action(yukari_tasks[i].positive_stats)
+                                ,task_tt_negative_stats.Action(yukari_tasks[i].negative_stats)
                                 ,task_tt_description.Action(yukari_tasks[i].description)] 
                         action If ((yukari_tasks[i].selected == False),
                                 [renpy.curry(ResetCharacterTask)(yukari_tasks),SetField(yukari_tasks[i],"selected",True),
@@ -63,7 +68,8 @@
                     textbutton yuuko_tasks[i].title:
                         text_style "task_text" 
                         style "task_button" 
-                        hovered [task_tt_stats.Action(yuuko_tasks[i].getStats())
+                        hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
+                                ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
                                 ,task_tt_description.Action(yuuko_tasks[i].description)] 
                         action If ((yuuko_tasks[i].selected == False),
                                 [renpy.curry(ResetCharacterTask)(yuuko_tasks),SetField(yuuko_tasks[i],"selected",True),
@@ -89,8 +95,9 @@
                     textbutton mayumi_tasks[i].title:
                         text_style "task_text" 
                         style "task_button" 
-                        hovered [task_tt_stats.Action(mayumi_tasks[i].getStats())
-                                ,task_tt_description.Action(mayumi_tasks[i].description)] 
+                        hovered [task_tt_positive_stats.Action(mayumi_tasks[i].positive_stats)
+                                ,task_tt_negative_stats.Action(mayumi_tasks[i].negative_stats)
+                                ,task_tt_description.Action(mayumi_tasks[i].description)]  
                         action If ((mayumi_tasks[i].selected == False),
                                 [renpy.curry(ResetCharacterTask)(mayumi_tasks),SetField(mayumi_tasks[i],"selected",True),
                                 SetVariable("mayumi_task_selected",True)]) 
@@ -115,8 +122,9 @@
                     textbutton shunsuke_tasks[i].title:
                         text_style "task_text" 
                         style "task_button" 
-                        hovered [task_tt_stats.Action(shunsuke_tasks[i].getStats())
-                                ,task_tt_description.Action(shunsuke_tasks[i].description)] 
+                        hovered [task_tt_positive_stats.Action(shunsuke_tasks[i].positive_stats)
+                                ,task_tt_negative_stats.Action(shunsuke_tasks[i].negative_stats)
+                                ,task_tt_description.Action(shunsuke_tasks[i].description)]  
                         action If ((shunsuke_tasks[i].selected == False),
                                 [renpy.curry(ResetCharacterTask)(shunsuke_tasks),SetField(shunsuke_tasks[i],"selected",True),
                                 SetVariable("shunsuke_task_selected",True)])  
@@ -140,8 +148,9 @@
                     textbutton sumiko_tasks[i].title:
                         text_style "task_text" 
                         style "task_button" 
-                        hovered [task_tt_stats.Action(sumiko_tasks[i].getStats())
-                                ,task_tt_description.Action(sumiko_tasks[i].description)] 
+                        hovered [task_tt_positive_stats.Action(sumiko_tasks[i].positive_stats)
+                                ,task_tt_negative_stats.Action(sumiko_tasks[i].negative_stats)
+                                ,task_tt_description.Action(sumiko_tasks[i].description)]  
                         action If ((sumiko_tasks[i].selected == False),
                                 [renpy.curry(ResetCharacterTask)(sumiko_tasks),SetField(sumiko_tasks[i],"selected",True),
                                 SetVariable("sumiko_task_selected",True)]) 
@@ -166,55 +175,70 @@ screen upgrade():
         xalign 0.19
         yalign 0.25
         spacing 50
-        if yukari_upgrade_selected:
+        if yukari_upgrade == Outsource.SELECTED:
             imagebutton:
                 idle "char_image/upgrade/yukari_upgrade_selected.png"
-                action [SetVariable("yukari_upgrade_selected",False),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
-        else:
+                action [SetVariable("yukari_upgrade",Outsource.NOT_SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
+        elif yukari_upgrade == Outsource.NOT_SELECTED:
             imagebutton:
                 idle "char_image/upgrade/yukari_upgrade_idle.png"
-                action [SetVariable("yukari_upgrade_selected",True),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
+                action [SetVariable("yukari_upgrade",Outsource.SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
                 hovered upgrade_tt.Action("Send Yukari to meet veterans in the anime industry to broaden her knowledge of the industry.")
+        else:
+            imagebutton:
+                idle "char_image/upgrade/yukari_upgrade_transparent.png"
 
-        if yuuko_upgrade_selected:
+        if yuuko_upgrade == Outsource.SELECTED:
             imagebutton:
                 idle "char_image/upgrade/yuuko_upgrade_selected.png"
-                action [SetVariable("yuuko_upgrade_selected",False),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
-        else:
+                action [SetVariable("yuuko_upgrade",Outsource.NOT_SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
+        elif yuuko_upgrade == Outsource.NOT_SELECTED:
             imagebutton:
                 idle "char_image/upgrade/yuuko_upgrade_idle.png"
-                action [SetVariable("yuuko_upgrade_selected",True),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
+                action [SetVariable("yuuko_upgrade",Outsource.SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
                 hovered upgrade_tt.Action("Pair Yuuko up with professional artists in the anime industry.")
+        else:
+            imagebutton:
+                idle "char_image/upgrade/yuuko_upgrade_transparent.png"
 
-        if sumiko_upgrade_selected:
+        if sumiko_upgrade == Outsource.SELECTED:
             imagebutton:
                 idle "char_image/upgrade/sumiko_upgrade_selected.png"
-                action [SetVariable("sumiko_upgrade_selected",False),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
-        else:
+                action [SetVariable("sumiko_upgrade",Outsource.NOT_SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
+        elif sumiko_upgrade == Outsource.NOT_SELECTED:
             imagebutton:
                 idle "char_image/upgrade/sumiko_upgrade_idle.png"
-                action [SetVariable("sumiko_upgrade_selected",True),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
+                action [SetVariable("sumiko_upgrade",Outsource.SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
                 hovered upgrade_tt.Action("Give Sumiko some time to meditate and trek in the nearby mountains.")
+        else:
+            imagebutton:
+                idle "char_image/upgrade/sumiko_upgrade_transparent.png"
 
-        if mayumi_upgrade_selected:
+        if mayumi_upgrade == Outsource.SELECTED:
             imagebutton:
                 idle "char_image/upgrade/mayumi_upgrade_selected.png"
-                action [SetVariable("mayumi_upgrade_selected",False),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
-        else:
+                action [SetVariable("mayumi_upgrade",Outsource.NOT_SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
+        elif mayumi_upgrade == Outsource.NOT_SELECTED:
             imagebutton:
                 idle "char_image/upgrade/mayumi_upgrade_idle.png"
-                action [SetVariable("mayumi_upgrade_selected",True),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
+                action [SetVariable("mayumi_upgrade",Outsource.SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
                 hovered upgrade_tt.Action("Send Mayumi to musical bootcamps to hone her skills.")
-
-        if shunsuke_upgrade_selected:
-            imagebutton:
-                idle "char_image/upgrade/shunsuke_upgrade_selected.png"
-                action [SetVariable("shunsuke_upgrade_selected",False),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
         else:
             imagebutton:
+                idle "char_image/upgrade/mayumi_upgrade_transparent.png"
+
+        if shunsuke_upgrade == Outsource.SELECTED:
+            imagebutton:
+                idle "char_image/upgrade/shunsuke_upgrade_selected.png"
+                action [SetVariable("shunsuke_upgrade",Outsource.NOT_SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
+        elif shunsuke_upgrade == Outsource.NOT_SELECTED:
+            imagebutton:
                 idle "char_image/upgrade/shunsuke_upgrade_idle.png"
-                action [SetVariable("shunsuke_upgrade_selected",True),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
+                action [SetVariable("shunsuke_upgrade",Outsource.SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
                 hovered upgrade_tt.Action("Invite a veteran writer to review Shunsuke's writing.")
+        else:
+            imagebutton:
+                idle "char_image/upgrade/shunsuke_upgrade_transparent.png"
 
     add "ui/big_moneybag.png" xalign 0.35 yalign 0.86
     text str(upgrade_proficiency_cost * upgrade_selection_count ) color "#000" size 65 xalign 0.405 yalign 0.86
@@ -716,7 +740,7 @@ screen side_nav():
                 textbutton ("Tasks")  action If(side_nav_interaction,ShowMenu("task"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 textbutton ("Outsource")  action If(side_nav_interaction,ShowMenu("outsource"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 textbutton ("Upgrades")  action If(side_nav_interaction,ShowMenu("upgrade"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
-                textbutton ("Progress")  action If (side_nav_interaction,ShowMenu("progress_report")) text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
+                textbutton ("Progress")  action If (side_nav_interaction,ShowMenu("progress_report_sidenav")) text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 # textbutton ("Monday")  action ShowMenu("load")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                
         vbox:
@@ -724,10 +748,14 @@ screen side_nav():
                 imagebutton auto "ui/done_%s.png" style "sidenav_done" action [Return(),SetVariable("task_ready",True)]
 
 screen start_game:
+    #use side_nav
+    if not initial_week and not task_ready:
+        use progress_report
     use side_nav
-    #text str(task_ready)
     if task_ready:
-        timer 0.2 action [Return(),SetVariable("task_ready",False),renpy.curry(EndTurn)()]
+        timer 0.03 action [Return(),SetVariable("task_ready",False),renpy.curry(EndTurn)()]
+    # else:
+    #     use progress_report
 
 screen anime_status_sidenav:
     tag menu
@@ -739,19 +767,19 @@ screen member_status_sidenav:
     use member_status
     use side_nav
 
+screen progress_report_sidenav:
+    tag menu
+    use progress_report
+    use side_nav
+    imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return()
+
 screen progress_report:
     tag menu
-    use side_nav
     default task_tt_description = Tooltip("Select some tasks for your team members to do.") 
     default task_tt_stats = Tooltip("")
     window:
         background "ui/progress_report.png"
-    imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return()
     text "Week " + str(current_week) + " Progress Report" style "progress_title"
-    if anime.checkCategory("story") == Anime.CATEGORY_POSITIVE:
-        text GREEN_COLOR + POSITIVE_SIGN color "#000" yalign 0.285 xalign 0.09 size 25
-    elif anime.checkCategory("story") == Anime.CATEGORY_NEGATIVE:
-        text RED_COLOR + MINUS_SIGN color "#000" yalign 0.285 xalign 0.09 size 25
     frame:
         background None
         xysize(545,230)
@@ -765,7 +793,7 @@ screen progress_report:
             text RED_COLOR + MINUS_SIGN color "#000" yalign 0.25 xalign 0.02 size 25
             text "Story" color "#C0392B" yalign 0.325 xalign 0.09 size 25
         else:
-            text "Story" color "#C0392B" yalign 0.325 xalign 0.09 size 25
+            text "Story" color "#000" yalign 0.325 xalign 0.09 size 25
 
         if anime.checkCategory("art") == Anime.CATEGORY_POSITIVE:
             text GREEN_COLOR + POSITIVE_SIGN color "#000" yalign 0.460 xalign 0.02 size 25
@@ -784,8 +812,6 @@ screen progress_report:
             text "Music" color "#C0392B" yalign 0.675 xalign 0.09 size 25
         else:
             text "Music" color "#000" yalign 0.675 xalign 0.09 size 25
-
-
 
         textbutton "More Details" xalign 0.5 yalign 0.95 background None text_style "progress_details" action ShowMenu("anime_report")
         vbox:
@@ -830,59 +856,86 @@ screen progress_report:
         add "char_image/yukari.png" 
         text "Yukari" style "char_title_text"
         #SetDict is used to modify arrays, SetField is to modify the field of an object's value
-        vbox:
-            ypos 45
+        frame:
             xpos -130
-            spacing -15
-            for i in range (0,len(yukari_stats.db_displayed_stats)):
-                text yukari_stats.db_displayed_stats[i] style "progress_text"
+            ypos 40
+            xysize(320,180)
+            background None
+            vbox:
+                spacing -15
+                for i in range (0,len(yukari_stats.db_displayed_stats)):
+                    text yukari_stats.db_displayed_stats[i] style "progress_text"
+                if len(yukari_stats.db_displayed_stats) == 0:
+                    text "No change" style "progress_text" ypos 15
+                    
+
 
     hbox:
         xalign 0.097
         yalign 0.55
         add "char_image/yuuko.png" 
         text "Yuuko" style "char_title_text"
-        vbox:
-            ypos 45
-            xpos -130
-            spacing -15
-            for i in range (0,len(yuuko_stats.db_displayed_stats)):
-                text yuuko_stats.db_displayed_stats[i] style "progress_text" 
+        frame:
+            xpos -125
+            ypos 40
+            xysize(320,180)
+            background None
+            vbox:
+                spacing -15
+                for i in range (0,len(yuuko_stats.db_displayed_stats)):
+                    text yuuko_stats.db_displayed_stats[i] style "progress_text" 
+                if len(yuuko_stats.db_displayed_stats) == 0:
+                    text "No change" style "progress_text" ypos 15
 
     hbox:
         xalign 0.10
         yalign 0.862
         add "char_image/mayumi.png" 
         text "Mayumi" style "char_title_text" xpos 27
-        vbox:
-            ypos 45
-            xpos -145
-            spacing -15
-            for i in range (0,len(mayumi_stats.db_displayed_stats)):
-                text mayumi_stats.db_displayed_stats[i] style "progress_text"
+        frame:
+            xpos -140
+            ypos 40
+            xysize(320,180)
+            background None
+            vbox:
+                spacing -15
+                for i in range (0,len(mayumi_stats.db_displayed_stats)):
+                    text mayumi_stats.db_displayed_stats[i] style "progress_text"
+                if len(mayumi_stats.db_displayed_stats) == 0:
+                    text "No change" style "progress_text" ypos 15
 
     hbox:
         xalign 0.585
         yalign 0.858
         add "char_image/shunsuke.png" 
         text "Shunsuke" style "char_title_text" xpos 15
-        vbox:
+        frame:
             ypos 45
-            xpos -195
-            spacing -15
-            for i in range (0,len(shunsuke_stats.db_displayed_stats)):
-                text shunsuke_stats.db_displayed_stats[i] style "progress_text"
+            xpos -217
+            xysize(320,180)
+            background None
+            vbox:
+                spacing -15
+                for i in range (0,len(shunsuke_stats.db_displayed_stats)):
+                    text shunsuke_stats.db_displayed_stats[i] style "progress_text"
+                if len(shunsuke_stats.db_displayed_stats) == 0:
+                    text "No change" style "progress_text" ypos 15
     hbox:
         xalign 0.550
         yalign 0.55
         add "char_image/sumiko.png" ypos -5 
         text "Sumiko" style "char_title_text" xpos 15
-        vbox:
-            ypos 45
-            xpos -130
-            spacing -15
-            for i in range (0,len(sumiko_stats.db_displayed_stats)):
-                text sumiko_stats.db_displayed_stats[i] style "progress_text"
+        frame:
+            ypos 40
+            xpos -145
+            xysize(320,180)
+            background None
+            vbox:
+                spacing -15
+                for i in range (0,len(sumiko_stats.db_displayed_stats)):
+                    text sumiko_stats.db_displayed_stats[i] style "progress_text"
+                if len(sumiko_stats.db_displayed_stats) == 0:
+                    text "No change" style "progress_text" ypos 15
 
 screen anime_report:
     tag menu
@@ -917,5 +970,5 @@ screen anime_report:
             # for i in range (0,5):
             #     text GREEN_COLOR + MINUS_SIGN + "VOICE ACTING" style "progress_text"
 
-    imagebutton auto "ui/load/close_button_%s.png" xalign 0.69 yalign 0.22 action ShowMenu("progress_report")
+    imagebutton auto "ui/load/close_button_%s.png" xalign 0.69 yalign 0.22 action ShowMenu("progress_report_sidenav")
 

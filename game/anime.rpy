@@ -58,7 +58,7 @@
                 displayed_stat = "char. design"
             else:
                 displayed_stat = stat.replace("_"," ")
-            if (new_stats == current_stat):
+            if (new_stats == 0):
                 return
             positive = GREEN_COLOR + POSITIVE_SIGN
             negative = RED_COLOR + MINUS_SIGN
