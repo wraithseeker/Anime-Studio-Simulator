@@ -111,6 +111,7 @@ image yuuko_f worry = Transform("yuuko worry",xzoom=-1.0)
 #bgs
 image bg restaurant = "bg/restaurant.png"
 image bg studio = "bg/studio.png"
+image bg studio_main = "bg/studio_main.jpg"
 image bg animation_studio = "bg/animation_studio.jpg"
 image bg recording_studio = "bg/recording_studio.png"
 image bg street = "bg/street.jpg"

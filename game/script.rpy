@@ -15,16 +15,24 @@ define unknown = Character('???', color="#000",ctc="ctc_fixed",ctc_position="fix
 # The game starts here.
 
 label game_start:
-    $first_w_events = ["rande_1","rande_2","rande_3","rande_4","rande_5","rande_6","rande_7"]
+    $first_w_events = ["random_8_end"]#["rande_1","rande_2","rande_3","rande_4","rande_5","rande_6","rande_7"]
+
     #start of the game
     #jump week_3_2
     #scene black with dissolve
     # the command to move to next day
+    #scene image "cg/flashback.png"
     $nextDay()
-    scene image "cg/flashback.png"
+    $rand_choice = renpy.random.choice(first_w_events)
+    $first_w_events.remove(rand_choice)
+    call expression rand_choice from _call_expression
+    scene bg studio_main
     stop music
     play music "music/normal_happy_ost.ogg" fadein 1.0
     y "this is some text"
+
+
+    
     # $anime.prev_marketing = 2
     # $anime.marketing = 2
 
@@ -95,7 +103,8 @@ label week_0_1:
     "It’s the day after high school graduation. Yukari’s mind is already filled with plans for how she’ll spend vacation."
     "For many people, it’s a time to relax, prepare for higher education, or pursue jobs. For her, it’s a time to make her greatest dream come true."
     "She just needs to find the right group of people to help her."
-    scene cafe
+    #scene cafe
+    scene image "bg/office_fix2.jpg"
     show yukari happy at left
     show mayumi_f at right
     with dissolve

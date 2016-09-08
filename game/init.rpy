@@ -109,7 +109,10 @@ init:
     $sumiko_task_selected = False
     $mayumi_task_selected = False
     $shunsuke_task_selected = False
-
+    #random names
+    $random_company = ["Wadaka","Sokono","Kirodo","Matsura","Enshu","Nosata"
+                        ,"Zekoy","Inoshi","Pokomi","Takiza","Kibono","Koiga","Vozobi"
+                        ,"Asozo"]
     #positions for images
     $pos_farleft = Position(xalign = -0.045,yalign = 1.0)
     $pos_left = Position(xalign = 0.18,yalign = 1.0)

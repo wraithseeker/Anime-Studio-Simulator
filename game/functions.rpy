@@ -1,5 +1,10 @@
 ﻿init -100 python:
-
+    def getRandomCompany():
+        global random_company
+        company = renpy.random.choice(random_company)
+        random_company.remove(company)
+        return company
+        
     def nextDay():
         global current_day
         global current_date
