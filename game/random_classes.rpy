@@ -17,18 +17,22 @@
                 self.say = yuu
                 self.person = "Yuuko"
                 self.p = "yuu"
+                self.g = "her"
             elif character == "s":
                 self.say = s
                 self.person = "Sumiko"
                 self.p = "s"
+                self.g = "her"
             elif character == "ss":
                 self.say = ss
                 self.person = "Shunsuke"
                 self.p = "ss"
+                self.g = "him"
             else:
                 self.say = m
                 self.person = "Mayumi"
                 self.p = "m"
+                self.g = "her"
         def remainingCharacters(self):
             characters = ["yuu","m","ss","s"]
             characters.remove(self.p)

@@ -115,7 +115,9 @@ image bg studio_main = "bg/studio_main.jpg"
 image bg animation_studio = "bg/animation_studio.jpg"
 image bg recording_studio = "bg/recording_studio.png"
 image bg street = "bg/street.jpg"
+image bg street_rain = "street_rain.jpg"
 image bg cafe = "bg/cafe.png"
+image bg home = "bg/home.png"
 image money = "ui/money_bag.png"
 
 image ctc_fixed:

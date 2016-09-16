@@ -15,7 +15,7 @@ define unknown = Character('???', color="#000",ctc="ctc_fixed",ctc_position="fix
 # The game starts here.
 
 label game_start:
-    $first_w_events = ["random_8_end"]#["rande_1","rande_2","rande_3","rande_4","rande_5","rande_6","rande_7"]
+    $first_w_events = ["random_29"]#["rande_1","rande_2","rande_3","rande_4","rande_5","rande_6","rande_7"]
 
     #start of the game
     #jump week_3_2

@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/random_events.rpy", line 398: end of line expected.
-    show mayumi_f at pos_middleright_half with dissolve behind sumiko
-                                                        ^
+File "game/random_events.rpy", line 1300: choice menuitem expects a non-empty block.
+    "Pass on the opportunity":
+                              ^
 
-Ren'Py Version: Ren'Py 6.99.10.1227
+Ren'Py Version: Ren'Py 6.99.11.1749

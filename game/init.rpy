@@ -122,4 +122,5 @@ init:
     $pos_farright = Position(xalign = 1.0,yalign = 1.0)
     $pos_right = Position(xalign = 0.92,yalign = 1.0)
     $pos_outerright = Position(xalign = 1.1,yalign = 1.0)
+    
 
