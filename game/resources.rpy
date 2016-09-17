@@ -111,13 +111,14 @@ image yuuko_f worry = Transform("yuuko worry",xzoom=-1.0)
 #bgs
 image bg restaurant = "bg/restaurant.png"
 image bg studio = "bg/studio.png"
-image bg studio_main = "bg/studio_main.jpg"
+image bg studio_main = "bg/studio_main.png"
 image bg animation_studio = "bg/animation_studio.jpg"
 image bg recording_studio = "bg/recording_studio.png"
 image bg street = "bg/street.jpg"
 image bg street_rain = "street_rain.jpg"
 image bg cafe = "bg/cafe.png"
 image bg home = "bg/home.png"
+image bg flashback = "cg/flashback.png"
 image money = "ui/money_bag.png"
 
 image ctc_fixed:

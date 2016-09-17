@@ -11,84 +11,85 @@ define yuu = Character('Yuuko', color="#000",ctc="ctc_fixed",ctc_position="fixed
 define ss = Character('Shunsuke', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define bot = Character('Recorded Voice', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define unknown = Character('???', color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define grandma = Character('Grandma', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 
 # The game starts here.
 
 label game_start:
-    $first_w_events = ["random_29"]#["rande_1","rande_2","rande_3","rande_4","rande_5","rande_6","rande_7"]
-
-    #start of the game
-    #jump week_3_2
-    #scene black with dissolve
-    # the command to move to next day
-    #scene image "cg/flashback.png"
-    $nextDay()
-    $rand_choice = renpy.random.choice(first_w_events)
-    $first_w_events.remove(rand_choice)
-    call expression rand_choice from _call_expression
-    scene bg studio_main
-    stop music
-    play music "music/normal_happy_ost.ogg" fadein 1.0
-    y "this is some text"
+    stop music fadeout 1.0
+    # $first_w_events = ["random_33"]#["rande_1","rande_2","rande_3","rande_4","rande_5","rande_6","rande_7"]
+    # stop music
+    # #start of the game
+    # #jump week_3_2
+    # #scene black with dissolve
+    # # the command to move to next day
+    # #scene image "cg/flashback.png"
+    # $nextDay()
+    # $rand_choice = renpy.random.choice(first_w_events)
+    # $first_w_events.remove(rand_choice)
+    # #call expression rand_choice from _call_expression
+    # scene bg studio_main with fade
+    # # play music "music/normal_happy_ost.ogg" fadein 1.0
+    # y "this is some text"
 
 
     
-    # $anime.prev_marketing = 2
-    # $anime.marketing = 2
+    # # $anime.prev_marketing = 2
+    # # $anime.marketing = 2
 
-    # $anime.prev_voice_acting = 4
-    # $anime.prev_ost = 0
-    # $anime.prev_op_ed = 3
+    # # $anime.prev_voice_acting = 4
+    # # $anime.prev_ost = 0
+    # # $anime.prev_op_ed = 3
 
-    # # $anime.voice_acting = 6
-    # $anime.prev_funds = 10
-    # $anime.funds = 10
-    # $anime.prev_character_development = 1
-    # $anime.character_development = 1
-    # $anime.character_development += 2
-    # $anime.character_design = 2
-    # $anime.prev_character_design = 2
-    # $anime.character_design -= 1
-    # $anime.funds += 10
-    # $anime.voice_acting = 1
-    # $anime.op_ed = 1
-    # $anime.marketing -= 0.5
+    # # # $anime.voice_acting = 6
+    # # $anime.prev_funds = 10
+    # # $anime.funds = 10
+    # # $anime.prev_character_development = 1
+    # # $anime.character_development = 1
+    # # $anime.character_development += 2
+    # # $anime.character_design = 2
+    # # $anime.prev_character_design = 2
+    # # $anime.character_design -= 1
+    # # $anime.funds += 10
+    # # $anime.voice_acting = 1
+    # # $anime.op_ed = 1
+    # # $anime.marketing -= 0.5
     
-    $yukari_stats.management = 3
-    $yukari_stats.prev_management = 2
-    $yukari_stats.stress = 2
-    $yukari_stats.prev_stress = 3
-    $yukari_stats.proficiency = 3
-    $yukari_stats.prev_proficiency = 2
-    $yukari_stats.happiness = 3
-    $yukari_stats.prev_happiness = 1
+    # $yukari_stats.management = 3
+    # $yukari_stats.prev_management = 2
+    # $yukari_stats.stress = 2
+    # $yukari_stats.prev_stress = 3
+    # $yukari_stats.proficiency = 3
+    # $yukari_stats.prev_proficiency = 2
+    # $yukari_stats.happiness = 3
+    # $yukari_stats.prev_happiness = 1
 
-    $yuuko_stats.stress = 2
-    $yuuko_stats.prev_stress = 3
-    $yuuko_stats.proficiency = 3
-    $yuuko_stats.prev_proficiency = 4
+    # $yuuko_stats.stress = 2
+    # $yuuko_stats.prev_stress = 3
+    # $yuuko_stats.proficiency = 3
+    # $yuuko_stats.prev_proficiency = 4
 
-    $sumiko_stats.stress = 4
-    $sumiko_stats.prev_stress = 1
-    $sumiko_stats.proficiency = 3
-    $sumiko_stats.prev_proficiency = 2
+    # $sumiko_stats.stress = 4
+    # $sumiko_stats.prev_stress = 1
+    # $sumiko_stats.proficiency = 3
+    # $sumiko_stats.prev_proficiency = 2
 
-    $shunsuke_stats.stress = 2
-    $shunsuke_stats.prev_stress = 3
-    $shunsuke_stats.proficiency = 3
-    $shunsuke_stats.prev_proficiency = 2
+    # $shunsuke_stats.stress = 2
+    # $shunsuke_stats.prev_stress = 3
+    # $shunsuke_stats.proficiency = 3
+    # $shunsuke_stats.prev_proficiency = 2
 
-    $mayumi_stats.stress = 4
-    $mayumi_stats.prev_stress = 3
-    $mayumi_stats.proficiency = 3
-    $mayumi_stats.prev_proficiency = 2
+    # $mayumi_stats.stress = 4
+    # $mayumi_stats.prev_stress = 3
+    # $mayumi_stats.proficiency = 3
+    # $mayumi_stats.prev_proficiency = 2
 
-    $UpdateProgressReport()
-    y "previous value of marketing is [anime.prev_marketing]. Current value is [anime.marketing]"
-    #call screen progress_report
-    "Welcome to the demo version of Anime Studio Simulator. For our music, we have a few pieces composed for our OST while the rest of them are royalty free placeholders. Some scenes do not have an OST yet."
-    "The demo version covers the events of the game up till week 3 with a total of 12 weeks planned for the game's release."
-    "We hope you enjoy playing the demo version of Anime Studio Simulator!"
+    # $UpdateProgressReport()
+    # y "previous value of marketing is [anime.prev_marketing]. Current value is [anime.marketing]"
+    # #call screen progress_report
+    # "Welcome to the demo version of Anime Studio Simulator. For our music, we have a few pieces composed for our OST while the rest of them are royalty free placeholders. Some scenes do not have an OST yet."
+    # "The demo version covers the events of the game up till week 3 with a total of 12 weeks planned for the game's release."
+    # "We hope you enjoy playing the demo version of Anime Studio Simulator!"
 
 
 # label tester:
@@ -99,36 +100,120 @@ label game_start:
 #     "Now why doesn't object get saved?"
 
 label week_0_1:
-    scene black with dissolve
-    "It’s the day after high school graduation. Yukari’s mind is already filled with plans for how she’ll spend vacation."
-    "For many people, it’s a time to relax, prepare for higher education, or pursue jobs. For her, it’s a time to make her greatest dream come true."
-    "She just needs to find the right group of people to help her."
+    scene home with fade
+    show yukari worry at left with dissolve
+    "It’s the day after high school graduation. Yukari settles down to watch her favorite anime, but she can’t concentrate."
+    "Her acceptance letter from the university she applied to sits on her desk. In a few months, she’ll be back in school. Usually, she spends vacation relaxing or working a part-time job. That’s what most of her classmates are doing."
+    show yukari
+    "But something about it doesn’t feel right. She doesn’t want to be like everyone else. She wants to do something special. Fulfill her secret dream. Maybe this vacation is the best time to do it."
+    "Her mind made up, Yukari grabs her cell phone and sends a quick message to her best friend."
     #scene cafe
-    scene image "bg/office_fix2.jpg"
+    scene cafe with fade
     show yukari happy at left
     show mayumi_f at right
     with dissolve
-    y "Mayumi! Over here!"
+    play music "music/ost/working_as_intended.ogg"
+    "When Yukari arrives at the café, it only takes her a minute to spot Mayumi."
+    "She sits alone with headphones on, smiling as she enjoys whatever music she’s currently listening to. Yukari sits down across from her, and Mayumi’s eyes open. A second later, she removes her headphones."
     $nextDay()
-    "She waves to her best friend, who crosses the room and joins her at the table."
-    m "I got your message. What’s up?"
-    y "I’ve found a character artist for our anime project."
-    show mayumi_f laugh_eyes_closed
-    m " That’s great! Before long we’ll have a whole team together!"
+    show mayumi_f happy
+    m "Hi! So what did you want to talk about?"
     show yukari laugh_eyes_closed
-    "Yukari smiles. As her closest friend, Mayumi was the first person she asked to help her create an anime. With her love of music, she volunteered to be the sound director right away."
-    show mayumi_f 
-    m "Who is the artist?"
+    y "Got any plans for vacation?"
+    "The other girl glances down at the table."
+    m "Oh, not really… I’ll visit my grandparents once or twice, but nothing special… The coffee here is great, by the way. You should order some!"
+    "Yukari has known Mayumi her entire life. They’ve been friends since before they could walk. And when the normally-upbeat girl hedges and glosses over the subject, she’s hiding something."
+    y "Come on, what’s the secret? Is it a boy?"
+    show mayumi_f tsundere
+    m "What? No!"
+    y "Then what? You know I’ll find out eventually."
+    show mayumi_f
+    m "Well, I… I might try to compose some of my own music. I’ve been playing around with Vocaloid, and now that we’re on vacation, I want to try a song or two."
+    y "That’s great! Why are you embarrassed?"
+    show mayumi_f sigh
+    m "People make faces when I say things like that and ask if I really think a teenage girl can compose anything worthwhile. You know how it is."
     show yukari
-    y "Her name is Yuuko. I haven’t met her in person yet, but I’ll be seeing her tonight."
-    m "Good luck! If you need anything, just give me a call."
+    "She does. Reactions like that are the main reason Yukari rarely shares her dream with anyone. She takes a deep breath."
+    y "Speaking of which, do you remember what I told you I want to do more than anything in the world?"
+    show mayumi_f
+    m "You mean direct an anime?"
+    y "Yeah. I… I want to try over vacation."
+    show mayumi_f laugh_eyes_closed
+    m "Really? That’s great!"
+    "She lets out a sigh of relief. Her best friend never called her crazy before, but the fear lurked in the back of her mind that she might this time. Mayumi’s enthusiasm calms her worries, and she speaks up with more confidence."
+    y "It won’t be anything big, just two episodes of my very own anime."
+    m "Even a short anime is a step in the right direction. Can I help! You’ll need someone to handle the music and sound, right?"
+    show yukari worry
+    y "I don’t want to interfere with your plans…"
+    show mayumi_f sigh
+    m "Don’t be silly. I love anime, and this gives me a perfect project to compose music for."
     show yukari happy
-    y "Thanks. We just need a few more people, and we’ll be ready to do this!"
+    y "Great! Then as my new sound director, welcome to the team!"
+    show mayumi_f
+    m "Who else is on the team?"
+    y "…Me."
+    m "For a moment, they stare at each other in silence. Then Mayumi bursts into giggles."
+    show mayumi_f laugh_eyes_closed
+    m "Yukari, you have a lot of work to do…"
+    scene home with fade
+    show yukari at left with dissolve
+    stop music fadeout 1.0
+    "That night, Yukari goes online and browses art on Pixiv. Some of the artists are fantastic. She wishes she could draw that well, but she never had much talent there."
+    y "I’ve just got to work up the nerve to contact some of these artists and ask if they’d be interested in working on an anime."
+    "Will she sound professional enough? Will the artists take her seriously? Despite her worries, Yukari braces herself and contacts the artists whose work she likes the most."
+    "Once she sends the messages, she feels as though a weight has been lifted from her shoulders."
+    "It’s done, for better or worse. All she has to do is wait to see if anyone responds."
+    "And suddenly, she’s confident someone will. It doesn’t have to be an idle daydream any longer. This summer, she’ll make her dream a reality."
+    scene black with fade
+    "A few days later, Yukari once again goes to the café to meet with Mayumi. This time her friend is attentive and alert, no doubt due to excitement for their anime project."
+    scene cafe with fade
+    show yukari at left
+    show mayumi_f worry at right
+    with dissolve
+    m "Yukari! Are you all right? When you asked to meet with me, you sounded ready to pass out."
+    "Then again, it could be concern rather than excitement."
+    y "I’m just a little nervous. I think I found a character artist."
+    show mayumi_f laugh_eyes_closed
+    m "Really? That’s great!"
+    y "Yukari smiles and tries to calm her nerves."
+    y "Her name is Yuuko. We spoke online, and she seems interested. I’m supposed to meet with her in person tonight."
+    m "Good luck! If you need anything, just give me a call."
+    y "Thanks. I really hope she joins the team. Her art is fantastic. Here."
+    show yukari happy
+    "She pulls out her phone and browses to the Pixiv page where she discovered Yuuko’s art."
+    y "Isn’t it great?"
+    show mayumi_f
+    #surprised_face
+    m "It is! Wait a minute… You said her name is Yuuko? And this is her art?"
+    y "Yes, why?"
+    m "She went to our school!"
+    y "What, really?"
+    m "Yes. I thought you knew her, actually."
+    y "No, I don’t think so… but that makes me feel better, all the same."
+    "The artist will still be a stranger to her, but at least they have some common ground. It gives her a better feeling for Yuuko’s age, too."
+    "Meeting someone around her own age is a lot less stressful than meeting someone who could have been a professional artist for years."
+    y "I better get going. I just wanted to let you know first."
+    m "Good luck!"
+    y "Thanks!"
+    "Yukari takes a deep breath, checks her phone to see where Yuuko asked to meet, and leaves the café."
+    scene street with fade
+    show yukari at left with dissolve
+    y "Okay, which way is it…?"
+    "The artist asked to meet at a restaurant. Yukari’s never been there before, but she knows the city well enough to find it."
+    "She starts down the street at a quick pace. The last thing she wants to do is arrive late and make a bad first impression."
+    show shunsuke at right with dissolve
+    unknown "Excuse me—"
+    show yukari tsundere
+    y "Sorry, no time!"
+    #surprised_face
+    "She steps past the boy who called out to her, thoughts fixed on her destination. If he’s lost or needs help with something, there are plenty of people around he can ask."
+    show shunsuke sad
+    unknown "Wait—"
+    "Yukari leaves the stranger behind without another glance and hurries toward the restaurant. This is important."
 
 label week_0_2:
-    scene restaurant
-    show yukari at left
-    with fade
+    scene restaurant with fade
+    show yukari at left with dissolve
     "Yukari double-checks the address. She’s at the right place. A little nervous, she looks around the stylish restaurant."
     show sumiko at Position(xalign=0.8,yalign=1.0) with dissolve
     unknown "Hi! Yukari?"
@@ -143,29 +228,60 @@ label week_0_2:
     "Yuuko blushes with a shy smile, and Sumiko shakes Yukari’s hand enthusiastically."
     show sumiko happy
     s " I can’t wait to work together!"
+    #surprised_face
     y "You want to join the team?"
     s "Well, Yuuko said you need a background artist."
-    y "You’re an artist too? That’s great! Let’s sit down, and I’ll tell you two a little about my ideas…"
+    y "You’re an artist too? That’s great! Let’s sit down so we can discuss it."
+    "They sit down, and Yukari explains what she has in mind."
+    "A short anime with only two episodes, something that can be handled by a small team. She already told Yuuko about it online, but she repeats it again for Sumiko’s benefit."
+    "Sumiko is an eager participant in the conversation. She has questions, comments, and input of her own. In contrast, her sister says next to nothing, although she occasionally nods and smiles. Nevertheless, both agree to join the team."
+    "Yukari gives them Mayumi’s email address so they can get in touch with her. She can hardly keep from giggling in glee."
+    "She went to recruit a character artist and gained a background artist for her efforts. Everything is coming together perfectly."
+    scene cafe with fade
+    show yukari at pos_left
+    show mayumi happy at pos_farleft
+    show sumiko at pos_right
+    show yuuko at pos_outerright behind sumiko
+    with dissolve
+    m "Hi, I’m Mayumi!"
+    s "I’m Sumiko, and this is Yuuko. Don’t we know each other from school?"
+    show mayumi laugh_eyes_closed
+    m "I knew it!"
+    show sumiko happy
+    s "You’re handling the anime’s audio, right? I can’t wait to hear the music you come up with!"
+    m "And I can’t wait to see your art!"
+    "Pride surges through Yukari as she listens to them. It’s great to see the team members already hit it off so well. Or at least, as far as Mayumi and Sumiko are concerned. Yuuko hasn’t said a word, which is troubling."
+    y "What about you, Yuuko?"
+    "The other girl gives her a startled look, as if she didn’t expect to be addressed directly and isn’t entirely sure how to handle it."
+    y "Are you excited about the project?"
+    "She nods."
+    show yukari happy
+    y "Well… great!"
+    "Beside them, Sumiko and Mayumi continue to chat happily. It’s a start. The rest can come with time. And if Yuuko doesn’t like to talk, that’s fine. What matters is that she’s a great artist on board with their project."
+    "Piece by piece, their team will come together."
 
 label week_0_3:
-    scene street with dissolve
+    scene street with fade
     show yukari at left with dissolve
-    "Yukari walks down the street, deep in thought. Three days have passed since she met Yuuko and Sumiko."
-    "She already put them in touch with Mayumi, and they all met up once to discuss their ideas. Everyone is excited about the project."
-    "Yukari almost has an entire team together. She’ll direct her own anime. It doesn’t seem real."
+    "Three days have passed since Yuuko and Sumiko joined the group. Yukari walks down the street, deep in thought. She almost has an entire team together. All she needs is a writer."
+    "Although she has her own ideas for the basic direction the anime should take, she isn’t good at fleshing out her ideas into full scripts."
+    "But she’s optimistic. Everything’s gone so well so far, she’s sure she’ll find an excellent writer. Then they’ll be ready. She’ll direct her own anime. It doesn’t seem real."
+    show shunsuke at right with dissolve
     unknown "Excuse me."
     "Soon, her dream will come true…"
-    show shunsuke at right with dissolve
-    ss "You’re Yukari, aren’t you? "
-    "Lost in her thoughts, it takes Yukari a moment to realize the boy is talking to her. She blinks at him. She recognizes him from school, but they never spoke."
-    y "Yes? You’re… Shunsuke, right?"
-    ss " Yes. I heard a rumor you’re making your own anime."
-    "Now he has her attention."
+    "Not only her dream, but her grandmother’s too. Yukari smiles as she imagines how happy her grandmother will be when she hears the news."
+    unknown "You’re Yukari, aren’t you?"
+    "Lost in her thoughts, it takes Yukari a moment to realize someone is talking to her. She blinks at him. It’s the same boy who tried to get her attention the other day. Now that she’s not in such a hurry, she has time to give him a closer look."
+    "He’s familiar. It takes a moment, but then she recognizes him. He went to her school, although they never spoke."
+    y "You’re… Shunsuke, right?"
+    ss "Yes. I heard a rumor you’re making your own anime."
+    "Now he has her full attention."
     y "That’s right! Why?"
+    show shunsuke laugh_eyes_closed
     ss "I’ve mainly written fan fiction, but I’d love to work on an original anime story. Do you need a writer?"
     show yukari happy
     y "Absolutely! We're still searching for a writer for our anime."
-    ss "Could you tell me more about your project?"
+    ss "Could you tell me more about your ideas?"
     y "Sure!"
     "As they discuss the anime, Yukari’s excitement grows. There are many details they’ll need to go over, but she has a feeling she’s found her writer."
 
@@ -177,30 +293,62 @@ label week_0_4:
     show shunsuke at pos_middleright
     show mayumi at pos_farleft behind yukari
     with dissolve
-    y "Everyone, I have great news to share about our anime project!"
-    s "After planning for the past few weeks, I’m glad we finally have some news."
-    ss "What’s the news? You look really excited, so I guess it's related to our funding?"
+    y " Everyone, I have great news!"
+    "It’s the first time she’s assembled everyone, although they don’t seem like a cohesive team yet. Yuuko remains quiet and Shunsuke hasn’t quite integrated himself into the group. In contrast, Mayumi and Sumiko talk every time they’re together."
+    "Everyone looks up at Yukari’s announcement."
+    ss "You look excited. Is this about our funding?"
+    "Funding was the one sticking point that prevented them from starting immediately. Without money, they couldn’t rent a studio or get the equipment they’d need to make a proper anime."
     show yukari happy
-    y "That's right! I managed to secure enough funding from investors for us to start the anime project. I’ve also rented a studio for us to work in."
+    y "That's right! Thanks to an investor, I’ve secured funds for our project. I also rented a studio for us to work in."
     show sumiko worry
-    s  "That’s awesome! Although I'm curious as to how you convinced them, since we don't have any concrete work to show..."
+    s  "That’s awesome! Although I'm curious as to how you convinced an investor to fund us, since we don’t have any concrete work to show yet."
     show yukari worry
-    y "Well that's … complicated. It's a long story, but what's important is that we can finally get started on our dream, right?"
-    "Directing her own anime is Yukari’s greatest dream. Funding puts her dream one step closer to reality. She can hardly breathe from excitement."
-    show shunsuke laugh_eyes_closed
+    y "It’s … complicated. Let’s just say this investor has a personal interest in our anime."
+    show sumiko sigh
+    s "Oh man, please tell me you haven’t indebted us to a crime lord or something."
+    show yukari tsundere
+    y "What?! Of course not!"
+    show sumiko laugh_eyes_closed
+    s "Just checking."
     show sumiko
-    ss "I agree. Getting funded was one of our biggest hurdles."
-    ss "If we take into account that only five of us will be working on the project, we’d probably never be able to finish it without funding."
-    show yuuko worry
-    yuu "Not to mention that we have to outsource the animation work too which can be very expensive even though the animators aren’t well paid…"
     show yukari
-    y "For now, let's celebrate our funding!"
-    y " We'll start working on the project next week. Our journey will be long and tough, but I believe we can pull through it together!"
+    m "Will it be enough money for the entire anime?"
+    y "No. This is just enough to get us started. We’ll probably need to obtain more money later on."
+    ss "There’s no “probably” about it. If we take into account that only five of us will be working on the project, we’ll never finish it without sufficient funds."
+    yuu "Outsourcing the work to complete the animation will be very expensive, even though the animators aren’t well paid…."
+    "It’s so rare to hear Yuuko speak, Yukari stares at her in astonishment. If she’s concerned enough to voice her worries out loud, it’d definitely something to keep in mind."
+    "But they have their initial funding, and that’s what matters."
+    show yukari laugh_eyes_closed
+    y "We can figure that out later. For now, we should be happy."
+    y "We'll start work next week. Our journey will be long and tough, but I believe we can pull through it together!"
     show mayumi happy
-    m "Yeah! The details can wait. Let’s celebrate! "
-    show yuuko happy
-    show sumiko happy
-    "At Mayumi’s declaration, everyone cheers. Everyone excitedly discusses their hopes and dreams for the upcoming project. "
+    m "Yeah! The rest can wait. Let’s celebrate!"
+    "At Mayumi’s declaration, everyone cheers."
+    scene home with fade
+    show yukari happy at left with dissolve
+    y "I can’t believe it… It’s finally happening. Next week, I’ll start work on my own anime. I’ll fulfill my dream. No… our dream."
+    scene flashback with fade
+    grandma "Yukari? It’s been so long! Did you travel all the way out here just to visit me?"
+    y "Grandma! I was going to call you, but I changed my mind. I want to tell you this news in person."
+    grandma "You’re getting married?"
+    y "What?! No, that’s not it. Do you remember the secret I told you when I was a little girl?"
+    grandma "You’re going to make your own anime?"
+    y "Yes!"
+    grandma "I’m so happy for you."
+    y "A few friends are helping me. There aren’t many of us, but I’m sure we can do it."
+    grandma "Have you started? How long will it take? I can’t wait to watch your show."
+    y "We’ve discussed ideas, but we can’t start production until we have funding. It’s tough, since all we have is a concept, but I’m hoping to find investors soon."
+    grandma "You just found one."
+    y "Huh? What do you—"
+    y "You mean yourself? I can’t take your money!"
+    grandma "I have more money than I’ll ever need at my age."
+    y "Aw, don’t say that…"
+    grandma "Besides, this isn’t a gift. It’s an investment, and I expect something to come of it! Make me proud, Yukari!"
+    y "I will!"
+    scene home
+    show yukari at left
+    with fade
+    y "Don’t worry, Grandma, I won’t let you down."
     jump pre_game
 
 label pre_game:
@@ -237,7 +385,7 @@ label pre_game:
     $side_nav_interaction = True
     $show_floating_buttons = True
     hide screen start_game
-    play music "music/dashboard.mp3" fadein 1.0
+    play music "music/ost/scheduled_days.ogg.mp3" fadein 1.0
     $renpy.retain_after_load()
     call screen start_game
     stop music
@@ -546,7 +694,7 @@ label week_1_6:
             pass
     scene studio with dissolve
     $current_week = 2
-    play music "music/dashboard.mp3" fadein 1.0
+    play music "music/ost/scheduled_days.ogg.mp3" fadein 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
     #call screen progress_report
@@ -741,7 +889,7 @@ label week_2_5:
     y "No matter how tough it is, I have to buckle down and get those funds!"
     scene studio with dissolve
     $current_week = 3
-    play music "music/dashboard.mp3" fadein 1.0
+    play music "music/ost/scheduled_days.ogg.mp3" fadein 1.0
     $renpy.retain_after_load()
     call screen start_game
     stop music

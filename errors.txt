@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/random_events.rpy", line 1300: choice menuitem expects a non-empty block.
-    "Pass on the opportunity":
-                              ^
+File "game/first_month.rpy", line 332: Line is indented, but the preceding scene statement statement does not expect a block. Please check this line's indentation.
+    grandma "Yukari? It’s been so long! Did you travel all the way out here just to visit me?"
+    ^
 
 Ren'Py Version: Ren'Py 6.99.11.1749

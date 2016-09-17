@@ -1224,9 +1224,9 @@ label random_29:
 label random_30:
     scene studio_main with fade
     show yukari at pos_left
-    show mayumi at pos_farleft
-    show shunsuke at pos_right
-    show sumiko at pos_farright
+    show mayumi at pos_farleft behind yukari
+    show shunsuke at pos_middleright_half
+    show sumiko at pos_outerright
     with dissolve
     ss "Hey guys, are you free to have a meal together this weekend?"
     m "Yep!"
@@ -1281,7 +1281,7 @@ label random_31:
 label random_32:
     scene studio_main with fade
     show yukari at pos_left
-    show mayumi at pos_farleft
+    show mayumi at pos_farleft behind yukari
     show shunsuke at right
     with dissolve
     show yukari worry
@@ -1290,7 +1290,7 @@ label random_32:
     ss "Calm down. I know a place where we can make some extra cash."
     show yukari
     y "Really? Where?"
-    ss "A local restaurant needs help putting up seasonal décor. If the four of us work together, we can get quite a hefty sum."
+    ss "A local restaurant needs help putting up seasonal décor. If all of us work together, we can get quite a hefty sum."
     ss "The downside is we'll spend our entire weekend working without any rest."
     show yukari worry
     y "The whole weekend? I’m afraid we could be too stressed to work efficiently the following Monday..."
@@ -1302,11 +1302,12 @@ label random_32:
     menu:
         "Take up the décor job at the restaurant":
             scene cafe with fade
-            show yukari at left
-            show shunsuke at pos_middleright
-            show sumiko at pos_farright
+            show yukari at pos_left
+            show yuuko at pos_outerright behind sumiko
+            show shunsuke_f at pos_farleft
+            show sumiko at pos_right 
             with dissolve
-            show shunsuke laugh_eyes_closed
+            show shunsuke_f laugh_eyes_closed
             ss "Let's get to work, guys! Fair pay for fair work."
             y "Sumiko, can you help me with the wallpaper?"
             s "Sure, let me get the right tools."
@@ -1346,8 +1347,8 @@ label random_33:
     show yuuko at pos_right
     show sumiko at pos_outerright behind yuuko
     show shunsuke at pos_middleright
-    show mayumi at pos_farleft behind yukari
-    show mayumi worry
+    show mayumi worry at pos_farleft behind yukari
+    with dissolve
     m "Yukari, I get the impression you didn’t call us here for a fun meal."
     show yukari sigh
     show sumiko sad
