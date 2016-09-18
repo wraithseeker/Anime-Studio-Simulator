@@ -5,6 +5,9 @@
         CATEGORY_NONE = 0
         CATEGORY_POSITIVE = 1
         CATEGORY_NEGATIVE = 2
+        HAREM = 0
+        MYSTERY = 1
+        ACTION = 2
 
         def __init__(self,name):
             self.name = name
@@ -16,6 +19,7 @@
                                     "voice_acting","op_ed","ost","quality_check","marketing","funds"]
             self.db_positive = []
             self.db_negative = []
+            self.category = 0 #defaults to harem
             for i in range (0,len(self.db_stats)):
                 setattr(self,"prev_" + self.db_stats[i],0)
             # Story

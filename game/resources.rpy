@@ -119,6 +119,10 @@ image bg street_rain = "street_rain.jpg"
 image bg cafe = "bg/cafe.png"
 image bg home = "bg/home.png"
 image bg flashback = "cg/flashback.png"
+image bg action_sketch = "cg/action_sketch.png"
+image bg mystery_sketch = "cg/mystery_sketch.png"
+image bg harem_sketch = "cg/harem_sketch.png"
+image bg animate = "cg/animate.png"
 image money = "ui/money_bag.png"
 
 image ctc_fixed:

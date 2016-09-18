@@ -2,8 +2,16 @@
 errors listed below, and try again.
 
 
-File "game/first_month.rpy", line 332: Line is indented, but the preceding scene statement statement does not expect a block. Please check this line's indentation.
-    grandma "Yukari? It’s been so long! Did you travel all the way out here just to visit me?"
-    ^
+File "game/first_month.rpy", line 410: expected statement.
+    anime.category = Anime.HAREM
+                   ^
+
+File "game/first_month.rpy", line 412: expected statement.
+    anime.category = Anime.MYSTERY
+                   ^
+
+File "game/first_month.rpy", line 414: expected statement.
+    anime.category = Anime.ACTION
+                   ^
 
 Ren'Py Version: Ren'Py 6.99.11.1749

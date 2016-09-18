@@ -27,7 +27,8 @@
     $anime.story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
     $anime.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
     $anime.music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
-    jump game_start
+    #jump game_start
+    jump week_3_1
 
 init python:
     import datetime
@@ -122,5 +123,6 @@ init:
     $pos_farright = Position(xalign = 1.0,yalign = 1.0)
     $pos_right = Position(xalign = 0.92,yalign = 1.0)
     $pos_outerright = Position(xalign = 1.1,yalign = 1.0)
+    $pos_textbox_right = Position(xalign = 0.85,yalign=1.0)
     
 
