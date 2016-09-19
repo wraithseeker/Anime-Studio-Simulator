@@ -2,16 +2,12 @@
 errors listed below, and try again.
 
 
-File "game/first_month.rpy", line 410: expected statement.
-    anime.category = Anime.HAREM
-                   ^
+File "game/second_month.rpy", line 316: end of line expected.
+    show anim_dir with dissolve at right
+                                ^
 
-File "game/first_month.rpy", line 412: expected statement.
-    anime.category = Anime.MYSTERY
-                   ^
-
-File "game/first_month.rpy", line 414: expected statement.
-    anime.category = Anime.ACTION
-                   ^
+File "game/second_month.rpy", line 337: end of line expected.
+    show anim_dir with dissolve at right
+                                ^
 
 Ren'Py Version: Ren'Py 6.99.11.1749

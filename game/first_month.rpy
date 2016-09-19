@@ -12,6 +12,10 @@ define ss = Character('Shunsuke', color="#000",ctc="ctc_fixed",ctc_position="fix
 define bot = Character('Recorded Voice', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define unknown = Character('???', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define grandma = Character('Grandma', color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define investor = Character('Investor', color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define sisters = Character('Yuuko & Sumiko', color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define staff = Character('Staff', color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define anim_dir = Character("[anim_studio_dir]", color="#000",ctc="ctc_fixed",ctc_position="fixed")
 
 # The game starts here.
 
@@ -1096,112 +1100,154 @@ label week_3_1:
     # $first_w_events.remove(rand_choice)
     # call expression rand_choice from _call_expression_2
 label week_3_2:
-    scene studio with fade
+    scene studio_main with fade
     show yukari sad_angry at left
     with dissolve
     y "Agh! This is taking forever. I wish I could write a generic email and send it to all the investors, instead of writing personalized ones."
     y "But everyone says generic emails are often ignored while personalized emails have a better chance of catching their interest."
     y "That greater chance is what we need right now, so I shouldn’t complain, I guess."
+    show yukari sigh
     y "It’s so boring, though. I’ll try calling some of them up instead."
-    play sound "music/dialing_numbers.ogg"
+    play sound "music/sfx/dialing_numbers.ogg"
     "She picks up her cell phone and dials the number for one of the potential investors."
-
     "It rings, and then.."
     scene black with dissolve
-    bot "Thank you for calling ABC company."
+    $random_company = getRandomCompany()
+    bot "Thank you for calling [random_company]."
     bot "Our office hours are from 9AM to 5 PM on weekdays and from 9 AM to 3 PM on Saturday. Our offices are closed on Sunday. For general inquiries, please press 1. For support issues, please press 2."
     y "Stupid automated software..."
     "The recorded voice lists several other options, none of which are any help to Yukari."
     bot "To speak with a customer service representative, please press 0 or remain on the line."
     "She glares at the phone and hits 0."
-    play sound "music/dial_tone.ogg"
+    play sound "music/sfx/dial_tone.ogg"
     "It rings again, and then the bot’s voice returns."
     bot "Please hold, as all our customer service operators are currently unavailable."
-    play sound "music/annoying_ringtone.ogg"
+    play sound "music/sfx/annoying_ringtone.ogg"
     "High-pitched, somber chords fill the line."
     y "Great, now I have to listen to some weird music."
     "The music continues until Yukari worries she might fall asleep, and then the line finally comes to life with a human voice."
-    stop sound fadeout 0.5
+    stop sound fadeout 1.0
     unknown "Hello, thank you for calling. How may I help you?"
     "Yukari gives the operator a simple pitch, describing the basics of [anime.name] in the hopes she’ll transfer the call to someone higher up."
+    if anime.category == Anime.HAREM:
+        "She includes just enough details about the science themes and comedy to distinguish it from similar shows."
+    elif anime.category == Anime.MYSTERY:
+        "With any luck, her description will make the operator want to watch the anime to find out who the murderer is."
+    elif anime.category == Anime.ACTION:
+        "If she goes into too much detail about the conspiracy, it will get complicated, so she focuses on the main character’s struggle and the action scenes."
     unknown "[anime.name] sounds fantastic! How can we get in touch with you?"
     "Yukari quickly gives the operator her contact details."
     unknown "Is there anything else I can help you with?"
     y "No, thank you."
     unknown "All right, have a wonderful day. We’ll get back to you soon!"
-    scene studio
+    scene studio_main with fade
     show yukari sigh at left
     with dissolve
-    play sound "music/hanging_up_phone.ogg"
+    play sound "music/sfx/hanging_up_phone.ogg"
     y "Yukari hangs up the phone and sighs. They’ll get back to her. Sure. More likely, she failed her pitch once again and will never hear from them."
     y "Why can’t they just tell me they’re not interested instead of leaving me hanging?"
     "Yukari rubs her head. The pressure and stress is starting to get to her. She looks around the studio. Everyone else is hard at work."
     "As much as she wants to complain to them about what happens, she knows it’s better if she doesn’t distract them."
 
 label week_3_3:
-    scene studio with fade
+    scene studio_main with fade
     show yukari worry at left
+    show sumiko sad at right
     with dissolve
-    "The next day, Yukari can’t help but worry about Sumiko. She doesn’t look well. She keeps coughing and works on her art half-slumped in her chair. When she looks up, her eyes are dull."
+    "The next day, Yukari can’t help but worry about Sumiko. She doesn’t look well. She keeps coughing and works on her art half-slumped in her chair."
+    "When she looks up, her eyes are dull."
     "Yukari looks around."
-    "Mayumi is intent on sorting the huge mountain of project files for [anime.name]. Shunsuke is also working with her on the script. Yuuko sits at her desk working on art."
+    "Mayumi intently sorts through the huge mountain of project files for [anime.name]. Shunsuke is developing the script further."
+    "Yuuko sits at her desk working on designs for the side characters."
     "Perhaps they didn’t notice yet… or it could just be Yukari’s imagination."
     menu:
         "It's just my imagination...":
-            show yukari tsundere
+            show yukari sigh
+            $week_3_3_doctor = False
             y "I must be imagining things. All this stress is getting to me."
+            "However, Sumiko continues to cough throughout the day, and her work on [anime.name] is slow."
+            "When she leaves with her sister in the evening, Yukari can’t help but feel another pang of worry and wonder if she should have said something."
         "Ask Sumiko if she's sick.":
+            $week_3_3_doctor = True
             show yukari sad
-            show sumiko at right with dissolve
             y "Sumiko, are you getting sick? You look like you should see a doctor."
             show sumiko sigh
-            s " I’m fine! What makes you think I’m sick?"
+            s "I’m fine! What makes you think I’m sick?"
             s "*cough cough*"
             show yukari angry
             y "Your body is honest, at least. We can’t have you falling sick right now when we have so much work to do. I’ll take you to the doctor!"
             show sumiko worry
-            s "But what about my work?"
+            s "But what about my work? We only have a few backgrounds complete!"
             y "Losing some progress now is better than coming down with a serious illness that could jeopardize the whole project!"
             s "Yes, ma’am..."
-            "Yukari takes Sumiko to see a doctor. She is indeed sick. She’ll be recuperating at home for the rest of the week and won’t be able to work on [anime.name] for the next few days."
-    $rand_choice = renpy.random.choice(first_w_events)
-    $first_w_events.remove(rand_choice)
-    call expression rand_choice from _call_expression_3
+            "Yukari takes Sumiko to see a doctor. She is indeed sick. She’ll be recuperating at home for the rest of the week and won’t be able to work on [anime.name]."
+    # $rand_choice = renpy.random.choice(first_w_events)
+    # $first_w_events.remove(rand_choice)
+    # call expression rand_choice from _call_expression_3
 
 label week_3_4:
-    scene studio with fade
-    show yukari sad at left
+    $week_3_3_doctor = True
+    scene studio_main with fade
+    if not week_3_3_doctor:
+        show yukari sad at pos_left
+        show mayumi at pos_farleft behind yukari
+        show shunsuke at pos_middleright_half
+        show yuuko at pos_outerright
+    else:
+        show yukari at left
+        show shunsuke at right
+    with dissolve
+    if not week_3_3_doctor:
+        show yuuko sad
+        yuu "I’m afraid Sumiko can’t make it today."
+        y "What’s wrong?"
+        yuu "She didn’t feel well last night, and she woke up really sick this morning."
+        show mayumi worry
+        m "Oh no!"
+        y "Darn it… I thought she seemed sick yesterday. I should have said something! Will she be okay?"
+        yuu "She scheduled an appointment with a doctor later today, but she won’t be able to work today… which has her pretty upset."
+        show yukari sad
+        y "Tell her not to worry about it. It’s more important that she recover."
+        ss "And if that doesn’t convince her, tell her she’ll set back [anime.name]’s progress even more if she doesn’t take care of herself."
+        show yuuko
+        yuu "Thank you."
+        "Yukari tries to stifle her own guilt over not saying something to Sumiko. Now she’s sick, her art will be delayed, and [anime.name] is still at risk for a funding crisis."
+        "There’s too much to worry about all at once…"
+        ss "Yukari, if you have a minute, I’d like to talk to you… "
+    scene studio_main
+    show yukari at left
     show shunsuke at right
     with dissolve
     ss "Here’s the script for the pilot episode. We can get started with the episode’s storyboard soon, too."
     ss "Let me know what you think!"
     "It takes Yukari a moment to realize he’s speaking to her."
-    y "What? Oh, right, the script for episode 1.  I’ll take a look at it later."
+    y "What? Oh, right, the script for Episode 1.  I’ll take a look at it later."
     y "Who’s working on the storyboard? Me?"
-    ss "If not you, who else? You’re the one in charge, so you have the clearest picture of what [anime.name] should be like."
+    show shunsuke sigh
+    ss "If not you, who else? You’re the one in charge, so you have the clearest picture of what [anime.name] should be like. "
     y "Yes, you’re right. Why did I even ask that question?"
     y "Yukari rubs her head. She feels like she’s going to explode any minute now. Should she tell the others her concerns about funding?"
     menu:
         "Raise the issue of funding":
-            show yukari sad at pos_left
+            scene studio_main with fade
+            show yukari at pos_left
             show mayumi at pos_farleft behind yukari
-            show shunsuke at pos_middleright
-            show yuuko at pos_right
-            show sumiko at pos_outerright behind yuuko
+            show shunsuke at pos_middleright_half
+            show yuuko at pos_outerright
             with dissolve
             y "Hey, can I talk to everyone for a minute?"
-            show mayumi worry
+            "The others look up from their work."
             m "What’s wrong?"
             y "I’m worried about the funding. I haven’t found any more investors. No one seems interested."
+            show shunsuke sad
             ss "That’s not good."
+            show yukari sigh
             y "I know! What are we going to do?"
             show mayumi happy
             m "Maybe we could have a bake sale!"
-            show shunsuke worry
             ss "A bake sale? How will we find time for baking?"
             show mayumi sad
             m "Oh, right…"
-            show yuuko happy
             yuu "If we find people in the community who are interested, they might help fund us."
             show mayumi happy
             show shunsuke
@@ -1214,12 +1260,13 @@ label week_3_4:
             "Even though they didn’t come to an answer, Yukari feels better just from talking about it. Between the four of them, maybe they can find a solution."
         "I'm fine.":
             "Yukari closes her eyes. She can handle this. No need to worry the others."
+    scene studio_main with fade
     show yukari sad at pos_left
     show mayumi at pos_farleft behind yukari
-    show shunsuke at pos_middleright
-    show yuuko worry at pos_right
-    show sumiko at pos_outerright behind yuuko
+    show shunsuke at pos_middleright_half
+    show yuuko worry at pos_outerright
     with dissolve
+    "A few hours later in the studio..."
     yuu "Hey, everyone? Sumiko still needs more rest. She won’t be able to meet with us tonight for dinner."
     show shunsuke sad
     show mayumi sad
@@ -1231,7 +1278,7 @@ label week_3_5:
     scene bg restaurant with fade
     show yukari worry at pos_left
     show shunsuke at pos_middleright_half
-    show yuuko at Position(xalign = 1.0,yalign = 1.0)
+    show yuuko at pos_outerright
     show mayumi at pos_farleft behind yukari
     with dissolve
     "For the first time, Yukari feels stressed, not happy, when she goes to the restaurant with her friends."
@@ -1262,9 +1309,7 @@ label week_3_5:
     "After everyone finishes dinner, Yukari glances at Mayumi."
     menu:
         "Confide in Mayumi":
-            hide mayumi
-            hide shunsuke
-            hide yuuko
+            scene restaurant
             show yukari at left
             show mayumi_f at right
             with dissolve
@@ -1272,18 +1317,21 @@ label week_3_5:
             y "Mind if we talk for a minute?"
             m "Not at all. What’s up?"
             "Yukari waits a moment to make sure the others get far enough away so they won’t overhear or double back for something."
+            show yukari worry
             y "I’m really starting to worry about this. I’m not sure we can complete [anime.name]."
             m "Of course we can! Just because we’ve had a few setbacks doesn’t mean there’s no hope."
             y "But the deadline is approaching and we’re falling behind. This is my dream. It’s hard to watch my dream crumble to dust…"
             m "It’s not crumbling. Everything will be fine. You’ll see!"
             y "I hope you’re right."
+            show mayumi_f laugh_eyes_closed
             m "Have a little faith in my predictions! Have I ever been wrong?"
+            show yukari happy
             y "Haha, okay. Thanks, Mayumi. Talking to you always makes me feel better."
         "I'm fine...":
             "Yukari shakes her head. She’s the director. She can handle this herself."
 
 label week_3_6:
-    scene black with dissolve
+    scene home with fade
     "At last, the weekend arrives. Yukari debates about how she should spend it."
     menu:
         "Work on [anime.name]":
@@ -1293,7 +1341,397 @@ label week_3_6:
             #Depending on Yukari’s human relations variable, they either tell her they like <anime name> very much or they tell her they are not very fond of <anime name> 
         "Watch some anime.":
             "Yukari spends the weekend binge-watching her favorite anime series to relax."
-    "End of demo.. for now"
+label week_4_1:
+    scene studio_main with fade
+    show yukari at pos_left
+    show mayumi at pos_farleft behind yukari
+    show shunsuke at right
+    with dissolve
+    y "At our current rate, we won't have enough money to outsource the animation work. This is a huge problem. It could stall the entire project."
+    y "And according to our current schedule, we need to hire animators within the next two weeks or we won’t make it in time."
+    show yukari sad
+    y "Not to mention our art assets were delayed when Sumiko fell sick."
+    m "Maybe we should hire freelancers so we can complete it on time."
+    m "It'll be a hassle, but it might be worth it. I’ll look online for new investors, too."
+    s "I’m sorry… This is all my fault. If I’d taken better care of my health, I wouldn’t have gotten sick and we wouldn’t be in this situation."
+    "With a gloomy look on her face, Sumiko apologizes repeatedly to Yukari and Mayumi until Shunsuke interrupts her."
+    ss "It's not your fault, Sumiko. You were only trying to work hard on [anime.name]. Maybe we share the blame for not noticing you were overworked."
+    ss "We’re all responsible for the current situation, so don’t be too hard on yourself."
+    ss "Pessimism will be our undoing. We should focus on what we can do now, not what we can’t."
+    y "I agree. Worrying all day won’t accomplish anything. Let’s get some work done!"
+    "Despite Yukari and Shunsuke’s words, tension lingers in the air. No matter what they say, the problems remain."
+    "She rubs her head. If they don’t relax, it will start to affect their work. Then they’ll have an even bigger problem."
+    "There must be a way to put them at ease."
+    "Yukari thinks about it and decides to focus on…"
+    menu:
+        "Raising funds":
+            "Funding will solve their problem quicker than anything else. Yukari spends the rest of the day trying to contact investors to pitch [anime.name] to them and hopefully raise additional funds."
+        "Drawing storyboards for the anime":
+            "The anime itself is the top priority. Yukari spends the rest of the day drawing storyboards for [anime.name]."
+        "Cheering everyone up":
+            "Although there’s a lot of work to do, brightening the mood is more important. But how? Yukari considers it for a moment, and then leaves the studio to visit a nearby bakery."
+            "She returns with enough cookies for everyone to have some. It isn’t a permanent solution, but the tension in the air eases as she passes around the cookies."
 
+label week_4_2:
+    scene studio with fade
+    show yukari at left
+    show mayumi_f at right
+    with dissolve
+    y "Mayumi, could you spare a few minutes tonight? I need to talk to you."
+    m "Of course! Actually I was hoping we’d talk soon. It’ll be good for you to open up to someone about what’s bothering you."
+    show yukari sigh
+    y "You’re right. It’s getting to be too much."
+    y "This gloomy atmosphere is unbearable. I feel like it’s impossible to be optimistic."
+    m "Think of it as a test of our strength. Other people, maybe even people who created popular anime, probably faced similar issues in the past. They made it, and we will too."
+    show yukari
+    y "I hope so."
+    m "I know so."
+    y "Can you spread your optimism to Yuuko and Sumiko? They seem really stressed out."
+    y "If we let things continue like this, I’m afraid everything will fall to pieces."
+    m "Don’t worry. We’ll discuss everything tonight."
+    "That promise sustains Yukari through a stressful day at the studio. When night comes, she meets up with Mayumi so they can talk over dinner."
+    scene cafe with fade
+    show yukari at left
+    show mayumi_f at right
+    with dissolve
+    m "So what did you want to talk about?"
+    y "A few things, but mainly the morale of the group."
+    show yukari worry
+    y "I don't quite understand why Yuuko and Sumiko still seem so down. It’s not their fault. We even told Sumiko outright not to blame herself."
+    y "Am I missing something?"
+    m "It's pretty simple. Even if they know we don’t blame them, they still feel responsible. The delayed art assets and Sumiko’s sickness put us behind schedule."
+    m "They’re as enthusiastic about [anime.name] as any of us. Imagine how you’d feel if your role in the project was what delayed us."
+    y "Yeah, I’d feel horrible."
+    m "Anyone would. I’ll talk to them. Maybe I can cheer them up."
+    show yukari sad
+    y "Sounds like an awesome idea. I’d talk to them with you, but I probably wouldn’t be any good at it."
+    y "I'm too stressed out about raising funds. I haven’t even done enough work on the storyboards, because I can’t stop worrying."
+    y "I keep thinking, what if we don't raise enough money? Will we have to shut down the project even after all the work we put into it?"
+    m "You're overthinking it. Don’t worry. In the worst case scenario, we'll use our savings to stay afloat until we get investments."
+    m "We aren’t going to give up that easily."
+    show yukari happy
+    y "Thanks. That makes me feel a lot better."
+    show mayumi_f laugh_eyes_closed
+    m "Anytime."
+    y "And thanks for always being there for me. I wouldn’t know what to do without you."
+    m "That's what best friends are for, right?"
+    "Yukari smiles. Talking to Mayumi has lifted a weight from her shoulders. She can breathe easier now."
+    show mayumi_f
+    show yukari
+    m "By the way, if we want to start animating the characters next week, we’ll need to ask Yuuko to increase the pace of her work."
+    m "I checked our art assets, and there’s quite a bit of work untouched."
+    show mayumi_f sad_angry
+    m "I know this is a bad time to pressure her, but…."
+    y "I understand. We need to do what’s best for [anime.name]."
+    y "I’ll tell her tomorrow. Be sure to talk to her and Sumiko soon. If they’re already feeling down, it might be hard for them to cope with extra pressure."
+    m "Don’t worry, I will."
+    y "I know I can count on you."
 
+label week_4_3:
+    scene studio_main with fade
+    show yukari at left
+    show yuuko at right
+    with dissolve
+    y "Yuuko, what's the status on the character designs?"
+    yuu "The side characters are almost done. We only have a few left to go. Then they’ll need some minor touchups here and there."
+    y "How long do you think it'll take to finish everything?"
+    yuu "They should be ready next week."
+    show yukari worry
+    y "Is there any way you can finish them sooner? We have to start outsourcing the animation next week." 
+    y "It’ll take time to set things up with the studio, so we need to have the characters ready."
+    y "I know it’s a lot to ask, especially since you covered Sumiko’s work when she was sick, but I need you to work harder."
+    yuu "I understand. I’ll take care of it."
+    show yukari
+    y "Just don't neglect your health due to work, okay? We have to pull through this together."
+    show yuuko sad
+    yuu "I won’t. I wouldn’t want to delay us by getting sick."
+    y "No, I didn’t mean it like that. I meant for your own sake."
+    "Yuuko nods, but Yukari can tell she’s only disheartened her further. Yukari sighs and returns to her desk. Maybe Mayumi can salvage that situation."
+    "As Yukari gets back to work, an email notification pops up. She checks it, and her heart leaps. It’s from one of the investors she contacted… and he’s interested in [anime.name]."
+    show yukari laugh_eyes_closed
+    show yuuko
+    y "YES!"
+    "Yukari’s exclamation attracts Shunsuke's attention."
+    scene studio_main with fade
+    show yukari at left
+    show shunsuke at right
+    with dissolve
+    ss "What is it? Did we secure new investors?"
+    y "Not yet, but one of the investors I tried to get in touch with replied to me."
+    y "He's from a notable company, too. If we manage to clinch this deal, we won’t have to worry about money anymore!"
+    show shunsuke laugh_eyes_closed
+    ss "See? All your hard work paid off in the end. I'm sure you'll convince him and bring him on board with us."
+    y "I hope so. He seems really interested. He asked to meet up with me so we can discuss [anime.name]."
+    "She beams at the team, hardly able to contain her excitement."
+    y "I think this is the moment we’ve been waiting for."
+    "As the others talk about how exciting it is to finally have a new source of funding within sight, Yukari gathers up all the documents she’ll need to show the investor."
+    "With any luck, they’ll convince them [anime.name] is worth it."
+    show yukari happy
+    y "It's do or die!"
+    "Once she has the documents packed up, she replies to the email and asks him if they can meet for lunch to discuss [anime.name]."
+    hide shunsuke with dissolve
+    "She holds her breath as she hits “send,” and then she waits."
+    "And waits."
+    "Since it took him so long to reply to her initial email, she tries not to get too impatient. Instead, she practices in her mind what she wants to say to him."
+    "After work, Mayumi approaches Yuuko and Sumiko. Yukari tosses her a relieved smile, and then leaves so they can speak in private."
+    "A few hours later, Yukari receives two messages. The first is from Mayumi, about the outcome of her chat with Yuuko and Sumiko."
+    "She cleared up their concerns, and both sisters left the studio feeling recharged, energized, and ready to finish the art for [anime.name]."
+    "The second is from the investor, asking if they can meet up on Friday."
 
+label week_4_4:
+    scene studio_main with fade
+    show yukari worry at left
+    show mayumi_f at Position(xalign = 0.80,yalign = 1.0)
+    show shunsuke at pos_outerright
+    with dissolve
+    y "My heart's pounding. Do you think I should offer to foot the bill for lunch?"
+    m "Those things don’t matter. Remember why you’re going there. You need to convince him it's a great idea to invest in [anime.name]."
+    y " I want to make a good impression."
+    show mayumi_f sigh
+    m "You're overthinking this. You'd be much better off thinking about the kinds of questions he’ll ask."
+    m "After all, it’ll be really awkward if you can't answer his questions!"
+    show yukari sigh
+    show mayumi_f
+    y "Why didn't I think of that?"
+    "But her mind goes blank. With the meeting so close, she can’t focus on anything. All she can think about is how [anime.name] might be doomed if she messes this up."
+    "Lightheaded, she grips the edges of her desk and tries to breathe. She needs to focus on the questions so things don’t go wrong, but she can’t. What will the investor ask? What if things go wrong?"
+    ss "He’ll probably ask the basic questions:"
+    ss "What differentiates [anime.name] from all the other anime out there?"
+    ss "Do we have a roadmap?"
+    ss "How much experience do we have?"
+    "His calm voice steadies Yukari, and she takes a deep breath. She can answer those questions."
+    ss "Don't forget to stay calm, and try not to stutter when you talk to him. Make sure you sound confident!"
+    show yukari
+    y  "Thanks. I'll keep that in mind."
+    ss "Preparation is half the battle."
+    y "What do you mean?"
+    ss "If you’re well-prepared for this meeting, it’ll be that much easier to convince him."
+    m "Everything will be fine!"
+    m "Thank you. I’ll start preparing now."
+    "She grabs a notebook and writes down the answers to the questions Shunsuke suggested. She adds a few more things to mention about [anime.name] and thinks about other potential questions."
+    y "I hope he doesn't ask anything too difficult…"
+    "Nerves threaten to overtake her again, but her team members toss encouraging smiles her way. With another deep breath, she rehearses the answers in her mind. Confidence. Preparation. She can do this."
+    scene cafe with fade
+    show yukari at left with dissolve
+    play music "music/ost/nervous.ogg" fadein 1.0
+    y "There's still about 20 minutes before we’re supposed to meet… Maybe I arrived too early."
+    y "Better to be early than late, though. That would give him a bad impression of me from the start."
+    "She finds a seat. Thoughts of the upcoming meeting still have her on edge, so she checks through all the materials she brought to make sure she didn’t forget something."
+    "Everything is there. She runs over the questions again in her mind, and then checks her social media networks to relax."
+    "After a little while, a man dressed in a business suit and carrying a briefcase enters the restaurant. Yukari’s mouth goes dry. It must be him."
+    "She waves, and he approaches her table."
+    show investor at right with dissolve
+    investor "Yukari?"
+    y "Yes."
+    "He takes the seat across from her and smiles. She breathes a little easier."
+    show investor little_happy
+    investor "It’s good to meet you. How is the development of [anime.name] going?"
+    "Although her heart hammers against her chest, her practiced answer spring to her lips."
+    y "We're doing great. Next week, we’re going to start the animation work."
+    y "However, we'll soon run out of funds, which is why I’ve been looking for investors."
+    investor "Well, the idea of [anime.name] intrigues me. I discussed it with my company last week and we might be interested in investing in it."
+    investor " Could you tell me more details about [anime.name]?"
+    y "Of course."
+    if anime.category == Anime.HAREM:
+        y "[anime.name] follows the only male member of a high school science club. In addition to the romantic elements, we’ve placed a strong emphasis on comedy."
+        y "The female characters all love science, and they like to conduct experiments. Unfortunately, their experiments tend to lead to trouble."
+        investor "Interesting. Stories involving science are popular right now, you know, especially if they encourage girls to enter scientific fields."
+        show yukari happy
+        y "Really? Then [anime.name] should be great! Although they get into a lot of trouble, the girls’ interest in science is inevitably shown as a good thing."
+    elif anime.category == Anime.MYSTERY:
+        y "[anime.name] is about a detective who is out of work, so he takes on a case no one else wants."
+        y "Solving that case is the main focus of the plot, but flashbacks and hints will gradually reveal why his previous case ruined his reputation."
+        investor "Are the two cases connected?"
+        y "Y-yes, actually! How did you know?"
+        show investor smile
+        investor " I asked because that’s a good twist that will make the overall plot more solid. I’m glad you already had it in mind."
+    elif anime.category == Anime.ACTION:
+        y "The main character of [anime.name] has a normal life until an article in an old newspaper leads him to discover an underground chamber."
+        y "What he doesn’t know is that he’s on the edge of an ancient conspiracy, and the conspirators will kill him rather than risk a witness."
+        investor "Would you say your focus is more on action scenes or the conspiracy itself?"
+        y "Definitely action. We want it to be the sort of anime where anyone watching can follow along, but fans who really care will be able to dig deeper into the conspiracy and lore."
+    investor "What's your current progress?"
+    "Yukari makes a mental note to thank Shunsuke again if this works out. Most of these are the questions she went over in her mind. Nothing too difficult so far."
+    y "We’re currently in between writing scenarios for the episodes and working on production for [anime.name]. The art is coming along nicely, and we’ll begin outsourcing the animation soon."
+    investor "Do you have a schedule drafted up?"
+    y "Yes, I brought our schedule with me."
+    "Yukari opens her bag and finds the documents she brought. She passes them to the investor."
+    "He scans the documents and smiles."
+    show investor smile
+    investor "It looks like you’ve planned things out very well for [anime.name]. It looks promising."
+    "He opens his briefcase and pulls out a paper, which he hands to Yukari. Her breath catches in her throat as she takes it."
+    scene investor_yukari with fade
+    investor "I had a hunch I’d be pleased with your team, so I brought the contract along with me."
+    investor "Take your time to read it. You can sign it now or later, whichever you prefer."
+    "YES! They did it! They got an investor interested! Yukari can barely contain her excitement. She wants to scream and jump in the air for joy."
+    "However, she still needs to appear professional, so she clears her throat and speaks in a voice much calmer than how she feels."
+    y "Thank you. I’ll look it over now."
+    "She reads the contract carefully. It seems like a pretty good deal, with nothing she needs to think about or consult the team on."
+    "When she reaches the end, she gives it one final scan and then signs it."
+    investor "Wonderful. I expect to see great things from [anime.name]. I'll check on your progress from time to time. It’s been a pleasure doing business with you."
+    y "Thank you. I’m happy to work with you, too. We'll make [anime.name] an experience people won't forget."
+    scene cafe with fade
+    show yukari happy at left
+    show investor little_happy at right
+    with dissolve
+    investor " I have a meeting soon, so I’ll need to leave now unless there’s something else you wanted to discuss."
+    y "That’s everything for now. Have a good day!"
+    investor "You as well. Goodbye."
+    hide investor with dissolve
+    "The moment he’s out the door, Yukari pulls out her phone and texts her friends to let them know what happened."
+    "Replies come almost immediately. Everyone wants to celebrate with a feast."
+    "She certainly can’t argue with that."
+    scene studio with fade
+    show yukari at pos_left
+    show sumiko laugh_eyes_closed at pos_right
+    show yuuko at pos_outerright behind sumiko
+    show shunsuke at pos_middleright
+    show mayumi at pos_farleft behind yukari
+    with dissolve
+    s "All right, Yukari! That was amazing! Now we can focus on producing [anime.name]."
+    show yuuko happy
+    yuu "Congratulations."
+    s "How did you convince him?"
+    show mayumi happy
+    m "Were the questions hard? Were you nervous?"
+    show yukari laugh_eyes_closed
+    y "Honestly, I was pretty nervous, but the questions he asked me weren’t too difficult. From there, everything worked out."
+    "She looks at Shunsuke."
+    y "Thank you again for suggesting questions he might ask."
+    show shunsuke happy
+    ss "Any time."
+    m "And now we have funding! What did it feel like when he handed you the contract?"
+    y "Very surreal."
+    "She laughs."
+    y "Part of me still can’t believe it really happened."
+    m "Not everyone gets a chance to talk with investors like you did, especially not as young as you are!"
+    m "I knew you could do it!"
+    show yukari
+    y "Let’s not get ahead of ourselves, though. We’ve solved our funding problem, but we still have other important issues to take care of. It’s not over yet."
+    "Still, with the afternoon’s success, she feels like she can handle anything."
+    y "Mayumi, Shunsuke, we need to discuss outsourcing work for [anime.name]. Yuuko and Sumiko, you should continue working on the art so we’ll meet our schedule for [anime.name]."
+    show yuuko
+    yuu "What will you be talking about?"
+    y "Delegating tasks and going over any potential concerns."
+    yuu "Sounds interesting... I wish I could help."
+    y "Just because you aren’t involved with this doesn’t mean you can’t help. Your art is one of the most important things we need right now."
+    "Yuuko nods. She and Sumiko head back to their desks to work on the art for [anime.name]. Yukari returns her attention to the other two."
+    scene studio
+    show yukari at left
+    show mayumi_f at Position(xalign = 0.80,yalign = 1.0)
+    show shunsuke at pos_outerright
+    with dissolve
+    y "Have either of you had experience with hiring freelancers? "
+    "Silence."
+    show yukari sigh
+    y "Right… So we’re all greenhorns. That makes it more likely things will go wrong without us noticing."
+    m "Aw, I’m sure it won’t be that bad."
+    ss "But there’s nothing wrong with preparing for the worst."
+    y "For now, let's delegate tasks. Mayumi, as the sound editor, you should be in charge of everything related to our audio."
+    y "In particular, we need to hire voice actors and find a suitable studio where we can record our script, as well as the opening and ending songs."
+    show mayumi_f happy
+    m "Okay, I can do that."
+    y "That leaves animation work and handling matters at the studio."
+    ss "I don’t have any expertise when it comes to animation, so I’ll manage the studio."
+    ss "I'll let you know if anything important happens."
+    show yukari laugh_eyes_closed
+    y "Okay, then I’ll supervise the outsourced animation work. This arrangement seems pretty good."
+    show mayumi_f
+    m "Once I start composing the music for [anime.name], though, I’ll need some help."
+    m "Composing takes a lot of time, so I won’t be able to supervise all the recording sessions after that."
+    show yukari
+    y "Hmm… who do you think should take over supervising?"
+    m "You."
+    show yukari worry
+    y "Me? But I don’t know a lot about music. How will I know if it’s going well or not?"
+    m "Don’t worry. You can attend a few recording sessions with me, and I’ll make sure you learn what to listen for."
+    m "Besides, you have the clearest picture of what [anime.name] should be like. You’ll know if the music doesn’t sound right."
+    if anime.category == Anime.HAREM:
+        m "Just remember, it should be quirky and upbeat."
+    elif anime.category == Anime.MYSTERY:
+        m "Just remember, we need a mix of upbeat songs and tense songs."
+    elif anime.category == Anime.ACTION:
+        m "Just remember, this is action. If your heart pounds, that’s good. If you feel drowsy, that’s bad."
+    show yukari laugh_eyes_closed
+    "Yukari smiles."
+    y "All right. Is there anything else we need to discuss?"
+    ss "Not that I know of."
+    m "Nope."
+    y "Great. Then I’ll see everyone tonight for dinner!"
+    scene restaurant with fade
+    show yukari at pos_left
+    show sumiko at pos_middleright
+    show yuuko at pos_right behind sumiko
+    show shunsuke at pos_outerright
+    show mayumi happy at pos_farleft behind yukari
+    with dissolve
+    m "I hereby call tonight’s “We Got Funded” Celebration to order!"
+    "Everyone laughs."
+    "For once, no one talks about problems or worries. They have an investor, and [anime.name] seems closer to becoming a reality than ever before. It’s a night for celebration and relaxation."
+    "As Yukari looks around at her team members, she feels better than she has in weeks."
+    show sumiko laugh_eyes_closed
+    s "Oh! I almost forgot, want to hear what happened to me the other day?"
+    m "No, what?"
+    yuu "Sumiko, they don’t want to hear this story."
+    show sumiko tsundere
+    s "Yes they do!"
+    show yuuko sigh
+    yuu "No they don’t."
+    s "Look at them! They’re practically on the edge of their seats!"
+    yuu "Everyone, trust me, you don’t want to hear this story."
+    show yukari happy
+    y "Now you’re making me curious."
+    s "Hah! See?"
+    "She shoots her sister a triumphant look. Yuuko just shakes her head and turns her attention to her meal as the story begins."
+    show sumiko
+    s "Yuuko and I went shopping for groceries on our way home. Since we had a lot to buy, we took the bus instead of walking home."
+    s "Well, the bus was really crowded, so we couldn’t find two seats together. Guess who I sat by?"
+    m "A celebrity?"
+    y "Someone who knew about [anime.name]?"
+    ss "An old friend you haven’t seen in years?"
+    show sumiko happy
+    s "Wrong, wrong, and wrong. An interplanetary traveler!"
+    "For a long moment, no one speaks. They just stare at Sumiko while Yuuko covers her face and looks like she wants to disappear."
+    "Yukari runs over the words in her mind and tries to make sense out of them. At last, Shunsuke breaks the silence with a tentative guess."
+    ss "So… an astronaut?"
+    s " Not exactly. See, he was abducted by aliens a few months ago, but they became his friends. Now he gets to go on trips through space! Underwater, too. Have you ever heard of USOs?"
+    show yuuko sad_angry
+    yuu " It was the worst bus trip of my entire life. Everyone was quiet except for this conspiracy theorist guy… and my sister. I wanted to pretend I didn’t know her."
+    s "But she couldn’t, because I still had half of our groceries."
+    show yuuko happy
+    "They exchange glances and laugh."
+    m "So, you believe in aliens, Sumiko? And you don’t, Yuuko?"
+    sisters "Right."
+    ss "It’s good to know one of you has common sense."
+    show shunsuke sigh
+    s "Thanks!"
+    ss "I wasn’t talking about you."
+    y "You two are very different, aren’t you?"
+    show sumiko
+    s "It took you this long to figure it out?"
+    y "No, but you’re so close. It’s nice to see people who don’t let their differences drive them apart."
+    show yuuko laugh_eyes_closed
+    show shunsuke
+    yuu "We are sisters, after all. I’d do anything for Sumiko."
+    yuu "…Even if she does get into embarrassing conversations on the bus."
+    ss "Now, Sumiko, let me explain to you why aliens can’t possibly exist."
+    s "Oh brother, this ought to be good."
+    "As they debate, Yukari leans back in her seat and smiles to herself. Their group has come a long way since the beginning."
+    "At first, she worried they might clash when they worked together, but they’ve turned into a cohesive team. Someday, she hopes they all have a bond as strong as the one shared by Sumiko and Yuuko."
+label week_4_5:
+    scene home with fade
+    show yukari at left
+    with dissolve
+    "Another weekend arrives, and Yukari decides to…."
+    menu:
+        "Raise additional funds":
+            "Just because they have one investor doesn’t mean they can relax completely. Yukari runs through her meeting with the investor and writes down the aspects of [anime.name] he seemed the most pleased with."
+            "She spends the rest of the weekend contacting more potential investors with a rewritten pitch highlighting the project’s greatest strengths."
+        "Read books on management":
+            "Yukari knows her management style isn’t always ideal, so she stops by the library and checks out three books on successfully managing a business."
+            "Although the reading is dry, she forces herself through all three before the weekend ends."
+        "Relax":
+            "With the progress they’ve made, Yukari feels comfortable taking some time off from [anime.name]."
+        "Polish up the storyboards":
+            "The storyboard drafts are finished, and Yukari has already gone through the first episode again to make changes."
+            "Over the weekend, she polishes it up until she’s satisfied enough to consider the first episode’s storyboard complete."

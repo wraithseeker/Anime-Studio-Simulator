@@ -4,6 +4,11 @@
         company = renpy.random.choice(random_company)
         random_company.remove(company)
         return company
+    def getRandomName():
+        global random_names
+        name = renpy.random.choice(random_names)
+        random_names.remove(name)
+        return name
         
     def nextDay():
         global current_day

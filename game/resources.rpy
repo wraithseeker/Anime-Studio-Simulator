@@ -1,13 +1,13 @@
-﻿image yukari = "Yukari/normal.png"
-image yukari happy = "Yukari/happy.png"
-image yukari angry = "Yukari/angry.png"
-image yukari angry_mouth_closed = "Yukari/angry_mouth_closed.png"
-image yukari laugh_eyes_closed = "Yukari/laugh_eyes_closed.png"
-image yukari sad_angry = "Yukari/sad_angry.png"
-image yukari sad = "Yukari/sad.png"
-image yukari sigh = "Yukari/sigh.png"
-image yukari tsundere = "Yukari/tsundere.png"
-image yukari worry = "Yukari/worry.png"
+﻿image yukari = "characters/Yukari/normal.png"
+image yukari happy = "characters/Yukari/happy.png"
+image yukari angry = "characters/Yukari/angry.png"
+image yukari angry_mouth_closed = "characters/Yukari/angry_mouth_closed.png"
+image yukari laugh_eyes_closed = "characters/Yukari/laugh_eyes_closed.png"
+image yukari sad_angry = "characters/Yukari/sad_angry.png"
+image yukari sad = "characters/Yukari/sad.png"
+image yukari sigh = "characters/Yukari/sigh.png"
+image yukari tsundere = "characters/Yukari/tsundere.png"
+image yukari worry = "characters/Yukari/worry.png"
 
 image yukari_f = Transform("yukari",xzoom=-1.0)
 image yukari_f happy = Transform("yukari happy",xzoom=-1.0)
@@ -20,16 +20,16 @@ image yukari_f sigh = Transform("yukari sigh",xzoom=-1.0)
 image yukari_f tsundere = Transform("yukari tsundere",xzoom=-1.0)
 image yukari_f worry = Transform("yukari worry",xzoom=-1.0)
 
-image sumiko = "Sumiko/normal.png"
-image sumiko angry_mouth_closed = "Sumiko/angry_mouth_closed.png"
-image sumiko happy = "Sumiko/happy.png"
-image sumiko laugh_eyes_closed = "Sumiko/laugh_eyes_closed.png"
-image sumiko angry = "Sumiko/angry.png"
-image sumiko sad_angry = "Sumiko/sad_angry.png"
-image sumiko sad = "Sumiko/sad.png"
-image sumiko sigh = "Sumiko/sigh.png"
-image sumiko tsundere = "Sumiko/tsundere.png"
-image sumiko worry = "Sumiko/worry.png"
+image sumiko = "characters/Sumiko/normal.png"
+image sumiko angry_mouth_closed = "characters/Sumiko/angry_mouth_closed.png"
+image sumiko happy = "characters/Sumiko/happy.png"
+image sumiko laugh_eyes_closed = "characters/Sumiko/laugh_eyes_closed.png"
+image sumiko angry = "characters/Sumiko/angry.png"
+image sumiko sad_angry = "characters/Sumiko/sad_angry.png"
+image sumiko sad = "characters/Sumiko/sad.png"
+image sumiko sigh = "characters/Sumiko/sigh.png"
+image sumiko tsundere = "characters/Sumiko/tsundere.png"
+image sumiko worry = "characters/Sumiko/worry.png"
 
 image sumiko_f = Transform("sumiko",xzoom=-1.0)
 image sumiko_f happy = Transform("sumiko happy",xzoom=-1.0)
@@ -42,16 +42,16 @@ image sumiko_f sigh = Transform("sumiko sigh",xzoom=-1.0)
 image sumiko_f tsundere = Transform("sumiko tsundere",xzoom=-1.0)
 image sumiko_f worry = Transform("sumiko worry",xzoom=-1.0)
 
-image shunsuke = "Shunsuke/normal.png"
-image shunsuke angry = "Shunsuke/angry.png"
-image shunsuke happy= "Shunsuke/happy.png"
-image shunsuke angry_mouth_closed= "Shunsuke/angry_mouth_closed.png"
-image shunsuke laugh_eyes_closed = "Shunsuke/laugh_eyes_closed.png"
-image shunsuke sad_angry = "Shunsuke/sad_angry.png"
-image shunsuke sad = "Shunsuke/sad.png"
-image shunsuke sigh = "Shunsuke/sigh.png"
-image shunsuke tsundere= "Shunsuke/tsundere.png"
-image shunsuke worry = "Shunsuke/worry.png"
+image shunsuke = "characters/Shunsuke/normal.png"
+image shunsuke angry = "characters/Shunsuke/angry.png"
+image shunsuke happy= "characters/Shunsuke/happy.png"
+image shunsuke angry_mouth_closed= "characters/Shunsuke/angry_mouth_closed.png"
+image shunsuke laugh_eyes_closed = "characters/Shunsuke/laugh_eyes_closed.png"
+image shunsuke sad_angry = "characters/Shunsuke/sad_angry.png"
+image shunsuke sad = "characters/Shunsuke/sad.png"
+image shunsuke sigh = "characters/Shunsuke/sigh.png"
+image shunsuke tsundere= "characters/Shunsuke/tsundere.png"
+image shunsuke worry = "characters/Shunsuke/worry.png"
 
 image shunsuke_f = Transform("shunsuke",xzoom=-1.0)
 image shunsuke_f happy = Transform("shunsuke happy",xzoom=-1.0)
@@ -64,16 +64,16 @@ image shunsuke_f sigh = Transform("shunsuke sigh",xzoom=-1.0)
 image shunsuke_f tsundere = Transform("shunsuke tsundere",xzoom=-1.0)
 image shunsuke_f worry = Transform("shunsuke worry",xzoom=-1.0)
 
-image mayumi = "Mayumi/normal.png"
-image mayumi angry = "Mayumi/angry.png"
-image mayumi happy = "Mayumi/happy.png"
-image mayumi angry_mouth_closed = "Mayumi/angry_mouth_closed.png"
-image mayumi laugh_eyes_closed = "Mayumi/laugh_eyes_closed.png"
-image mayumi sad_angry = "Mayumi/sad_angry.png"
-image mayumi sad = "Mayumi/sad.png"
-image mayumi sigh = "Mayumi/sigh.png"
-image mayumi tsundere = "Mayumi/tsundere.png"
-image mayumi worry = "Mayumi/worry.png"
+image mayumi = "characters/Mayumi/normal.png"
+image mayumi angry = "characters/Mayumi/angry.png"
+image mayumi happy = "characters/Mayumi/happy.png"
+image mayumi angry_mouth_closed = "characters/Mayumi/angry_mouth_closed.png"
+image mayumi laugh_eyes_closed = "characters/Mayumi/laugh_eyes_closed.png"
+image mayumi sad_angry = "characters/Mayumi/sad_angry.png"
+image mayumi sad = "characters/Mayumi/sad.png"
+image mayumi sigh = "characters/Mayumi/sigh.png"
+image mayumi tsundere = "characters/Mayumi/tsundere.png"
+image mayumi worry = "characters/Mayumi/worry.png"
 
 image mayumi_f = Transform("mayumi",xzoom=-1.0)
 image mayumi_f happy = Transform("mayumi happy",xzoom=-1.0)
@@ -86,16 +86,16 @@ image mayumi_f sigh = Transform("mayumi sigh",xzoom=-1.0)
 image mayumi_f tsundere = Transform("mayumi tsundere",xzoom=-1.0)
 image mayumi_f worry = Transform("mayumi worry",xzoom=-1.0)
 
-image yuuko = "Yuuko/normal.png"
-image yuuko angry = "Yuuko/angry.png"
-image yuuko happy = "Yuuko/happy.png"
-image yuuko angry_mouth_closed = "Yuuko/angry_mouth_closed.png"
-image yuuko laugh_eyes_closed = "Yuuko/laugh_eyes_closed.png"
-image yuuko sad_angry = "Yuuko/sad_angry.png"
-image yuuko sad = "Yuuko/sad.png"
-image yuuko sigh = "Yuuko/sigh.png"
-image yuuko tsundere = "Yuuko/tsundere.png"
-image yuuko worry = "Yuuko/worry.png"
+image yuuko = "characters/Yuuko/normal.png"
+image yuuko angry = "characters/Yuuko/angry.png"
+image yuuko happy = "characters/Yuuko/happy.png"
+image yuuko angry_mouth_closed = "characters/Yuuko/angry_mouth_closed.png"
+image yuuko laugh_eyes_closed = "characters/Yuuko/laugh_eyes_closed.png"
+image yuuko sad_angry = "characters/Yuuko/sad_angry.png"
+image yuuko sad = "characters/Yuuko/sad.png"
+image yuuko sigh = "characters/Yuuko/sigh.png"
+image yuuko tsundere = "characters/Yuuko/tsundere.png"
+image yuuko worry = "characters/Yuuko/worry.png"
 
 image yuuko_f = Transform("yuuko",xzoom=-1.0)
 image yuuko_f happy = Transform("yuuko happy",xzoom=-1.0)
@@ -107,6 +107,20 @@ image yuuko_f sad = Transform("yuuko sad",xzoom=-1.0)
 image yuuko_f sigh = Transform("yuuko sigh",xzoom=-1.0)
 image yuuko_f tsundere = Transform("yuuko tsundere",xzoom=-1.0)
 image yuuko_f worry = Transform("yuuko worry",xzoom=-1.0)
+
+image investor = "characters/Investor/normal.png"
+image investor disappointed = "characters/Investor/normal.png"
+image investor frustrated = "characters/Investor/frustrated.png"
+image investor little_happy = "characters/Investor/little_happy.png"
+image investor small_angry = "characters/Investor/small_angry.png"
+image investor smile = "characters/Investor/smile.png"
+
+image anim_dir = "characters/animation_director/normal.png"
+image anim_dir happy = "characters/animation_director/happy.png"
+image anim_dir small_angry = "characters/animation_director/small_angry.png"
+image anim_dir smile = "characters/animation_director/smile.png"
+image anim_dir disappointed = "characters/animation_director/disappointed.png"
+image anim_dir frustrated = "characters/animation_director/frustrated.png"
 
 #bgs
 image bg restaurant = "bg/restaurant.png"
@@ -123,6 +137,7 @@ image bg action_sketch = "cg/action_sketch.png"
 image bg mystery_sketch = "cg/mystery_sketch.png"
 image bg harem_sketch = "cg/harem_sketch.png"
 image bg animate = "cg/animate.png"
+image bg investor_yukari = "cg/investor_yukari.png"
 image money = "ui/money_bag.png"
 
 image ctc_fixed:

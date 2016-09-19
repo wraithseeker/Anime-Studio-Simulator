@@ -28,7 +28,7 @@
     $anime.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
     $anime.music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
     #jump game_start
-    jump week_3_1
+    jump week_5_4
 
 init python:
     import datetime
@@ -113,7 +113,12 @@ init:
     #random names
     $random_company = ["Wadaka","Sokono","Kirodo","Matsura","Enshu","Nosata"
                         ,"Zekoy","Inoshi","Pokomi","Takiza","Kibono","Koiga","Vozobi"
-                        ,"Asozo"]
+                        ,"Asozo","Noyoko","Kibachi","Tamaza","Kirodo","Shinu","Pokomi","Koiga"]
+    $random_names = ["Hayate","Haruto","Kaito","Nobu","Yuuto","Yoshiro","Takeshi","Souta"]
+    $anim_studio_dir = getRandomName()
+    $anim_studio_expensive = getRandomCompany() + " Studios"
+    $anim_studio_cheap = getRandomCompany() + " Studio"
+    $anim_studio = "Default Studios"
     #positions for images
     $pos_farleft = Position(xalign = -0.045,yalign = 1.0)
     $pos_left = Position(xalign = 0.18,yalign = 1.0)
