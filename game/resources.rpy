@@ -8,6 +8,7 @@ image yukari sad = "characters/Yukari/sad.png"
 image yukari sigh = "characters/Yukari/sigh.png"
 image yukari tsundere = "characters/Yukari/tsundere.png"
 image yukari worry = "characters/Yukari/worry.png"
+image yukari surprised = "characters/Yukari/surprised.png"
 
 image yukari_f = Transform("yukari",xzoom=-1.0)
 image yukari_f happy = Transform("yukari happy",xzoom=-1.0)
@@ -19,6 +20,7 @@ image yukari_f sad = Transform("yukari sad",xzoom=-1.0)
 image yukari_f sigh = Transform("yukari sigh",xzoom=-1.0)
 image yukari_f tsundere = Transform("yukari tsundere",xzoom=-1.0)
 image yukari_f worry = Transform("yukari worry",xzoom=-1.0)
+image yukari_f surprised = Transform("yukari surprised",xzoom=-1.0)
 
 image sumiko = "characters/Sumiko/normal.png"
 image sumiko angry_mouth_closed = "characters/Sumiko/angry_mouth_closed.png"
@@ -30,6 +32,7 @@ image sumiko sad = "characters/Sumiko/sad.png"
 image sumiko sigh = "characters/Sumiko/sigh.png"
 image sumiko tsundere = "characters/Sumiko/tsundere.png"
 image sumiko worry = "characters/Sumiko/worry.png"
+image sumiko surprised = "characters/Sumiko/surprised.png"
 
 image sumiko_f = Transform("sumiko",xzoom=-1.0)
 image sumiko_f happy = Transform("sumiko happy",xzoom=-1.0)
@@ -41,6 +44,7 @@ image sumiko_f sad = Transform("sumiko sad",xzoom=-1.0)
 image sumiko_f sigh = Transform("sumiko sigh",xzoom=-1.0)
 image sumiko_f tsundere = Transform("sumiko tsundere",xzoom=-1.0)
 image sumiko_f worry = Transform("sumiko worry",xzoom=-1.0)
+image sumiko_f surprised = Transform("sumiko surprised",xzoom=-1.0)
 
 image shunsuke = "characters/Shunsuke/normal.png"
 image shunsuke angry = "characters/Shunsuke/angry.png"
@@ -52,6 +56,7 @@ image shunsuke sad = "characters/Shunsuke/sad.png"
 image shunsuke sigh = "characters/Shunsuke/sigh.png"
 image shunsuke tsundere= "characters/Shunsuke/tsundere.png"
 image shunsuke worry = "characters/Shunsuke/worry.png"
+image shunsuke surprised = "characters/Shunsuke/surprised.png"
 
 image shunsuke_f = Transform("shunsuke",xzoom=-1.0)
 image shunsuke_f happy = Transform("shunsuke happy",xzoom=-1.0)
@@ -63,6 +68,7 @@ image shunsuke_f sad = Transform("shunsuke sad",xzoom=-1.0)
 image shunsuke_f sigh = Transform("shunsuke sigh",xzoom=-1.0)
 image shunsuke_f tsundere = Transform("shunsuke tsundere",xzoom=-1.0)
 image shunsuke_f worry = Transform("shunsuke worry",xzoom=-1.0)
+image shunsuke_f surprised = Transform("shunsuke surprised",xzoom=-1.0)
 
 image mayumi = "characters/Mayumi/normal.png"
 image mayumi angry = "characters/Mayumi/angry.png"
@@ -74,6 +80,7 @@ image mayumi sad = "characters/Mayumi/sad.png"
 image mayumi sigh = "characters/Mayumi/sigh.png"
 image mayumi tsundere = "characters/Mayumi/tsundere.png"
 image mayumi worry = "characters/Mayumi/worry.png"
+image mayumi surprised = "characters/Mayumi/surprised.png"
 
 image mayumi_f = Transform("mayumi",xzoom=-1.0)
 image mayumi_f happy = Transform("mayumi happy",xzoom=-1.0)
@@ -85,6 +92,7 @@ image mayumi_f sad = Transform("mayumi sad",xzoom=-1.0)
 image mayumi_f sigh = Transform("mayumi sigh",xzoom=-1.0)
 image mayumi_f tsundere = Transform("mayumi tsundere",xzoom=-1.0)
 image mayumi_f worry = Transform("mayumi worry",xzoom=-1.0)
+image mayumi_f surprised = Transform("mayumi surprised",xzoom=-1.0)
 
 image yuuko = "characters/Yuuko/normal.png"
 image yuuko angry = "characters/Yuuko/angry.png"
@@ -96,6 +104,7 @@ image yuuko sad = "characters/Yuuko/sad.png"
 image yuuko sigh = "characters/Yuuko/sigh.png"
 image yuuko tsundere = "characters/Yuuko/tsundere.png"
 image yuuko worry = "characters/Yuuko/worry.png"
+image yuuko worry = "characters/Yuuko/surprised.png"
 
 image yuuko_f = Transform("yuuko",xzoom=-1.0)
 image yuuko_f happy = Transform("yuuko happy",xzoom=-1.0)
@@ -107,6 +116,7 @@ image yuuko_f sad = Transform("yuuko sad",xzoom=-1.0)
 image yuuko_f sigh = Transform("yuuko sigh",xzoom=-1.0)
 image yuuko_f tsundere = Transform("yuuko tsundere",xzoom=-1.0)
 image yuuko_f worry = Transform("yuuko worry",xzoom=-1.0)
+image yuuko_f surprised = Transform("yuuko surprised",xzoom=-1.0)
 
 image investor = "characters/Investor/normal.png"
 image investor disappointed = "characters/Investor/normal.png"

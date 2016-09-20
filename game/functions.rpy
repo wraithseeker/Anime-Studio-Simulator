@@ -9,7 +9,16 @@
         name = renpy.random.choice(random_names)
         random_names.remove(name)
         return name
-        
+    def getRandomFemaleName():
+        global random_va_female
+        name = renpy.random.choice(random_va_female)
+        random_va_female.remove(name)
+        return name
+    def getRandomMaleName():
+        global random_va_male
+        name = renpy.random.choice(random_va_male)
+        random_va_male.remove(name)
+        return name
     def nextDay():
         global current_day
         global current_date

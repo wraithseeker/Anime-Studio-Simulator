@@ -2,12 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/second_month.rpy", line 316: end of line expected.
-    show anim_dir with dissolve at right
-                                ^
-
-File "game/second_month.rpy", line 337: end of line expected.
-    show anim_dir with dissolve at right
-                                ^
+File "game/init.rpy", line 127: invalid syntax
+    va_b_f =
+    
 
 Ren'Py Version: Ren'Py 6.99.11.1749

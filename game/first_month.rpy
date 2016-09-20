@@ -318,9 +318,9 @@ label week_0_4:
     show sumiko
     show yukari
     m "Will it be enough money for the entire anime?"
-    y "No. This is just enough to get us started. We’ll probably need to obtain more money later on."
-    ss "There’s no “probably” about it. If we take into account that only five of us will be working on the project, we’ll never finish it without sufficient funds."
-    yuu "Outsourcing the work to complete the animation will be very expensive, even though the animators aren’t well paid…."
+    y "No. This is just enough to get us started."
+    ss " I see. So we’ll need to raise additional funds later on."
+    yuu "We’re going to outsource the animation work, aren’t we? That will be very expensive."
     "It’s so rare to hear Yuuko speak, Yukari stares at her in astonishment. If she’s concerned enough to voice her worries out loud, it’d definitely something to keep in mind."
     "But they have their initial funding, and that’s what matters."
     show yukari laugh_eyes_closed
@@ -328,7 +328,7 @@ label week_0_4:
     y "We'll start work next week. Our journey will be long and tough, but I believe we can pull through it together!"
     show mayumi happy
     m "Yeah! The rest can wait. Let’s celebrate!"
-    "At Mayumi’s declaration, everyone cheers."
+    "Everyone is in high spirits now that they have an investor, and they celebrate the good news until late in the evening."
     stop music fadeout 1.0
     scene home with fade
     show yukari happy at left with dissolve
@@ -412,10 +412,19 @@ label week_1_1:
     menu:
         "Harem Anime":
             $anime.category = Anime.HAREM
+            $va_a = "Bradley" #male
+            $va_b = getRandomFemaleName()
+            $va_c = getRandomFemaleName()
         "Mystery Anime":
             $anime.category = Anime.MYSTERY
+            $va_a = getRandomMaleName()
+            $va_b = "Sakura"
+            $va_c = getRandomMaleName()
         "Action Anime":
             $anime.category = Anime.ACTION
+            $va_a = getRandomMaleName()
+            $va_b = getRandomFemaleName()
+            $va_c = getRandomMaleName()
     show mayumi happy
     show sumiko
     m "Okay! I can’t wait! Is the name for our anime finalized, too?"
@@ -426,27 +435,28 @@ label week_1_1:
     show mayumi happy
     m "[anime.name] sounds great!"
     y "Now that we have our studio, let's assign desks."
-    y "Yuuko and Sumiko should take the two desks beside one another."
+    y "Yuuko and Sumiko should sit next to each other."
     show sumiko happy
     s "Because we’re sisters, right?"
     y "Well, I was thinking because you’re both working on the art."
-    y "Yuuko will be designing the characters while Sumiko will be drawing the backgrounds."
-    ss "You decided we should outsource the animation, correct?"
+    s "Good point."
+    ss "Hmm, so we have a character artist and a background artist… but we’re going to outsource the animation work, correct?"
     show yukari worry
     y "Yeah, if we try to handle the animation ourselves…"
     show mayumi laugh_eyes_closed
     m "I bet it would turn out wonderful!"
     show sumiko angry_mouth_closed
-    s " Is there anything you don’t think is wonderful?"
-    m "Yes, thunderstorms… Although sometimes they’re so pretty!"
+    s "Is there anything you don’t think is wonderful?"
+    m "Yes."
+    s "Such as?"
+    m "I don’t like thunderstorms. Well… even storms can be pretty sometimes…"
     show sumiko sigh
     s "I rest my case."
-    show mayumi happy
-    "Mayumi giggles and runs to a desk in the corner of the room."
-    m "I’ll take this one! I suppose Shunsuke gets the desk on the other side of the room?"
-    show yukari angry
-    y "You two better take those desks, because the middle one is mine!"
-    y "Also, Mayumi, since the sound director won’t have much to do in the planning phase, you can help me out with some paperwork for now."
+    show mayumi
+    m "Anyway, where should I sit?"
+    ss "Does it really matter? All the desks are the same…"
+    "Yukari takes the centermost desk, where she can easily look around to see what everyone is doing. Mayumi and Shunsuke sit at the remaining two."
+    y " All right, if anyone has a problem with this arrangement, let me know. As for Mayumi, since you won’t have much to do in the planning phase, you can help me with some paperwork for now."
     show yukari
     show mayumi
     m "Okay!"
@@ -467,7 +477,7 @@ label week_1_1:
         "He soon finds himself in a race against time to escape his newfound enemies before they silence him permanently."
     show yukari laugh_eyes_closed
     y "Perfect! It’s exactly the way I envisioned it. What do the rest of you think?"
-    "Yukari passes the draft to Sumiko. Yuuko reads over her shoulder, and Mayumi runs back from her desk to read it as well."
+    "Yukari passes the draft to Sumiko. Yuuko reads over her shoulder, and Mayumi wheels her chair forward to join them."
     show mayumi laugh_eyes_closed
     show yuuko laugh_eyes_closed
     show sumiko laugh_eyes_closed
@@ -516,9 +526,11 @@ label week_1_2:
     "After taking a moment to think of possible things she can do to help, Yukari decides to…"
     menu:
         "Read books about management":
-            "hello book"
+            "Yukari has never been in charge of a team like this before, so she bought a few books on how to be a good leader."
+            "She spends the day reading about team management and leadership tecnhiques."
         "Network with people":
-            "hello world"
+            "A small team like theirs can’t function entirely on its own. Yukari visits several forums, both for anime fans and people in the anime industry, to get her name out there and make connections."
+            "Knowing people involved or interested in anime could prove invaluable in the future."
         "Supervise Yuuko & Sumiko":
             scene studio_main with fade
             show yukari at left
@@ -599,17 +611,13 @@ label week_1_3:
     show sumiko laugh_eyes_closed
     s "I think maybe he’s a vampire!"
     show shunsuke tsundere
-    ss " I heard that!"
-    s "Well, I’ve never seen you eat."
-    ss "I ate earlier."
-    ss "I eat!"
-    show sumiko
+    ss "…Seriously?"
     s "I’ve never seen you eat."
-    show shunsuke sigh
-    ss "I eat!"
+    ss "I assure you, I eat."
+    show sumiko
     s "Prove it."
-    ss "You need proof? Well just you wait!"
-    s "I’m waiting, but nothing’s happening..."
+    show shunsuke sigh
+    ss "Very well then, I will."
     "Yukari clears her throat. They cut off their argument and look at her. Both look sheepish, although not quite as much as they should."
     show shunsuke
     show sumiko
@@ -722,7 +730,14 @@ label week_1_5:
     show yuuko sad
     yuu "The character designs aren’t up to my standards yet… If only I was a better artist."
     show yukari
-    y "Don't belittle yourself so much! They look great, and that’s what matters! I like them, and next week we’ll have everyone take another look."
+    y "What are you talking about? You’re a great artist!"
+    yuu "The characters don’t look natural yet. Something about their proportions is off, and their faces are wrong."
+    y "They’re fine. I like them, and next week we’ll have everyone take another look."
+    yuu "..."
+    show yukari worry
+    y "I-is that okay with you?"
+    yuu "…Okay."
+    "Despite her agreement, Yukari gets the feeling Yuuko still isn’t happy with her art. If she’s a perfectionist, that could be a problem, but they’ll deal with that when they get there."
 
 label week_1_6:
     scene home with fade
@@ -1338,7 +1353,17 @@ label week_3_6:
             "Yukari spends the weekend working on the storyboards for [anime.name]."
         "Ask her old friends out for a meal":
             "Yukari asks her old friends out for a meal to catch up and also to get their opinions on [anime.name]."
-            #Depending on Yukari’s human relations variable, they either tell her they like <anime name> very much or they tell her they are not very fond of <anime name> 
+            scene cafe with fade
+            show yukari
+            #Depending on Yukari’s human relations variable
+            # good
+            # "Her friends seem excited and ask her to keep them updated on her progress."
+            # "Their conversation leaves her feeling more enthusiastic than ever about [anime.name]."
+
+            # bad
+            # "Her friends wish her luck, but admit [anime.name] doesn’t really appeal to them."
+            # "She can’t help but feel unhappy, not to mention worried more people might feel the same way…"
+
         "Watch some anime.":
             "Yukari spends the weekend binge-watching her favorite anime series to relax."
 label week_4_1:
@@ -1385,7 +1410,7 @@ label week_4_2:
     m "Think of it as a test of our strength. Other people, maybe even people who created popular anime, probably faced similar issues in the past. They made it, and we will too."
     show yukari
     y "I hope so."
-    m "I know so."
+    m "I’m certain of it."
     y "Can you spread your optimism to Yuuko and Sumiko? They seem really stressed out."
     y "If we let things continue like this, I’m afraid everything will fall to pieces."
     m "Don’t worry. We’ll discuss everything tonight."

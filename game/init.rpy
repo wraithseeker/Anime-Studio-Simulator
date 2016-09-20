@@ -28,7 +28,7 @@
     $anime.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
     $anime.music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
     #jump game_start
-    jump week_5_4
+    jump week_6_6
 
 init python:
     import datetime
@@ -114,11 +114,22 @@ init:
     $random_company = ["Wadaka","Sokono","Kirodo","Matsura","Enshu","Nosata"
                         ,"Zekoy","Inoshi","Pokomi","Takiza","Kibono","Koiga","Vozobi"
                         ,"Asozo","Noyoko","Kibachi","Tamaza","Kirodo","Shinu","Pokomi","Koiga"]
+    #animation director
     $random_names = ["Hayate","Haruto","Kaito","Nobu","Yuuto","Yoshiro","Takeshi","Souta"]
+    $random_va_female = ["Shina","Kaoru","Kagami","Yoshike","Shizue","Akemi"]
+    $random_va_male = ["Ryuichi","Motoki","Naizen","Naosuke","Seinosuke","Akihisa"]
     $anim_studio_dir = getRandomName()
     $anim_studio_expensive = getRandomCompany() + " Studios"
     $anim_studio_cheap = getRandomCompany() + " Studio"
     $anim_studio = "Default Studios"
+    $va_choice = "Talent Agency"
+    #va_letter
+    #va defaults to harem
+    $va_a = "Bradley"
+    $va_b = getRandomFemaleName()
+    $va_c = getRandomFemaleName()
+    $va_studio = getRandomCompany() + " Studio"
+    $investor_marketing = True
     #positions for images
     $pos_farleft = Position(xalign = -0.045,yalign = 1.0)
     $pos_left = Position(xalign = 0.18,yalign = 1.0)
