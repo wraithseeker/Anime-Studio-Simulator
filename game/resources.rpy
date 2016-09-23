@@ -104,7 +104,7 @@ image yuuko sad = "characters/Yuuko/sad.png"
 image yuuko sigh = "characters/Yuuko/sigh.png"
 image yuuko tsundere = "characters/Yuuko/tsundere.png"
 image yuuko worry = "characters/Yuuko/worry.png"
-image yuuko worry = "characters/Yuuko/surprised.png"
+image yuuko surprised = "characters/Yuuko/surprised.png"
 
 image yuuko_f = Transform("yuuko",xzoom=-1.0)
 image yuuko_f happy = Transform("yuuko happy",xzoom=-1.0)
@@ -132,16 +132,92 @@ image anim_dir smile = "characters/animation_director/smile.png"
 image anim_dir disappointed = "characters/animation_director/disappointed.png"
 image anim_dir frustrated = "characters/animation_director/frustrated.png"
 
+
+image va_dir = "characters/va_dir/normal.png"
+image va_dir smile = "characters/va_dir/smile.png"
+image va_dir happy = "characters/va_dir/happy.png"
+image va_dir frustrated = "characters/va_dir/frustrated.png"
+image va_dir angry = "characters/va_dir/angry.png"
+image va_dir disappointed = "characters/va_dir/disappointed.png"
+
+image va_dir_f = Transform("va_dir",xzoom=-1.0)
+image va_dir_f happy = Transform("va_dir happy",xzoom=-1.0)
+image va_dir_f angry = Transform("va_dir angry",xzoom=-1.0)
+image va_dir_f smile = Transform("va_dir smile",xzoom=-1.0)
+image va_dir_f frustrated = Transform("va_dir frustrated",xzoom=-1.0)
+image va_dir_f disappointed = Transform("va_dir disappointed",xzoom=-1.0)
+image va_dir_f angry = Transform("va_dir angry",xzoom=-1.0)
+
+#voice actors
+
+image va_dir = "characters/va_dir/normal.png"
+image va_dir smile = "characters/va_dir/smile.png"
+image va_dir happy = "characters/va_dir/happy.png"
+image va_dir frustrated = "characters/va_dir/frustrated.png"
+image va_dir angry = "characters/va_dir/angry.png"
+image va_dir disappointed = "characters/va_dir/disappointed.png"
+
+image va_a = "characters/voice_actors/male_1/normal.png"
+image va_a sad = "characters/voice_actors/male_1/sad.png"
+image va_a happy = "characters/voice_actors/male_1/happy.png"
+image va_a shocked = "characters/voice_actors/male_1/shocked.png"
+image va_a angry = "characters/voice_actors/male_1/angry.png"
+image va_a laugh_eyes_closed = "characters/voice_actors/male_1/laugh_eyes_closed.png"
+image va_a surprised = "characters/voice_actors/male_1/surprised.png"
+
+image va_a_f = Transform("va_a",xzoom=-1.0)
+image va_a_f sad = Transform("va_a sad",xzoom=-1.0)
+image va_a_f happy = Transform("va_a happy",xzoom=-1.0)
+image va_a_f shocked = Transform("va_a shocked",xzoom=-1.0)
+image va_a_f angry = Transform("va_a angry",xzoom=-1.0)
+image va_a_f surprised = Transform("va_a surprised",xzoom=-1.0)
+image va_a_f laugh_eyes_closed = Transform("va_a laugh_eyes_closed",xzoom=-1.0)
+
+image va_b = "characters/voice_actors/female_1/normal.png"
+image va_b sad = "characters/voice_actors/female_1/sad.png"
+image va_b happy = "characters/voice_actors/female_1/happy.png"
+image va_b shocked = "characters/voice_actors/female_1/shocked.png"
+image va_b angry = "characters/voice_actors/female_1/angry.png"
+image va_b laugh_eyes_closed = "characters/voice_actors/female_1/laugh_eyes_closed.png"
+image va_b surprised = "characters/voice_actors/female_1/surprised.png"
+
+image va_c = "characters/voice_actors/male_2/normal.png"
+image va_c sad = "characters/voice_actors/male_2/sad.png"
+image va_c happy = "characters/voice_actors/male_2/happy.png"
+image va_c shocked = "characters/voice_actors/male_2/shocked.png"
+image va_c angry = "characters/voice_actors/male_2/angry.png"
+image va_c laugh_eyes_closed = "characters/voice_actors/male_2/laugh_eyes_closed.png"
+image va_c surprised = "characters/voice_actors/male_2/surprised.png"
+
+image va_c_f = Transform("va_c",xzoom=-1.0)
+image va_c_f sad = Transform("va_c sad",xzoom=-1.0)
+image va_c_f happy = Transform("va_c happy",xzoom=-1.0)
+image va_c_f shocked = Transform("va_c shocked",xzoom=-1.0)
+image va_c_f angry = Transform("va_c angry",xzoom=-1.0)
+image va_c_f surprised = Transform("va_c surprised",xzoom=-1.0)
+image va_c_f laugh_eyes_closed = Transform("va_c laugh_eyes_closed",xzoom=-1.0)
+
+image va_sakura = "characters/sakura/normal.png"
+image va_sakura sad = "characters/sakura/sad.png"
+image va_sakura happy = "characters/sakura/happy.png"
+image va_sakura shocked = "characters/sakura/shocked.png"
+image va_sakura surprised = "characters/sakura/surprised.png"
+image va_sakura laugh_eyes_closed = "characters/sakura/laugh_eyes_closed.png"
+image va_sakura angry = "characters/sakura/angry.png"
+
 #bgs
 image bg restaurant = "bg/restaurant.png"
 image bg studio = "bg/studio.png"
 image bg studio_main = "bg/studio_main.png"
+image bg studio_main_night = "bg/studio_main_night.png"
 image bg animation_studio = "bg/animation_studio.jpg"
 image bg recording_studio = "bg/recording_studio.png"
+image bg anime_con = "bg/anime_con.png"
 image bg street = "bg/street.jpg"
 image bg street_rain = "street_rain.jpg"
 image bg cafe = "bg/cafe.png"
 image bg home = "bg/home.png"
+image bg home_night = "bg/home_night.png"
 image bg flashback = "cg/flashback.png"
 image bg action_sketch = "cg/action_sketch.png"
 image bg mystery_sketch = "cg/mystery_sketch.png"

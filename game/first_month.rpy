@@ -16,6 +16,12 @@ define investor = Character('Investor', color="#000",ctc="ctc_fixed",ctc_positio
 define sisters = Character('Yuuko & Sumiko', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define staff = Character('Staff', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define anim_dir = Character("[anim_studio_dir]", color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define va_dir = Character("[va_director]", color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define everyone = Character("Everyone", color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define va_a_char = Character("[va_a]", color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define va_b_char = Character("[va_b]", color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define va_c_char = Character("[va_c]", color="#000",ctc="ctc_fixed",ctc_position="fixed")
+
 
 # The game starts here.
 
@@ -413,12 +419,12 @@ label week_1_1:
         "Harem Anime":
             $anime.category = Anime.HAREM
             $va_a = "Bradley" #male
-            $va_b = getRandomFemaleName()
+            $va_b = "Sakura"
             $va_c = getRandomFemaleName()
         "Mystery Anime":
             $anime.category = Anime.MYSTERY
             $va_a = getRandomMaleName()
-            $va_b = "Sakura"
+            $va_b = getRandomFemaleName()
             $va_c = getRandomMaleName()
         "Action Anime":
             $anime.category = Anime.ACTION

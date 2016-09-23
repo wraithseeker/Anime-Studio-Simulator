@@ -28,7 +28,7 @@
     $anime.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
     $anime.music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
     #jump game_start
-    jump week_6_6
+    jump week_8_5
 
 init python:
     import datetime
@@ -114,8 +114,8 @@ init:
     $random_company = ["Wadaka","Sokono","Kirodo","Matsura","Enshu","Nosata"
                         ,"Zekoy","Inoshi","Pokomi","Takiza","Kibono","Koiga","Vozobi"
                         ,"Asozo","Noyoko","Kibachi","Tamaza","Kirodo","Shinu","Pokomi","Koiga"]
-    #animation director
-    $random_names = ["Hayate","Haruto","Kaito","Nobu","Yuuto","Yoshiro","Takeshi","Souta"]
+    #animation and recording director
+    $random_names = ["Hayate","Haruto","Kaito","Nobu","Yuuto","Yoshiro","Takeshi","Souta","Hiroyuki","Ryosei"]
     $random_va_female = ["Shina","Kaoru","Kagami","Yoshike","Shizue","Akemi"]
     $random_va_male = ["Ryuichi","Motoki","Naizen","Naosuke","Seinosuke","Akihisa"]
     $anim_studio_dir = getRandomName()
@@ -123,13 +123,18 @@ init:
     $anim_studio_cheap = getRandomCompany() + " Studio"
     $anim_studio = "Default Studios"
     $va_choice = "Talent Agency"
+    #$anim_studio_expensive_price = 
+    #$$anim_studio_cheap_price = 
     #va_letter
     #va defaults to harem
     $va_a = "Bradley"
     $va_b = getRandomFemaleName()
     $va_c = getRandomFemaleName()
     $va_studio = getRandomCompany() + " Studio"
+    $va_director = getRandomName()
     $investor_marketing = True
+    $week_7_people_choices = ["Yuuko","Sumiko","Shunsuke","Mayumi"]
+    $week_7_current_choice = ""
     #positions for images
     $pos_farleft = Position(xalign = -0.045,yalign = 1.0)
     $pos_left = Position(xalign = 0.18,yalign = 1.0)
@@ -140,5 +145,6 @@ init:
     $pos_right = Position(xalign = 0.92,yalign = 1.0)
     $pos_outerright = Position(xalign = 1.1,yalign = 1.0)
     $pos_textbox_right = Position(xalign = 0.85,yalign=1.0)
-    
-
+    $va_pos_a = Position(xalign=0.60,yalign=1.0)
+    $va_pos_b = Position(xalign = 1.1,yalign = 1.0)
+    $va_pos_c = Position(xalign=0.85,yalign=1.0)
