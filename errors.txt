@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/second_month.rpy", line 3333: reached end of line when expecting ':'.
-    if anim_studio == anim_studio_expensive 
-                                            ^
+File "game/third_month.rpy", line 479: expected statement.
+    yuu: "Huh? Oh, no, haha! This is my personal sketchbook. I like having it with me." 
+       ^
 
 Ren'Py Version: Ren'Py 6.99.11.1749

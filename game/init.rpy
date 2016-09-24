@@ -28,7 +28,7 @@
     $anime.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
     $anime.music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
     #jump game_start
-    jump week_8_5
+    jump week_9_6
 
 init python:
     import datetime
@@ -135,6 +135,7 @@ init:
     $investor_marketing = True
     $week_7_people_choices = ["Yuuko","Sumiko","Shunsuke","Mayumi"]
     $week_7_current_choice = ""
+    $wk_9_forgot_home = True
     #positions for images
     $pos_farleft = Position(xalign = -0.045,yalign = 1.0)
     $pos_left = Position(xalign = 0.18,yalign = 1.0)

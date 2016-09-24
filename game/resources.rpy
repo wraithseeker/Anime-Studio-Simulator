@@ -54,7 +54,7 @@ image shunsuke laugh_eyes_closed = "characters/Shunsuke/laugh_eyes_closed.png"
 image shunsuke sad_angry = "characters/Shunsuke/sad_angry.png"
 image shunsuke sad = "characters/Shunsuke/sad.png"
 image shunsuke sigh = "characters/Shunsuke/sigh.png"
-image shunsuke tsundere= "characters/Shunsuke/tsundere.png"
+image shunsuke tsundere = "characters/Shunsuke/tsundere.png"
 image shunsuke worry = "characters/Shunsuke/worry.png"
 image shunsuke surprised = "characters/Shunsuke/surprised.png"
 
@@ -181,6 +181,14 @@ image va_b angry = "characters/voice_actors/female_1/angry.png"
 image va_b laugh_eyes_closed = "characters/voice_actors/female_1/laugh_eyes_closed.png"
 image va_b surprised = "characters/voice_actors/female_1/surprised.png"
 
+image va_b_f = Transform("va_b",xzoom=-1.0)
+image va_b_f sad = Transform("va_b sad",xzoom=-1.0)
+image va_b_f happy = Transform("va_b happy",xzoom=-1.0)
+image va_b_f shocked = Transform("va_b shocked",xzoom=-1.0)
+image va_b_f angry = Transform("va_b angry",xzoom=-1.0)
+image va_b_f surprised = Transform("va_b surprised",xzoom=-1.0)
+image va_b_f laugh_eyes_closed = Transform("va_b laugh_eyes_closed",xzoom=-1.0)
+
 image va_c = "characters/voice_actors/male_2/normal.png"
 image va_c sad = "characters/voice_actors/male_2/sad.png"
 image va_c happy = "characters/voice_actors/male_2/happy.png"
@@ -219,6 +227,7 @@ image bg cafe = "bg/cafe.png"
 image bg home = "bg/home.png"
 image bg home_night = "bg/home_night.png"
 image bg flashback = "cg/flashback.png"
+image bg grandma = "cg/grandma.png"
 image bg action_sketch = "cg/action_sketch.png"
 image bg mystery_sketch = "cg/mystery_sketch.png"
 image bg harem_sketch = "cg/harem_sketch.png"
