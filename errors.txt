@@ -2,16 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/third_month.rpy", line 1094: expected statement.
-    ----- 
-          ^
-
-File "game/third_month.rpy", line 1123: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
-    [scene at restaurant]  
-    ^
-
-File "game/third_month.rpy", line 1140: expected statement.
-    She shakes her head and laughs. 
-                                  ^
+File "game/stats.rpy", line 29: invalid syntax
+            if (new_stats > 0 & not lol):
+                                   ^
+    
 
 Ren'Py Version: Ren'Py 6.99.11.1749

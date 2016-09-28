@@ -33,39 +33,39 @@
                     setattr(stats_manager,item,getattr(stats_manager,item) - getattr(self,item) )
 
         def sortStats(self):
-
+            string_vertical_formatting = "\n"
             for index,item in enumerate(anime_stats):
                 if hasattr(self,item):
-                    item_title = item.replace("_"," ").replace("development","dev")
+                    item_title = item.replace("_"," ").replace("character","char.").replace("development","dev")
                     if getattr(self,item) > 0:
                         stat_text = GREEN_COLOR + POSITIVE_SIGN
-                        self.positive_stats.append("\n" + stat_text + item_title)
+                        self.positive_stats.append(string_vertical_formatting + stat_text + item_title)
                     else:
                         stat_text = RED_COLOR + MINUS_SIGN
-                        self.negative_stats.append("\n" + stat_text + item_title)
+                        self.negative_stats.append(string_vertical_formatting + stat_text + item_title)
 
             for index,item in enumerate(char_stats):
                 if hasattr(self,item):
                     if getattr(self,item) > 0:
                         if item == "stress":
                             stat_text = RED_COLOR + POSITIVE_SIGN
-                            item_title = item + " increased"
-                            self.negative_stats.append("\n" + stat_text + item_title)
+                            item_title = item
+                            self.negative_stats.append(string_vertical_formatting + stat_text + item_title)
 
                         else:
                             stat_text = GREEN_COLOR + POSITIVE_SIGN
                             item_title = item.replace("_"," ")
-                            self.positive_stats.append("\n" + stat_text + item_title)
+                            self.positive_stats.append(string_vertical_formatting + stat_text + item_title)
 
                     else:
                         if item == "stress":
                             stat_text = GREEN_COLOR + MINUS_SIGN
-                            item_title = item + " decreased"
-                            self.positive_stats.append("\n" + stat_text + item_title)
+                            item_title = item
+                            self.positive_stats.append(string_vertical_formatting + stat_text + item_title)
                         else:
                             stat_text = RED_COLOR + MINUS_SIGN
                             item_title = item.replace("_"," ")
-                            self.negative_stats.append("\n" + stat_text + item_title)
+                            self.negative_stats.append(string_vertical_formatting + stat_text + item_title)
 
 
 

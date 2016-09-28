@@ -19,7 +19,7 @@ label week_5_1:
     m "Plus, if you plan it with them first, you’ll have an agenda set for the meeting."
     y "Good idea, I'll get started on it right away."
     #adjust to night version
-    scene home with fade
+    scene home_night with fade
     show yukari at left with dissolve
     "That night, Yukari checks her email and notices some of the animation studios have sent replies. She shortlists the two most promising ones."
     "[anim_studio_expensive] is renowned for high production quality, but hiring them will come at a steep price."
@@ -48,6 +48,7 @@ label week_5_1:
             "[anim_studio_cheap]’s quality can be hit-and-miss, so Yukari will need to pay extra attention to them if she wants things to go smoothly."
             $anim_studio = anim_studio_cheap
 label week_5_2:
+    $nextDay()
     scene studio with fade 
     show yukari at pos_left
     show mayumi at pos_farleft behind yukari
@@ -257,6 +258,7 @@ label week_5_2:
         y "Don’t worry, I plan to keep a close eye on things."
 
 label week_5_3:
+    $nextDay()
     scene studio_main with fade
     show yukari at left
     show shunsuke at right
@@ -282,6 +284,7 @@ label week_5_3:
     "Yukari spends some time working on the storyboard. Between Shunsuke’s advice and some input from Mayumi, she feels she’s on the right track."
 
 label week_5_4:
+    $nextDay()
     $anim_studio = anim_studio_expensive
     scene studio_main with fade
     show yukari at left with dissolve
@@ -401,6 +404,7 @@ label week_5_4:
         anim_dir "That sounds fine. I’ll see you tomorrow, then."
 
 label week_5_5:
+    $nextDay()
     scene studio_main with fade
     show yukari at left
     show sumiko at Position(xalign=0.87,yalign=1.0)
@@ -575,6 +579,15 @@ label week_5_6:
             "The workshop largely goes over stuff Yukari has heard time and time again, but on the other hand, it gives her a few new ideas for managing the team’s time and resources and for being an effective leader."
         "Relax":
             "She stays at home all weekend, reading books and watching anime. It’s a nice, stress-free way to recharge for the next week."
+    scene studio 
+    $nextWeek()
+    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    $renpy.retain_after_load()
+    $UpdateProgressReport()
+    $renpy.transition(dissolve)
+    call screen start_game
+    stop music fadeout 1.0
+    $fastForwardDays(2)
 
 label week_6_1:
     scene studio with fade
@@ -760,6 +773,7 @@ label week_6_1:
     "By the end of the day, she’s satisfied with her progress."
 
 label week_6_2:
+    $nextDay()
     scene studio_main with fade
     show yukari at left
     show mayumi_f at right
@@ -805,6 +819,7 @@ label week_6_2:
         m "I'll look for freelancers and shortlist the most promising ones. Then I’ll hold auditions to make the final decision."
 
 label week_6_3:
+    $nextDay()
     scene studio_main with fade
     show yukari at left
     show shunsuke at right
@@ -924,6 +939,7 @@ label week_6_3:
     y "That I definitely agree with!"
 
 label week_6_4:
+    $nextDay()
     scene studio_main with fade
     show yukari surprised at left 
     show sumiko at right
@@ -1018,6 +1034,7 @@ label week_6_4:
     y "Thank you."
 
 label week_6_5:
+    $nextDay()
     scene studio_main with fade
     show yukari at left
     with dissolve
@@ -1202,56 +1219,15 @@ label week_6_6:
             "By the time the weekend ends, she feels inspired and ready to proceed."
         "Relax":
             "Yukari sleeps in on the weekend, watches some anime, and de-stresses to prepare for the week ahead."
-
-# label week_7_shunsuke_choice:
-
-label week_7_choice:
-    if not week_7_people_choices:
-        jump week_7_1_2
-    else:
-        if week_7_current_choice == "Mayumi":
-            m "Hello!"
-            y "Mayumi? I'm at [anim_studio] right now, and we have a problem. I just saw the key frames for Episode One, and they’re wrong."
-            m "Oh no!"
-            y "The director says the team followed our storyboards, so do you have any idea what could have happened?"
-            m "Hmm....."
-            m "Sorry, I can't think of anything. Maybe you should try asking the others."
-            y "Okay. Thanks anyway."
-            $week_7_people_choices.remove("Mayumi")
-        elif week_7_current_choice == "Yuuko":
-            yuu "Hello?"
-            y "Yuuko, we have a bit of a problem over here. The key frames for Episode One weren’t done properly."
-            yuu "What?? Oh no…"
-            y "The director says they followed our storyboards, but the animations don’t fit at all. Are you aware of anything that might have caused this?"
-            yuu "Let me think."
-            "Shock and alarm is apparent in Yuuko’s voice, even though she tries to sound calm. It’s no surprise. After all, she’s heavily involved in animation [anime.name]."
-            yuu "I’m sorry. I can’t think of anything…"
-            y "Don't worry. I'll figure it out and get back to you soon. Maybe someone else knows."
-            $week_7_people_choices.remove("Yuuko")
-        elif week_7_current_choice == "Sumiko":
-            s "Hi, this is Sumiko!"
-            y "I’m at the animation studio, but something’s gone wrong. The key frames for Episode One aren’t right."
-            s "What? How could that happen?"
-            y "I was hoping you had an idea. The director says they followed our storyboards, so I don’t know what could have happened."
-            s "Maybe he’s lying!"
-            y "No, I don’t think so."
-            s "Oh. Well, that was my only idea. Sorry I couldn’t help more."
-            y "Don’t worry about it. I’ll try calling someone else on the team."
-            $week_7_people_choices.remove("Sumiko")
-        menu:
-            "Mayumi" if "Mayumi" in week_7_people_choices:
-                $week_7_current_choice = "Mayumi" 
-                jump week_7_choice
-            "Yuuko" if "Yuuko" in week_7_people_choices:
-                $week_7_current_choice = "Yuuko"
-                jump week_7_choice
-            "Sumiko" if "Sumiko" in week_7_people_choices:
-                $week_7_current_choice = "Sumiko"
-                jump week_7_choice
-            "Shunsuke" if "Shunsuke" in week_7_people_choices:
-                $week_7_current_choice = "Shunsuke"
-                $del week_7_people_choices[:]
-                jump week_7_1_2
+    scene studio 
+    $nextWeek()
+    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    $renpy.retain_after_load()
+    $UpdateProgressReport()
+    $renpy.transition(dissolve)
+    call screen start_game
+    stop music fadeout 1.0
+    $fastForwardDays(2) 
            
 label week_7_1_1:
     scene studio_main with fade
@@ -1342,7 +1318,55 @@ label week_7_1_1:
     y "What could have happened? Maybe one of the others has an idea."
     "She pulls out her phone and tries to decide who to ask."
     jump week_7_choice
-    
+
+label week_7_choice:
+    if not week_7_people_choices:
+        jump week_7_1_2
+    else:
+        if week_7_current_choice == "Mayumi":
+            m "Hello!"
+            y "Mayumi? I'm at [anim_studio] right now, and we have a problem. I just saw the key frames for Episode One, and they’re wrong."
+            m "Oh no!"
+            y "The director says the team followed our storyboards, so do you have any idea what could have happened?"
+            m "Hmm....."
+            m "Sorry, I can't think of anything. Maybe you should try asking the others."
+            y "Okay. Thanks anyway."
+            $week_7_people_choices.remove("Mayumi")
+        elif week_7_current_choice == "Yuuko":
+            yuu "Hello?"
+            y "Yuuko, we have a bit of a problem over here. The key frames for Episode One weren’t done properly."
+            yuu "What?? Oh no…"
+            y "The director says they followed our storyboards, but the animations don’t fit at all. Are you aware of anything that might have caused this?"
+            yuu "Let me think."
+            "Shock and alarm is apparent in Yuuko’s voice, even though she tries to sound calm. It’s no surprise. After all, she’s heavily involved in animation [anime.name]."
+            yuu "I’m sorry. I can’t think of anything…"
+            y "Don't worry. I'll figure it out and get back to you soon. Maybe someone else knows."
+            $week_7_people_choices.remove("Yuuko")
+        elif week_7_current_choice == "Sumiko":
+            s "Hi, this is Sumiko!"
+            y "I’m at the animation studio, but something’s gone wrong. The key frames for Episode One aren’t right."
+            s "What? How could that happen?"
+            y "I was hoping you had an idea. The director says they followed our storyboards, so I don’t know what could have happened."
+            s "Maybe he’s lying!"
+            y "No, I don’t think so."
+            s "Oh. Well, that was my only idea. Sorry I couldn’t help more."
+            y "Don’t worry about it. I’ll try calling someone else on the team."
+            $week_7_people_choices.remove("Sumiko")
+        menu:
+            "Mayumi" if "Mayumi" in week_7_people_choices:
+                $week_7_current_choice = "Mayumi" 
+                jump week_7_choice
+            "Yuuko" if "Yuuko" in week_7_people_choices:
+                $week_7_current_choice = "Yuuko"
+                jump week_7_choice
+            "Sumiko" if "Sumiko" in week_7_people_choices:
+                $week_7_current_choice = "Sumiko"
+                jump week_7_choice
+            "Shunsuke" if "Shunsuke" in week_7_people_choices:
+                $week_7_current_choice = "Shunsuke"
+                $del week_7_people_choices[:]
+                jump week_7_1_2
+
 label week_7_1_2:
     ss "Yes?"
     y "Hey Shunsuke, I'm in a bit of a bind over here. We seem to have had a case of miscommunication between us and [anim_studio]."
@@ -1617,6 +1641,7 @@ label week_7_1_2:
             # "She injects as much confidence into her voice as possible, but it falls flat."
             # "The others look at her for a moment longer and then return to their work. If anything, the studio’s atmosphere feels even gloomier than before."
 label week_7_2:
+    $nextDay()
     scene studio_main with fade
     show yukari at left
     show shunsuke at Position(xalign=0.82,yalign=1.0)
@@ -1729,6 +1754,7 @@ label week_7_2:
     "It isn’t ideal, but at least production of [anime.name] will continue and she minimized the consequences of her blunder with the storyboards."
 
 label week_7_3:
+    $nextDay()
     scene studio_main with fade
     show yukari at left
     show mayumi_f happy at right
@@ -1783,6 +1809,7 @@ label week_7_3:
     m "Just try to relax a little and remember you can depend on us. We're all in this together as a team."
 
 label week_7_4:
+    $nextDay()
     scene studio_main with fade
     show yukari at left with dissolve
     y "Hi everyone, sorry I can’t stay long. I'll be heading over to [anim_studio] for a while today." 
@@ -1856,6 +1883,7 @@ label week_7_4:
     "Despite her worries about the future, she can’t help but smile back. Her responsibilities no longer seem so difficult to bear." 
 
 label week_7_5:
+    $nextDay()
     scene studio_main with fade
     show yukari at left
     show mayumi_f laugh_eyes_closed at right
@@ -2286,12 +2314,21 @@ label week_7_5:
 
 
 label week_7_6:
-    scene anime_con with fade
+    scene home with fade
     show yukari at left with dissolve
     "Over the weekend, Yukari writes up a report to send to their investors about the current status of [anime.name]."
     "When it comes to the animation incident, she tries to find a balance between glossing over the details and making it sound like a disaster."
     "It’s a fine line to walk, but at last she’s satisfied that her report is honest but still optimistic." 
     "Fortunately, they’ve made other progress she can include, as well. She adds a detailed account of their work with the voice actors and sends the report Sunday afternoon."
+    scene studio 
+    $nextWeek()
+    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    $renpy.retain_after_load()
+    $UpdateProgressReport()
+    $renpy.transition(dissolve)
+    call screen start_game
+    stop music fadeout 1.0
+    $fastForwardDays(2)
 
 label week_8_1:
     scene studio_main with fade
@@ -2382,7 +2419,7 @@ label week_8_1:
     yuu "You don’t have to stay, Yukari. It’s really just the two of us who need to work overtime." 
     y "Nah, it’s fine. I’m the director. It’s my responsibility to be here!"
     show yukari at pos_left
-    show mayumi at pos_farleft
+    show mayumi at pos_farleft behind yukari
     with dissolve
     m "What are you three talking about?" 
     yuu "We’re staying at the studio to work overtime tonight." 
@@ -2481,6 +2518,7 @@ label week_8_1:
     "She only hopes they can maintain this pace and get everything done this week. If they have to work overtime too many nights, it could burn them out." 
 
 label week_8_2:
+    $nextDay()
     scene studio_main with fade
     show yukari at left
     show shunsuke at right
@@ -2545,6 +2583,7 @@ label week_8_2:
     "The two of them search for freelance animators until it’s once again time to catch the train and go home." 
 
 label week_8_3:
+    $nextDay()
     scene studio with fade
     show yukari sigh at pos_left
     show sumiko at pos_right
@@ -2729,6 +2768,7 @@ label week_8_3:
     "For the first time all week, everyone leaves the studio at the usual time." 
 
 label week_8_4:
+    $nextDay()
     scene studio_main with fade
     show yukari at left
     show mayumi_f at right
@@ -3200,6 +3240,7 @@ label week_8_4:
     "Once it gets over, they return to work and continue in such a fashion until late at night, when they finally call it a day and go to sleep." 
 
 label week_8_5:
+    $nextDay()
     scene studio with fade
     show shunsuke_f at left
     show sumiko at pos_right
@@ -3402,4 +3443,13 @@ label week_8_6:
         "Relax":
             "Yukari stays at home over the weekend to relax by reading some entertaining books and watching her favorite anime on TV."
             "It’s partly a personal celebration in honor of how far [anime.name] has come along."
-
+    scene studio 
+    $nextWeek()
+    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    $renpy.retain_after_load()
+    $UpdateProgressReport()
+    $renpy.transition(dissolve)
+    call screen start_game
+    stop music fadeout 1.0
+    $fastForwardDays(2)
+    jump week_9_1

@@ -18,8 +18,14 @@
             text task_tt_description.value style "task_tooltip" text_align 0.0
             hbox:
                 spacing 20
-                text task_tt_positive_stats.value style "task_stats_tooltip" text_align 0.0
-                text task_tt_negative_stats.value style "task_stats_tooltip" text_align 0.0
+                frame:
+                    background None
+                    xysize(260,120)
+                    text task_tt_positive_stats.value style "task_stats_tooltip" text_align 0.0
+                frame:
+                    background None
+                    xysize(260,120)
+                    text task_tt_negative_stats.value style "task_stats_tooltip"    text_align 0.0
     hbox:
         xalign 0.097
         yalign 0.232
@@ -709,14 +715,14 @@ screen outsource():
                     idle "ui/outsource/quality_check_transparent.png"
                     style "outsource_buttons"  
   
-        add "ui/big_moneybag.png" xalign 0.35 yalign 0.86
-        text str(outsource.selection_count * outsource.cost) color "#000" size 65 xalign 0.405 yalign 0.86
-        imagebutton:
-            auto "ui/outsource/done_%s.png" 
-            style "outsource_buttons_outsource" 
-            action [renpy.curry(OutsourceAnime)()]
-        showif outsource_tooltip != "":
-            text outsource_tooltip color upgrade_tooltip_color size 40 xalign 0.37 yalign 0.78 at grow_success_text
+    add "ui/big_moneybag.png" xalign 0.35 yalign 0.86
+    text str(outsource.selection_count * outsource.cost) color "#000" size 65 xalign 0.405 yalign 0.86
+    imagebutton:
+        auto "ui/outsource/done_%s.png" 
+        style "upgrade_button" 
+        action [renpy.curry(OutsourceAnime)()]
+    showif outsource_tooltip != "":
+        text outsource_tooltip color upgrade_tooltip_color size 40 xalign 0.37 yalign 0.78 at grow_success_text
 
 
 screen side_nav():
@@ -948,25 +954,25 @@ screen anime_report:
         background Frame("ui/blank_screen_large.png")
         text "Anime Progress Report" size 50 color "#000" xpos 55
     frame:
-        xalign 0.43
-        yalign 0.44
-        xysize (260,370)
+        xalign 0.57
+        yalign 0.35
+        xysize (500,170)
         background None
         vbox:
-            spacing -15
+            spacing -10
             for i in range (0,len(anime.db_positive)):
-                text anime.db_positive[i] style "progress_text"
+                text anime.db_positive[i] style "progress_anime_text"
             # for i in range (0,2):
             #     text RED_COLOR + MINUS_SIGN + "Marketing" style "progress_text"
     frame:
-        xalign 0.61
-        yalign 0.44
+        xalign 0.57
+        yalign 0.575
         background None
-        xysize (260,370)
+        xysize (500,170)
         vbox:
-            spacing -15
+            spacing -10
             for i in range (0,len(anime.db_negative)):
-                text anime.db_negative[i] style "progress_text"
+                text anime.db_negative[i] style "progress_anime_text"
             # for i in range (0,5):
             #     text GREEN_COLOR + MINUS_SIGN + "VOICE ACTING" style "progress_text"
 

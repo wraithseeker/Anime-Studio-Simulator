@@ -134,6 +134,7 @@ label week_9_1:
     "He and Sumiko argue a little further, but then everyone gets back to work."
     "Yukari offers Mayumi a little more input on the music throughout the day, and by the end, she’s satisfied with the current progress of the OST for [anime.name]." 
 label week_9_2:
+    $nextDay()
     scene studio_main with fade
     show sumiko laugh_eyes_closed at right
     show yukari at left
@@ -205,6 +206,7 @@ label week_9_2:
     "To her delight, they’re almost done with their work on the first episode already, and they ask if they can meet with her the next morning about it." 
     "For once, everything is going well."
 label week_9_3:
+    $nextDay()
     scene black with fade
     "Yukari meets up with Sumiko’s friends in the morning and they head to [anim_studio] together."
     "There, she’s relieved to find everything in order. The animation work for Episode One of [anime.name] is complete." 
@@ -419,6 +421,7 @@ label week_9_3:
     "She copies the current audio files to her USB drive, bids everyone farewell, and leaves the recording studio satisfied with the day’s work." 
 
 label week_9_4:
+    $nextDay()
     scene home with fade
     show yukari at left
     with dissolve
@@ -502,6 +505,7 @@ label week_9_4:
             "As they settle down to sleep, she thinks about how fortunate she is to have such good friends."   
      
 label week_9_5:
+    $nextDay()
     scene studio_main with fade
     show yukari at pos_left
     show shunsuke_f at pos_farleft behind yukari
@@ -695,6 +699,16 @@ label week_9_6:
         y "Maybe we can try again another time, then. I’m really sorry." 
         m "It’s okay." 
         "Yukari makes a mental note to be especially nice to the sisters at work the next week, since she didn’t get them a gift like she intended."
+        scene studio 
+    scene studio 
+    $nextWeek()
+    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    $renpy.retain_after_load()
+    $UpdateProgressReport()
+    $renpy.transition(dissolve)
+    call screen start_game
+    stop music fadeout 1.0
+    $fastForwardDays(2)
 
 label week_10_1:
     scene studio_main with fade
@@ -809,6 +823,7 @@ label week_10_1:
         "Yukari spends the rest of the day handling small details for [anime.name] and taking notes on ideas for the trailer."  
 
 label week_10_2:
+    $nextDay()
     scene studio_main with fade
     show yukari at pos_left
     show mayumi laugh_eyes_closed at pos_farleft behind yukari
@@ -875,6 +890,7 @@ label week_10_2:
     m "Yep! Once we get the edited voice tracks from the recording studio, we'll be almost done." 
     y "And that'll be on Thursday. We're almost there, everyone! Hang in there." 
 label week_10_3:
+    $nextDay()
     scene studio_main with fade
     show yukari at left
     with dissolve
@@ -985,6 +1001,7 @@ label week_10_3:
             "She laughs sheepishly as Mayumi shakes her head. She'll make up for it by working extra hard the rest of the week."
      
 label week_10_4:
+    $nextDay()
     show black with fade 
     "On Thursday, Yukari heads to the recording studio in the morning to get the edited voice tracks for [anime.name]." 
     scene recording_studio with fade
@@ -1021,6 +1038,7 @@ label week_10_4:
      #[random event] 
 
 label week_10_5: 
+    $nextDay()
     scene black with fade 
     $anim_studio = anim_studio_cheap
     $anime.category = Anime.MYSTERY
@@ -1224,5 +1242,13 @@ label week_10_6:
         "Decline the offer":
             "An interview could have helped [anime.name]'s publicity, but Yukari isn't ready to deal with the media just yet."
             "Instead, she spends the weekend researching other potential ways to promote [anime.name] and going over their schedule to see what they still need to do before the deadline." 
-
+    scene studio 
+    $nextWeek()
+    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    $renpy.retain_after_load()
+    $UpdateProgressReport()
+    $renpy.transition(dissolve)
+    call screen start_game
+    stop music fadeout 1.0
+    $fastForwardDays(2)
            

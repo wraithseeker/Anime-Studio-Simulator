@@ -1,13 +1,6 @@
 ﻿label start:
     #initialize the class objects at runtime here instead of python init so object will be saved
     $anime = Anime("Macross Delta")
-    $anime.funds = 20
-    $anime.plot = 2.5
-    # $anime.storyboard = 3
-    # $anime.character_development = 0.5
-    # $anime.character_design = 1.5
-    # $anime.background = 2.5
-    # $anime.animation = 3.5
     # $anime.ost = 2
     # $anime.op_ed = 1
     # $anime.voice_acting = 0.5
@@ -18,17 +11,31 @@
     $yuuko_stats = Stats("Yuuko")
     $shunsuke_stats = Stats("Shunsuke")
     #some placeholder values
-    $yukari_stats.proficiency = renpy.random.randint(1,10)
-    $yuuko_stats.proficiency = renpy.random.randint(1,10)
-    $sumiko_stats.proficiency = renpy.random.randint(1,10)
-    $mayumi_stats.proficiency = renpy.random.randint(1,10)
-    $shunsuke_stats.proficiency = renpy.random.randint(1,10)
+    # $yukari_stats.proficiency = renpy.random.randint(1,10)
+    # $yuuko_stats.proficiency = renpy.random.randint(1,10)
+    # $sumiko_stats.proficiency = renpy.random.randint(1,10)
+    # $mayumi_stats.proficiency = renpy.random.randint(1,10)
+    # $shunsuke_stats.proficiency = renpy.random.randint(1,10)
     #15 stars is the max number of stars we have, * 100 to convert it to percentage
     $anime.story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
     $anime.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
     $anime.music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
-    #jump game_start
-    jump week_10_6
+
+    $anime.funds = 20
+    $anime.plot = 2.5
+    $anime.prev_plot = 2.5
+    $anime.storyboard = 3
+    $anime.character_development = 0.5
+    $anime.prev_character_design = 1
+    $anime.character_design = 1.5
+    $anime.background = 2
+    $anime.animation = 2
+    $anime.prev_background = 3
+    $anime.prev_animation = 3
+    $UpdateProgressReport()
+
+    jump game_start
+    #jump week_8_6
 
 init python:
     import datetime
@@ -48,36 +55,37 @@ init:
                         "character_design","background","animation",
                         "voice_acting","op_ed","ost",
                         "quality_check","marketing","funds"]
-        char_stats = ["stress","proficiency","happiness","management"]
+        char_stats = ["proficiency","happiness","management","stress"]
 
-        yukari_tasks = [Tasks("Raise Funds","Raise some money for [anime.name].",funds=1,stress=1,proficiency=-2,character_development = 2)
-                        ,Tasks("Networking","Mingle around with people in the anime industry.",marketing=1)
+        yukari_tasks = [Tasks("Raise Funds","Raise some money for [anime.name].",funds=1,stress=1)
+                        ,Tasks("Networking","Mingle around with people in the anime industry.",marketing=1,management=3,stress=2)
                         ,Tasks("Read Books","Read books for knowledge.",proficiency=0.5)
                         ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=-1)]
 
-        yuuko_tasks = [Tasks("Sketch Character","Sketch some character designs.",character_design=1)
+        yuuko_tasks = [Tasks("Sketch Character","Sketch some character designs.",character_design=1,stress=1)
                         ,Tasks("Doodle","Doodle on a piece of paper.",proficiency=0.5)
-                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=1)]
+                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=-1)]
 
-        sumiko_tasks = [Tasks("Sketch Background","Sketch some backgrounds.",background=1)
+        sumiko_tasks = [Tasks("Sketch Background","Sketch some backgrounds.",background=1,stress=-1)
                         ,Tasks("Doodle","Doodle on a piece of paper.",proficiency=0.5)
-                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=1)]
+                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=-1)]
 
-        mayumi_tasks = [Tasks("Compose Music","Compose OST for [anime.name].",ost=1)
+        mayumi_tasks = [Tasks("Compose Music","Compose OST for [anime.name].",ost=1,stress=1)
                         ,Tasks("Practice","Get inspiration from other artists.",proficiency=0.5)
-                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=1)]
+                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=-1)]
 
-        shunsuke_tasks = [Tasks("Writing","Work on the scenario for [anime.name].",storyboard = 1)
+        shunsuke_tasks = [Tasks("Writing","Work on the scenario for [anime.name].",storyboard = 1,stress=0)
                         ,Tasks("Practice","Hone your writing skills",proficiency=0.5)
-                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=1)]
+                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=-1)]
 
     #game variables
     $current_week = 1
     # Day limits, 0 = Mon, 5 = Sat
     # current_date e.g '8/30'
-    $days_array = ["Mon","Tues","Wed","Thurs","Fri","Sat"]
-    $current_day = 0
-    $current_date = datetime.date(2016,3,20)
+    $days_array = ["Mon","Tues","Wed","Thur","Fri","Sat",""]
+    $current_day = 5
+    $current_date = datetime.date(2016,3,12) 
+    #ends at 6/21, starts at 3/21, pregame = 3/12
     $game_casual = False
     $task_ready = False
     $side_nav_interaction = True

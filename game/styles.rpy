@@ -157,7 +157,7 @@ init -1:
         size 30
         color "#000"
     style task_stats_tooltip:
-        size 23
+        size 26
         color "#000"
         #font 'fonts/Delius-Regular.ttf'
     style anime_status_window:
@@ -279,7 +279,7 @@ init -1:
         xalign 0.118
         yalign 0.10
     style progress_text:
-        size 25
+        size 26
         color "#000"
     style progress_details:
         size 25
@@ -287,9 +287,7 @@ init -1:
         hover_color "#27ae60"
     style progress_anime_text:
         color "#000" 
-        yalign 0.25
-        xalign 0.02 
-        size 25
+        size 30
 
 
 init python:

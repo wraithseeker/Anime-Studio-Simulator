@@ -122,10 +122,9 @@ label week_0_1:
     show yukari happy at left
     show mayumi_f at right
     with dissolve
-    play music "music/ost/working_as_intended.ogg"
+    #play music "music/ost/working_as_intended.ogg"
     "When Yukari arrives at the café, it only takes her a minute to spot Mayumi."
     "She sits alone with headphones on, smiling as she enjoys whatever music she’s currently listening to. Yukari sits down across from her, and Mayumi’s eyes open. A second later, she removes her headphones."
-    $nextDay()
     show mayumi_f happy
     m "Hi! So what did you want to talk about?"
     show yukari laugh_eyes_closed
@@ -175,12 +174,13 @@ label week_0_1:
     "It’s done, for better or worse. All she has to do is wait to see if anyone responds."
     "And suddenly, she’s confident someone will. It doesn’t have to be an idle daydream any longer. This summer, she’ll make her dream a reality."
     scene black with fade
+    $fastForwardDays(2)
     "A few days later, Yukari once again goes to the café to meet with Mayumi. This time her friend is attentive and alert, no doubt due to excitement for their anime project."
     scene cafe with fade
     show yukari at left
     show mayumi_f worry at right
     with dissolve
-    play music "music/ost/working_as_intended.ogg" fadein 1.0
+    #play music "music/ost/working_as_intended.ogg" fadein 1.0
     m "Yukari! Are you all right? When you asked to meet with me, you sounded ready to pass out."
     "Then again, it could be concern rather than excitement."
     y "I’m just a little nervous. I think I found a character artist."
@@ -248,6 +248,7 @@ label week_0_2:
     "Sumiko is an eager participant in the conversation. She has questions, comments, and input of her own. In contrast, her sister says next to nothing, although she occasionally nods and smiles. Nevertheless, both agree to join the team."
     "Yukari gives them Mayumi’s email address so they can get in touch with her. She can hardly keep from giggling in glee."
     "She went to recruit a character artist and gained a background artist for her efforts. Everything is coming together perfectly."
+    $nextDay()
     scene cafe with fade
     show yukari at pos_left
     show mayumi happy at pos_farleft behind yukari
@@ -272,6 +273,7 @@ label week_0_2:
     "Piece by piece, their team will come together."
 
 label week_0_3:
+    $fastForwardDays(3)
     scene street with fade
     show yukari at left with dissolve
     "Three days have passed since Yuuko and Sumiko joined the group. Yukari walks down the street, deep in thought. She almost has an entire team together. All she needs is a writer."
@@ -364,6 +366,7 @@ label week_0_4:
     jump pre_game
 
 label pre_game:
+    $nextDay()
     scene bg studio with dissolve
     menu:
         "What difficulty level would you like to choose?"
@@ -382,11 +385,12 @@ label pre_game:
     $show_floating_buttons = False
     "This is where you'll oversee the production of [anime.name]. The deadline for [anime.name] will be during {font=fonts/LiberationSans-Bold.ttf}Week 12{/font}."
     "The most important thing is to select tasks for your team member under {font=fonts/LiberationSans-Bold.ttf}Tasks{/font}." 
+    show image "ui/done_idle.png" at Position(xalign=0.96,yalign=0.929)
     "After you have selected tasks for your team members, you can end your turn by selecting the {font=fonts/LiberationSans-Bold.ttf}Done button{/font}."
-    "You can also get an overview of what happens each week under {font=fonts/LiberationSans-Bold.ttf}Progress{/font}, which tells you the effects of your actions each week."
+    hide image "ui/done_idle.png"
+    "You can also get an overview of your actions each week under {font=fonts/LiberationSans-Bold.ttf}Progress{/font}, which should help you decide on what you should focus on."
     "You'll eventually have to outsource work and it is a good idea to send your team members for training occasionally under {font=fonts/LiberationSans-Bold.ttf}Upgrades{/font}."
     "Good luck!"
-
     $side_nav_interaction = True
     $show_floating_buttons = True
     hide screen start_game
@@ -397,6 +401,7 @@ label pre_game:
 
 label week_1_1:
     $initial_week = False
+    $fastForwardDays(2)
     scene bg studio
     show yukari at pos_left
     show mayumi at pos_farleft behind yukari
@@ -410,7 +415,7 @@ label week_1_1:
     show sumiko sigh
     s "We’ve been talking about it for weeks, and you still don’t know?"
     show mayumi tsundere
-    m " I was listening to music!"
+    m "I was listening to music!"
     ss "Every time it came up?"
     m "I have a lot of music."
     y "Don’t worry about it. To clarify for Mayumi’s sake, it’s…"
@@ -462,7 +467,8 @@ label week_1_1:
     m "Anyway, where should I sit?"
     ss "Does it really matter? All the desks are the same…"
     "Yukari takes the centermost desk, where she can easily look around to see what everyone is doing. Mayumi and Shunsuke sit at the remaining two."
-    y " All right, if anyone has a problem with this arrangement, let me know. As for Mayumi, since you won’t have much to do in the planning phase, you can help me with some paperwork for now."
+    y "All right, if anyone has a problem with this arrangement, let me know."
+    "As for Mayumi, since you won’t have much to do in the planning phase, you can help me with some paperwork for now."
     show yukari
     show mayumi
     m "Okay!"
@@ -525,6 +531,7 @@ label week_1_1:
 # label start:
 #     jump week_1_3
 label week_1_2:
+    $nextDay()
     scene bg studio with fade
     show yukari sad at pos_farleft
     "Although the others have their tasks set out for them, Yukari realizes there isn’t much she can do at this stage in the process. The same goes for Mayumi."
@@ -557,6 +564,7 @@ label week_1_2:
             s "Great, thanks for the advice."
 
 label week_1_3:
+    $nextDay()
     scene bg studio_main with fade
     show yukari at left
     show mayumi_f at right
@@ -639,6 +647,7 @@ label week_1_3:
     "Watching them makes Yukari smile. Shunsuke was the last member to join the team, so it’s good to see him fitting in."
 
 label week_1_4:
+    $nextDay()
     scene studio_main with fade
     "The next day, Shunsuke makes good on his promise to prove he actually eats, and brings enough food from home for everyone to share."
     show sumiko at pos_middleright_half
@@ -695,6 +704,7 @@ label week_1_4:
 
 
 label week_1_5:
+    $nextDay()
     scene black with dissolve
     "It’s Friday."
     "When Yukari first gathered the team to work on [anime.name], she made a promise with them to meet up and have dinner together every Friday."
@@ -746,6 +756,7 @@ label week_1_5:
     "Despite her agreement, Yukari gets the feeling Yuuko still isn’t happy with her art. If she’s a perfectionist, that could be a problem, but they’ll deal with that when they get there."
 
 label week_1_6:
+    $nextDay()
     scene home with fade
     show yukari at left with dissolve
     "When the weekend comes, Yukari finds some free time at last. She wonders if she should get more work done on [anime.name] or take it easy for now."
@@ -755,14 +766,16 @@ label week_1_6:
         "Work on [anime.name]":
             "As much as she’d like to take a break, Yukari doesn’t want to risk falling behind on work."
             "Now that she has a clearer idea of [anime.name]'s scenario, she’s able to translate that to the initial storyboard. She’s tired by the end of the weekend, but pleased with her progress."
-    scene studio with dissolve
-    $current_week = 2
-    play music "music/ost/scheduled_days.ogg.mp3" fadein 1.0
+    scene studio 
+    $nextWeek()
+    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
-    #call screen progress_report
+    $renpy.transition(dissolve)
     call screen start_game
     stop music
+    $fastForwardDays(2)
+    stop music 
 
 label week_2_1:
     scene studio with fade
@@ -825,7 +838,8 @@ label week_2_1:
     # $rand_choice = renpy.random.choice(first_w_events)
     # $first_w_events.remove(rand_choice)
     # call expression rand_choice from _call_expression
-label week_2_2:
+label week_2_3:
+    $fastForwardDays(2)
     scene studio_main with fade
     show yukari at pos_left
     show mayumi at pos_farleft behind yukari
@@ -879,6 +893,7 @@ label week_2_2:
             elif anime.category == Anime.ACTION:
                 "There are several cryptic posts, each with only a few lines of text teasing the conspiracy eventually uncovered by Itaru."
                 "From the looks of things, Shunsuke was more taken with Sumiko’s ARG idea than he let on."
+                ##### MAYBE EDIT, CHECK BACK LATER ***
             "As we work on [anime.name], I’ll post updates here and to the other pages."
             y "Sounds great. Keep up the good work!"
         "Heed Mayumi's advice":
@@ -888,6 +903,7 @@ label week_2_2:
     # $first_w_events.remove(rand_choice)
     # call expression rand_choice from _call_expression_1
 label week_2_3:
+    $nextDay()
     scene bg street with fade
     show yukari at left
     show mayumi_f at right
@@ -932,6 +948,7 @@ label week_2_3:
     "Yukari nods. That’s a good point. And while they’re at it, there’s a recent anime she’s been meaning to check out which will surely inspire her. Research!"
     "They end the day with a little bit of information and a lot of merchandise. As they head home, it occurs to Yukari that maybe she shouldn’t take money with her the next time she conducts research."
 label week_2_4:
+    $nextDay()
     scene restaurant with fade
     show yukari at pos_left
     show yuuko at pos_right
@@ -986,6 +1003,7 @@ label week_2_4:
     show yukari happy
     y "Thanks. You guys are the best."
 label week_2_5:
+    $nextDay()
     scene home with fade
     show yukari at left with dissolve
     "When the weekend comes, Yukari decides to spend time with her friends to relax before for the tough week ahead."
@@ -1011,12 +1029,16 @@ label week_2_5:
             "Not only does it distract Yukari from the week ahead, but Yuuko even laughs out loud, the most emotion she’s ever displayed in front of her."
             "It’s a lot of fun. Thanks to the sisters, Yukari is able to forget her worries for a while and de-stress. When the weekend ends, she feels confident."
     y "No matter how tough it is, I have to buckle down and get those funds!"
-    # scene studio with dissolve
-    # $current_week = 3
-    # play music "music/ost/scheduled_days.ogg.mp3" fadein 1.0
-    # $renpy.retain_after_load()
-    # call screen start_game
-    # stop music
+    scene studio 
+    $nextWeek()
+    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    $renpy.retain_after_load()
+    $UpdateProgressReport()
+    $renpy.transition(dissolve)
+    call screen start_game
+    stop music
+    $fastForwardDays(2)
+    stop music 
 
 label week_3_1:
     scene studio_main with fade
@@ -1121,6 +1143,7 @@ label week_3_1:
     # $first_w_events.remove(rand_choice)
     # call expression rand_choice from _call_expression_2
 label week_3_2:
+    $nextDay()
     scene studio_main with fade
     show yukari sad_angry at left
     with dissolve
@@ -1171,6 +1194,7 @@ label week_3_2:
     "As much as she wants to complain to them about what happens, she knows it’s better if she doesn’t distract them."
 
 label week_3_3:
+    $nextDay()
     scene studio_main with fade
     show yukari worry at left
     show sumiko sad at right
@@ -1207,6 +1231,7 @@ label week_3_3:
     # call expression rand_choice from _call_expression_3
 
 label week_3_4:
+    $nextDay()
     $week_3_3_doctor = True
     scene studio_main with fade
     if not week_3_3_doctor:
@@ -1296,6 +1321,7 @@ label week_3_4:
     yuu "Yes. It was… difficult to get her to realize it, but I think I made her understand she needs time to recover."
     
 label week_3_5:
+    $nextDay()
     scene bg restaurant with fade
     show yukari worry at pos_left
     show shunsuke at pos_middleright_half
@@ -1352,6 +1378,7 @@ label week_3_5:
             "Yukari shakes her head. She’s the director. She can handle this herself."
 
 label week_3_6:
+    $nextDay()
     scene home with fade
     "At last, the weekend arrives. Yukari debates about how she should spend it."
     menu:
@@ -1372,6 +1399,16 @@ label week_3_6:
 
         "Watch some anime.":
             "Yukari spends the weekend binge-watching her favorite anime series to relax."
+    scene studio 
+    $nextWeek()
+    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    $renpy.retain_after_load()
+    $UpdateProgressReport()
+    $renpy.transition(dissolve)
+    call screen start_game
+    stop music
+    $fastForwardDays(2)
+    stop music 
 label week_4_1:
     scene studio_main with fade
     show yukari at pos_left
@@ -1404,7 +1441,8 @@ label week_4_1:
             "Although there’s a lot of work to do, brightening the mood is more important. But how? Yukari considers it for a moment, and then leaves the studio to visit a nearby bakery."
             "She returns with enough cookies for everyone to have some. It isn’t a permanent solution, but the tension in the air eases as she passes around the cookies."
 
-label week_4_2:
+label week_4_3:
+    $fastForwardDays(2)
     scene studio with fade
     show yukari at left
     show mayumi_f at right
@@ -1459,7 +1497,8 @@ label week_4_2:
     m "Don’t worry, I will."
     y "I know I can count on you."
 
-label week_4_3:
+label week_4_4:
+    $nextDay()
     scene studio_main with fade
     show yukari at left
     show yuuko at right
@@ -1510,7 +1549,8 @@ label week_4_3:
     "She cleared up their concerns, and both sisters left the studio feeling recharged, energized, and ready to finish the art for [anime.name]."
     "The second is from the investor, asking if they can meet up on Friday."
 
-label week_4_4:
+label week_4_5:
+    $nextDay()
     scene studio_main with fade
     show yukari worry at left
     show mayumi_f at Position(xalign = 0.80,yalign = 1.0)
@@ -1750,7 +1790,7 @@ label week_4_4:
     s "Oh brother, this ought to be good."
     "As they debate, Yukari leans back in her seat and smiles to herself. Their group has come a long way since the beginning."
     "At first, she worried they might clash when they worked together, but they’ve turned into a cohesive team. Someday, she hopes they all have a bond as strong as the one shared by Sumiko and Yuuko."
-label week_4_5:
+label week_4_6:
     scene home with fade
     show yukari at left
     with dissolve
@@ -1767,3 +1807,14 @@ label week_4_5:
         "Polish up the storyboards":
             "The storyboard drafts are finished, and Yukari has already gone through the first episode again to make changes."
             "Over the weekend, she polishes it up until she’s satisfied enough to consider the first episode’s storyboard complete."
+    scene studio 
+    $nextWeek()
+    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    $renpy.retain_after_load()
+    $UpdateProgressReport()
+    $renpy.transition(dissolve)
+    call screen start_game
+    stop music
+    $fastForwardDays(2)
+    stop music 
+    jump week_5_1

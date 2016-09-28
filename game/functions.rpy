@@ -19,16 +19,23 @@
         name = renpy.random.choice(random_va_male)
         random_va_male.remove(name)
         return name
+    def nextWeek():
+        global current_week
+        current_week += 1
     def nextDay():
         global current_day
         global current_date
-        if current_day < 5:
-            # if its not at the end of the week, cycle through days
-            current_day += 1
-        else:
-            # revert back to monday
+        if current_day > 5:
             current_day = 0
+        else:
+            current_day += 1
+            # revert back to monday
         current_date += datetime.timedelta(days=1)
+    def fastForwardDays(number):
+        global current_day
+        global current_date
+        for days in range(0,number):
+            nextDay()
     def currentDay():
         global current_day
         return days_array[current_day]

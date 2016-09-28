@@ -79,6 +79,9 @@
         def updateDashboard(self):
             for i in range (0,len(self.db_stats)):
                 self.getStatChanges(self.db_stats[i])
+            self.story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
+            self.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
+            self.music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
 
         def checkCategory(self,category):
             #0 = none, 1 = positive, 2 = negative

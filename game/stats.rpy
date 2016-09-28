@@ -1,15 +1,19 @@
 ﻿init -100 python:
     class Stats(object):
+        DEFAULT_STRESS = 2
+        DEFAULT_HAPPINESS = 10
         def __init__(self,name):
             self.name = name
             self._management = 0
-            self._stress = 2
+            self._stress = Stats.DEFAULT_STRESS
             self._proficiency = 0
-            self._happiness = 10
+            self._happiness = Stats.DEFAULT_HAPPINESS
             self.db_stats = ["stress","proficiency","happiness","management"]
             self.db_displayed_stats = []
             for i in range (0,len(self.db_stats)):
                 setattr(self,"prev_" + self.db_stats[i],0)
+            self.prev_happiness = Stats.DEFAULT_HAPPINESS
+            self.prev_stress = Stats.DEFAULT_STRESS
 
         def storePreviousWeekValues(self):
             for i in range (0,len(self.db_stats)):
@@ -20,7 +24,7 @@
             current_stat = getattr(self,stat)
             prev_stats = getattr(self,"prev_" + stat)
             new_stats = current_stat - prev_stats
-            if (new_stats == current_stat):
+            if (current_stat == prev_stats):
                 return
             positive = GREEN_COLOR + POSITIVE_SIGN
             negative = RED_COLOR + MINUS_SIGN
@@ -28,14 +32,14 @@
             if (new_stats > 0 ):
                 #increase in stats
                 if stat == "stress":
-                    text = RED_COLOR + POSITIVE_SIGN + stat + " increased" + end_tag
+                    text = RED_COLOR + POSITIVE_SIGN + stat + end_tag
                 else:
                     text = positive + stat + end_tag
                 self.db_displayed_stats.insert(0,text)
             else:
                 #decrease in stats
                 if stat == "stress":
-                    text = GREEN_COLOR + MINUS_SIGN + stat + " decreased" + end_tag
+                    text = GREEN_COLOR + MINUS_SIGN + stat + end_tag
                 else:
                     text = negative + stat + end_tag
                 self.db_displayed_stats.append(text)
