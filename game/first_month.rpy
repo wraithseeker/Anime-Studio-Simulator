@@ -1378,6 +1378,7 @@ label week_4_1:
     show mayumi at pos_farleft behind yukari
     show shunsuke at right
     with dissolve
+    play music "music/ost/Can We Make It Proof of Concept (1).ogg"
     y "At our current rate, we won't have enough money to outsource the animation work. This is a huge problem. It could stall the entire project."
     y "And according to our current schedule, we need to hire animators within the next two weeks or we won’t make it in time."
     show yukari sad
