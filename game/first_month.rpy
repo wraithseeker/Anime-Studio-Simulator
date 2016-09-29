@@ -42,72 +42,10 @@ label game_start:
     # # play music "music/normal_happy_ost.ogg" fadein 1.0
     # y "this is some text"
 
-
-    
-    # # $anime.prev_marketing = 2
-    # # $anime.marketing = 2
-
-    # # $anime.prev_voice_acting = 4
-    # # $anime.prev_ost = 0
-    # # $anime.prev_op_ed = 3
-
-    # # # $anime.voice_acting = 6
-    # # $anime.prev_funds = 10
-    # # $anime.funds = 10
-    # # $anime.prev_character_development = 1
-    # # $anime.character_development = 1
-    # # $anime.character_development += 2
-    # # $anime.character_design = 2
-    # # $anime.prev_character_design = 2
-    # # $anime.character_design -= 1
-    # # $anime.funds += 10
-    # # $anime.voice_acting = 1
-    # # $anime.op_ed = 1
-    # # $anime.marketing -= 0.5
-    
-    # $yukari_stats.management = 3
-    # $yukari_stats.prev_management = 2
-    # $yukari_stats.stress = 2
-    # $yukari_stats.prev_stress = 3
-    # $yukari_stats.proficiency = 3
-    # $yukari_stats.prev_proficiency = 2
-    # $yukari_stats.happiness = 3
-    # $yukari_stats.prev_happiness = 1
-
-    # $yuuko_stats.stress = 2
-    # $yuuko_stats.prev_stress = 3
-    # $yuuko_stats.proficiency = 3
-    # $yuuko_stats.prev_proficiency = 4
-
-    # $sumiko_stats.stress = 4
-    # $sumiko_stats.prev_stress = 1
-    # $sumiko_stats.proficiency = 3
-    # $sumiko_stats.prev_proficiency = 2
-
-    # $shunsuke_stats.stress = 2
-    # $shunsuke_stats.prev_stress = 3
-    # $shunsuke_stats.proficiency = 3
-    # $shunsuke_stats.prev_proficiency = 2
-
-    # $mayumi_stats.stress = 4
-    # $mayumi_stats.prev_stress = 3
-    # $mayumi_stats.proficiency = 3
-    # $mayumi_stats.prev_proficiency = 2
-
-    # $UpdateProgressReport()
-    # y "previous value of marketing is [anime.prev_marketing]. Current value is [anime.marketing]"
     # #call screen progress_report
     # "Welcome to the demo version of Anime Studio Simulator. For our music, we have a few pieces composed for our OST while the rest of them are royalty free placeholders. Some scenes do not have an OST yet."
     # "The demo version covers the events of the game up till week 3 with a total of 12 weeks planned for the game's release."
     # "We hope you enjoy playing the demo version of Anime Studio Simulator!"
-
-
-# label tester:
-#     "lets test anime character design variable"
-#     "[anime.character_design] value, let's add 2 to it"
-#     $anime.character_design = anime.character_design + 2
-#     "[anime.character_design] value"
-#     "Now why doesn't object get saved?"
 
 label week_0_1:
     scene home with fade
@@ -193,13 +131,15 @@ label week_0_1:
     show yukari happy
     "She pulls out her phone and browses to the Pixiv page where she discovered Yuuko’s art."
     y "Isn’t it great?"
-    show mayumi_f
-    #surprised_face
+    show mayumi_f surprised
     m "It is! Wait a minute… You said her name is Yuuko? And this is her art?"
     y "Yes, why?"
     m "She went to our school!"
+    show yukari surprised
     y "What, really?"
+    show mayumi_f
     m "Yes. I thought you knew her, actually."
+    show yukari
     y "No, I don’t think so… but that makes me feel better, all the same."
     "The artist will still be a stranger to her, but at least they have some common ground. It gives her a better feeling for Yuuko’s age, too."
     "Meeting someone around her own age is a lot less stressful than meeting someone who could have been a professional artist for years."
@@ -239,9 +179,10 @@ label week_0_2:
     "Yuuko blushes with a shy smile, and Sumiko shakes Yukari’s hand enthusiastically."
     show sumiko happy
     s " I can’t wait to work together!"
-    #surprised_face
+    show yukari surprised
     y "You want to join the team?"
     s "Well, Yuuko said you need a background artist."
+    show yukari laugh_eyes_closed
     y "You’re an artist too? That’s great! Let’s sit down so we can discuss it."
     "They sit down, and Yukari explains what she has in mind."
     "A short anime with only two episodes, something that can be handled by a small team. She already told Yuuko about it online, but she repeats it again for Sumiko’s benefit."
@@ -379,17 +320,17 @@ label pre_game:
     else:
         "You have chosen the default mode."
     "Let's go through the basics of the game."
-    "This is their new studio where they will be working hard to produce their anime series within three months."
+    "This is Yukari’s new studio, where her team will work hard to produce their anime series within three months."
     show screen start_game
     $side_nav_interaction = False
     $show_floating_buttons = False
-    "This is where you'll oversee the production of [anime.name]. The deadline for [anime.name] will be during {font=fonts/LiberationSans-Bold.ttf}Week 12{/font}."
-    "The most important thing is to select tasks for your team member under {font=fonts/LiberationSans-Bold.ttf}Tasks{/font}." 
+    "You'll oversee the production of [anime.name]. The deadline for [anime.name] is during {font=fonts/LiberationSans-Bold.ttf}Week 12{/font}."
+    "The most important thing for you to do is choose daily {font=fonts/LiberationSans-Bold.ttf}Tasks{/font} for the team members to perform." 
     show image "ui/done_idle.png" at Position(xalign=0.96,yalign=0.929)
-    "After you have selected tasks for your team members, you can end your turn by selecting the {font=fonts/LiberationSans-Bold.ttf}Done button{/font}."
+    "After you have assigned tasks to everyone, you can end your turn by selecting {font=fonts/LiberationSans-Bold.ttf}Done{/font}."
     hide image "ui/done_idle.png"
-    "You can also get an overview of your actions each week under {font=fonts/LiberationSans-Bold.ttf}Progress{/font}, which should help you decide on what you should focus on."
-    "You'll eventually have to outsource work and it is a good idea to send your team members for training occasionally under {font=fonts/LiberationSans-Bold.ttf}Upgrades{/font}."
+    "You can also see an overview of your actions each week under {font=fonts/LiberationSans-Bold.ttf}Progress{/font}, which should help you decide what to focus on."
+    "You'll eventually have to {font=fonts/LiberationSans-Bold.ttf}Outsource{/font} work and it is a good idea to occasionally {font=fonts/LiberationSans-Bold.ttf}Upgrade{/font} your team members by sending them for training."
     "Good luck!"
     $side_nav_interaction = True
     $show_floating_buttons = True
@@ -1422,6 +1363,8 @@ label week_4_1:
     y "Not to mention our art assets were delayed when Sumiko fell sick."
     m "Maybe we should hire freelancers so we can complete it on time."
     m "It'll be a hassle, but it might be worth it. I’ll look online for new investors, too."
+    scene sumiko_walk_in with fade
+    #door sound
     s "I’m sorry… This is all my fault. If I’d taken better care of my health, I wouldn’t have gotten sick and we wouldn’t be in this situation."
     "With a gloomy look on her face, Sumiko apologizes repeatedly to Yukari and Mayumi until Shunsuke interrupts her."
     ss "It's not your fault, Sumiko. You were only trying to work hard on [anime.name]. Maybe we share the blame for not noticing you were overworked."
@@ -1429,6 +1372,8 @@ label week_4_1:
     ss "Pessimism will be our undoing. We should focus on what we can do now, not what we can’t."
     y "I agree. Worrying all day won’t accomplish anything. Let’s get some work done!"
     "Despite Yukari and Shunsuke’s words, tension lingers in the air. No matter what they say, the problems remain."
+    show studio_main with fade
+    show yukari at left with dissolve
     "She rubs her head. If they don’t relax, it will start to affect their work. Then they’ll have an even bigger problem."
     "There must be a way to put them at ease."
     "Yukari thinks about it and decides to focus on…"

@@ -544,7 +544,7 @@ screen outsource():
         hbox:
             spacing 25
             xalign 0.25
-            yalign 0.25
+            yalign 0.225
             if outsource.plot == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/plot_hover.png"
@@ -593,7 +593,7 @@ screen outsource():
         hbox:
             spacing 25
             xalign 0.25
-            yalign 0.40
+            yalign 0.375
             if outsource.character_design == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/character_design_hover.png"
@@ -639,7 +639,7 @@ screen outsource():
         hbox:
             spacing 25
             xalign 0.25
-            yalign 0.55
+            yalign 0.525
             if outsource.op_ed == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/op_ed_hover.png"
@@ -685,7 +685,7 @@ screen outsource():
         hbox:
             spacing 25
             xalign 0.30
-            yalign 0.70
+            yalign 0.675
             if outsource.marketing == Outsource.SELECTED:
                 imagebutton:
                     idle "ui/outsource/marketing_hover.png"
@@ -722,7 +722,7 @@ screen outsource():
         style "upgrade_button" 
         action [renpy.curry(OutsourceAnime)()]
     showif outsource_tooltip != "":
-        text outsource_tooltip color upgrade_tooltip_color size 40 xalign 0.37 yalign 0.78 at grow_success_text
+        text outsource_tooltip color upgrade_tooltip_color size 40 xalign 0.37 yalign 0.76 at grow_success_text
 
 
 screen side_nav():

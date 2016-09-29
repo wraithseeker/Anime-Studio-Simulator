@@ -21,7 +21,11 @@ define electrician = Character("Electrician", color="#000",ctc="ctc_fixed",ctc_p
 define little_girl = Character("Little Girl", color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define restaurant_owner = Character("Restaurant Owner", color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define man = Character("Man", color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define hp_guy = Character("David Buki", color="#000",ctc="ctc_fixed",ctc_position="fixed")
 
+#Burnout scenario (Stress high, happiness low)
+
+#job offering
 label random_1:
     $rd_c = RandomCharacter(["m"])
     $company = getRandomCompany()
@@ -70,6 +74,7 @@ label random_1:
     "end"
     return
 
+#Request for Raise in Salary/Allowance or Money
 label random_2:
     scene cafe with fade
     $rd_c = RandomCharacter()
@@ -114,6 +119,7 @@ label random_2:
             rd_c.say "Thank you so much…"
     return
 
+#Conflict during Team Meetings 
 label random_3:
     $rd_c = RandomCharacter()
     scene studio_main with fade
@@ -156,6 +162,7 @@ label random_3:
             y "Have you guys listened to the new song released by Love Live? It's selling like hotcakes right now and must be really good."
 
 
+#Interview Request for Aspiring Anime Producers
 label random_4:
     $rd_c = RandomCharacter()
     $company = getRandomCompany()
@@ -213,6 +220,7 @@ label random_4:
             y "Yes, since you think it’s such a good idea."
             rd_c.say "Well, all right."
 
+# Receiving Anonymous Troll E-Mails 
 label random_5:
     scene studio_main with fade
     show yukari at pos_left
@@ -250,6 +258,7 @@ label random_5:
             y "Leave me alone. I want to be by myself for a little bit…"
             "She can tell her attitude makes the others even more disheartened, but she’s too upset by the emails to care. "
 
+#A Suspicious Businessman Calls  
 label random_6:
     $rd_c = RandomCharacter(["s","yuu"])
     scene studio_main with fade
@@ -282,6 +291,7 @@ label random_6:
             y "Don’t apologize! Anyone could be fooled by a conman."
             rd_c.say "Sure…"
 
+#Anime Convention During A Weekend 
 label random_7:
     $rd_c = RandomCharacter()
     scene cafe with fade
@@ -397,7 +407,7 @@ label random_7:
         "Yukari stays at home during AnimeFest although she feels sad thinking of the others having fun without her. It’s balanced by the happiness she feels when she remembers their smiles and Sumiko calling her a good leader."
     else:
         "AnimeFest is both fun and informative, although Yukari can’t help but feel a little bad that she made one of the team members miss it all."
-
+#Pests in the Ceiling 
 label random_8:
     scene studio_main with fade
     show yukari at left
@@ -492,7 +502,7 @@ label random_8_end:
             yuu "Sis, are you okay?"
             s "No, I am not okay!"
             "Yukari glances away in embarrassment and makes a mental note to take her team members’ concerns more seriously from now on."
-
+#Adopt a Plant
 label random_9:
     scene studio_main with fade
     show yukari at left
@@ -533,7 +543,7 @@ label random_9:
             show yuuko angry_mouth_closed
             yuu "Protecting the environment isn’t frivolous!"
             y "Don’t fight, you two. I’ve already made my decision, so it’s too late now."
-
+# All-You-Can-Eat Ice-Cream 
 label random_10:
     scene studio_main with fade
     show mayumi sigh at pos_farleft
@@ -569,6 +579,7 @@ label random_10:
             show mayumi happy
             m "All right! This is the best break we ever took!"
             "They spend more time at the café than Yukari expected, but a few hours of an ice cream buffet is enough to help the group forget their previous worries."
+#Street Musician Donation 
 label random_11:
     scene street with fade
     show mayumi_f at right
@@ -601,6 +612,7 @@ label random_11:
             y "Wow, that really is good."
             m "I can’t wait for work tomorrow. I have so many new ideas!"
 
+#Flowers for Charity
 label random_12:
     scene street with fade
     show yukari at left with dissolve
@@ -621,6 +633,7 @@ label random_12:
             "Yukari blushes, but smiles and hands them the money. They’re so happy, they can’t stop thanking her."
             schoolgirls "Thank you!"
             schoolgirls "Don’t mention it. Charities like these are very important. I’m just happy I could help out."
+#Shiny Object On The Ground 
 label random_13:
     scene street with fade
     show yukari at left
@@ -648,7 +661,7 @@ label random_13:
             pedestrian "The crosswalk?! I’m glad you found it before someone ran over it.  Thank you! Thank you so much!"
             y "Don’t mention it."
             "As she says goodbye to the pedestrian and heads home, her steps are a little lighter. It’s always a nice feeling to brighten someone’s day."
-
+#Homeroom Teacher Surprise Visit 
 label random_14:
     scene studio_main with fade
     teacher "Good afternoon, Yukari. How are you doing?"
@@ -659,7 +672,7 @@ label random_14:
     "Yukari happily gives her former homeroom teacher a tour of the studio and introduces her to all of the team members. Everyone tells her a little bit about the anime and what they’re currently working on."
     teacher "I love the enthusiasm here. I’m so happy to see you’re doing well."
     y "Thank you, Sensei. I'm happy you took the time to visit!"
-
+#Where's my umbrella?
 label random_15:
     scene studio_main with fade
     show yukari at left with dissolve
@@ -692,7 +705,7 @@ label random_15:
             show yukari happy
             y "Thank you!"
             "They hurry home together, and Yukari makes it into her house without getting too wet from the rain. She makes a mental note to thank her neighbor again the next time they meet."
-
+#Classmates Wish to Drop By
 label random_16:
     scene studio_main with fade
     show yukari at left
@@ -744,7 +757,7 @@ label random_16:
             show shunsuke sigh
             ss "These girls clearly suffer from an inferiority complex. They can’t stand to see you succeed."
             y "We’ll show them. They can say as many nasty things as they like, but when [anime.name] comes out, everyone will see the truth!"
-
+# Won a prize on the radio!
 label random_17:
     $rd_c = RandomCharacter()
     scene studio_main with fade
@@ -813,6 +826,7 @@ label random_17_share:
             rd_c.say "That’s a little steep, isn’t it? If you insist…"
         "100\%":
             rd_c.say "So when you said “some,” you really meant “all”? You have the makings of a good tyrant, Yukari. Sheesh."
+#Wrong Food Delivery Address 
 label random_18:
     scene studio_main with fade
     "The studio’s doorbell rings."
@@ -846,7 +860,7 @@ label random_18:
             m "B-but-..."
             y "Sorry guys. We have to be honest."
             m "Honesty doesn’t fill an empty stomach..."
-
+# Coffee or Tea?
 label random_19:
     scene cafe with fade
     show yukari at left
@@ -877,7 +891,7 @@ label random_19:
             "Yuuko says nothing, but her shoulders slump and she sighs."
     show yukari worry
     y "Sorry! It’s really hard to please everyone."
-
+#Fruits Delivery
 label random_20:
     scene studio_main with fade
     show yukari at left with dissolve
@@ -892,7 +906,6 @@ label random_20:
             "When the first shipment of fruit arrives, Yukari explains to the surprised team that these deliveries will come each week for a month. It’s sure to improve everyone’s health and mood."
             "some scam here"
             jump random_20_scam
-
 label random_20_scam:
     show yukari worry
     y "Huh, that’s strange. It’s already Friday, but this week’s fruit delivery isn’t here."
@@ -902,7 +915,7 @@ label random_20_scam:
     "There is a click as the other side disconnects."
     show yukari angry
     y "And I paid in advance, too! Scammed by a fruit salesman…"
-
+#Street Artist Sketch
 label random_21:
     scene street with fade
     show yukari at left with dissolve
@@ -941,7 +954,7 @@ label random_21:
     y "No way! Could this be from the lady in the park?"
     show yuuko laugh_eyes_closed
     yuu " It’s beautiful… It’s given me a brilliant idea for [anime.name]!"
-
+#Overdue Library Book
 label random_22:
     scene studio_main with fade
     show yukari at left with dissolve
@@ -973,6 +986,7 @@ label random_22:
             show yukari sad
             y "No way! The library went through its records and noticed the missing book? The fine is so steep! I could buy a new copy cheaper than this."
             y "I guess there’s no running away this time…"
+#Newbie Voice Actor Looking for Work 
 label random_23:
     scene black with fade
     "Yukari was browsing the web for potential partners who can do some voice acting at a bargain price."
@@ -1004,7 +1018,16 @@ label random_23:
             miki "Are you sure?"
             y "(thinking to self): What’s this all about? It’s almost like she wants me to say no."
             miki "I’ll send you an email. Thank you for visiting."
-            #miki father email scam portion
+            
+label random_23_lie:
+    #miki father email scam portion
+    scene studio_main with fade
+    show yukari at left with dissolve
+    y "What’s this? It’s not from Miki, but… from her father?"
+    show yukari sigh
+    y "Yikes! Looks like they know I lied to take advantage of the studio."
+
+#Suspicious Backpack
 label random_24:
     scene street with fade
     show yukari worry at left
@@ -1027,7 +1050,7 @@ label random_24:
             y "No way am I opening that."
             y "Who knows what could be in there?"
             "She calls the police and explains the situation to them, and then hurries on her way, still a little shaken from the strange incident."
-
+#New Menu - Food Tasting Session 
 label random_25:
     scene studio_main with fade
     show yukari at left with dissolve
@@ -1692,42 +1715,46 @@ label random_40:
 
 label random_41:
     scene street with fade
-    show mayumi at left with dissolve
-    #show headphone sprite right side
+    show mayumi at left
+    show headphone_guy at right
+    with dissolve
     "Mayumi hurries down the street on her way home when faint music catches her attention."
     m "(thinking to self): His music is so loud I can hear it through his headphones! Something about it sounds familiar…"
     "With a jolt of surprise, she realizes it sounds familiar because she composed it herself in the studio. It’s the theme song for [anime.name]!"
     m "E-excuse me, that song you’re listening to…"
-    man "Hmm?"
+    show headphone_guy shocked
+    hp_guy "Hmm?"
     "He lowers the volume of his music and gives her an inquisitive look."
     m "The song you were listening to just now—"
-    man "Oh, that? It’s the theme song for an upcoming anime called <anime name>! They released it as part of a promotion, and I’ve been listening to it ever since."
+    show headphone_guy happy
+    hp_guy "Oh, that? It’s the theme song for an upcoming anime called [anime.name]! They released it as part of a promotion, and I’ve been listening to it ever since."
     show mayumi happy
     m "You like it a lot, then?"
-    man "Yeah, it’s great! Here, let me get the website link for you so you can download it, too."
+    hp_guy "Yeah, it’s great! Here, let me get the website link for you so you can download it, too."
     "Mayumi hesitates. Of course she doesn’t need to download the song. She has the original copy. But she’s embarrassed at the thought of admitting it. This is the first time she’s really had to deal with a… fan."
     menu:
         "Pretend to not be involved":
-            "The man copies down the URL onto a piece of paper and hands it to her."
-            man "Here you go."
+            "David Buki copies down the URL onto a piece of paper and hands it to her."
+            hp_guy "Here you go."
             m "Um, thanks… I really should be going now!"
             "She dashes away before he can ask any questions."
         "Tell him the truth":
             m "Actually… I’m the composer for [anime.name]."
             #success
-            man "Really? Cool! I’m so happy to meet you! Your music is fantastic."
+            hp_guy "Really? Cool! I’m so happy to meet you! Your music is fantastic."
             show mayumi laugh_eyes_closed
             m "Thanks!"
-            man "If the rest of the soundtrack is half as good as this, I can’t wait to hear it!"
+            hp_guy "If the rest of the soundtrack is half as good as this, I can’t wait to hear it!"
             m "You really think it’s that good?"
-            man "Definitely. I’m going to tell all of my friends to check out [anime.name]."
+            hp_guy "Definitely. I’m going to tell all of my friends to check out [anime.name]."
             m "Wow! Thanks!"
             "They talk a little longer about music, and then Mayumi continues on her way, feeling like she’s on top of the world."
             #failure
-            man "Sure you are. And I’m the director of Yu Yu Hakusho."
+            show headphone_guy sad
+            hp_guy "Sure you are. And I’m the director of Yu Yu Hakusho."
             show mayumi sad
             m "No, I mean it!"
-            man "Come on, don’t joke about something like that. This is a great song, and you shouldn’t steal credit for yourself."
+            hp_guy "Come on, don’t joke about something like that. This is a great song, and you shouldn’t steal credit for yourself."
             m "But I… Never mind."
             m "She runs past him down the street, crestfallen that he didn’t believe her."
 

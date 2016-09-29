@@ -18,7 +18,6 @@ label week_5_1:
     ss "Yes, it might confuse them if you walk in randomly. I wouldn’t recommend it."
     m "Plus, if you plan it with them first, you’ll have an agenda set for the meeting."
     y "Good idea, I'll get started on it right away."
-    #adjust to night version
     scene home_night with fade
     show yukari at left with dissolve
     "That night, Yukari checks her email and notices some of the animation studios have sent replies. She shortlists the two most promising ones."
@@ -56,7 +55,7 @@ label week_5_2:
     with dissolve
     ss "So which animation studio did you pick?"
     y "[anim_studio]. I'll be heading over there later with Mayumi for a consultation."
-    #mayumi surprised
+    show mayumi surprised
     m "Ehh?? I thought we were only picking which studio to work with. No one told me anything about going to visit them."
     y "I was planning to tell you later."
     show mayumi sigh
@@ -100,9 +99,10 @@ label week_5_2:
     manager "Yes, actually. Make a left at the corner, and then—"
     show mayumi_f at right with dissolve
     m "Yukari!"
-    #yukari surprised
+    show yukari surprised
     y "Agh! W-when did you get here? I thought I told you to wait!"
     m "You were acting weird, so I followed you."
+    show yukari sad
     y "Right, well I was just… uh…"
     "She raises her voice and gives the café manager a meaningful look."
     show yukari laugh_eyes_closed
@@ -126,7 +126,6 @@ label week_5_2:
         show yukari at left
         show mayumi_f at right
         with dissolve
-        #surprised yukari
         y "That's weird, why isn’t anyone at the reception desk?"
         "She looks around for any sign of life and can’t help but be impressed."
         y "This place is exquisite. Our studio looks dull in comparison!"
@@ -267,7 +266,12 @@ label week_5_3:
     y "Shunsuke, do you have a minute?"
     ss "Sure, what is it?"
     y "The director from [anim_studio] said I need to make the storyboards clearer. What do you think is wrong with them? "
-    #cg storyboard
+    if anime.category == Anime.HAREM:
+        scene storyboard_harem with fade
+    elif anime.category == Anime.ACTION:
+        scene storyboard_action with fade
+    elif anime.category == Anime.MYSTERY:
+        scene storyboard_mystery with fade
     ss "Hmm… I don't see a problem with them, either, but then again we're looking at it from our perspective."
     y "What do you mean?"
     ss "We know everything about [anime.name], so we know exactly what we’re looking at. He doesn’t, because he’s seeing it for the first time."
@@ -439,7 +443,7 @@ label week_5_5:
     y "I better show them to Yuuko for a final check. Better safe than sorry!"
     "Yukari files them neatly into a folder and hurries over to Yuuko's desk."
     #sound effect
-    #CG here
+    scene yukari_bump with fade
     "Yukari bumps into Sumiko and the folder falls from her hands. The papers fall out all across the floor."
     y "Nooo! It took me so long to arrange them properly. Now I have to organize them again, and I was just about to head to [anim_studio]…"
     s "I’m sorry!"

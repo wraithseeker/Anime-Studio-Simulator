@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/stats.rpy", line 29: invalid syntax
-            if (new_stats > 0 & not lol):
-                                   ^
+File "game/random_event_holder.rpy", line 4: expected an indented block
+        self.wk_4_onwards_events = []
+            ^
     
 
 Ren'Py Version: Ren'Py 6.99.11.1749

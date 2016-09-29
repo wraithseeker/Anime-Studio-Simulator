@@ -1,9 +1,6 @@
 ﻿label start:
     #initialize the class objects at runtime here instead of python init so object will be saved
     $anime = Anime("Macross Delta")
-    # $anime.ost = 2
-    # $anime.op_ed = 1
-    # $anime.voice_acting = 0.5
     #stats for characters
     $yukari_stats = Stats("Yukari")
     $mayumi_stats = Stats("Mayumi")
@@ -35,7 +32,7 @@
     $UpdateProgressReport()
 
     jump game_start
-    #jump week_8_6
+    #jump random_41
 
 init python:
     import datetime
@@ -78,11 +75,13 @@ init:
                         ,Tasks("Practice","Hone your writing skills",proficiency=0.5)
                         ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=-1)]
 
+    #Random Events
+    $random_events_holder = RandomEventsHolder()
     #game variables
     $current_week = 1
     # Day limits, 0 = Mon, 5 = Sat
     # current_date e.g '8/30'
-    $days_array = ["Mon","Tues","Wed","Thur","Fri","Sat",""]
+    $days_array = ["Mon","Tues","Wed","Thur","Fri","Sat","Sun"]
     $current_day = 5
     $current_date = datetime.date(2016,3,12) 
     #ends at 6/21, starts at 3/21, pregame = 3/12
@@ -134,7 +133,7 @@ init:
     #$anim_studio_expensive_price = 
     #$$anim_studio_cheap_price = 
     #va_letter
-    #va defaults to harem
+    #voice actor automatically defaults to harem
     $va_a = "Bradley"
     $va_b = getRandomFemaleName()
     $va_c = getRandomFemaleName()
@@ -148,6 +147,7 @@ init:
     $wk_9_forgot_home = True
     $website_choice = "Professional"
     #available website choices = "Professional","Shunsuke","Free"
+
     #positions for images
     $pos_farleft = Position(xalign = -0.045,yalign = 1.0)
     $pos_left = Position(xalign = 0.18,yalign = 1.0)

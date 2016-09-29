@@ -213,7 +213,12 @@ image va_sakura surprised = "characters/sakura/surprised.png"
 image va_sakura laugh_eyes_closed = "characters/sakura/laugh_eyes_closed.png"
 image va_sakura angry = "characters/sakura/angry.png"
 
-#bgs
+image headphone_guy = "characters/headphone_guy/normal.png"
+image headphone_guy shocked = "characters/headphone_guy/shocked.png"
+image headphone_guy happy = "characters/headphone_guy/happy.png"
+image headphone_guy sad = "characters/headphone_guy/sad.png"
+
+#BGS
 image bg restaurant = "bg/restaurant.png"
 image bg studio = "bg/studio.png"
 image bg studio_main = "bg/studio_main.png"
@@ -226,6 +231,8 @@ image bg street_rain = "street_rain.jpg"
 image bg cafe = "bg/cafe.png"
 image bg home = "bg/home.png"
 image bg home_night = "bg/home_night.png"
+
+#CGs
 image bg flashback = "cg/flashback.png"
 image bg grandma = "cg/grandma.png"
 image bg action_sketch = "cg/action_sketch.png"
@@ -233,6 +240,16 @@ image bg mystery_sketch = "cg/mystery_sketch.png"
 image bg harem_sketch = "cg/harem_sketch.png"
 image bg animate = "cg/animate.png"
 image bg investor_yukari = "cg/investor_yukari.png"
+image bg sumiko_walk_in = "cg/sumiko_walk_in.png"
+image bg yukari_bump = "cg/yukari_bump.png"
+image bg storyboard_harem = "cg/storyboard/storyboard_harem.png"
+image bg storyboard_action = "cg/storyboard/storyboard_action.png"
+image bg storyboard_mystery = "cg/storyboard/storyboard_mystery.png"
+image bg expo_harem = "cg/expo/harem.png"
+image bg expo_action = "cg/expo/action.png"
+image bg expo_mystery = "cg/expo/mystery.png"
+
+
 image money = "ui/money_bag.png"
 
 image ctc_fixed:
