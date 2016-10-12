@@ -189,7 +189,7 @@ screen upgrade():
             imagebutton:
                 idle "char_image/upgrade/yukari_upgrade_idle.png"
                 action [SetVariable("yukari_upgrade",Outsource.SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
-                hovered upgrade_tt.Action("Send Yukari to meet veterans in the anime industry to broaden her knowledge of the industry.")
+                hovered upgrade_tt.Action(yukari_current_u_text)
         else:
             imagebutton:
                 idle "char_image/upgrade/yukari_upgrade_transparent.png"
@@ -202,7 +202,7 @@ screen upgrade():
             imagebutton:
                 idle "char_image/upgrade/yuuko_upgrade_idle.png"
                 action [SetVariable("yuuko_upgrade",Outsource.SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
-                hovered upgrade_tt.Action("Pair Yuuko up with professional artists in the anime industry.")
+                hovered upgrade_tt.Action(yuuko_current_u_text)
         else:
             imagebutton:
                 idle "char_image/upgrade/yuuko_upgrade_transparent.png"
@@ -215,7 +215,7 @@ screen upgrade():
             imagebutton:
                 idle "char_image/upgrade/sumiko_upgrade_idle.png"
                 action [SetVariable("sumiko_upgrade",Outsource.SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
-                hovered upgrade_tt.Action("Give Sumiko some time to meditate and trek in the nearby mountains.")
+                hovered upgrade_tt.Action(sumiko_current_u_text)
         else:
             imagebutton:
                 idle "char_image/upgrade/sumiko_upgrade_transparent.png"
@@ -228,7 +228,7 @@ screen upgrade():
             imagebutton:
                 idle "char_image/upgrade/mayumi_upgrade_idle.png"
                 action [SetVariable("mayumi_upgrade",Outsource.SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
-                hovered upgrade_tt.Action("Send Mayumi to musical bootcamps to hone her skills.")
+                hovered upgrade_tt.Action(mayumi_current_u_text)
         else:
             imagebutton:
                 idle "char_image/upgrade/mayumi_upgrade_transparent.png"
@@ -241,7 +241,7 @@ screen upgrade():
             imagebutton:
                 idle "char_image/upgrade/shunsuke_upgrade_idle.png"
                 action [SetVariable("shunsuke_upgrade",Outsource.SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count + 1)]
-                hovered upgrade_tt.Action("Invite a veteran writer to review Shunsuke's writing.")
+                hovered upgrade_tt.Action(shunsuke_current_u_text)
         else:
             imagebutton:
                 idle "char_image/upgrade/shunsuke_upgrade_transparent.png"

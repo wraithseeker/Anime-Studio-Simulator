@@ -912,20 +912,17 @@ label week_10_3:
     y "I suppose I could take today off, haha. Hmm…" 
     menu: 
         "Help Mayumi":
+            show mayumi_f at right with dissolve
             "Yukari walks to Mayumi's desk." 
-            y "Can I help you with anything?" 
-            m "Sure! I've been working on one of the songs for [anime.name]. How does this sound?" 
-             # [Since we mixed & matched the song samples in Week 9, each of these should be one for the correct genre that didn't play for that genre in Week 9.] 
-             #    If Harem, 
-             #    [Harem Shenanigans song] 
-             #    If Action, 
-             #    [Very Sinister song] 
-             #    If Mystery, 
-             #    [Investigation song] 
-              # ----- 
-            # y "I think it capture's [anime.name]'s tone pretty well." 
-            # m "Good, I was hoping you'd say that." 
-            # "For the rest of the day, Mayumi plays music samples for Yukari and asks for advice on the direction a particular song should take. By the end, Yukari is confident she made a positive contribution to the soundtrack of [anime.name]." 
+            y "Can I help you with anything?"
+            show mayumi_f laugh_eyes_closed
+            m "Sure! I've been finishing up some of the songs for [anime.name]. You can give me some advice on them." 
+            y "Well, I’m no expert…" 
+            m "Doesn’t matter. I need you to give me your thoughts as if you’re a fan hearing the music while watching [anime.name]."
+            show yukari happy 
+            y "Okay!" 
+            "For the rest of the day, Mayumi plays music samples for Yukari and asks for advice on the direction a particular song should take."
+            "By the end, Yukari is confident she made a positive contribution to the soundtrack of [anime.name]." 
         "Help Shunsuke":
             show shunsuke at right with dissolve
             "Yukari hesitates, but decides there's no harm in at least suggesting her ideas. If Shunsuke has a better one, he'll say so. She walks to his desk." 
@@ -1251,4 +1248,534 @@ label week_10_6:
     call screen start_game
     stop music fadeout 1.0
     $fastForwardDays(2)
-           
+
+label week_11_1:
+    scene studio with fade
+    show yukari at left
+    show shunsuke at right
+    with dissolve
+    ss "There's only a few weeks left before the deadline for [anime.name]. I'm curious about what still needs to be done before it'll be ready." 
+    y "There's a fair amount of work we still have to do for post-production, since our production phase just ended not long ago." 
+    ss "Like what?"  
+    y "To explain it in simple terms, it consists of three core components: editing, dubbing, and the final quality assurance check." 
+    show shunsuke surprised
+    ss "Dubbing? You can't possibly mean you're adding English voices for the characters!" 
+    show yukari sigh
+    y "Of course not! It's already too late to do that even if I wanted to. You're confused by the term 'dubbing.'" 
+    y "In the context of post-production, dubbing means to mix the audio and music tracks into the episodes of [anime.name]." 
+    y "That means we have to ensure the voice tracks are in sync with the characters' animations and that the music plays at the right time." 
+    show yukari
+    show shunsuke
+    ss "Thank you. Now I understand what you mean. So, since you're talking about the post-production phase, does that mean we're done working with [anim_studio]?" 
+    y "Not yet. They're in charge of filming [anime.name]. In fact, I'm about to go there and pick up episode one of [anime.name] right now." 
+    show shunsuke happy
+    ss "Nice! I can't wait to see it." 
+    show yukari laugh_eyes_closed
+    y "Same. I'll be back soon." 
+    $anim_studio = anim_studio_cheap
+    if anim_studio == anim_studio_expensive:
+        scene animation_studio with fade
+        show yukari happy at left with dissolve
+        y "Hello!" 
+        staff "It's good to see you again, Yukari. Are you here to pick up the first episode of [anime.name]?" 
+        y "That's right." 
+        staff "I'll let [anim_studio_dir] know you're here." 
+        #[door sound] 
+        show yukari
+        "As Yukari waits for the director, she can't help but marvel at how far along [anime.name] has come." 
+        show anim_dir at right with dissolve
+        anim_dir "Sorry to keep you waiting." 
+        y "No need to apologize. It wasn't long." 
+        anim_dir "Here is the disc that contains Episode One of [anime.name]." 
+        show yukari laugh_eyes_closed
+        y "Great! When do you think Episode Two will be ready?" 
+        show anim_dir smile
+        anim_dir "It should be finished soon, most likely next week, depending on when we get the remaining animations. I'll keep you updated." 
+        y "Thank you." 
+        "She turns to leave with the disc, but pauses and looks back at the director."
+        y "I'm thinking of holding a small celebration once [anime.name] airs. Would you and the members of [anim_studio] be interested in joining us?" 
+        y "It would be great to have everyone who contributed to [anime.name] come!" 
+        show anim_dir disappointed
+        anim_dir "I'd love to attend, and I'm sure my co-workers would too… but I'm afraid we're currently swamped with work." 
+        anim_dir "Sorry, we have to decline your invitation." 
+        show yukari sad
+        y "Okay, I understand. It's a pity, though." 
+        show anim_dir
+        anim_dir "Perhaps we'll make it after your next anime…" 
+        show yukari laugh_eyes_closed
+        y "Haha, I hope that day comes!" 
+        show yukari
+        y "Well, if there's nothing else, then I'll head back to my studio." 
+        anim_dir "I'll be in touch to let you know when Episode Two is ready." 
+        y "Great! See you later!" 
+        anim_dir "Goodbye." 
+    elif anim_studio == anim_studio_cheap:
+        scene animation_studio with fade
+        show yukari at left
+        show anim_dir happy at right
+        with dissolve
+        anim_dir "Hi Yukari!"
+        show yukari surprised
+        y "Whoa! You scared me!" 
+        "On the majority of her visits to [anim_studio], she's entered an empty lobby. She wasn't expecting to find the director waiting for her." 
+        anim_dir "I knew you'll be around to pick up Episode One of [anime.name], so I thought I'd surprise you. And it worked!" 
+        "He seems inordinately pleased with himself." 
+        show yukari
+        y "Uh-huh…"
+        show anim_dir smile 
+        anim_dir "Here. Episode One is on this disc. We should have Episode Two ready sometime next week, after we get the remaining animation work." 
+        show yukari happy
+        y "Okay, that's great! You'll let me know when it's ready?" 
+        anim_dir "Yep, don't worry." 
+        y "Thank you." 
+        show yukari
+        "She turns to leave with the disc, but pauses. Although they had some difficulties, [anim_studio] wasn't so bad to work with after all. Everything worked out in the end." 
+        show yukari laugh_eyes_closed
+        y "I'm thinking of holding a small celebration once [anime.name] airs. Would you and the members of [anim_studio] be interested in joining us?" 
+        y "It would be great to have everyone who contributed to [anime.name] come!" 
+        anim_dir "That sounds fun! One of my major rules of life is 'Never turn down a chance to party!'" 
+        y "(thinking to self): Is that really the sort of thing he should tell a client?"
+        show anim_dir disappointed
+        anim_dir "But… unfortunately, my new financial advisor told me to put business before pleasure from now on. And since we have a lot of work piling up…"  
+        anim_dir "Well, I'm afraid I'll have to decline on behalf of the studio." 
+        y "It's okay. It would have been nice to have you there, but I understand." 
+        show anim_dir
+        anim_dir "Keep us in mind for future parties, though!" 
+        y "I'll, um, do that. Well, if there's nothing else, then I'll head back to my studio." 
+        anim_dir "Okay. I'll contact you when Episode Two is ready." 
+        y "Great! See you then." 
+        anim_dir "Bye!" 
+    scene studio_main with fade
+    show yukari laugh_eyes_closed at pos_left
+    show sumiko at pos_right
+    show yuuko at pos_outerright behind sumiko
+    show shunsuke at pos_middleright
+    show mayumi at pos_farleft behind yukari
+    with dissolve 
+    y "Here it is!" 
+    ss "Episode One?" 
+    y "Yep!" 
+    show sumiko happy
+    s "What? Where? I want to see it!" 
+    show mayumi laugh_eyes_closed
+    m "Me too! I'm nervous about how it'll be…" 
+    y "Give me a minute to set it up, and then we can all watch it together!" 
+    "She puts the disc into her computer. Everyone gathers around to watch the video." 
+    #[a cg of everyone staring at the computer screen (anime episode) ] 
+    "Everyone watches with excitement and anticipation as the episode begins. After all, this is the result of their hard work over the past few months." 
+    m "Oooh, it looks so good! Yukari, you did a fantastic job!" 
+    y "I'm just the director. Everyone here and at [anim_studio] helped make this possible." 
+    yuu "The animation looks smooth. That's a relief." 
+    s "It feels really weird watching an anime and seeing backgrounds I designed. It's a good feeling, but… so surreal…" 
+    ss "Just wait until it's on TV." 
+    s "Oh man, that THAT will be surreal." 
+    m "Look, Yuuko! It's your characters!" 
+    yuu "Y-yes…" 
+    y "Is something wrong?" 
+    yuu "I just look at my own art and wonder if it's really good enough…" 
+    s "What are you talking about? Look at it! It's great!" 
+    yuu "Well…" 
+    ss "She's right, Yuuko. Your art looks fine." 
+    yuu "If you all think so, then… okay! I accept it." 
+    m "Now that that's settled, shh… let's watch!" 
+    "They watch in silence until the video reaches its end." 
+    #[end CG]
+    scene studio_main with fade
+    show yukari laugh_eyes_closed at pos_left
+    show sumiko at pos_right
+    show yuuko at pos_outerright behind sumiko
+    show shunsuke at pos_middleright
+    show mayumi at pos_farleft behind yukari
+    with dissolve 
+    y "Well? What did you think?" 
+    show mayumi laugh_eyes_closed
+    m "It looks great!" 
+    if anime.category == Anime.HAREM:
+        show sumiko happy
+        s "I love how science-y everything is." 
+        ss "Is this a subtle way to praise your own backgrounds?" 
+        show sumiko tsundere
+        s "Hey! I mean it. Everything really came together in the right way to create the right atmosphere." 
+        ss "Hmm, well, I can't argue there." 
+        show sumiko
+        m "I agree. And it seems so much fun, too!" 
+    elif anime.category == Anime.ACTION: 
+        show yuuko laugh_eyes_closed
+        yuu "I'm happy to see how well the animations work in the faster-paced scenes. I was worried about that."
+        show sumiko happy 
+        s "Yeah, me too." 
+        y "Right, I had my concerns that it might be hard to follow, but everything looked as smooth and logical as I imagined it when I set up the storyboards." 
+        yuu "Seeing it in action makes me feel bad for our protagonist, though. He has to run so much!" 
+        s "As long as the animation looks good while he's doing it, that's the important thing." 
+        yuu "Yes." 
+    elif anime.category == Anime.MYSTERY:
+        ss "I'm relieved we've captured the proper tone for the story. It was a tricky balance, but we achieved it." 
+        m "And didn't our detective look so cool when he investigated the crime scene?" 
+        ss "He did. Credit for that goes to Yuuko and Sumiko for designing both him and the crime scene environment so well." 
+        show yuuko sigh
+        yuu "Aw, don't mention it…" 
+        show sumiko laugh_eyes_closed
+        s "It's good to know all that work paid off!"
+    y "Just wait until the audio is added. Then [anime.name] will really be great!" 
+    m "I can't wait!"
+
+label week_11_2: 
+    $nextDay()
+    scene studio_main with fade
+    show yukari at pos_left
+    show mayumi at pos_farleft behind yukari
+    show shunsuke at right
+    with dissolve
+    m "The music and sound for [anime.name] is almost complete. The audio mastering shouldn't take too long, since we're storing it digitally." 
+    show yukari laugh_eyes_closed
+    y "That's great!" 
+    ss "I have good news, too. Our website is coming along well. It should be finished before the end of the week." 
+    y "Awesome. Let me know when it's ready." 
+    scene studio_main
+    show yukari at left
+    show sumiko at pos_textbox_right
+    show yuuko at pos_outerright
+    with dissolve
+    "As they return to their desks, Yukari checks on Sumiko and Yuuko. They're hard at work painting the final animation frames for Episode Two." 
+    s "Something wrong?" 
+    y "No, I just wanted to know how things are going." 
+    show sumiko laugh_eyes_closed
+    s "Great!" 
+    yuu "Yes, everything should be finished soon." 
+    y "I'm glad to hear it." 
+    scene studio_main
+    show yukari at left
+    with dissolve
+    "Back at her own desk, Yukari begins to compile all of their assets for [anime.name]." 
+    show shunsuke at right with dissolve
+    ss "Need a hand?" 
+    y "Sure, if you have time." 
+    #[phone ringing] 
+    y "Just a minute." 
+    hide shunsuke with dissolve
+    "She steps away from the desks so she can answer the phone without disturbing anyone. The caller is one of Sumiko's friends, and she braces herself."
+    "Any unexpected call could mean bad news. However, the news is good for a change! They've finished all of their tasks." 
+    show yukari happy
+    y "Good work! I'll drop by on Thursday to collect it. By the way, we're going to have a party after [anime.name] airs…" 
+    "Once she tells Sumiko's friend about the party, she hangs up and returns to her desk."
+    show yukari at left
+    show shunsuke at right with dissolve
+    ss "Something important?" 
+    show yukari happy
+    y "Our freelance animation work is complete!" 
+    #[phone ringing] 
+    show yukari surprised
+    y "Another call, already?" 
+    ss "Maybe they forgot something." 
+    "But when Yukari steps away to take the call, she sees it's from their primary investor this time." 
+    scene studio with fade
+    show yukari at left with dissolve
+    y "Hello?" 
+    investor "Hello. How is everything going with [anime.name]?" 
+    y "We're now at the post-production stage. [anime.name] is on track to meet its deadline." 
+    investor "Excellent! Anyway, I'm calling because I have good news. Could we meet up to discuss it?" 
+    y "All right. Same place as before?" 
+    investor "That sounds perfect. I can be there in ten minutes." 
+    "Yukari takes a moment to tell the team where she's going and then heads for the café, curious about what this good news might be." 
+    scene cafe with fade
+    show yukari at left
+    show investor at right
+    with dissolve
+    "When Yukari arrives, she spots the investor seated at a table and joins him." 
+    y "I hope I didn't keep you waiting." 
+    investor "Not at all. Let me get right to the point. We've managed to secure a booth for [anime.name] at Anime Rising." 
+    show yukari surprised
+    y "Y-you did?!" 
+    "Anime Rising has become quite a popular anime convention over the past few years, despite only lasting two days."
+    "Yukari has attended as a guest, but never dreamed she'd have her own booth —- especially not when the convention is only a week away!" 
+    show investor smile
+    investor "It was pretty last-minute, but I think it's a great opportunity to showcase [anime.name]." 
+    y "I… see." 
+    "Her shock must show on her face, because the investor leans forward with a concerned look." 
+    show investor
+    investor "Is everything all right? If you can't attend the convention, that's fine." 
+    show yukari
+    "She hesitates. They already have a lot to do this week. Running a booth at Anime Rising means even more to prepare for. They'll be even busier, and it will be trickier than ever to keep things on schedule." 
+    "On the other hand, many startup studios would need to fight for such an excellent opportunity. Extra work or not, it would be unwise to turn down the offer." 
+    y "No, I was just surprised. Thank you so much! We'll definitely be there." 
+    investor "In that case, I'll see you at Anime Rising." 
+
+label week_11_3:
+    $nextDay()
+    scene studio with fade
+    show yukari at pos_left
+    show sumiko at pos_middleright
+    show yuuko at pos_right behind sumiko
+    show shunsuke at pos_outerright
+    show mayumi at pos_farleft behind yukari
+    with dissolve
+    y "I have news." 
+    ss "I thought you might. You seemed pretty distracted after that second phone call yesterday." 
+    y "Sorry about that." 
+    "After she finished talking to their investor the previous day, she spent the rest of her time at the studio getting in touch with other investors to let them know [anime.name]'s status, as well as looking up information about Anime Rising." 
+    m "So what's up?" 
+    show yukari
+    y "Our investor got us a booth at Anime Rising."
+    show sumiko surprised
+    s "Whoa, really?! No joke?" 
+    y "No joke." 
+    show sumiko laugh_eyes_closed
+    s "That's awesome!" 
+    m "What's Anime Rising?" 
+    y "It's a two-day convention held next Tuesday and Wednesday."
+    s "Why don't you look happier about it, Yukari? It's a great opportunity for us!" 
+    show yuuko happy
+    yuu "Yes, it should be a very special experience." 
+    show mayumi laugh_eyes_closed
+    m "I agree! When will we ever get another chance like this?"
+    show shunsuke worry 
+    ss "It's a good opportunity, but… did you say it starts next Tuesday? We can't go in unprepared, but we don't want to fall behind on [anime.name], either…" 
+    show yukari sigh
+    y "Exactly why I have mixed feelings about it. I'm not sure if we have enough time to keep [anime.name] on track and prepare our materials for the booth." 
+    ss "We will if we work this weekend. Unfortunately, that will be pretty stressful… Can we handle it?" 
+    m "Come on, have a little more faith in us. Of course we can!" 
+    show shunsuke sad_angry
+    ss "It's not a question of faith. It's a valid concern that we might burn ourselves out." 
+    m "We've come so far already. This isn't the first time we've had to work overtime, and now we're in the final stretch. Don't worry, Shunsuke, a little extra work isn't enough to stop us!" 
+    s "Yeah!" 
+    yuu "Well said. We have the resolve to do this for sure!"
+    show shunsuke happy
+    ss "Hmm… Now I see how far we've come."
+    show yukari
+    y "What do you mean?" 
+    ss "At the beginning, something like this could have shattered us. But now? Everyone has the will to succeed. Don't worry, Yukari. We'll be fine." 
+    show yukari laugh_eyes_closed
+    y "All right, then! In that case, we should get back to work. We have a lot to do and only a limited time to do it in. Let's do this!" 
+     #[random event]  
+label week_11_4:
+    $nextDay()
+    show studio_main with fade
+    show yukari at pos_left
+    show sumiko at pos_middleright
+    show yuuko at pos_right behind sumiko
+    show shunsuke at pos_outerright
+    show mayumi at pos_farleft behind yukari
+    with dissolve
+    y "Hey everyone." 
+    show mayumi sigh
+    m "You're here! We were starting to worry you were sick or something."
+    y "Sorry. I went to meet Sumiko's friends this morning to get their remaining work and take it to [anim_studio]." 
+    yuu "Did everything go all right?" 
+    y "Yes, I just ended up running a little late." 
+    show sumiko happy
+    s "Well while you were gone, I had an amazing idea for the con!"
+    show shunsuke sigh 
+    ss "No. No she didn't." 
+    if anime.category == Anime.HAREM:
+        s "We should all cosplay as the characters of [anime.name]. Shunsuke can be the protagonist, and the rest of us can be the members of the science club!" 
+        ss "No." 
+        show sumiko tsundere
+        s "Excuse me, I'm talking to Yukari. Well, what do you think?" 
+        y "Ahaha… let's save the cosplaying for another time. We need to appear professional." 
+    elif anime.category == Anime.ACTION:
+        s "We should rent out a building near Anime Rising and fill it with props so it looks like the conspirators' hideout found in [anime.name]."
+        s "Then, we lure people over there somehow, and just when they're really starting to wonder what's going on, we reveal it's all a huge promotional stunt!" 
+        show yuuko sad_angry
+        yuu "That really sounds like a lot of work…" 
+        y "I agree. We're pressed for time as it is without attempting 'a huge promotional stunt.'" 
+    elif anime.category == Anime.MYSTERY:
+        s "We'll stage the crime scene from [anime.name] behind our booth to attract attention. Shunsuke can pretend to be the dead body." 
+        ss "……" 
+        m "Don't we have a voice actor who does stuff like this?" 
+        y "It's probably best if we don't do anything too crazy at our first convention."
+    show sumiko sad
+    show yuuko
+    show shunsuke
+    s "Aw…" 
+    scene studio_main with dissolve
+    "With Yukari back, everyone returns to work after a few minutes."
+    "Soon, a serious atmosphere descends over the studio. [anime.name] might be almost complete, but with Anime Rising less than a week away, they need to work extra hard." 
+    "When the time for their usual lunch break arrives, no one gets up." 
+    show yukari worry at pos_left
+    show sumiko at pos_middleright
+    show yuuko at pos_right behind sumiko
+    show shunsuke at pos_outerright
+    show mayumi at pos_farleft behind yukari
+    with dissolve
+    y "…Guys? It's time for lunch." 
+    m "Oh, is it?" 
+    yuu "I thought I'd skip lunch today and keep working." 
+    s "I filled my pockets with energy bars." 
+    "Sure enough, she pulls a handful of wrapped energy bars from each pocket." 
+    ss "Since we have so much work to do, we shouldn't spend too much time on lunch. Maybe a shorter break than usual is in order." 
+    show yukari
+    "Yukari stares at them. Their devotion is admirable, but skipping or rushing lunch is a good way for them to burn themselves out or get sick." 
+    show yukari laugh_eyes_closed
+    y "I have an idea. How about I order us a pizza? That way we can eat right here in the studio and work at the same time." 
+    show mayumi happy
+    m "That's a great idea!" 
+    "Everyone else agrees, so Yukari quickly looks up the phone number of the closest pizza place and dials." 
+    y "Hi, I'd like to order one large pizza with teriyaki chicken…" 
+    show sumiko tsundere
+    s "One? That's not even two slices for everyone!" 
+    y "Sorry, I'd like to order two large pizzas…"
+    m "Potato and mayonnaise, please!" 
+    show shunsuke worry
+    ss "Not on mine. I'd like a triple cheese pizza, with no sauce."
+    s "No sauce? What kind of maniac are you? I'd like traditional Italian toppings: tomato sauce, cheese, and pepperoni." 
+    yuu "Could I have mine with onions, pepperoni, and jalapeno peppers, please?" 
+    show mayumi sad_angry
+    m "Waaah! Don't let Yuuko's toppings get near my pizza!"
+    show yukari sigh
+    "Yukari takes a moment to try to sort through everything they just said, and takes a deep breath before returning her attention to the phone." 
+    y "Sorry for the delay. Okay, two large pizzas. One should be divided into three types: potato and mayonnaise, triple cheese without sauce, and tomato sauce with cheese and pepperoni. The other—" 
+    show sumiko sad_angry
+    s "Wait a minute. Does that mean we have to split a pizza three ways, while you and Yuuko get the second one? Not fair!" 
+    show shunsuke
+    ss "Let's look at this logically. Pizzas are traditionally cut into eight slices. With two pizzas, that means we have 16 slices. There are five of us. Everyone gets three slices, and there will be one extra." 
+    y "…I'd like to order two large pizzas. That's 16 slices, right?"
+    y "Okay, three slices with teriyaki chicken, three with potato and mayonnaise, three with triple cheese and no sauce, three with tomato sauce, cheese and pepperoni, and three with onions, pepperoni, and jalapeno peppers." 
+    m "Make sure they know to keep mine away from the spicy one." 
+    show yukari
+    y "The potato and jalapeno orders have to be on separate pizzas."
+    ss "Don't forget about the extra slice. Maybe it should be whoever's order is split across pizzas." 
+    y "Okay, when you decide which topping to put on both pizzas, we'd like four slices of that kind." 
+    show sumiko
+    s "That reminds me, I'd like my pizza to be separate from Yuuko's, too. That jalapeno flavor gets into everything." 
+    y "Keep the tomato and cheese pizza with the potato—" 
+    show mayumi worry
+    m "Wait! Is there pepperoni on Sumiko's? I don't want any pepperoni near mine, please!" 
+    show yukari sigh
+    y "…………I'd like to order 5 small pizzas." 
+label week_11_5:
+    $nextDay()
+    scene studio_main with fade
+    show yukari worry at pos_left
+    show sumiko at pos_right
+    show yuuko at pos_outerright behind sumiko
+    show shunsuke laugh_eyes_closed at pos_middleright
+    show mayumi at pos_farleft behind yukari
+    with dissolve
+    ss "Gather round, everyone. The time has come!" 
+    m "Melodrama from Shunsuke? This must be important." 
+    ss "I'm ready to unveil the website for [anime.name]."
+    show yukari happy 
+    y "Oh!" 
+    "Everyone gathers around his computer to see." 
+    if website_choice == "Professional":
+        show mayumi surprised
+        m "Whoa, it looks so… so…" 
+        yuu "Professional." 
+        show mayumi happy
+        m "Yes!" 
+        ss "Well it better, since we paid good money to have a professional design it." 
+        "The website is sleek, with different pages for news, a description of their studio, the story and characters of [anime.name], and a contact form."
+        " Best of all, everything from the background to the text itself shares [anime.name]'s style." 
+    elif website_choice == "Shunsuke": 
+        show sumiko surprised
+        s "Wow, you made this yourself?" 
+        ss "Yes." 
+        show sumiko laugh_eyes_closed
+        s "That's incredible!" 
+        ss "Ahaha… thank you." 
+        "Although it has a fairly simple appearance, with the characters of [anime.name] arranged at the top of the screen by the logo and a plain background behind everything else, it gets the job done."
+        "Links next to the logo scroll the page down to explanations about the story, the characters, and the studio itself, along with a section for news updates." 
+    elif website_choice == "Free": 
+        y "Great job, Shunsuke."
+        ss "Well, I didn't do too much. It's a template, after all…" 
+        "The website has a basic blog format, with an introduction to [anime.name] as the first post. Other pages describe the story and characters and tell viewers about the studio."
+        "It's fairly bare-bones, but it contains the information a potential viewer of [anime.name] needs." 
+
+    if guerilla_marketing:
+        "Social media icons in the corner lead to [anime.name]'s social pages." 
+    ss "So, is this suitable?"
+    show yukari laugh_eyes_closed
+    show sumiko
+    show mayumi
+    y "Definitely." 
+    show shunsuke
+    ss "In that case, I'm pretty much finished with my work on [anime.name], aside from marketing and keeping the website update." 
+    y "That's great to hear. What about everyone else?" 
+    s "Yuuko and I only have a little bit left to do." 
+    m "I'm almost done, too." 
+    y "I have an idea. Since everyone is so close to the end, why don't we skip dinner tonight and keep working to finish everything up?" 
+    m "Okay!" 
+    show yuuko happy
+    yuu "That sounds good." 
+    ss "That will put us in a perfect position to prepare for Anime Rising." 
+    show sumiko laugh_eyes_closed
+    s "Hey, why don't you order pizza again, Yukari?" 
+    show yukari sigh
+    y "……" 
+    s "Kidding."
+    show yukari tsundere 
+    y "Good, because if we go through that again, I think we'll be blacklisted. Do you know how embarrassing it would be to be blacklisted by a pizza parlor?" 
+    ss "If anyone could do it, it would be us…" 
+    s "Anyway, I'm on board with getting this done tonight!" 
+    show yukari happy
+    y "Great! Also, I'll be dropping by the studio over the weekend to do some of the final checks on [anime.name]. If anyone wants to join me, feel free." 
+     #[random event] 
+# [weekend] 
+label week_11_6:
+    scene studio_main with fade
+    show yukari at left with dissolve
+    "When the weekend arrives, Yukari heads to the studio and gathers all of the assets for [anime.name] they compiled earlier in the week. As she sits down at her desk, the studio door opens." 
+    show sumiko happy at pos_textbox_right
+    show yuuko at pos_outerright
+    with dissolve
+    s "Hi!" 
+    yuu "I thought this would be a good time to work on the promotional art." 
+    s "And I can finish up Episode Two's filming." 
+    show yukari happy
+    y "Sounds good." 
+    scene studio_main
+    show yukari at left 
+    with dissolve
+    "They sit down and get to work. Yukari resumes looking over the anime's finished work."
+    "With any luck, Episode Two will be completed soon. They're on pace to meet the deadline, but it will be tight… especially since they need to prepare for Anime Rising, too."  
+    "She takes a break to think through what they still need to finish, and the door opens again. Shunsuke walks into the studio." 
+    show yukari at left
+    show sumiko at pos_right
+    show yuuko at pos_outerright behind sumiko
+    show shunsuke laugh_eyes_closed at pos_middleright
+    with dissolve
+    s "Hey, Shunsuke!" 
+    ss "Anything I can do to help?" 
+    "Yukari casts him a grateful look." 
+    y "Could you print out the materials we'll need for our booth at the con? I planned to do it, but I really need to check all this stuff over." 
+    ss "No problem." 
+    show sumiko surprised
+    s "Wow, I guess the whole gang's here except for Mayumi." 
+    show yukari at pos_left
+    show mayumi laugh_eyes_closed at pos_farleft behind yukari 
+    with dissolve
+    m "Guess again!" 
+    "She appears in the doorway and enters with a happy wave." 
+    m "I decided to drop by to finalize the soundtrack." 
+    show mayumi 
+    show yukari laugh_eyes_closed
+    y "Wow, I didn't expect everyone to come. It almost feels like a regular day at the studio now!" 
+    scene studio_main with fade
+    show yukari at left 
+    show sumiko happy at pos_textbox_right 
+    show yuuko at pos_outerright
+    with dissolve
+    "At the end of the day, she walks around to check everyone's progress. To her surprise, Yuuko has already drawn a huge amount of promotional art for [anime.name]."
+    "It's crisp and clear, as high quality as the main art for the anime despite how quickly she must have made it." 
+    show yuuko worry
+    yuu "Is something wrong?" 
+    show yukari happy
+    y "No, I'm just impressed." 
+    s "Regular art is easy compared to what we've been doing." 
+    show yuuko
+    yuu "I wouldn't call it 'easy,' but… yes, this was a nice change of pace." 
+    y "I'm glad to hear it. Keep up the good work!" 
+    scene studio_main with fade
+    "On Sunday, everyone returns to the studio again. Yuuko finishes the art and helps Shunsuke prepare for their booth. Yukari checks everything they have completed so far."
+    "At the end of the day, she heaves a sigh of relief. Working on the weekend has given them a buffer. They're no longer so pressed for time." 
+    "If they can keep this up, everything will work out after all." 
+    scene studio 
+    $nextWeek()
+    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    $renpy.retain_after_load()
+    $UpdateProgressReport()
+    $renpy.transition(dissolve)
+    call screen start_game
+    stop music fadeout 1.0
+    $fastForwardDays(2)
+               

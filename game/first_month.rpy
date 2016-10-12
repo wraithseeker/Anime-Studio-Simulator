@@ -28,20 +28,6 @@ define va_c_char = Character("[va_c]", color="#000",ctc="ctc_fixed",ctc_position
 label game_start:
     stop music fadeout 1.0
     # $first_w_events = ["random_33"]#["rande_1","rande_2","rande_3","rande_4","rande_5","rande_6","rande_7"]
-    # stop music
-    # #start of the game
-    # #jump week_3_2
-    # #scene black with dissolve
-    # # the command to move to next day
-    # #scene image "cg/flashback.png"
-    # $nextDay()
-    # $rand_choice = renpy.random.choice(first_w_events)
-    # $first_w_events.remove(rand_choice)
-    # #call expression rand_choice from _call_expression
-    # scene bg studio_main with fade
-    # # play music "music/normal_happy_ost.ogg" fadein 1.0
-    # y "this is some text"
-
     # #call screen progress_report
     # "Welcome to the demo version of Anime Studio Simulator. For our music, we have a few pieces composed for our OST while the rest of them are royalty free placeholders. Some scenes do not have an OST yet."
     # "The demo version covers the events of the game up till week 3 with a total of 12 weeks planned for the game's release."
@@ -787,6 +773,7 @@ label week_2_3:
     show sumiko laugh_eyes_closed at pos_middleright_half
     show shunsuke at Position(xalign = 1.05,yalign = 1.0)
     with dissolve
+    play music "music/ost/Working Hard, Or... proof of concept.mp3" fadein 1.0
     s "Now that we’ve straightened out the scenario and character designs for [anime.name], why don’t we try to do some pre-release marketing?"
     y "Pre-release marketing?"
     show sumiko happy
@@ -817,6 +804,7 @@ label week_2_3:
     "It’s a tricky decision. Yukari thinks through the argument each of her team members made and weighs the pros and cons of each option. She doesn’t want anything to go wrong with [anime.name]."
     menu:
         "Start pre-release marketing":
+            $guerilla_marketing = True
             ss "I’ll get right on it."
             "He spends the rest of the day creating pages on social networks for [anime.name]."
             scene studio_main with fade
@@ -843,7 +831,7 @@ label week_2_3:
     # $rand_choice = renpy.random.choice(first_w_events)
     # $first_w_events.remove(rand_choice)
     # call expression rand_choice from _call_expression_1
-label week_2_3:
+label week_2_4:
     $nextDay()
     scene bg street with fade
     show yukari at left
@@ -888,7 +876,7 @@ label week_2_3:
     m "Oops, ehehe. Well, it’s still research, because the music will inspire me!"
     "Yukari nods. That’s a good point. And while they’re at it, there’s a recent anime she’s been meaning to check out which will surely inspire her. Research!"
     "They end the day with a little bit of information and a lot of merchandise. As they head home, it occurs to Yukari that maybe she shouldn’t take money with her the next time she conducts research."
-label week_2_4:
+label week_2_5:
     $nextDay()
     scene restaurant with fade
     show yukari at pos_left
@@ -943,7 +931,7 @@ label week_2_4:
     "Yukari laughs. As crazy as her friends can be, just having them nearby makes her feel better."
     show yukari happy
     y "Thanks. You guys are the best."
-label week_2_5:
+label week_2_6:
     $nextDay()
     scene home with fade
     show yukari at left with dissolve
@@ -1356,7 +1344,7 @@ label week_4_1:
     show mayumi at pos_farleft behind yukari
     show shunsuke at right
     with dissolve
-    play music "music/ost/Can We Make It Proof of Concept (1).ogg"
+    play music "music/ost/Unavoidable Delays rough mix.ogg"
     y "At our current rate, we won't have enough money to outsource the animation work. This is a huge problem. It could stall the entire project."
     y "And according to our current schedule, we need to hire animators within the next two weeks or we won’t make it in time."
     show yukari sad

@@ -2,9 +2,6 @@
 errors listed below, and try again.
 
 
-File "game/random_event_holder.rpy", line 4: expected an indented block
-        self.wk_4_onwards_events = []
-            ^
-    
+File "game/third_month.rpy", line 1421: indentation mismatch.
 
 Ren'Py Version: Ren'Py 6.99.11.1749

@@ -131,6 +131,11 @@
         global shunsuke_upgrade
         global sumiko_upgrade
         global yuuko_upgrade
+        global yukari_current_u_text
+        global mayumi_current_u_text
+        global shunsuke_current_u_text
+        global sumiko_current_u_text
+        global yuuko_current_u_text
         if anime.funds >= upgrade_proficiency_cost * upgrade_selection_count:
             message = "Proficiency successfully increased for"
             upgrade_success = False
@@ -139,26 +144,41 @@
                 message = message + " \nYukari"
                 upgrade_success = True
                 yukari_upgrade = Outsource.DISABLED
+                excluded_text = yukari_upgrade_text[:]
+                excluded_text.remove(yukari_current_u_text)
+                yukari_current_u_text = renpy.random.choice(excluded_text)
             if mayumi_upgrade == Outsource.SELECTED:
                 setattr(mayumi,"proficiency",getattr(mayumi,"proficiency") + upgrade_proficiency_value)
                 message = message + " \nMayumi"
                 upgrade_success = True
                 mayumi_upgrade = Outsource.DISABLED
+                excluded_text = mayumi_upgrade_text[:]
+                excluded_text.remove(mayumi_current_u_text)
+                mayumi_current_u_text = renpy.random.choice(excluded_text)
             if shunsuke_upgrade == Outsource.SELECTED:
                 setattr(shunsuke,"proficiency",getattr(shunsuke,"proficiency") + upgrade_proficiency_value)
                 message = message + " \nShunsuke"
                 upgrade_success = True
                 shunsuke_upgrade = Outsource.DISABLED
+                excluded_text = shunsuke_upgrade_text[:]
+                excluded_text.remove(shunsuke_current_u_text)
+                shunsuke_current_u_text = renpy.random.choice(excluded_text)
             if sumiko_upgrade == Outsource.SELECTED:
                 setattr(sumiko,"proficiency",getattr(sumiko,"proficiency") + upgrade_proficiency_value)
                 message = message + " \nSumiko"
                 upgrade_success = True
                 sumiko_upgrade = Outsource.DISABLED
+                excluded_text = sumiko_upgrade_text[:]
+                excluded_text.remove(sumiko_current_u_text)
+                sumiko_current_u_text = renpy.random.choice(excluded_text)
             if yuuko_upgrade == Outsource.SELECTED:
                 setattr(yuuko,"proficiency",getattr(yuuko,"proficiency") + upgrade_proficiency_value)
                 message = message + " \nYuuko"
                 upgrade_success = True
                 yuuko_upgrade = Outsource.DISABLED
+                excluded_text = yuuko_upgrade_text[:]
+                excluded_text.remove(yuuko_current_u_text)
+                yuuko_current_u_text = renpy.random.choice(excluded_text)
 
             if upgrade_success:
                 upgrade_tooltip = "Success!"

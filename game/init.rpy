@@ -31,8 +31,8 @@
     $anime.prev_animation = 3
     $UpdateProgressReport()
 
-    jump game_start
-    #jump random_41
+    #jump game_start
+    jump week_11_6
 
 init python:
     import datetime
@@ -53,7 +53,6 @@ init:
                         "voice_acting","op_ed","ost",
                         "quality_check","marketing","funds"]
         char_stats = ["proficiency","happiness","management","stress"]
-
         yukari_tasks = [Tasks("Raise Funds","Raise some money for [anime.name].",funds=1,stress=1)
                         ,Tasks("Networking","Mingle around with people in the anime industry.",marketing=1,management=3,stress=2)
                         ,Tasks("Read Books","Read books for knowledge.",proficiency=0.5)
@@ -77,51 +76,38 @@ init:
 
     #Random Events
     $random_events_holder = RandomEventsHolder()
-    #game variables
-    $current_week = 1
-    # Day limits, 0 = Mon, 5 = Sat
-    # current_date e.g '8/30'
-    $days_array = ["Mon","Tues","Wed","Thur","Fri","Sat","Sun"]
-    $current_day = 5
-    $current_date = datetime.date(2016,3,12) 
-    #ends at 6/21, starts at 3/21, pregame = 3/12
-    $game_casual = False
-    $task_ready = False
-    $side_nav_interaction = True
-    $show_floating_buttons = True
-    $upgrade_tooltip_color = "#2ecc71"
-    $initial_week = True
-
+   
     #upgrade screen
-    $upgrade_tooltip_default = "Send your team for training! This will increase their Proficiency stats."
+    $upgrade_tooltip_default = "Send your team out for training! This will increase their Proficiency stats."
     $upgrade_tooltip_complete = "Success!"
-    $upgrade_tooltip = ""
-    $upgrade_selection_count = 0
-    $yukari_upgrade = Outsource.NOT_SELECTED
-    $yuuko_upgrade = Outsource.NOT_SELECTED
-    $sumiko_upgrade = Outsource.NOT_SELECTED
-    $mayumi_upgrade = Outsource.NOT_SELECTED
-    $shunsuke_upgrade = Outsource.NOT_SELECTED
-    #task screen
-
+    $yukari_upgrade_text = ["Send Yukari to meet veterans in the anime industry and broaden her knowledge of the business."
+                            ,"Popular anime directors are holding a panel discussion. Send Yukari to attend."
+                            ,"Enroll Yukari in a short, intensive leadership course."
+                            ,"Get permission for Yukari to observe other anime studios."]
+    $yuuko_upgrade_text = ["Pair Yuuko with a professional artist in the anime industry"
+                            ,"Ask an art circle to critique Yuuko's work."
+                            ,"Send Yuuko to an advanced art class."
+                            ,"Give Yuuko time to research specific artistic techniques."]
+    $sumiko_upgrade_text = ["Give Sumiko time to meditate and trek in the nearby mountains."
+                            ,"Ask a professional anime artist to critique Sumiko's work."
+                            ,"Send Sumiko to an advanced art class. "
+                            ,"Send Sumiko to browse local art museums for inspiration."]
+    $mayumi_upgrade_text = ["Send Mayumi to a musical boot camp where she can hone her skills."
+                            ,"Pair Mayumi with a professional musician in the anime industry."
+                            ,"Enroll Mayumi in an advanced musical composition course."
+                            ,"Give Mayumi a highly-recommended book on composing music."]
+    $shunsuke_upgrade_text = ["Send Shunsuke to a writing workshop."
+                            ,"Invite a veteran writer to review Shunsuke's writing."
+                            ,"Convince Shunsuke to join a local critique group."
+                            ,"Send Shunsuke to attend discussion panels held by published writers."]                      
     #outsource screen
-
-    $outsource_tooltip = ""
     $outsource = Outsource()
-    $outsource.selection_count = 0
     $outsource.cost = 1
     $outsource.value = 1
-    #boolean to know whether they are selected
-    $yukari_task_selected = False
-    $yuuko_task_selected = False
-    $sumiko_task_selected = False
-    $mayumi_task_selected = False
-    $shunsuke_task_selected = False
-    #random names
     $random_company = ["Wadaka","Sokono","Kirodo","Matsura","Enshu","Nosata"
                         ,"Zekoy","Inoshi","Pokomi","Takiza","Kibono","Koiga","Vozobi"
                         ,"Asozo","Noyoko","Kibachi","Tamaza","Kirodo","Shinu","Pokomi","Koiga"]
-    #animation and recording director
+    #animation and recording director names
     $random_names = ["Hayate","Haruto","Kaito","Nobu","Yuuto","Yoshiro","Takeshi","Souta","Hiroyuki","Ryosei"]
     $random_va_female = ["Shina","Kaoru","Kagami","Yoshike","Shizue","Akemi"]
     $random_va_male = ["Ryuichi","Motoki","Naizen","Naosuke","Seinosuke","Akihisa"]
@@ -132,7 +118,6 @@ init:
     $va_choice = "Talent Agency"
     #$anim_studio_expensive_price = 
     #$$anim_studio_cheap_price = 
-    #va_letter
     #voice actor automatically defaults to harem
     $va_a = "Bradley"
     $va_b = getRandomFemaleName()
@@ -140,6 +125,7 @@ init:
     $va_studio = getRandomCompany() + " Studio"
     $va_director = getRandomName()
     $investor_marketing = True
+    $guerilla_marketing = False #from week 2_3
     $week_7_people_choices = ["Yuuko","Sumiko","Shunsuke","Mayumi"]
     $week_7_current_choice = ""
     $trailer_choice = "Reuse"
@@ -161,3 +147,40 @@ init:
     $va_pos_a = Position(xalign=0.60,yalign=1.0)
     $va_pos_b = Position(xalign = 1.1,yalign = 1.0)
     $va_pos_c = Position(xalign=0.85,yalign=1.0)
+
+    #Engine stuff
+    # current_date e.g '8/30'
+    $current_week = 1
+    $days_array = ["Mon","Tues","Wed","Thur","Fri","Sat","Sun"]
+    $current_day = 5
+    $current_date = datetime.date(2016,3,12) 
+    #ends at 6/21, starts at 3/21, pregame = 3/12
+    $game_casual = False
+    $task_ready = False
+    $side_nav_interaction = True
+    $show_floating_buttons = True
+    $initial_week = True
+    $upgrade_tooltip_color = "#2ecc71"
+    #Upgrade engine stuff
+    $yukari_current_u_text = renpy.random.choice(yukari_upgrade_text)
+    $yuuko_current_u_text = renpy.random.choice(yuuko_upgrade_text)
+    $mayumi_current_u_text = renpy.random.choice(mayumi_upgrade_text)
+    $sumiko_current_u_text = renpy.random.choice(sumiko_upgrade_text)
+    $shunsuke_current_u_text = renpy.random.choice(shunsuke_upgrade_text)
+    $yukari_upgrade = Outsource.NOT_SELECTED
+    $yuuko_upgrade = Outsource.NOT_SELECTED
+    $sumiko_upgrade = Outsource.NOT_SELECTED
+    $mayumi_upgrade = Outsource.NOT_SELECTED
+    $shunsuke_upgrade = Outsource.NOT_SELECTED
+    $upgrade_tooltip = ""
+    $upgrade_selection_count = 0
+    #Outsource engine stuff
+    $outsource_tooltip = ""
+    $outsource.selection_count = 0
+    #Task engine stuff
+    #boolean to know whether they are selected
+    $yukari_task_selected = False
+    $yuuko_task_selected = False
+    $sumiko_task_selected = False
+    $mayumi_task_selected = False
+    $shunsuke_task_selected = False

@@ -407,142 +407,6 @@ label random_7:
         "Yukari stays at home during AnimeFest although she feels sad thinking of the others having fun without her. It’s balanced by the happiness she feels when she remembers their smiles and Sumiko calling her a good leader."
     else:
         "AnimeFest is both fun and informative, although Yukari can’t help but feel a little bad that she made one of the team members miss it all."
-#Pests in the Ceiling 
-label random_8:
-    scene studio_main with fade
-    show yukari at left
-    show sumiko angry at right
-    with dissolve
-    "Yukari, do you hear that noise? It's been bugging me all day."
-    menu:
-        "Investigate the noise":
-            show yukari worry
-            y "Hmm… where is it coming from?"
-            s "The ceiling, I think. It sounds like it’s right above my head."
-            "Yukari frowns up at the ceiling for a moment and then climbs onto a chair so she can reach it. She pushes up on one of the ceiling tiles so she can remove it."
-            s "Wow, I didn’t know they came out like that!"
-            y "Someone get me a flashlight."
-            show mayumi_f at pos_middleright_half behind sumiko with dissolve 
-            m "Here!"
-            "Yukari shines the flashlight into the space above the ceiling."
-            y "I don’t see anything."
-            "She replaces the tile and steps down from the chair."
-            y "Let me know if you still hear it, okay?"
-            s "All right."
-        "Ignore the noise":
-            show yukari tsundere
-            y "I don’t hear anything."
-            show sumiko sad_angry
-            s "Well I can!"
-            y "It’s probably just your imagination. Try to ignore it."
-            s "Ugh…"
-
-label random_8_end:
-    scene studio_main with fade
-    show sumiko sad_angry at right
-    show yukari at left
-    with dissolve
-    s "Yukari! Maybe I’m imagining things, but that annoying sound is back!"
-    menu:
-        "Investigate the noise":
-            show yukari sigh
-            y "Oh, fine, I’ll take a look."
-            s "I think it’s coming from the ceiling."
-            "Even though she still can’t hear anything, Yukari grabs a flashlight and climbs onto a chair. She pushes the nearest ceiling tile up and removes it. Then she shines the light into the darkness."
-            y "Hmm…"
-            s "Do you see anything?"
-            y "Looks like some animal droppings."
-            show sumiko sigh
-            s "Ew!"
-            show yukari
-            y "No sign of the animal, though. Maybe it left."
-            "She replaces the ceiling tile and steps down from the chair."
-            show sumiko
-            y "Let me know if the noise continues, and we’ll call in an exterminator."
-            s "All right."
-        "Tell Sumiko  that it's just her imagination":
-            show yukari tsundere
-            y "I still don’t hear anything."
-            show sumiko angry
-            s "That’s not my problem! This noise is so annoying."
-            y "You must be imagining it. Take a walk or something and try to forget about it."
-            s "Seriously?"
-            "She folds her arms and stares up at the ceiling."
-            s "You hear that, mysterious noise? Yukari says if I take a walk, you have to stop!"
-            "Yukari shakes her head and goes back to work."
-            scene studio_main with fade
-            "Later that day..."
-            show yukari at left
-            show sumiko worry at right
-            with dissolve
-            s "Yukari… it’s getting louder."
-            y "What are you talking about?"
-            s "That noise. It’s—"
-            "missing sound effect"
-            "Both of their cases snap to the ceiling. The tile above them breaks and a dark shape drops onto Sumiko’s desk."
-            s "EEK!"
-            show yukari
-            y "Don’t panic! It’s just a rat."
-            show sumiko tsundere
-            s "JUST a rat?!"
-            "The rat lifts its head and stares at them. Then it jumps down to the floor and scampers away from the desk."
-            s "Agh! Darn it, Yukari, why couldn’t you just listen to me?!"
-            "Yukari chases after the rat and manages to get it out of the studio, but the damage has already been done."
-            hide sumiko
-            hide yukari
-            show yukari at left
-            show sumiko at pos_middleright
-            show shunsuke at pos_outerright
-            show yuuko at pos_right
-            with dissolve
-            ss "You realize we’ll probably need to get in an exterminator now, just in case there are more?"
-            show sumiko angry
-            s "More? MORE?"
-            show yuuko worry
-            yuu "Sis, are you okay?"
-            s "No, I am not okay!"
-            "Yukari glances away in embarrassment and makes a mental note to take her team members’ concerns more seriously from now on."
-#Adopt a Plant
-label random_9:
-    scene studio_main with fade
-    show yukari at left
-    with dissolve
-    environmentalist "Good afternoon! Would you like to buy this young plant to support our green efforts?"
-    environmentalist "The money will go to the “Save our Forests” campaign."
-    y "(thinking to self) Hmm… It’s a nice plant and I want to help, but it’s rather expensive."
-    menu:
-        "Purchase the plant for (rather expensive price)":
-            y " I’ll buy it."
-            environmentalist "Thank you! You’re doing a great service to the environment."
-            "Yukari takes the plant into the studio."
-            show shunsuke sigh at right 
-            show yukari at pos_left
-            show yuuko_f at pos_farleft behind yukari
-            with dissolve
-            ss "You spent that much money for a plant?"
-            show yukari sad
-            "Yukari jumps."
-            y "What, were you listening at the door? And yes, I did."
-            ss "But it’s just a plant!"
-            yuu "It’s for a good cause."
-            "She smiles at Yukari."
-            yuu "I’m glad you bought the plant. We need to support our environment."
-        "Politely refuse the environmentalist":
-            y "Sorry, but I can’t help at this time."
-            environmentalist "I understand."
-            "Yukari returns to the studio."
-            show shunsuke at pos_middleright_half
-            show yuuko at pos_farright
-            show yukari at left
-            with dissolve
-            ss "What was that all about?"
-            y "Someone selling plants to support a “Save the Forests” campaign. I decided it wasn’t worth the price."
-            show yuuko sad
-            yuu "But… you would have helped the forests… and we could use a nice plant in the studio."
-            ss "No, Yukari made the right choice. We’re tight enough on funds without spending it on frivolous matters."
-            show yuuko angry_mouth_closed
-            yuu "Protecting the environment isn’t frivolous!"
-            y "Don’t fight, you two. I’ve already made my decision, so it’s too late now."
 # All-You-Can-Eat Ice-Cream 
 label random_10:
     scene studio_main with fade
@@ -623,9 +487,6 @@ label random_12:
     y "Yikes, isn’t that a bit steep for a flower? Well, it IS for charity… and I could pay for it personally."
     schoolgirls "We have many flowers, take your pick!"
     menu:
-        "Politely refuse the girls":
-            y "I’m sorry. I’m afraid I can’t help today."
-            "She gives the girls a polite smile and continues on her way."
         "Buy the flowers":
             show yukari happy
             y "Sure, I’ll buy a flower."
@@ -633,6 +494,10 @@ label random_12:
             "Yukari blushes, but smiles and hands them the money. They’re so happy, they can’t stop thanking her."
             schoolgirls "Thank you!"
             schoolgirls "Don’t mention it. Charities like these are very important. I’m just happy I could help out."
+        "Politely refuse the girls":
+            y "I’m sorry. I’m afraid I can’t help today."
+            "She gives the girls a polite smile and continues on her way."
+        
 #Shiny Object On The Ground 
 label random_13:
     scene street with fade
@@ -892,29 +757,29 @@ label random_19:
     show yukari worry
     y "Sorry! It’s really hard to please everyone."
 #Fruits Delivery
-label random_20:
-    scene studio_main with fade
-    show yukari at left with dissolve
-    y "Hmm, is this another junk email?"
-    "Instead, it’s an advertisement for a new program promoted by a fruit wholesaler, where fresh fruit is delivered to workplaces on a weekly basis."
-    y "Wow! This might be just what our studio needs."
-    y "Maybe I should sign up to surprise the team. Let’s see…"
-    menu:
-        "Subscribe for a week $":
-            "When the shipment of fruit arrives, the team is so happy, Yukari almost regrets not purchasing a full subscription. Nevertheless, at least it brightened their moods for a little while, without costing too much money."
-        "Subscribe for a month $$":
-            "When the first shipment of fruit arrives, Yukari explains to the surprised team that these deliveries will come each week for a month. It’s sure to improve everyone’s health and mood."
-            "some scam here"
-            jump random_20_scam
-label random_20_scam:
-    show yukari worry
-    y "Huh, that’s strange. It’s already Friday, but this week’s fruit delivery isn’t here."
-    "She picks up her phone and dials the number she used to sign up for the service."
-    "Sorry, this number is no longer in use."
-    y "Wait, wha-?"
-    "There is a click as the other side disconnects."
-    show yukari angry
-    y "And I paid in advance, too! Scammed by a fruit salesman…"
+# label random_20:
+#     scene studio_main with fade
+#     show yukari at left with dissolve
+#     y "Hmm, is this another junk email?"
+#     "Instead, it’s an advertisement for a new program promoted by a fruit wholesaler, where fresh fruit is delivered to workplaces on a weekly basis."
+#     y "Wow! This might be just what our studio needs."
+#     y "Maybe I should sign up to surprise the team. Let’s see…"
+#     menu:
+#         "Subscribe for a week $":
+#             "When the shipment of fruit arrives, the team is so happy, Yukari almost regrets not purchasing a full subscription. Nevertheless, at least it brightened their moods for a little while, without costing too much money."
+#         "Subscribe for a month $$":
+#             "When the first shipment of fruit arrives, Yukari explains to the surprised team that these deliveries will come each week for a month. It’s sure to improve everyone’s health and mood."
+#             "some scam here"
+#             jump random_20_scam
+# label random_20_scam:
+#     show yukari worry
+#     y "Huh, that’s strange. It’s already Friday, but this week’s fruit delivery isn’t here."
+#     "She picks up her phone and dials the number she used to sign up for the service."
+#     "Sorry, this number is no longer in use."
+#     y "Wait, wha-?"
+#     "There is a click as the other side disconnects."
+#     show yukari angry
+#     y "And I paid in advance, too! Scammed by a fruit salesman…"
 #Street Artist Sketch
 label random_21:
     scene street with fade
@@ -1018,6 +883,11 @@ label random_23:
             miki "Are you sure?"
             y "(thinking to self): What’s this all about? It’s almost like she wants me to say no."
             miki "I’ll send you an email. Thank you for visiting."
+            scene home_night with fade
+            show yukari sad at left with dissolve
+            y "What’s this? It’s not from Miki, but… from her father?"
+            show yukari sad_angry
+            y "Yikes! Looks like they know I lied to take advantage of the studio."
             
 label random_23_lie:
     #miki father email scam portion
@@ -1084,7 +954,7 @@ label random_25_eat:
     ss "Thank you for inviting us."
     y "This food is excellent!"
     y "(thinking to self): The workshop probably wasn’t too helpful anyway."
-
+#Bumped into popular Seiyū Mamoru-san!
 label random_26:
     scene street with fade
     show mayumi at left with dissolve
@@ -1116,7 +986,7 @@ label random_26:
             show mayumi happy
             m "Thank you, Mamoru-san! Thank you!"
             "Mamoru hurries off to avoid an approaching crowd, while Mayumi continues on her way with the precious autographed notebook clutched to her chest."
-
+#Unbelievably Hot Summer
 label random_27:
     scene studio_main with fade
     show yukari at left
@@ -1160,6 +1030,7 @@ label random_27:
             s "Now we have to work in the studio without an air conditioner. Great."
             s "You should've listened to me last week…"
 
+#Arts Festival Performance
 label random_28:
     scene studio_main with fade
     show mayumi at left with dissolve
@@ -1211,6 +1082,7 @@ label random_28:
             show mayumi happy
             m "Hehe, of course I remembered!"
             m "Let's check out the lucky draw later."
+#Animation Studio Ex-Employee 
 label random_29:
     scene street with fade
     show yukari at left with dissolve
@@ -1243,7 +1115,7 @@ label random_29:
             show yukari sad_angry
             y "What? How could you say something so mean?!"
             "The former employee stomps away without another word."
-
+#Shunsuke shows a surprise video montage
 label random_30:
     scene studio_main with fade
     show yukari at pos_left
@@ -1271,7 +1143,7 @@ label random_30:
             y "I will be attending some events that could help us raise additional funds."
             y "I hope you understand how important this is."
             ss "I understand… Let’s postpone the surprise until everyone is free."
-
+#Child's Birthday Celebration
 label random_31:
     scene cafe with fade
     show sumiko_f at left
@@ -1301,6 +1173,7 @@ label random_31:
             s "Then we’re even, because I love cake! You better run along now. Your parents are calling."
             little_girl "Bye-bye!"
 
+#Decorate Restaurant (Not Y&S Restaurant) for Funds 
 label random_32:
     scene studio_main with fade
     show yukari at pos_left
@@ -1354,6 +1227,7 @@ label random_32:
             show mayumi sad
             m "This is awful! I’ll have to borrow some money to finance our operations."
             m "Someone better break the news to Sumiko and Yuuko. They won’t be happy."
+#Funding Crisis 
 label random_33:
     scene studio_main with fade
     show yukari at left with dissolve
@@ -1407,6 +1281,7 @@ label random_33:
             s "A coin toss?! That's what we’re pinning our financial hopes on?"
             y "Relax, Sumiko. If anything happens, we’ll take care of it then."
 
+#Dance Challenge 
 label random_34:
     scene street with fade
     show yukari at left with dissolve
@@ -1437,6 +1312,7 @@ label random_34:
             y "Wow, I wasn't even cheering for him in particular…"
     return
 
+#Gachapon Madness
 label random_35:
     scene cafe with fade
     show yukari at left
@@ -1488,6 +1364,8 @@ label random_35:
             m "All right, I’ll trust you guys on this."
             "When news of a Gachapon scam emerges a week later, she’s glad she did."
     return
+
+#Free Breakfast Samples! 
 label random_36:
     scene street with fade
     show sumiko_f laugh_eyes_closed at pos_left
@@ -1541,7 +1419,7 @@ label random_36:
             show yuuko sad
             "Yuuko gives her sister a sad nod, but it’s too late now. They trudge forward to help Yukari clean."
     return
-
+# Accessories at 50% Off!
 label random_37:
     scene street with fade
     show mayumi at left
@@ -1590,7 +1468,7 @@ label random_37:
             y " I got this bangle for just $5!"
             m "Aw, I should have gone in…"
     return
-
+#Ideal Office Fragrance 
 label random_38:
     scene studio with fade
     show yukari at left with dissolve
@@ -1625,7 +1503,7 @@ label random_38:
             "The sisters reminisce as they sit at their desks, but it doesn’t take away from their work. Instead, both seem more at ease and inspired."
             "A fresher atmosphere in the studio is just what they needed."
     return
-
+#How to Catch a Thief?  
 label random_39:
     scene street with fade
     show shunsuke_f at left with dissolve
@@ -1663,7 +1541,7 @@ label random_39:
             office_l "Oh no… my purse…"
             ss "This will be hard to explain to Yukari…"
     return
-
+#Playful Child  
 label random_40:
     scene cafe with fade
     show yukari at left
