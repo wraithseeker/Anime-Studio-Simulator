@@ -2,6 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/third_month.rpy", line 1421: indentation mismatch.
+File "game/init.rpy", line 81: invalid syntax
+                            ,
+                             ^
+    
 
 Ren'Py Version: Ren'Py 6.99.11.1749

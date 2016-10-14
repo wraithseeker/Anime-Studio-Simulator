@@ -585,6 +585,9 @@ label week_5_6:
             "She stays at home all weekend, reading books and watching anime. It’s a nice, stress-free way to recharge for the next week."
     scene studio 
     $nextWeek()
+    $sumiko_tasks[0] = sumiko_third_task
+    $yuuko_tasks[0] = yuuko_third_task
+    $mayumi_tasks[0] = mayumi_third_task
     play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
@@ -2326,6 +2329,8 @@ label week_7_6:
     "Fortunately, they’ve made other progress she can include, as well. She adds a detailed account of their work with the voice actors and sends the report Sunday afternoon."
     scene studio 
     $nextWeek()
+    $mayumi_tasks[0] = mayumi_second_task
+    $yukari_tasks[0] = yukari_third_task
     play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
@@ -3449,6 +3454,8 @@ label week_8_6:
             "It’s partly a personal celebration in honor of how far [anime.name] has come along."
     scene studio 
     $nextWeek()
+    $shunsuke_tasks[0] = shunsuke_second_task
+    $mayumi_tasks[0] = mayumi_fourth_task
     play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()

@@ -960,6 +960,9 @@ label week_2_6:
     y "No matter how tough it is, I have to buckle down and get those funds!"
     scene studio 
     $nextWeek()
+    $shunsuke_tasks[0] = shunsuke_second_task
+    $sumiko_tasks[0] = sumiko_second_task
+    $yuuko_tasks[0] = yuuko_second_task
     play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
@@ -1330,6 +1333,9 @@ label week_3_6:
             "Yukari spends the weekend binge-watching her favorite anime series to relax."
     scene studio 
     $nextWeek()
+    $yukari_tasks[0] = yukari_second_task
+    $shunsuke_tasks[0] = shunsuke_third_task
+    $mayumi_tasks[0] = mayumi_second_task
     play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()

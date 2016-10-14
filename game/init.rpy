@@ -7,12 +7,6 @@
     $sumiko_stats = Stats("Sumiko")
     $yuuko_stats = Stats("Yuuko")
     $shunsuke_stats = Stats("Shunsuke")
-    #some placeholder values
-    # $yukari_stats.proficiency = renpy.random.randint(1,10)
-    # $yuuko_stats.proficiency = renpy.random.randint(1,10)
-    # $sumiko_stats.proficiency = renpy.random.randint(1,10)
-    # $mayumi_stats.proficiency = renpy.random.randint(1,10)
-    # $shunsuke_stats.proficiency = renpy.random.randint(1,10)
     #15 stars is the max number of stars we have, * 100 to convert it to percentage
     $anime.story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
     $anime.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
@@ -31,8 +25,8 @@
     $anime.prev_animation = 3
     $UpdateProgressReport()
 
-    #jump game_start
-    jump week_11_6
+    jump game_start
+    #jump week_2_6
 
 init python:
     import datetime
@@ -53,26 +47,41 @@ init:
                         "voice_acting","op_ed","ost",
                         "quality_check","marketing","funds"]
         char_stats = ["proficiency","happiness","management","stress"]
-        yukari_tasks = [Tasks("Raise Funds","Raise some money for [anime.name].",funds=1,stress=1)
-                        ,Tasks("Networking","Mingle around with people in the anime industry.",marketing=1,management=3,stress=2)
-                        ,Tasks("Read Books","Read books for knowledge.",proficiency=0.5)
-                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=-1)]
 
-        yuuko_tasks = [Tasks("Sketch Character","Sketch some character designs.",character_design=1,stress=1)
-                        ,Tasks("Doodle","Doodle on a piece of paper.",proficiency=0.5)
-                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=-1)]
+        relax_task = Tasks("Relax","Take it easy today.",happiness=1,stress=-1)
 
-        sumiko_tasks = [Tasks("Sketch Background","Sketch some backgrounds.",background=1,stress=-1)
-                        ,Tasks("Doodle","Doodle on a piece of paper.",proficiency=0.5)
-                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=-1)]
+        yukari_first_task = Tasks("Networking","Mingle with people in the anime industry.",marketing=1,management=3,stress=2)
+        yukari_second_task = Tasks("Storyboards","Work on the storyboards for [anime.name].",storyboard=1,stress=1)
+        yukari_third_task = Tasks("Networking","Make new connections to increase [anime.name]'s visibility.",marketing=1,management=3,stress=2)
+        yukari_raise_funds = Tasks("Raise Funds","Raise money for [anime.name].",funds=1,stress=1)
+        yukari_read_books = Tasks("Read Books","Read books to learn more about making anime.",proficiency=0.5)
 
-        mayumi_tasks = [Tasks("Compose Music","Compose OST for [anime.name].",ost=1,stress=1)
-                        ,Tasks("Practice","Get inspiration from other artists.",proficiency=0.5)
-                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=-1)]
+        mayumi_first_task = Tasks("Compose Music","Work on ideas for the OST of [anime.name].",ost=1,stress=1)
+        mayumi_second_task = Tasks("Compose Music","Compose tracks for the OST.",ost=1,stress=1)
+        mayumi_third_task = Tasks("Voice Acting"," Find voice actors for [anime.name].",voice_acting=1,stress=1)
+        mayumi_fourth_task = Tasks("OP & ED","Compose the opening & ending songs for [anime.name].",op_ed=1,stress=1)
+        mayumi_fifth_task = Tasks("Compose Music","Finalize the soundtrack for [anime.name].",ost=1,stress=1)
+        mayumi_practise = Tasks("Practice","Get inspiration from other composers and try new musical techniques.",proficiency=0.5)
 
-        shunsuke_tasks = [Tasks("Writing","Work on the scenario for [anime.name].",storyboard = 1,stress=0)
-                        ,Tasks("Practice","Hone your writing skills",proficiency=0.5)
-                        ,Tasks("Relax","Spend the day taking it easy.",happiness=1,stress=-1)]
+        yuuko_first_task = Tasks("Sketch Characters","Sketch potential character designs.",character_design=1,stress=1)
+        yuuko_second_task = Tasks("Draw Characters","Finalize and improve character designs.",character_design=1,stress=1)
+        yuuko_third_task =  Tasks("Animation","Work on the animation for [anime.name].",animation=1,stress=1)
+
+        sumiko_first_task = Tasks("Sketch Backgrounds","Sketch potential locations and environments.",background=1,stress=-1)
+        sumiko_second_task = Tasks("Draw Backgrounds","Draw and improve the final backgrounds.",background=1,stress=1)
+        sumiko_third_task =  Tasks("Animation","Work on the animation for [anime.name].",animation=1,stress=1)
+        sumiko_practise = Tasks("Doodle","Doodle simple art while working.",proficiency=0.5)
+
+        shunsuke_first_task = Tasks("Writing","Work on the scenario for [anime.name].",plot = 1,stress=1)
+        shunsuke_second_task = Tasks("Writing","Flesh out the character development of [anime.name]'s cast.",character_development=1,stress=1)
+        shunsuke_third_task = Tasks("Writing","Work on the storyboards for [anime.name].",storyboard=1,stress=1)
+        shunsuke_practise = Tasks("Practice","Hone your writing skills",proficiency=0.5)
+
+        yukari_tasks = [yukari_first_task,yukari_raise_funds,yukari_read_books,relax_task]
+        yuuko_tasks = [yuuko_first_task,sumiko_practise,relax_task]
+        sumiko_tasks = [sumiko_first_task,sumiko_practise,relax_task]
+        mayumi_tasks = [mayumi_first_task,mayumi_practise,relax_task]
+        shunsuke_tasks = [shunsuke_first_task,shunsuke_practise,relax_task]
 
     #Random Events
     $random_events_holder = RandomEventsHolder()

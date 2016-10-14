@@ -1241,6 +1241,7 @@ label week_10_6:
             "Instead, she spends the weekend researching other potential ways to promote [anime.name] and going over their schedule to see what they still need to do before the deadline." 
     scene studio 
     $nextWeek()
+    $mayumi_tasks[0] = mayumi_fifth_task
     play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
