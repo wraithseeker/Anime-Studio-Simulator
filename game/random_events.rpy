@@ -24,7 +24,88 @@ define man = Character("Man", color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define hp_guy = Character("David Buki", color="#000",ctc="ctc_fixed",ctc_position="fixed")
 
 #Burnout scenario (Stress high, happiness low)
+label dead_burnout(character):
+    scene cafe with fade
+    show yukari at left
+    if character.name == "Mayumi":
+        show mayumi_f sad_angry at right
+    elif character.name == "Yuuko":
+        show yuuko sad_angry  at right
+    elif character.name == "Sumiko":
+        show sumiko sad_angry  at right
+    elif character.name == "Shunsuke":
+        show shunsuke sad_angry at right
+    with dissolve
+    if character.name == "Mayumi":
+        m "Yukari, we’ve been friends for a long time and I hate to do this to you, but I can’t keep working on [anime.name]. "
+    elif character.name == "Yuuko":
+        yuu "I have to talk to you… I’m really sorry, but… I’m leaving the team."
+    elif character.name == "Sumiko":
+        s "Agh, I can’t take this anymore! I’m tired of working on [anime.name]."
+    elif character.name == "Shunsuke":
+        ss "Yukari, I need to tell you something. After considering my options carefully, I’ve decided to leave the team."
+    show yukari sad
+    y "What? Why? Didn't all of us promise to work on this project until the very end?"
+    if character.name == "Mayumi":
+        m "If you really want to know, it’s because you’re stressing me out. I don’t enjoy working with you anymore!"
+        m "I don’t think we can work together and still be friends… and I’d rather stay your friend, even if it means losing [anime.name]. I’m sorry, Yukari, but I have to leave the team." 
+    elif character.name == "Yuuko":
+        yuu "I know, but… Working on [anime.name] is making me depressed. If I stay, I’ll go crazy. I’m really sorry…"
+    elif character.name == "Sumiko":
+        s "Yeah, WE agreed to work on it—together, as a team! But you don’t care about anyone’s opinion except your own. I can’t stand it. Sorry it had to come to this, but I’m out."
+    elif character.name == "Shunsuke":
+        ss "We did promise, but I’m under too much pressure now. It’s not healthy. I hope you understand, Yukari. For my own sake, I have to leave."
+    
+    show yukari sad
+    y "Wait, [character.name]! Come back!"
+    "[character.name] has left your group..."
+    "Yukari and the others try to continue on alone, but it’s no use. Without a complete team, [anime.name] is doomed to remain just a dream."
+    $renpy.full_restart()
 
+#ran out of funds
+label dead_no_funds:
+    scene studio with fade
+    show yukari at pos_left
+    show sumiko at pos_right
+    show yuuko at pos_outerright behind sumiko
+    show shunsuke at pos_middleright
+    show mayumi at pos_farleft behind yukari
+    with dissolve
+    y "Everyone, we need to talk." 
+    "The seriousness of her tone makes the others look up from their work." 
+    show mayumi worry
+    m "Is something wrong?" 
+    y "Yes." 
+    "She takes a deep breath. They won't like hearing this, but she has no choice. They can't ignore the truth." 
+    show yukari sad_angry
+    y "We don't have enough funds to continue working on [anime.name]." 
+    show sumiko sad_angry
+    s "What?!" 
+    show shunsuke sigh
+    ss "I knew we were in a bad state, but I didn't know it was this bad." 
+    y "I'm sorry. I wish it wasn't true." 
+    show yuuko sad
+    yuu "Then…" 
+    show yukari sad
+    y "The best thing to do is to end the project now." 
+    show mayumi sad_angry
+    m "W-wait… maybe we can raise some more funds, or…" 
+    "She trails off when Yukari shakes her head." 
+    y "I went over everything countless times. We can't raise enough money in the time we have. We'd just be delaying the inevitable." 
+    s "What if we won the lottery? I'll go buy tickets!" 
+    ss "That's a good way to lose money, not earn it." 
+    y "I'm sorry, everyone. Rather than sink deeper into debt, we need to end it here. As the director of [anime.name], I'm disbanding the team." 
+    show sumiko worry
+    s "Nooooo!" 
+    m "It doesn't have to be forever, does it?" 
+    ss "That's right. In a few years, we can all get together and try again." 
+    y "I hope so." 
+    yuu "Don't worry, Yukari. When the time is right, we'll be there to work on [anime.name]." 
+    s "Yeah!" 
+    y "Thanks, everyone." 
+    "Despite their reassuring words and the knowledge that they'll remain friends she can count on, Yukari can't help but feel depressed as they close up the studio for good."
+    "Maybe someday, she'll be able to make her own anime… but for now, her dream is dead."
+    return
 #job offering
 label random_1:
     $rd_c = RandomCharacter(["m"])

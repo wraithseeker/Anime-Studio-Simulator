@@ -1,12 +1,15 @@
 ﻿init -100 python:
     class Stats(object):
-        DEFAULT_STRESS = 2
-        DEFAULT_HAPPINESS = 10
+        DEFAULT_STRESS = 5
+        DEFAULT_HAPPINESS = 5
+        DEFAULT_PROFICIENCY = 0
+        MINIMUM_HAPPINESS_TO_DIE = 0
+        MAXIMUM_STRESS_TO_DIE = 10
         def __init__(self,name):
             self.name = name
             self._management = 0
             self._stress = Stats.DEFAULT_STRESS
-            self._proficiency = 0
+            self._proficiency = Stats.DEFAULT_PROFICIENCY
             self._happiness = Stats.DEFAULT_HAPPINESS
             self.db_stats = ["stress","proficiency","happiness","management"]
             self.db_displayed_stats = []
@@ -55,10 +58,15 @@
 
         @stress.setter
         def stress(self,value):
-            if 0 <= value <= 10:
-                self._stress = value
-            else:
-                renpy.notify( "Stress must be between 0 to 10.")
+            if value >= Stats.MAXIMUM_STRESS_TO_DIE:
+                if self.name != "Yukari":
+                    renpy.call_in_new_context("dead_burnout",self)
+                else:
+                    self._stress = 10
+            elif value <= 0:
+                self._stress = 0
+            elif 0 <= value <= Stats.MAXIMUM_STRESS_TO_DIE:
+                self._stress = value 
 
         @property
         def happiness(self):
@@ -66,11 +74,15 @@
 
         @happiness.setter
         def happiness(self,value):
-            if 0 <= value <= 10:
+            if value <= Stats.MINIMUM_HAPPINESS_TO_DIE:
+                if self.name != "Yukari":
+                    renpy.call_in_new_context("dead_burnout",self)
+                else:
+                    self._happiness = 0
+            elif value >= 10.0:
+                self._happiness = 10
+            elif Stats.MINIMUM_HAPPINESS_TO_DIE <= value <= 10:
                 self._happiness = value
-            else:
-               # renpy.notify( "Happiness must be between 0 to 10.")
-               pass
 
         @property
         def proficiency(self):
@@ -78,11 +90,12 @@
 
         @proficiency.setter
         def proficiency(self,value):
-            if 0.0 <= value <= 10.0:
-                self._proficiency = value
+            if value <= 0:
+                self._proficiency = 0
+            elif value >= 10:
+                self._proficiency = 10
             else:
-                #current_proficiency = self.proficiency
-                renpy.notify( "Proficiency must be between 0 to 10. Value is " + str(self._proficiency))
+                self._proficiency = value
 
         @property
         def management(self):
@@ -90,10 +103,11 @@
 
         @management.setter
         def management(self,value):
-            if 0 <= value <= 10:
-                self._management = value
+            if value <= 0:
+                self._management = 0
+            elif value >= 10:
+                self._management = 10
             else:
-                #renpy.notify( "Management must be between 0 to 10.")
-                pass
+                self._management = value
 
 

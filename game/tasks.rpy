@@ -10,18 +10,27 @@
                 setattr(self, key, value)
             self.sortStats()
 
-        def addStats(self,anime,stats_manager):
+        def addStats(self,anime,person):
             for item in anime_stats:
                 if hasattr(self,item):
-                    #renpy.notify(str(item) + " added")
-                    setattr(anime,item,getattr(anime,item) + getattr(self,item))
-
+                    task_value = getattr(self,item)
+                    current_anime_value = getattr(anime,item)
+                    new_value = task_value + current_anime_value
+                    ########CHANGE FORMULA HERE #############
+                    formula = task_value * person.proficiency + current_anime_value
+                    ####### ANIMATION TASK FORMULA ############
+                    if item == "animation":
+                        formula = (0.5*task_value) * person.proficiency + current_anime_value
+                    ############## YUKARI TASK FORMULA ########################
+                    if person == yukari_stats:
+                        formula = task_value * person.proficiency * (0.5*person.management) + current_anime_value
+                    setattr(anime,item,formula)
             for item in char_stats:
                 if hasattr(self,item):
                     #renpy.notify(str(item) + " added")
-                    setattr(stats_manager,item,getattr(self,item) + getattr(stats_manager,item))
+                    setattr(person,item,getattr(self,item) + getattr(person,item))
 
-        def removeStats(self,anime,stats_manager):
+        def removeStats(self,anime,person):
             for item in anime_stats:
                 if hasattr(self,item):
                     #renpy.notify(str(item) + " removed")
@@ -30,7 +39,7 @@
             for item in char_stats:
                 if hasattr(self,item):
                     #renpy.notify(str(item) + " added")
-                    setattr(stats_manager,item,getattr(stats_manager,item) - getattr(self,item) )
+                    setattr(person,item,getattr(person,item) - getattr(self,item) )
 
         def sortStats(self):
             string_vertical_formatting = "\n"

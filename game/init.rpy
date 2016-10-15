@@ -3,33 +3,33 @@
     $anime = Anime("Macross Delta")
     #stats for characters
     $yukari_stats = Stats("Yukari")
+    $yukari_stats.management = 1
+    $yukari_stats.prev_management = 1
     $mayumi_stats = Stats("Mayumi")
     $sumiko_stats = Stats("Sumiko")
     $yuuko_stats = Stats("Yuuko")
     $shunsuke_stats = Stats("Shunsuke")
     #15 stars is the max number of stars we have, * 100 to convert it to percentage
+    # 30 comes from 3*10, 3 sub stats & upper boundary 10
     $anime.story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
     $anime.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
     $anime.music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
+    #Anime final score here
+    $anime_score_components = (anime.plot + anime.character_development + anime.storyboard + anime.character_design + anime.background + anime.animation + anime.voice_acting +anime.op_ed + anime.ost ) 
+    $anime_score_multipliers = (1 + yukari_stats.management * 0.05 + anime.marketing * 0.05 + anime.quality_check * 0.3)
+    $anime_score = anime_score_components * anime_score_multipliers
 
-    $anime.funds = 20
-    $anime.plot = 2.5
-    $anime.prev_plot = 2.5
-    $anime.storyboard = 3
-    $anime.character_development = 0.5
-    $anime.prev_character_design = 1
-    $anime.character_design = 1.5
-    $anime.background = 2
-    $anime.animation = 2
-    $anime.prev_background = 3
-    $anime.prev_animation = 3
+    $anime.funds = 50
+    $anime.plot = 1
+    $anime.prev_plot = 1
     $UpdateProgressReport()
 
-    #jump game_start
-    jump week_12_4
+    jump game_start
+    #jump pre_game
 
 init python:
     import datetime
+    import copy
     GREEN_COLOR = "{color=#1E824C}"
     RED_COLOR = "{color=#C0392B}"
     MINUS_SIGN = "{font=fonts/Delius-Regular.ttf}{size=+15}- {/size}{/font}"
@@ -38,8 +38,6 @@ init python:
 
 init: 
     $_game_menu_screen = "navigation"
-    $upgrade_proficiency_value = 0.5
-    $upgrade_proficiency_cost = 2
     python:
         #A list of allowed stats to be modified during the game
         anime_stats = ["plot","character_development","storyboard",
@@ -77,11 +75,11 @@ init:
         shunsuke_third_task = Tasks("Writing","Work on the storyboards for [anime.name].",storyboard=1,stress=1)
         shunsuke_practise = Tasks("Practice","Hone your writing skills",proficiency=0.5)
 
-        yukari_tasks = [yukari_first_task,yukari_raise_funds,yukari_read_books,relax_task]
-        yuuko_tasks = [yuuko_first_task,sumiko_practise,relax_task]
-        sumiko_tasks = [sumiko_first_task,sumiko_practise,relax_task]
-        mayumi_tasks = [mayumi_first_task,mayumi_practise,relax_task]
-        shunsuke_tasks = [shunsuke_first_task,shunsuke_practise,relax_task]
+        yukari_tasks = [yukari_first_task,yukari_raise_funds,yukari_read_books,copy.deepcopy(relax_task)]
+        yuuko_tasks = [yuuko_first_task,copy.deepcopy(sumiko_practise),copy.deepcopy(relax_task)]
+        sumiko_tasks = [sumiko_first_task,copy.deepcopy(sumiko_practise),copy.deepcopy(relax_task)]
+        mayumi_tasks = [mayumi_first_task,mayumi_practise,copy.deepcopy(relax_task)]
+        shunsuke_tasks = [shunsuke_first_task,shunsuke_practise,copy.deepcopy(relax_task)]
 
     #Random Events
     $random_events_holder = RandomEventsHolder()
@@ -111,8 +109,10 @@ init:
                             ,"Send Shunsuke to attend discussion panels held by published writers."]                      
     #outsource screen
     $outsource = Outsource()
-    $outsource.cost = 1
+    $outsource.cost = 5
     $outsource.value = 1
+    $upgrade_proficiency_value = 1
+    $upgrade_proficiency_cost = 12
     $random_company = ["Wadaka","Sokono","Kirodo","Matsura","Enshu","Nosata"
                         ,"Zekoy","Inoshi","Pokomi","Takiza","Kibono","Koiga","Vozobi"
                         ,"Asozo","Noyoko","Kibachi","Tamaza","Kirodo","Shinu","Pokomi","Koiga"]

@@ -59,7 +59,7 @@
             if stat == "character_development":
                 displayed_stat = "character dev"
             elif stat == "character_design":
-                displayed_stat = "char. design"
+                displayed_stat = "char.design"
             else:
                 displayed_stat = stat.replace("_"," ")
             if (new_stats == 0):
@@ -123,8 +123,10 @@
         def plot(self,value):
             if 0 <= value <= 5:
                 self._plot = value
-            elif value > 5:
+            elif value >= 5:
                 self._plot = 5
+            elif value <= 0:
+                self._plot = 0
            
 
         @property
@@ -136,8 +138,10 @@
         def storyboard(self,value):
             if 0 <= value <= 5:
                 self._storyboard = value
-            elif value > 5:
+            elif value >= 5:
                 self._storyboard = 5
+            elif value <= 0:
+                self._storyboard = 0
 
         @property
 
@@ -148,8 +152,10 @@
         def character_development(self,value):
             if 0 <= value <= 5:
                 self._character_development = value
-            elif value > 5:
+            elif value >= 5:
                 self._character_development = 5
+            elif value <= 0:
+                self._character_development = 0
 
         @property
 
@@ -170,8 +176,10 @@
         def character_design(self,value):
             if 0 <= value <= 5:
                 self._character_design = value
-            elif value > 5:
+            elif value >= 5:
                 self._character_design = 5
+            elif value <= 0:
+                self._character_design = 0
 
         @property
 
@@ -182,8 +190,10 @@
         def background(self,value):
             if 0 <= value <= 5:
                 self._background = value
-            elif value > 5:
+            elif value >= 5:
                 self._background = 5
+            elif value <= 0:
+                self._background = 0
 
         @property
 
@@ -194,8 +204,10 @@
         def animation(self,value):
             if 0 <= value <= 5:
                 self._animation = value
-            elif value > 5:
+            elif value >= 5:
                 self._animation = 5
+            elif value <= 0:
+                self._animation = 0
 
         @property
 
@@ -216,8 +228,10 @@
         def voice_acting(self,value):
             if 0 <= value <= 5:
                 self._voice_acting = value
-            elif value > 5:
+            elif value >= 5:
                 self._voice_acting = 5
+            elif value <= 0:
+                self._voice_acting = 0
 
 
         @property
@@ -229,8 +243,10 @@
         def op_ed(self,value):
             if 0 <= value <= 5:
                 self._op_ed = value
-            elif value > 5:
+            elif value >= 5:
                 self._op_ed = 5
+            elif value <= 0:
+                self._op_ed = 0
 
 
         @property
@@ -242,8 +258,10 @@
         def ost(self,value):
             if 0 <= value <= 5:
                 self._ost = value
-            elif value > 5:
+            elif value >= 5:
                 self._ost = 5
+            elif value <= 0:
+                self._ost = 0
 
 
         @property
@@ -263,7 +281,10 @@
 
         @funds.setter
         def funds(self,value):
-            self._funds = value
+            if value <= 0:
+                renpy.jump("dead_no_funds")
+            else:
+                self._funds = value
 
         @property
 
@@ -272,8 +293,7 @@
 
         @marketing.setter
         def marketing(self,value):
-            if 0 <= value <= 5:
-                self._marketing = value
+            self._marketing = value
 
         @property
 
@@ -282,8 +302,7 @@
 
         @quality_check.setter
         def quality_check(self,value):
-            if 0 <= value <= 5:
-                self._quality_check = value
+            self._quality_check = value
             
 
 

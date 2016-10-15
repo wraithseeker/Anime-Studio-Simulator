@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/third_month.rpy", line 1920: expected statement.
-    [scene at Anime Expo]  
-                           ^
+File "game/init.rpy", line 18: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation.
+    * (1 + yukari.management * 0.05 + anime.marketing * 0.05 + anime.quality_check * 0.3)
+    ^
 
 Ren'Py Version: Ren'Py 6.99.11.1749

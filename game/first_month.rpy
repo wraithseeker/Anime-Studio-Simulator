@@ -28,11 +28,6 @@ define va_c_char = Character("[va_c]", color="#000",ctc="ctc_fixed",ctc_position
 
 label game_start:
     stop music fadeout 1.0
-    # $first_w_events = ["random_33"]#["rande_1","rande_2","rande_3","rande_4","rande_5","rande_6","rande_7"]
-    # #call screen progress_report
-    # "Welcome to the demo version of Anime Studio Simulator. For our music, we have a few pieces composed for our OST while the rest of them are royalty free placeholders. Some scenes do not have an OST yet."
-    # "The demo version covers the events of the game up till week 3 with a total of 12 weeks planned for the game's release."
-    # "We hope you enjoy playing the demo version of Anime Studio Simulator!"
 
 label week_0_1:
     scene home with fade
@@ -40,6 +35,7 @@ label week_0_1:
     $achievement.clear_all()
     $achievement.Sync()
     $achievement.grant("ACH_1")
+    $choice_4_1_1()
     "granted ach_1"
     "It’s the day after high school graduation. Yukari settles down to watch her favorite anime, but she can’t concentrate."
     "Her acceptance letter from the university she applied to sits on her desk. In a few months, she’ll be back in school. Usually, she spends vacation relaxing or working a part-time job. That’s what most of her classmates are doing."
@@ -48,7 +44,6 @@ label week_0_1:
     $achievement.grant("ACH_2")
     "But something about it doesn’t feel right. She doesn’t want to be like everyone else. She wants to do something special. Fulfill her secret dream. Maybe this vacation is the best time to do it."
     "Her mind made up, Yukari grabs her cell phone and sends a quick message to her best friend."
-    #scene cafe
     scene cafe with fade
     show yukari happy at left
     show mayumi_f at right
@@ -459,6 +454,7 @@ label week_1_1:
             if anime.category == Anime.ACTION:
                 "Sumiko appears to already be designing a car chase scene."
             "Yukari delegates tasks to the others, and everyone begins work."
+            $choice_1_1_1()
         "Refine scenario":
             "Shunsuke takes another look at the scenario to tighten and polish the story. Yukari delegates tasks to the others, and everyone begins work."
 
