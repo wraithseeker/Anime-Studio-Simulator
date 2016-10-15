@@ -25,8 +25,8 @@
     $anime.prev_animation = 3
     $UpdateProgressReport()
 
-    jump game_start
-    #jump week_2_6
+    #jump game_start
+    jump week_12_4
 
 init python:
     import datetime

@@ -11,6 +11,7 @@ define yuu = Character('Yuuko', color="#000",ctc="ctc_fixed",ctc_position="fixed
 define ss = Character('Shunsuke', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define bot = Character('Recorded Voice', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define unknown = Character('???', color="#000",ctc="ctc_fixed",ctc_position="fixed")
+define attendee = Character('Attendee', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define grandma = Character('Grandma', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define investor = Character('Investor', color="#000",ctc="ctc_fixed",ctc_position="fixed")
 define sisters = Character('Yuuko & Sumiko', color="#000",ctc="ctc_fixed",ctc_position="fixed")
@@ -36,9 +37,15 @@ label game_start:
 label week_0_1:
     scene home with fade
     show yukari worry at left with dissolve
+    $achievement.clear_all()
+    $achievement.Sync()
+    $achievement.grant("ACH_1")
+    "granted ach_1"
     "It’s the day after high school graduation. Yukari settles down to watch her favorite anime, but she can’t concentrate."
     "Her acceptance letter from the university she applied to sits on her desk. In a few months, she’ll be back in school. Usually, she spends vacation relaxing or working a part-time job. That’s what most of her classmates are doing."
     show yukari
+    $achievement.grant("ACH_3")
+    $achievement.grant("ACH_2")
     "But something about it doesn’t feel right. She doesn’t want to be like everyone else. She wants to do something special. Fulfill her secret dream. Maybe this vacation is the best time to do it."
     "Her mind made up, Yukari grabs her cell phone and sends a quick message to her best friend."
     #scene cafe

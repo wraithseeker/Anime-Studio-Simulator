@@ -245,9 +245,9 @@ image bg yukari_bump = "cg/yukari_bump.png"
 image bg storyboard_harem = "cg/storyboard/storyboard_harem.png"
 image bg storyboard_action = "cg/storyboard/storyboard_action.png"
 image bg storyboard_mystery = "cg/storyboard/storyboard_mystery.png"
-image bg expo_harem = "cg/expo/harem.png"
-image bg expo_action = "cg/expo/action.png"
-image bg expo_mystery = "cg/expo/mystery.png"
+image bg expo_harem = "cg/expo/expo_harem.png"
+image bg expo_action = "cg/expo/expo_action.png"
+image bg expo_mystery = "cg/expo/expo_mystery.png"
 
 
 image money = "ui/money_bag.png"
