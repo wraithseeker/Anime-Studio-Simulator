@@ -26,10 +26,8 @@ define va_c_char = Character("[va_c]", color="#000",ctc="ctc_fixed",ctc_position
 
 # The game starts here.
 
-label game_start:
-    stop music fadeout 1.0
-
 label week_0_1:
+    stop music fadeout 1.0
     scene home with fade
     show yukari worry at left with dissolve
     $achievement.clear_all()
@@ -459,8 +457,6 @@ label week_1_1:
             "Shunsuke takes another look at the scenario to tighten and polish the story. Yukari delegates tasks to the others, and everyone begins work."
             $choice_1_1_2()
 
-# label start:
-#     jump week_1_3
 label week_1_2:
     $nextDay()
     scene bg studio with fade
@@ -496,6 +492,7 @@ label week_1_2:
                 y "Hmm, something exciting and flashy!"
             show sumiko happy
             s "Great, thanks for the advice."
+
 
 label week_1_3:
     $nextDay()

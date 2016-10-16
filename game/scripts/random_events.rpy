@@ -489,7 +489,7 @@ label random_7:
     else:
         "AnimeFest is both fun and informative, although Yukari can’t help but feel a little bad that she made one of the team members miss it all."
 # All-You-Can-Eat Ice-Cream 
-label random_10:
+label random_8:
     scene studio_main with fade
     show mayumi sigh at pos_farleft
     show yukari at pos_left
@@ -525,7 +525,7 @@ label random_10:
             m "All right! This is the best break we ever took!"
             "They spend more time at the café than Yukari expected, but a few hours of an ice cream buffet is enough to help the group forget their previous worries."
 #Street Musician Donation 
-label random_11:
+label random_9:
     scene street with fade
     show mayumi_f at right
     show yukari at left
@@ -558,7 +558,7 @@ label random_11:
             m "I can’t wait for work tomorrow. I have so many new ideas!"
 
 #Flowers for Charity
-label random_12:
+label random_10:
     scene street with fade
     show yukari at left with dissolve
     schoolgirls "Onee-sama! Would you be so kind as to buy our flowers?"
@@ -580,7 +580,7 @@ label random_12:
             "She gives the girls a polite smile and continues on her way."
         
 #Shiny Object On The Ground 
-label random_13:
+label random_11:
     scene street with fade
     show yukari at left
     with dissolve
@@ -608,7 +608,7 @@ label random_13:
             y "Don’t mention it."
             "As she says goodbye to the pedestrian and heads home, her steps are a little lighter. It’s always a nice feeling to brighten someone’s day."
 #Homeroom Teacher Surprise Visit 
-label random_14:
+label random_12:
     scene studio_main with fade
     teacher "Good afternoon, Yukari. How are you doing?"
     show yukari happy at left 
@@ -619,7 +619,7 @@ label random_14:
     teacher "I love the enthusiasm here. I’m so happy to see you’re doing well."
     y "Thank you, Sensei. I'm happy you took the time to visit!"
 #Where's my umbrella?
-label random_15:
+label random_13:
     scene studio_main with fade
     show yukari at left with dissolve
     y "Hmm, I can't help but feel I forgot something… Oh well, it’s probably my imagination."
@@ -652,7 +652,7 @@ label random_15:
             y "Thank you!"
             "They hurry home together, and Yukari makes it into her house without getting too wet from the rain. She makes a mental note to thank her neighbor again the next time they meet."
 #Classmates Wish to Drop By
-label random_16:
+label random_14:
     scene studio_main with fade
     show yukari at left
     show mayumi_f at right
@@ -704,7 +704,7 @@ label random_16:
             ss "These girls clearly suffer from an inferiority complex. They can’t stand to see you succeed."
             y "We’ll show them. They can say as many nasty things as they like, but when [anime.name] comes out, everyone will see the truth!"
 # Won a prize on the radio!
-label random_17:
+label random_15:
     $rd_c = RandomCharacter()
     scene studio_main with fade
     show yukari at left
@@ -758,7 +758,7 @@ label random_17:
         "Celebrate with [rd_c.person] and suggest sharing with the studio funds":
             jump random_17_share
     "the end"
-label random_17_share:
+label random_15_share:
     y "That’s fantastic! Congratulations!"
     rd_c.say "Thank you!"
     y "Since that’s a fair amount of money, why don’t you add some of it to the studio’s funds?"
@@ -773,7 +773,7 @@ label random_17_share:
         "100\%":
             rd_c.say "So when you said “some,” you really meant “all”? You have the makings of a good tyrant, Yukari. Sheesh."
 #Wrong Food Delivery Address 
-label random_18:
+label random_16:
     scene studio_main with fade
     "The studio’s doorbell rings."
     show yukari at left
@@ -807,7 +807,7 @@ label random_18:
             y "Sorry guys. We have to be honest."
             m "Honesty doesn’t fill an empty stomach..."
 # Coffee or Tea?
-label random_19:
+label random_17:
     scene cafe with fade
     show yukari at left
     y "Wow, there’s a promotion on the ground coffee!"
@@ -837,32 +837,8 @@ label random_19:
             "Yuuko says nothing, but her shoulders slump and she sighs."
     show yukari worry
     y "Sorry! It’s really hard to please everyone."
-#Fruits Delivery
-# label random_20:
-#     scene studio_main with fade
-#     show yukari at left with dissolve
-#     y "Hmm, is this another junk email?"
-#     "Instead, it’s an advertisement for a new program promoted by a fruit wholesaler, where fresh fruit is delivered to workplaces on a weekly basis."
-#     y "Wow! This might be just what our studio needs."
-#     y "Maybe I should sign up to surprise the team. Let’s see…"
-#     menu:
-#         "Subscribe for a week $":
-#             "When the shipment of fruit arrives, the team is so happy, Yukari almost regrets not purchasing a full subscription. Nevertheless, at least it brightened their moods for a little while, without costing too much money."
-#         "Subscribe for a month $$":
-#             "When the first shipment of fruit arrives, Yukari explains to the surprised team that these deliveries will come each week for a month. It’s sure to improve everyone’s health and mood."
-#             "some scam here"
-#             jump random_20_scam
-# label random_20_scam:
-#     show yukari worry
-#     y "Huh, that’s strange. It’s already Friday, but this week’s fruit delivery isn’t here."
-#     "She picks up her phone and dials the number she used to sign up for the service."
-#     "Sorry, this number is no longer in use."
-#     y "Wait, wha-?"
-#     "There is a click as the other side disconnects."
-#     show yukari angry
-#     y "And I paid in advance, too! Scammed by a fruit salesman…"
 #Street Artist Sketch
-label random_21:
+label random_18:
     scene street with fade
     show yukari at left with dissolve
     y "This artwork is amazing! I really like these cherry blossoms."
@@ -901,7 +877,7 @@ label random_21:
     show yuuko laugh_eyes_closed
     yuu " It’s beautiful… It’s given me a brilliant idea for [anime.name]!"
 #Overdue Library Book
-label random_22:
+label random_19:
     scene studio_main with fade
     show yukari at left with dissolve
     show yukari worry
@@ -933,7 +909,7 @@ label random_22:
             y "No way! The library went through its records and noticed the missing book? The fine is so steep! I could buy a new copy cheaper than this."
             y "I guess there’s no running away this time…"
 #Newbie Voice Actor Looking for Work 
-label random_23:
+label random_20:
     scene black with fade
     "Yukari was browsing the web for potential partners who can do some voice acting at a bargain price."
     "She notices a thread set up by someone called Miki-chan who's a self-proclaimed up and rising seiyū who has all the equipment required."
@@ -969,17 +945,9 @@ label random_23:
             y "What’s this? It’s not from Miki, but… from her father?"
             show yukari sad_angry
             y "Yikes! Looks like they know I lied to take advantage of the studio."
-            
-label random_23_lie:
-    #miki father email scam portion
-    scene studio_main with fade
-    show yukari at left with dissolve
-    y "What’s this? It’s not from Miki, but… from her father?"
-    show yukari sigh
-    y "Yikes! Looks like they know I lied to take advantage of the studio."
 
 #Suspicious Backpack
-label random_24:
+label random_21:
     scene street with fade
     show yukari worry at left
     y "What’s this? Someone left their bag lying in the alley."
@@ -1002,7 +970,7 @@ label random_24:
             y "Who knows what could be in there?"
             "She calls the police and explains the situation to them, and then hurries on her way, still a little shaken from the strange incident."
 #New Menu - Food Tasting Session 
-label random_25:
+label random_21:
     scene studio_main with fade
     show yukari at left with dissolve
     y "This seems like a good time to announce the workshop I registered us for this weekend."
@@ -1023,7 +991,7 @@ label random_25:
             y "Yeah, that sounds amazing. The food better be good!"
             s "Of course! I thought up some of the concepts myself!"
             y "Huh? Oh boy."
-label random_25_eat:
+label random_21_eat:
     #weekend stuff
     scene restaurant with fade
     show yukari at left
@@ -1036,7 +1004,7 @@ label random_25_eat:
     y "This food is excellent!"
     y "(thinking to self): The workshop probably wasn’t too helpful anyway."
 #Bumped into popular Seiyū Mamoru-san!
-label random_26:
+label random_22:
     scene street with fade
     show mayumi at left with dissolve
     "Mayumi walks down the street, gaze fixed on her cell phone as she plays her current favorite game. Suddenly, she collides with someone. Her phone falls to the ground along with the man’s sunglasses."
@@ -1068,7 +1036,7 @@ label random_26:
             m "Thank you, Mamoru-san! Thank you!"
             "Mamoru hurries off to avoid an approaching crowd, while Mayumi continues on her way with the precious autographed notebook clutched to her chest."
 #Unbelievably Hot Summer
-label random_27:
+label random_23:
     scene studio_main with fade
     show yukari at left
     show sumiko at right
@@ -1112,7 +1080,7 @@ label random_27:
             s "You should've listened to me last week…"
 
 #Arts Festival Performance
-label random_28:
+label random_24:
     scene studio_main with fade
     show mayumi at left with dissolve
     m "Ooh, what’s this? There's an art festival this week and Rosette is playing? Cool! I love that group."
@@ -1164,7 +1132,7 @@ label random_28:
             m "Hehe, of course I remembered!"
             m "Let's check out the lucky draw later."
 #Animation Studio Ex-Employee 
-label random_29:
+label random_25:
     scene street with fade
     show yukari at left with dissolve
     show yukari sigh
@@ -1197,7 +1165,7 @@ label random_29:
             y "What? How could you say something so mean?!"
             "The former employee stomps away without another word."
 #Shunsuke shows a surprise video montage
-label random_30:
+label random_26:
     scene studio_main with fade
     show yukari at pos_left
     show mayumi at pos_farleft behind yukari
@@ -1225,7 +1193,7 @@ label random_30:
             y "I hope you understand how important this is."
             ss "I understand… Let’s postpone the surprise until everyone is free."
 #Child's Birthday Celebration
-label random_31:
+label random_27:
     scene cafe with fade
     show sumiko_f at left
     show yuuko at right
@@ -1255,7 +1223,7 @@ label random_31:
             little_girl "Bye-bye!"
 
 #Decorate Restaurant (Not Y&S Restaurant) for Funds 
-label random_32:
+label random_28:
     scene studio_main with fade
     show yukari at pos_left
     show mayumi at pos_farleft behind yukari
@@ -1309,7 +1277,7 @@ label random_32:
             m "This is awful! I’ll have to borrow some money to finance our operations."
             m "Someone better break the news to Sumiko and Yuuko. They won’t be happy."
 #Funding Crisis 
-label random_33:
+label random_29:
     scene studio_main with fade
     show yukari at left with dissolve
     y "Wow, it says on this website that these consultants provide help on finance and legal matters, offer leadership courses, and more!"
@@ -1363,7 +1331,7 @@ label random_33:
             y "Relax, Sumiko. If anything happens, we’ll take care of it then."
 
 #Dance Challenge 
-label random_34:
+label random_30:
     scene street with fade
     show yukari at left with dissolve
     "I wonder what all the commotion is about?"
@@ -1394,7 +1362,7 @@ label random_34:
     return
 
 #Gachapon Madness
-label random_35:
+label random_31:
     scene cafe with fade
     show yukari at left
     show sumiko at pos_right
@@ -1447,7 +1415,7 @@ label random_35:
     return
 
 #Free Breakfast Samples! 
-label random_36:
+label random_32:
     scene street with fade
     show sumiko_f laugh_eyes_closed at pos_left
     show yuuko_f at pos_farleft
@@ -1501,7 +1469,7 @@ label random_36:
             "Yuuko gives her sister a sad nod, but it’s too late now. They trudge forward to help Yukari clean."
     return
 # Accessories at 50% Off!
-label random_37:
+label random_33:
     scene street with fade
     show mayumi at left
     with dissolve
@@ -1550,7 +1518,7 @@ label random_37:
             m "Aw, I should have gone in…"
     return
 #Ideal Office Fragrance 
-label random_38:
+label random_34:
     scene studio with fade
     show yukari at left with dissolve
     y "ABC store is having a discount on scents this week!"
@@ -1585,7 +1553,7 @@ label random_38:
             "A fresher atmosphere in the studio is just what they needed."
     return
 #How to Catch a Thief?  
-label random_39:
+label random_35:
     scene street with fade
     show shunsuke_f at left with dissolve
     "Shunsuke is deep in thought as he walks to the meeting with the advertising company. He doesn’t even notice the stranger near him on the street until the man bumps into him."
@@ -1623,7 +1591,7 @@ label random_39:
             ss "This will be hard to explain to Yukari…"
     return
 #Playful Child  
-label random_40:
+label random_36:
     scene cafe with fade
     show yukari at left
     show mayumi_f at right
@@ -1672,7 +1640,7 @@ label random_40:
             y "Yukari rolls her eyes again, but smiles. She’s glad she didn’t chase the kid away after all."
     return
 
-label random_41:
+label random_37:
     scene street with fade
     show mayumi at left
     show headphone_guy at right

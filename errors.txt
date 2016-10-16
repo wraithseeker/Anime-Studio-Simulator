@@ -2,12 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/third_month.rpy", line 1250: reached end of line when expecting ':'.
-    if choicewe_10_1_1() 
-                         ^
-
-File "game/third_month.rpy", line 1255: expected statement.
-    else: 
-        ^
+File "game/random_event_holder.rpy", line 2: expected an indented block
+    class RandomEventsHolder(object):
+    
 
 Ren'Py Version: Ren'Py 6.99.11.1749

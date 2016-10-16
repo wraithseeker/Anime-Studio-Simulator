@@ -23,8 +23,8 @@
     $anime.plot = 1
     $anime.prev_plot = 1
     $UpdateProgressReport()
-
-    jump week_7_1_1
+    jump week_0_1
+    #jump week_7_1_1
     #jump pre_game
 
 init python:
@@ -82,8 +82,15 @@ init:
         shunsuke_tasks = [shunsuke_first_task,shunsuke_practise,copy.deepcopy(relax_task)]
 
     #Random Events
-    $random_events_holder = RandomEventsHolder()
-   
+    $rd_e_holder = RandomEventsHolder()
+    # rd_e_holder.wk_4_to_12 = ["random_1","random_2","random_4","random_5","random_6"]
+    # rd_e_holder.wk_4_to_6 = second
+    # rd_e_holder.wk_5_to_7 = third
+    # rd_e_holder.wk_5_to_10 = ["random_3",]
+    # rd_e_holder.wk_6_to_8 = ["random_7"]
+    # rd_e_holder.wk_8_to_10 = sixth
+    # rd_e_holder.theme_song = seventh
+    # rd_e.all = ["random_8","random_9"]
     #upgrade screen
     $upgrade_tooltip_default = "Send your team out for training! This will increase their Proficiency stats."
     $upgrade_tooltip_complete = "Success!"
