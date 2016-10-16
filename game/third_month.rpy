@@ -81,10 +81,13 @@ label week_9_1:
         menu:  
             #best choice 1st
             "The first song":
+                $choice_9_1_correct()
                 y "The first song. [anime.name] has a light tone throughout, so even the “serious” music should have a happy feeling." 
             "The second song":
+                $choice_9_1_wrong()
                 y "I like the second song better. The first one didn’t sound serious enough to me." 
             "The third song":
+                $choice_9_1_wrong()
                 y "Let’s try the third one. I feel like it has a good mood for the science club." 
 
     elif anime.category == Anime.ACTION:
@@ -100,10 +103,13 @@ label week_9_1:
         menu:
            #best choice 2st
             "The first song":
+                $choice_9_1_wrong()
                 y "The first song really makes me feel energized. That’s what the mood should be like." 
             "The second song":
+                $choice_9_1_correct()
                 y "Since there’s a lot of action, let’s go with the second song. The first one sounded too happy for [anime.name]."  
-            "The third song": 
+            "The third song":
+                $choice_9_1_wrong()
                 y "The third song feels great as a theme for the conspiracy. Let’s go with that."   
     elif anime.category == Anime.MYSTERY:
         play music "music/anime/Action/Very Sinister sample.ogg" fadein 1.0 noloop
@@ -116,10 +122,13 @@ label week_9_1:
         menu:
            #best choice 3rd
             "The first song":
+                $choice_9_1_wrong()
                 y "I like the first one. It will really drive home those dark moments."  
             "The second song":
+                $choice_9_1_wrong()
                 y "Well, it may not be the darkest song, but I can’t help but like the second song’s tone for [anime.name]."   
             "The third song": 
+                $choice_9_1_correct()
                 y "The third song is perfect. It’s ominous without being too dark for [anime.name]’s mood."   
         
     m "Okay. Thanks for your feedback."
@@ -192,12 +201,15 @@ label week_9_2:
     "She considers the options and decides to go with a..." 
     menu:
         "Professional Website":
+            $choice_9_2_1()
             ss "Excellent decision. Since we’re an unknown studio, we want everything about [anime.name] to be as professional as possible. I’ll look into hiring someone to make our website."
             $website_choice = "Professional" 
         "Website made by Shunsuke":
+            $choice_9_2_2()
             ss "Thank you for your confidence in my skills. I hope I can live up to it. I’ll get back to work, then."
             $website_choice = "Shunsuke"
         "Free Website":
+            $choice_9_2_3()
             ss "Since we have limited funds to work with, I suppose we shouldn’t spend too much on the website. I’ll look online for a suitable template." 
             $website_choice = "Free"
     show yukari happy
@@ -572,6 +584,7 @@ label week_9_6:
     menu:
 
         "Shop for a gift for the sisters":
+            $choicewe_9_1_1()
             "That’s right, she promised Mayumi and Shunsuke they’d buy a gift for Sumiko and Yuuko! Yukari gets ready and heads out to meet them."
             scene street with fade
             show yukari at left
@@ -679,10 +692,12 @@ label week_9_6:
             "Maybe it won’t make up for all the extra work they did, but at least they’ll know the rest of the team cares."
             $wk_9_forgot_home = False
         "Read some marketing books":
+            $choicewe_9_1_2()
             "With [anime.name] almost completely, they’ll need to begin marketing in full force."
             "Yukari spends the weekend reading marketing books and taking notes on possible strategies to try." 
             $wk_9_forgot_home = True
         "Relax": 
+            $choicewe_9_1_3()
             "Yukari relaxes over the weekend. Working on [anime.name] takes a lot of effort, and it’s nice to have some time to just sit back and not worry about anything."
             $wk_9_forgot_home = True
     if wk_9_forgot_home:
@@ -742,12 +757,13 @@ label week_10_1:
         "Yukari considers the two options." 
         menu: 
             "Reuse scenes from [anime.name] for the trailer.":
+                $choice_10_1_1()
                 y "Let's reuse scenes from [anime.name]." 
                 "With their budget, it doesn't feel right to go the more expensive route, even at a discount."
                 "Besides, as long as they pick good scenes, it should still appeal to their target audience." 
                 $trailer_choice = "Reuse"
             "Create new animations for the trailer.": 
-                #($$) (If Harem, no effect)  
+                $choice_10_1_2()
                 y "Let's create new animations for the trailer." 
                 "She wants [anime.name] to be as professional as possible, and a trailer with custom animations sounds like perfect way to do that." 
                 anim_dir "All right. Can you drop by the studio on Friday to discuss the trailer in more detail?" 
@@ -912,6 +928,7 @@ label week_10_3:
     y "I suppose I could take today off, haha. Hmm…" 
     menu: 
         "Help Mayumi":
+            $choice_10_2_1()
             show mayumi_f at right with dissolve
             "Yukari walks to Mayumi's desk." 
             y "Can I help you with anything?"
@@ -924,6 +941,7 @@ label week_10_3:
             "For the rest of the day, Mayumi plays music samples for Yukari and asks for advice on the direction a particular song should take."
             "By the end, Yukari is confident she made a positive contribution to the soundtrack of [anime.name]." 
         "Help Shunsuke":
+            $choice_10_2_2()
             show shunsuke at right with dissolve
             "Yukari hesitates, but decides there's no harm in at least suggesting her ideas. If Shunsuke has a better one, he'll say so. She walks to his desk." 
             ss "Yes?" 
@@ -957,6 +975,7 @@ label week_10_3:
                 ss "Great! Now that we've picked our template, I'll be able to set it up and start adding content." 
                 "Yukari is happy she was able to help with the website. She can't wait to see it when it's finished."
         "Help the sisters":
+            $choice_10_2_3()
             show sumiko at pos_textbox_right
             show yuuko at pos_outerright
             with dissolve
@@ -977,6 +996,7 @@ label week_10_3:
             "The sisters exchange glances and continue working. Yukari watches and occasionally comments on their progress, but at the end of the day, she admits to herself she didn't actually help them much at all."
             "On the other hand, she has a better appreciation for their jobs. At least it's something." 
         "Relax":
+            $choice_10_2_4()
             "Yukari walks around the studio. She cleans her desk. She reads a book. At last, she gives up and settles back in her chair for a nap." 
             scene black with fade
             unknown "…ari? Yukari?" 
@@ -1227,16 +1247,17 @@ label week_10_6:
     menu:
         "Accept the offer": 
             scene black with fade
-            #If (1) and the anime marketing level + yukari proficiency & management level high, 
-            "The next day, she meets with the journalist to discuss [anime.name]. She prepared for possible questions ahead of time, and none of the questions are too tricky."
-            "Yukari leaves the interview feeling satisfied with how it turned out." 
-            "By evening, she has a few emails from people who already read the interview and are excited for [anime.name]."
-            "It's causing a stir on a few anime forums, too. It seems like media coverage was just what they needed to give [anime.name] a nice boost in publicity." 
-            #If (1) and anime marketing levels and such are not high enough,  
-            #"The next day, she meets with the journalist to discuss [anime.name]. The questions aren't too bad, and Yukari handles herself well." 
-            #"Unfortunately, even though the interview is online by evening, it doesn't seem to attract much interest."  
+            if choicewe_10_1_1():
+                "The next day, she meets with the journalist to discuss [anime.name]. She prepared for possible questions ahead of time, and none of the questions are too tricky."
+                "Yukari leaves the interview feeling satisfied with how it turned out." 
+                "By evening, she has a few emails from people who already read the interview and are excited for [anime.name]."
+                "It's causing a stir on a few anime forums, too. It seems like media coverage was just what they needed to give [anime.name] a nice boost in publicity." 
+            else: 
+                "The next day, she meets with the journalist to discuss [anime.name]. The questions aren't too bad, and Yukari handles herself well." 
+                "Unfortunately, even though the interview is online by evening, it doesn't seem to attract much interest."  
           
         "Decline the offer":
+            $choicewe_10_1_2()
             "An interview could have helped [anime.name]'s publicity, but Yukari isn't ready to deal with the media just yet."
             "Instead, she spends the weekend researching other potential ways to promote [anime.name] and going over their schedule to see what they still need to do before the deadline." 
     scene studio 
@@ -2190,19 +2211,17 @@ label week_12_4:
     "Yukari had expected to handle everything herself today, but with Mayumi there, she has a choice of what to focus on…" 
     menu:
         "Quality Assurance":
-            #(+ quality check) 
+            $choice_12_1_1()
             "Yukari goes through everything they've already finished to run another quality assurance test. She checks it for any mistakes like errors in the art, out-of-sync audio, missing animations, or problems with the editing."
             "To her relief, there is very little they have to fix." 
-            pass
         "Dubbing":
+            $choice_12_1_2()
             "She helps Mayumi check over Episode One's dubbing and finish up the dubbing of Episode Two. In addition to making sure the dialogue is in-sync with the characters' animations, they also make sure the sound effects and music tracks play at the right moments."
             "Fortunately, everything looks pretty good." 
-            pass
-            #(+ abit voice acting, + op & ed , + OST) 
         "Marketing":
+            $choice_12_1_3()
             "Anime Rising was a major boost for their marketing efforts, but this is the time when they need to promote [anime.name] as much as possible. Yukari works on a press release to send to popular anime websites before [anime.name] airs." 
-            pass
-            #+ marketing
+
     scene studio_main with fade
     show yukari at left
     show mayumi_f happy at right

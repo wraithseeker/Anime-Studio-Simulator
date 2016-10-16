@@ -35,12 +35,14 @@ label week_5_1:
     "Which studio should she get in touch with?"
     menu:
         "[anim_studio_expensive]":
+            $choice_5_1_1()
             "Yukari decides to get in touch with [anim_studio_expensive]."
             "Working with a studio renowned for its production quality will help save them a lot more money in the long run."
             "They will have proper procedures and guidelines during the production process which will definitely be a great help to the inexperienced team."
             "Best of all, it will ensure [anime.name] has top-notch animation."
             $anim_studio = anim_studio_expensive
         "[anim_studio_cheap]":
+            $choice_5_1_2()
             "Yukari decides to get in touch with [anim_studio_cheap]."
             "Despite the studio’s recent slump, her research suggests it’s only due to poor management. If she manages the team effectively, she’ll be able to turn things around for everyone."
             "The main selling point, of course, is the competitive price." 
@@ -573,15 +575,19 @@ label week_5_6:
     "What shall Yukari do this weekend?"
     menu:
         "Spend the weekend with your friends":
+            $choicewe_5_1_1()
             "Yukari calls up some of her friends from high school."
             "For part of the weekend, they go to the park to enjoy the nice weather, and then they spend the rest of it catching up with one another."
         "Raise Funds":
+            $choicewe_5_1_2()
             "On her way home from the studio on Friday, Yukari noticed a local store that needed temporary help over the weekend due to a promotional event."
             "She took the opportunity to sign up."
             "Now that the weekend has arrived, she spends it working in the store to raise additional funds for [anime.name]."
         "Attend a workshop on life skills":
+            $choicewe_5_1_3()
             "The workshop largely goes over stuff Yukari has heard time and time again, but on the other hand, it gives her a few new ideas for managing the team’s time and resources and for being an effective leader."
         "Relax":
+            $choicewe_5_1_4()
             "She stays at home all weekend, reading books and watching anime. It’s a nice, stress-free way to recharge for the next week."
     scene studio 
     $nextWeek()
@@ -754,8 +760,10 @@ label week_6_1:
     "What would you like to focus on for the rest of the day?"
     menu:
         "Storyboards":
+            $choice_6_1_1()
             "Yukari takes into account what Shunsuke said earlier and joins him to look over his changes and polish the storyboards further."
         "The Plot for [anime.name]":
+            $choice_6_1_2()
             if anime.category == Anime.HAREM:
                 "Shunsuke’s hopes for a sequel stand out in Yukari’s mind. She works with him to seed a few hints of foreshadowing into the story."
                 "If [anime.name] never goes beyond the first two episodes, it will stand on its own, but if it does continue, the larger plot will appear to have been planned from the start."
@@ -766,6 +774,7 @@ label week_6_1:
                 "With only two episodes, they have a limited amount of time to explain the conspiracy."
                 "Yukari adjusts the most important scenes to make sure they convey the necessary details without being exposition dumps. The viewers should have enough information to not be confused."
         "Character Development":
+            $choice_6_1_3()
             if anime.category == Anime.HAREM:
                 "As it stands, Keiji is the dullest member of the cast. Since he’s the main character, that’s not good."
                 "Yukari gives him a pet cat, a paperclip collection, and a dream of becoming an astronaut to flesh out his personality more."
@@ -804,15 +813,18 @@ label week_6_2:
     m "Well? Which sounds best for [anime.name]?"
     menu:
         "Talent Agency":
+            $choice_6_2_1()
             y "The talent agency is the best way for us to ensure we get quality voice acting."
             y "Yes, it costs more, but it will also free up our time to work on other things."
             $va_choice = "Talent Agency"
             #va choice is for branching text
         "Agent":
+            $choice_6_2_2()
             y "Working through agents is the ideal middle ground."
             y "We won’t have to search for the voice actors ourselves, but we won’t have to deal with a talent agency’s high prices either."
             $va_choice = "Agent"
         "Freelancers":
+            $choice_6_2_3()
             y "We need to look for freelance voice actors ourselves."
             y "It’ll take a lot of time and could be risky, but our budget can’t handle too much of a strain."
             $va_choice = "Freelancers"
@@ -1027,11 +1039,13 @@ label week_6_4:
     investor "It’s just my advice. What do you think?"
     menu:
         "Listen to your investor's advice and start marketing":
+            $choice_6_3_1()
             $investor_marketing = True
             y "You’re right. We need to start marketing, and this is the best time to do it. We’ll get started immediately."
             show investor happy
             investor "I’m glad to hear it. Contact me if you need any help."
         "Reject the offer and say you're busy with your current workload":
+            $choice_6_3_2()
             $investor_marketing = False
             y "I’m afraid our current workload is too much for us to add a new task now."
             y "Until [anime.name] is complete, we’ll need to make do with minor marketing efforts."
@@ -1102,13 +1116,17 @@ label week_6_5:
     show yukari
     menu:
         "Storyboard":
+            $choice_6_4_1()
             "As she told Shunsuke, it’s critical to finish the storyboards."
             "Yukari spends the rest of the day working on the storyboard for the second episode."
         "Animation":
+            $choice_6_4_2()
             "While she doesn’t have direct involvement with the animation process, Yukari looks over everything [anim_studio] has done so far to make sure it’s on track with her vision for [anime.name]."
         "Backgrounds":
+            $choice_6_4_3()
             "Yukari joins Sumiko to look over the final backgrounds they’ll use for [anime.name]."
         "Relax":
+            $choice_6_4_4()
             "After a moment, she leans back in her chair and closes her eyes."
             "Work on [anime.name] is coming along nicely. She can afford a little time to relax."
     scene restaurant with fade
@@ -1213,18 +1231,22 @@ label week_6_6:
     "It's the weekend! What will you do?"
     menu:
         "Visit [anim_studio]":
+            $choicewe_6_1_1()
             scene street with fade
             show yukari surprised at left with dissolve
             y "Huh? The door’s locked…"
             "She frowns at the closed studio and then notices a sign on the door that lists its hours."
             y "It’s closed on the weekends? Aw man…"
         "Raise Funds":
+            $choicewe_6_1_2()
             "After browsing online for fundraising ideas, Yukari creates a page where fans interested in [anime.name] will be able to make small donations."
             "It might not produce too many results, but a passive way to increase their funds is exactly what they need."
         "Read Books":
+            $choicewe_6_1_3()
             "Yukari reads a variety of books, some about the anime production process and others just for fun."
             "By the time the weekend ends, she feels inspired and ready to proceed."
         "Relax":
+            $choicewe_6_1_4()
             "Yukari sleeps in on the weekend, watches some anime, and de-stresses to prepare for the week ahead."
     scene studio 
     $nextWeek()
@@ -1331,6 +1353,7 @@ label week_7_choice:
         jump week_7_1_2
     else:
         if week_7_current_choice == "Mayumi":
+            $choice_7_1_1()
             m "Hello!"
             y "Mayumi? I'm at [anim_studio] right now, and we have a problem. I just saw the key frames for Episode One, and they’re wrong."
             m "Oh no!"
@@ -1340,6 +1363,7 @@ label week_7_choice:
             y "Okay. Thanks anyway."
             $week_7_people_choices.remove("Mayumi")
         elif week_7_current_choice == "Yuuko":
+            $choice_7_1_2()
             yuu "Hello?"
             y "Yuuko, we have a bit of a problem over here. The key frames for Episode One weren’t done properly."
             yuu "What?? Oh no…"
@@ -1350,6 +1374,7 @@ label week_7_choice:
             y "Don't worry. I'll figure it out and get back to you soon. Maybe someone else knows."
             $week_7_people_choices.remove("Yuuko")
         elif week_7_current_choice == "Sumiko":
+            $choice_7_1_3()
             s "Hi, this is Sumiko!"
             y "I’m at the animation studio, but something’s gone wrong. The key frames for Episode One aren’t right."
             s "What? How could that happen?"
@@ -1588,14 +1613,15 @@ label week_7_1_2:
     "What should Yukari focus on today?"
     menu:
         "Raise funds":
+            $choice_7_2_1()
             "With the additional expenses of having the studio redo the animation work at a faster pace, funding is a more critical issue than usual."
             "Yukari spends the day calling up local institutes and community figures with an interest in art and entertainment, to see if they’d be willing to help the production of [anime.name]."
             "Unfortunately, everyone declines. By the time she hangs up the phone after the last call, she feels even more depressed than when she started."
         "Relax":   
+            $choice_7_2_2()
             "After what happened, Yukari can’t concentrate on anything. Instead, she closes her eyes and takes deep breaths to try to relax."
             "Guilt nags at her when she thinks about the work waiting for her, but then again, Shunsuke told her to calm down."
             "By the end of the day, she feels slightly less stressed, although the mistake with the key frames still haunts her mind."
-
         "Cheer everyone up":
             "Yukari takes a few minutes to compose herself."
             "No matter how she feels, she needs to boost the team’s spirits. Low morale will have a terrible effect on their productivity—and they’re also her friends. She doesn’t want to see them sad."
@@ -1609,44 +1635,44 @@ label week_7_1_2:
             show mayumi at pos_farleft behind yukari
             with dissolve
             y "All right everyone, let’s not focus on what went wrong. The past is the past. What’s done is done. All we can do is press forward and look to the future."
-            #if suceed
-            # show sumiko worry
-            # s "It does?"
-            # show yukari happy
-            # "Yukari suppresses the urge to glare at her and smiles instead."
-            # y "It does! We’re stronger than this. Besides, think of this like… a test!"
-            # show sumiko surprised
-            # s "A test?"
-            # "Now everyone’s gazes are on her."
-            # y "Anime production isn’t easy. If we crumble in the face of this setback, how would we ever make it in the anime industry?"
-            # y "We’ll overcome this and prove we’re ready!"
-            # show mayumi laugh_eyes_closed
-            # m "Yeah!"
-            # show sumiko
-            # y "Are we going to let ourselves be defeated this easily?"
-            # show sumiko laugh_eyes_closed
-            # s "No!"
-            # y "Who’s going to make it to the end?"
-            # show yuuko happy
-            # yuu "We are!"
-            # y "Why?"
-            # ss "Because [anime.name] is awesome!"
-            # "Everyone cheers as though they’ve already overcome all their obstacles, and for a moment Yukari wonders if she overdid it a little."
-            # "Nevertheless, at least everyone’s smiling again."
-            #if fail
-            # "Silence greets Yukari’s words. Everyone stares down at their desks. No one meets her gaze."
-            # y "It does!"
-            # "Once again, no one responds. At last, Shunsuke looks up."
-            # ss "I’m sure Yukari has worked through everything to figure out why we should be optimistic about the future."
-            # "Yukari gives him a grateful smile."
-            # ss "Go on, Yukari, explain it."
-            # "Her smile fades."
-            # y "Uh… well…"
-            # m "You do have a reason, don’t you?"
-            # show yukari happy
-            # y "Y-yeah, it’s… well, I just think everything will be fine if we stay focused!"
-            # "She injects as much confidence into her voice as possible, but it falls flat."
-            # "The others look at her for a moment longer and then return to their work. If anything, the studio’s atmosphere feels even gloomier than before."
+            if choice_7_2_3():
+                show sumiko worry
+                s "It does?"
+                show yukari happy
+                "Yukari suppresses the urge to glare at her and smiles instead."
+                y "It does! We’re stronger than this. Besides, think of this like… a test!"
+                show sumiko surprised
+                s "A test?"
+                "Now everyone’s gazes are on her."
+                y "Anime production isn’t easy. If we crumble in the face of this setback, how would we ever make it in the anime industry?"
+                y "We’ll overcome this and prove we’re ready!"
+                show mayumi laugh_eyes_closed
+                m "Yeah!"
+                show sumiko
+                y "Are we going to let ourselves be defeated this easily?"
+                show sumiko laugh_eyes_closed
+                s "No!"
+                y "Who’s going to make it to the end?"
+                show yuuko happy
+                yuu "We are!"
+                y "Why?"
+                ss "Because [anime.name] is awesome!"
+                "Everyone cheers as though they’ve already overcome all their obstacles, and for a moment Yukari wonders if she overdid it a little."
+                "Nevertheless, at least everyone’s smiling again."
+            else:
+                "Silence greets Yukari’s words. Everyone stares down at their desks. No one meets her gaze."
+                y "It does!"
+                "Once again, no one responds. At last, Shunsuke looks up."
+                ss "I’m sure Yukari has worked through everything to figure out why we should be optimistic about the future."
+                "Yukari gives him a grateful smile."
+                ss "Go on, Yukari, explain it."
+                "Her smile fades."
+                y "Uh… well…"
+                m "You do have a reason, don’t you?"
+                show yukari happy
+                y "Y-yeah, it’s… well, I just think everything will be fine if we stay focused!"
+                "She injects as much confidence into her voice as possible, but it falls flat."
+                "The others look at her for a moment longer and then return to their work. If anything, the studio’s atmosphere feels even gloomier than before."
 label week_7_2:
     $nextDay()
     scene studio_main with fade
@@ -2693,6 +2719,7 @@ label week_8_3:
     if anim_studio == anim_studio_cheap:
         menu:
             "Visit [anim_studio]":
+                $choice_8_1_1_cheap()
                 "Yukari decides to pay a visit to [anim_studio]. With the studio’s reputation in mind, she has a bad feeling things might not be going exactly as planned." 
                 scene animation_studio with fade
                 show yukari at left with dissolve
@@ -2732,24 +2759,29 @@ label week_8_3:
                 "After all, she chose [anim_studio] to cut costs, well aware of the risks." 
                 y "(thinking to self) At least I spotted the problem before it got out of hand."  
             "Storyboards":
+                $choice_8_1_2_cheap()
                 "The storyboards for the second episode could still use some work."
                 "Yukari goes through them to fix the remaining problems they discussed the other day and add more directions to make sure the flow is as clear as possible."
                 "From [anim_studio]’s reputation, they need as much guidance as they can get." 
             "Marketing": 
+                $choice_8_1_3_cheap()
                 "Shunsuke’s words about marketing leave Yukari inspired to help." 
                 "While full-scale ads in Akihabara like Mayumi mentioned are out of the question, maybe they could run some smaller advertisements, especially since they cut costs by working with [anim_studio]."
                 "Yukari does some research and takes notes on ideas that might be within their budget."
     elif anim_studio == anim_studio_expensive:
         menu:
             "Marketing":
+                $choice_8_1_1_expensive()
                 "Shunsuke’s words about marketing leave Yukari inspired to help."
                 "While full-scale ads in Akihabara like Mayumi mentioned are out of the question, maybe they could run some smaller advertisements, despite the expense of working with [anim_studio]."
                 "Yukari does some research and takes notes on ideas that might be within their budget."
             "Storyboards":
+                $choice_8_1_2_expensive()
                 "The storyboards for the second episode could still use some work."
                 "Yukari goes through them to fix the remaining problems they discussed the other day and add more directions to make sure the flow is as clear as possible."
                 "After all, [anim_studio_dir] likes to see them do a solid, professional job."
             "Raise funds":
+                $choice_8_1_3_expensive()
                 "Funds are an ever-present source of concern, especially due to [anim_studio]’s costs."
                 "Yukari searches online and finds a new initiative aimed at helping new artists begin their careers."
                 "It isn’t clear if the organization includes anime studios in that category, but Yukari fills out the application to find out."
@@ -3444,12 +3476,15 @@ label week_8_6:
     "Another weekend has arrived. What should Yukari do?"
     menu:
         "Review [anime.name]":
+            $choicewe_8_1_1()
             "Yukari goes over everything they’ve completed for [anime.name] so far, from the animations to the voice acting."
             "She catches a few minor mistakes and a makes a note to fix them later, but overall everything looks good."
         "Hang out with the team":
+            $choicewe_8_1_2()
             "Yukari calls up the team and invites them over for a picnic."
             "It’s like a more casual version of their restaurant meetings. They chat a little bit about [anime.name] and their upcoming plans, but for the most part they just hang out and have a good time."
         "Relax":
+            $choicewe_8_1_3()
             "Yukari stays at home over the weekend to relax by reading some entertaining books and watching her favorite anime on TV."
             "It’s partly a personal celebration in honor of how far [anime.name] has come along."
     scene studio 
