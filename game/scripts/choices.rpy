@@ -6,6 +6,18 @@
     global sumiko_stats
     global yuuko_stats
 
+    #minus funds
+    EXPENSIVE_STUDIO_FUNDS_VALUE = 20
+    CHEAP_STUDIO_FUNDS_VALUE = 10
+
+    TALENT_AGENCY_FUNDS_VALUE = 20 
+    AGENT_FUNDS_VALUE = 10
+    FREELANCER_FUNDS_VALUE = 5
+
+    INVESTOR_FUNDS_MARKETING_6_3_1 = 10
+    ANIM_STUDIO_VALUE_10_2 = 10
+
+
     def choice_raise_funds_formula():
         #Formula to calculate % chance to raise funds
         CHOICE_BASE_RAISE_FUNDS_PERCENT = 40
@@ -183,19 +195,19 @@
         #talent agency
         anime.quality_check += 1.5
         anime.marketing += 1.5
-        anime.funds -= 20
+        anime.funds -= TALENT_AGENCY_FUNDS_VALUE
     def choice_6_2_2():
         #agent
         anime.quality_check += 0.5
         anime.marketing += 0.5
-        anime.funds -= 10
+        anime.funds -= AGENT_FUNDS_VALUE
     def choice_6_2_3():
         #freelancers
-        anime.funds -= 5
+        anime.funds -= FREELANCER_FUNDS_VALUE
 
     def choice_6_3_1():
         anime.marketing += 1
-        anime.funds -= 10
+        anime.funds -= INVESTOR_FUNDS_MARKETING_6_3_1
     def choice_6_3_2():
         pass
 
@@ -343,7 +355,7 @@
     def choice_10_1_1():
         pass
     def choice_10_1_2():
-        anime.funds -= 10
+        anime.funds -= ANIM_STUDIO_VALUE_10_2
         anime.quality_check += 0.5
         anime.marketing += 0.5
 

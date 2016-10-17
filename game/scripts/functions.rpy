@@ -205,9 +205,7 @@
                 anime.funds -= outsource.cost * outsource.selection_count
                 outsource.selection_count = 0
                 ui.timer(2.0,SetVariable("outsource_tooltip",""))
-                anime.story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
-                anime.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
-                anime.music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
+                anime.setProgress()
                 renpy.restart_interaction()      
         else:
             outsource_tooltip = "Not enough funds!"

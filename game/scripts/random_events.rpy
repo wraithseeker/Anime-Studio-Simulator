@@ -61,6 +61,14 @@ label dead_burnout(character):
     "[character.name] has left your group..."
     "Yukari and the others try to continue on alone, but it’s no use. Without a complete team, [anime.name] is doomed to remain just a dream."
     $renpy.full_restart()
+label dead_burnout_yukari:
+    scene studio with fade
+    show yukari sad at left
+    with dissolve
+    y "This is too stressful for me... I guess making my own anime was never possible in the first place."
+    y "Sigh... If only I was more competent..."
+    "Yukari decides to give up on her dream and without a leader, [anime.name] is no more."
+    $renpy.full_restart()
 
 #ran out of funds
 label dead_no_funds:
@@ -71,7 +79,7 @@ label dead_no_funds:
     show shunsuke at pos_middleright
     show mayumi at pos_farleft behind yukari
     with dissolve
-    y "Everyone, we need to talk." 
+    y "Everyone, we need to talk."
     "The seriousness of her tone makes the others look up from their work." 
     show mayumi worry
     m "Is something wrong?" 
@@ -105,7 +113,7 @@ label dead_no_funds:
     y "Thanks, everyone." 
     "Despite their reassuring words and the knowledge that they'll remain friends she can count on, Yukari can't help but feel depressed as they close up the studio for good."
     "Maybe someday, she'll be able to make her own anime… but for now, her dream is dead."
-    return
+    $renpy.full_restart()
 #job offering
 label random_1:
     $rd_c = RandomCharacter(["m"])
@@ -136,10 +144,8 @@ label random_1:
     y "What should I do?"
     menu:
         "Assume [rd_c.person] will get over it":
-            "check if lose condition stuff"
-        "Address [rd_c.person]'s concerns this weekend":
-            "Can't do anything this weekend"
-        "Offer [rd_c.person] money from [anime.name] funds":
+            $rechoice_1_1(rd_c)
+        "Offer [rd_c.person] money from [anime.name] funds {space=15}{image=small_moneybag.png} [JOB_OFFER_FUNDS]":
             show yukari sad_angry
             y "I understand that [company] is a great company to work with, but won't you consider staying with us?"
             y " I can pay you some money for your work, if that'll change your mind?"
@@ -152,7 +158,7 @@ label random_1:
             else:
                 rd_c.say "Yes that just changed my mind. Having pocket money sounds great, considering that my parents wanted me to get a part time job to 'learn' how to survive in society."
                 rd_c.say "With that sum of money, I'll be able to convince my parents that I'm learning life skills through this project."
-    "end"
+            $rechoice_1_2()
     return
 
 #Request for Raise in Salary/Allowance or Money
@@ -193,15 +199,18 @@ label random_2:
             rd_c.say " Not yet…"
             y "I’ve heard that bank loans are pretty reasonable nowadays. Give it a try."
             rd_c.say "Okay…"
-        "Give [rd_c.person] money from the project funds":
+            $rechoice_2_1(rd_c)
+        "Give [rd_c.person] money from the project funds {space=15}{image=small_moneybag.png} [REQUEST_SALARY_FUNDS]":
             y "Here."
             rd_c.say "What? But this money is meant for [anime.name]!"
             y "Take it. You’re a friend and part of the team, so we should help you out. Besides, your family’s health is more important than an anime."
             rd_c.say "Thank you so much…"
+            $rechoice_2_2()
     return
 
 #Conflict during Team Meetings 
 label random_3:
+    #need to test
     $rd_c = RandomCharacter()
     scene studio_main with fade
     show mayumi at left
@@ -235,13 +244,20 @@ label random_3:
     y "Guys, please calm down!"
     menu:
         "Agree with [rd_c.person]":
-            "asdasd"
+            $rechoice_3_1(rd_c)
         "Agree with Mayumi":
-            "asdasd"
+            $rechoice_3_2()
         "Try to distract them by changing the topic":
             show yukari happy
             y "Have you guys listened to the new song released by Love Live? It's selling like hotcakes right now and must be really good."
-
+            if rechoice_3_3(rd_c):
+                m "I purchased their new album a few days ago. It's hard to describe how amazing they are, so I'll just let you guys listen to understand!"
+                "Mayumi brings out her phone from her pocket and plays one of the tracks on the new album released by Love Live."
+                "Everyone seems to be mesmerized by it."
+                y "(thinking to self): That was close... Luckily I managed to distract them from their pointless argument."
+            else:
+                "Yukari's attempt to distract Mayumi and [rd_c.person] from their argument seems to be a futile attempt. She can feel that both of them are feeling grumpy "
+    return
 
 #Interview Request for Aspiring Anime Producers
 label random_4:
@@ -273,8 +289,13 @@ label random_4:
     y "I don't know… The last interview conducted by [company] ruined an aspiring producer because the focus shifted from anime to his private life."
     menu:
         "Attend the interview":
-            "abc"
+            if rechoice_4_1():
+                "Yukari attends the interview and manages to speak to the public fluently. She’s happy she decided to attend this interview which should give [anime name] a nice boost in publicity."
+            else:
+                "Yukari attends the interview, but it’s just as nightmarish as the rumors claim."
+                "Fortunately, she’s young enough that the interviewer couldn’t dig up too much dirt about her private life, but she’s still humiliated and more than happy to leave once it finally ends."
         "Do not attend the interview":
+            $rechoice_4_2()
             y " I’m going to decline the offer."
             if rd_c.p == "yuu":
                 show yuuko sad
@@ -300,6 +321,8 @@ label random_4:
             rd_c.say "M-Me?"
             y "Yes, since you think it’s such a good idea."
             rd_c.say "Well, all right."
+            $rechoice_4_3(rd_c)
+    return
 
 # Receiving Anonymous Troll E-Mails 
 label random_5:
@@ -313,32 +336,35 @@ label random_5:
     s "Oh gross, not again! Who’s been sending all this ridiculous mail?"
     ss "Yukari, what do you make of this?"
     y "(Thinking to herself) These messages are pretty awful… How should I handle this?"
-    menu:
-        "good stats":
-            show yukari happy
-            show mayumi sad
-            y " Come on, guys, don’t let some stupid emails get you down!"
-            m "Did you read the things they said about us?"
-            y "Yes, but I don’t care. This guy is clearly just a troll."
-            m "You mean he’s waiting under a bridge to grab us when we cross?"
-            s "Thank you in advance for my upcoming nightmares."
-            y " I mean he’s trying to rile us. Don’t fall for it! We’re not going to let a bunch of spammy messages ruin our dream, are we? Of course not!"
-            ss "Hah, the joke will be on him when [anime.name] is a hit."
-            m "Yeah! Let’s get to work and show him what we’re capable of!"
-        "bad stats":
-            hide mayumi
-            hide shunsuke
-            hide sumiko
-            show yukari sad at left
-            show mayumi_f worry at right
-            with dissolve
-            "She can’t focus. Every time she tries to think of a solution, the discouraging comments from the email run through her mind."
-            "What if they’re right? What if their team really is awful and [anime.name] is doomed to failure?"
-            y "Ugh…"
-            m "Yukari?"
-            y "Leave me alone. I want to be by myself for a little bit…"
-            "She can tell her attitude makes the others even more disheartened, but she’s too upset by the emails to care. "
+    $dice_number = renpy.random.randint(0,100)
+    if number <= choice_raise_funds_formula():
+        show yukari happy
+        show mayumi sad
+        y " Come on, guys, don’t let some stupid emails get you down!"
+        m "Did you read the things they said about us?"
+        y "Yes, but I don’t care. This guy is clearly just a troll."
+        m "You mean he’s waiting under a bridge to grab us when we cross?"
+        s "Thank you in advance for my upcoming nightmares."
+        y " I mean he’s trying to rile us. Don’t fall for it! We’re not going to let a bunch of spammy messages ruin our dream, are we? Of course not!"
+        ss "Hah, the joke will be on him when [anime.name] is a hit."
+        m "Yeah! Let’s get to work and show him what we’re capable of!"
+        $rechoice_5_1_success()
+    else:
+        hide mayumi
+        hide shunsuke
+        hide sumiko
+        show yukari sad at left
+        show mayumi_f worry at right
+        with dissolve
+        "She can’t focus. Every time she tries to think of a solution, the discouraging comments from the email run through her mind."
+        "What if they’re right? What if their team really is awful and [anime.name] is doomed to failure?"
+        y "Ugh…"
+        m "Yukari?"
+        y "Leave me alone. I want to be by myself for a little bit…"
+        "She can tell her attitude makes the others even more disheartened, but she’s too upset by the emails to care."
+        $rechoice_5_1_failure()
 
+    return
 #A Suspicious Businessman Calls  
 label random_6:
     $rd_c = RandomCharacter(["s","yuu"])
@@ -358,9 +384,22 @@ label random_6:
     rd_c.say "Of course! He says he worked with many companies before!"
     y "I don’t know… it sounds kind of shady to me."
     menu:
-        "Accept the advertising deal":
-            "what"
+        "Accept the advertising deal {space=15}{image=small_moneybag.png} [SUSPICIOUS_BUSINESSMAN_FUNDS]":
+            #test this event later & emotes not done yet
+            $rechoice_6_1()
+            y "Well, let's give it a try."
+            rd_c.say "Great!"
+            "She calls the businessman back, and Yukari arranges payment for the advertising program. She and [Character Name] return to work."
+            "An hour later, Shunsuke clears his throat."
+            ss " I don't mean to interrupt, but I just read something important. There's a new scam going around."
+            "Yukari has a sudden sinking feeling she won't like what he says."
+            ss " This guy calls up small businesses and entrepreneurs and claims he's an advertiser who works with successful companies. Then he offers an advertising package to promote their business or project."
+            ss "He uses dummy accounts to accept payment, so no one has tracked him down yet or gotten their money back."
+            rd_c.say "Uh-oh…"
+            ss "What's wrong? You and Yukari look like you're going to be sick. Oh no… Don't tell me you…"
+            y "Damn… I can't believe I got scammed! I should have known it was too good to be true… "
         "Refuse the advertising deal":
+            $rechoice_6_2()
             y "This isn’t a risk worth taking."
             if rd_c.p == "m":
                 show mayumi_f sad_angry
@@ -371,6 +410,7 @@ label random_6:
             rd_c.say "I guess you’re right… I’m sorry."
             y "Don’t apologize! Anyone could be fooled by a conman."
             rd_c.say "Sure…"
+    return
 
 #Anime Convention During A Weekend 
 label random_7:
@@ -413,6 +453,7 @@ label random_7:
     $rd_stay_behind = False
     menu:
         "Tell Yuuko she won't be going" if "yuu" in rd_remaining_c:
+            $rechoice_7_1(rd_remaining_c)
             if rd_c.p == "s":
                 hide sumiko
             elif rd_c.p == "m":
@@ -428,6 +469,7 @@ label random_7:
             y "Do you really?"
             yuu "Sure, I guess…"
         "Tell Sumiko she won't be going" if "s" in rd_remaining_c:
+            $rechoice_7_1(rd_remaining_c)
             if rd_c.p == "yuu":
                 hide yuuko
             elif rd_c.p == "m":
@@ -441,6 +483,7 @@ label random_7:
             y "Well, we have two artists. Yuuko can tell you what she learns from the professionals there. You wouldn’t argue that your sister should stay behind instead, would you?"
             s "Ugh, you sure know how to make a girl feel guilty."
         "Tell Shunsuke she won't be going" if "ss" in rd_remaining_c:
+            $rechoice_7_1(rd_remaining_c)
             if rd_c.p == "yuu":
                 hide yuuko
             elif rd_c.p == "m":
@@ -457,6 +500,7 @@ label random_7:
             y "Someone has to stay behind."
             ss "Oh, fine. I’ll do it for the team."
         "Tell Mayumi she won't be going" if "m" in rd_remaining_c:
+            $rechoice_7_1(rd_remaining_c)
             if rd_c.p == "yuu":
                 hide yuuko
             elif rd_c.p == "s":
@@ -469,6 +513,7 @@ label random_7:
             y "Only four of us can go, and I think the others need the experience more than you. Think of it as a compliment!"
             m "Sure… If you say so…"
         "Stay behind and let the rest go":
+            $rechoice_7_2()
             hide shunsuke
             show mayumi_f at pos_outerright
             show yuuko at pos_right
@@ -488,6 +533,7 @@ label random_7:
         "Yukari stays at home during AnimeFest although she feels sad thinking of the others having fun without her. It’s balanced by the happiness she feels when she remembers their smiles and Sumiko calling her a good leader."
     else:
         "AnimeFest is both fun and informative, although Yukari can’t help but feel a little bad that she made one of the team members miss it all."
+    return
 # All-You-Can-Eat Ice-Cream 
 label random_8:
     scene studio_main with fade
@@ -501,6 +547,7 @@ label random_8:
     y "(thinking to herself) Hmm... We need to get our work done, but maybe I should take the team to the café for a treat?"
     menu:
         "Continue to work without a break at the café":
+            $rechoice_8_1()
             "Yukari decides not to take a break."
             y "Come on, everyone, back to work. The sooner we make progress on [anime.name], the better we’ll all feel!"
             show mayumi
@@ -524,6 +571,8 @@ label random_8:
             show mayumi happy
             m "All right! This is the best break we ever took!"
             "They spend more time at the café than Yukari expected, but a few hours of an ice cream buffet is enough to help the group forget their previous worries."
+            $rechoice_8_2()
+    return
 #Street Musician Donation 
 label random_9:
     scene street with fade
@@ -531,7 +580,6 @@ label random_9:
     show yukari at left
     with dissolve
     "As guitar riffs fill the air, Mayumi stops to listen to the musician, eyes bright with excitement."
-    "some sound effect"
     show mayumi_f happy
     m "Wow, he’s pretty good!"
     show mayumi_f sad
@@ -549,6 +597,7 @@ label random_9:
             y "We can’t afford it."
             m "Okay…"
             "Despite her agreement, she looks back at the guitarist with an unhappy sigh as they walk away."
+            $rechoice_9_1()
         "Donate some money":
             "Mayumi beams as Yukari approaches the guitarist."
             "The guitarist plays another song accordingly."
@@ -556,6 +605,8 @@ label random_9:
             show yukari happy
             y "Wow, that really is good."
             m "I can’t wait for work tomorrow. I have so many new ideas!"
+            $rechoice_9_2()
+    return
 
 #Flowers for Charity
 label random_10:
@@ -578,6 +629,7 @@ label random_10:
         "Politely refuse the girls":
             y "I’m sorry. I’m afraid I can’t help today."
             "She gives the girls a polite smile and continues on her way."
+    return
         
 #Shiny Object On The Ground 
 label random_11:
@@ -590,13 +642,15 @@ label random_11:
     y "I wonder if it belongs to him."
     menu:
         "Cross the road without paying heed to the object":
+            $rechoice_11_1()
             show yukari
             "To her surprise, the other pedestrian doesn’t pick up the object, either."
             y "It looks like a pendant."
-            "sound effect of pendant being crushed"
+            #"sound effect of pendant being crushed"
             show yukari sad
             y "Oh no! Well, either it wasn’t his, or it wasn’t worth much to him."
         "Attempt to pick up the object":
+            $rechoice_11_2()
             "Yukari picks up what appears to be a pendant that dislodged from a necklace."
             "As she crosses the street, she pauses to pick up the object."
             y "It looks like a pendant, but there’s no chain. It must have fallen off."
@@ -607,8 +661,10 @@ label random_11:
             pedestrian "The crosswalk?! I’m glad you found it before someone ran over it.  Thank you! Thank you so much!"
             y "Don’t mention it."
             "As she says goodbye to the pedestrian and heads home, her steps are a little lighter. It’s always a nice feeling to brighten someone’s day."
+    return
 #Homeroom Teacher Surprise Visit 
 label random_12:
+    #test later
     scene studio_main with fade
     teacher "Good afternoon, Yukari. How are you doing?"
     show yukari happy at left 
@@ -618,6 +674,26 @@ label random_12:
     "Yukari happily gives her former homeroom teacher a tour of the studio and introduces her to all of the team members. Everyone tells her a little bit about the anime and what they’re currently working on."
     teacher "I love the enthusiasm here. I’m so happy to see you’re doing well."
     y "Thank you, Sensei. I'm happy you took the time to visit!"
+    $dice_number = renpy.random.randint(0,100)
+    if number <= choice_raise_funds_formula():
+        $rechoice_12_1_success()
+        teacher "Since you’re all working so hard, I’d like to give you something special."
+        y "You don’t have to do that."
+        teacher "I want to. This won’t take long."
+        "She leaves the studio, and everyone gets back to work. Eventually she returns with a box filled with cookies for everyone."
+        scene studio_main 
+        show yukari at left
+        with fade
+        teacher "I hope you enjoy them."
+        y "Sensei! Thank you!"
+        teacher "In exchange, I expect to see a thrilling episode of [anime.name] on TV."
+        y "You will!"
+    else:
+        $rechoice_12_1_failure()
+        teacher "Any time. Goodbye, Yukari, and good luck!"
+        y "Thank you!"
+    return
+
 #Where's my umbrella?
 label random_13:
     scene studio_main with fade
@@ -639,6 +715,7 @@ label random_13:
             "She gets out of her wet clothes and dries off, but even once she dresses warmly and wraps a blanket around herself, she’s still chilled from being caught in the rain."
             y "Achoo! Oh no, don’t tell me I’m getting sick, too…"
             "Despite her hope, symptoms of a cold show themselves the next day. Miserable though she feels, she knows she’ll have to work on [anime.name] anyway."
+            $rechoice_13_1()
         "Wait under a small shelter until the storm subsides":
             scene street_rain
             show yukari sad at left
@@ -651,6 +728,8 @@ label random_13:
             show yukari happy
             y "Thank you!"
             "They hurry home together, and Yukari makes it into her house without getting too wet from the rain. She makes a mental note to thank her neighbor again the next time they meet."
+            $rechoice_13_2()
+    return
 #Classmates Wish to Drop By
 label random_14:
     scene studio_main with fade
@@ -676,7 +755,7 @@ label random_14:
             y "This has nothing to do with getting a job."
             clique "Obviously, dear."
             y "No, I mean, this IS a job! Sort of."
-            clique_girl " I envy you, Yukari."
+            clique_girl "I envy you, Yukari."
             y "You do?"
             clique_girl "Yes, it must be nice to have time to play around at a pretend job. Unfortunately, I’m going to college."
             show sumiko_f angry at Position(xalign=0.3,yalign=1.0) with dissolve
@@ -686,6 +765,7 @@ label random_14:
             clique "Yukari, dear, don’t be afraid to call on me. If you realize you can’t really make an anime, I’ll be happy to help you find a job within your capabilities."
             show yukari sad_angry
             "Yukari’s cheeks burn with embarrassment. She breathes a sigh of relief when the girls finally leave, but their comments disturb her for the rest of the day."
+            $rechoice_14_1()
         "Turn them down":
             "Yukari refuses their offer. Like Mayumi said, they were never nice to her. It’s probably for the best that they don’t come."
             scene studio_main with fade
@@ -703,6 +783,8 @@ label random_14:
             show shunsuke sigh
             ss "These girls clearly suffer from an inferiority complex. They can’t stand to see you succeed."
             y "We’ll show them. They can say as many nasty things as they like, but when [anime.name] comes out, everyone will see the truth!"
+            $rechoice_14_2()
+    return
 # Won a prize on the radio!
 label random_15:
     $rd_c = RandomCharacter()
@@ -719,7 +801,7 @@ label random_15:
     with dissolve
     rd_c.say "[rd_c.person] takes off [rd_c.g] earpiece."
     rd_c.say "Yukari, do you mind if I step out for a minute?"
-    rd_c.say " I need to make an important call."
+    rd_c.say "I need to make an important call."
     y "Sure, no problem."
     rd_c.say "[rd_c.person] steps out of the studio and returns after about five minutes."
     if rd_c.p == "m":
@@ -756,8 +838,8 @@ label random_15:
                     y "Still, it’s not right. I don’t want you to listen to the radio anymore when you’re at the studio, understand?"
                     rd_c.say "Fine. I’m sorry…"
         "Celebrate with [rd_c.person] and suggest sharing with the studio funds":
-            jump random_17_share
-    "the end"
+            jump random_15_share
+    return
 label random_15_share:
     y "That’s fantastic! Congratulations!"
     rd_c.say "Thank you!"
@@ -765,13 +847,18 @@ label random_15_share:
     rd_c.say "Sure, that’s fine, especially since I used studio time for this without asking permission. How much did you have in mind?"
     menu:
         "25\%":
+            $rechoice_15_1()
             rd_c.say "No problem!"
         "50\%":
+            $rechoice_15_2(rd_c)
             rd_c.say "A 50/50 split? I suppose that’s fair."
         "75\%":
+            $rechoice_15_3(rd_c)
             rd_c.say "That’s a little steep, isn’t it? If you insist…"
         "100\%":
+            $rechoice_15_4(rd_c)
             rd_c.say "So when you said “some,” you really meant “all”? You have the makings of a good tyrant, Yukari. Sheesh."
+    return
 #Wrong Food Delivery Address 
 label random_16:
     scene studio_main with fade
@@ -787,7 +874,7 @@ label random_16:
     m "Check it out, guys! There's fries, soda, and more!"
     y "(Thinking to herself) I didn’t order this… but everyone seems so happy. What should I do?"
     menu:
-        "Pay for the delivery and make the team happy":
+        "Pay for the delivery and make the team happy {space=15}{image=small_moneybag.png} [WRONG_FOOD_FUNDS]":
             y "(thinking to herself) I guess it can’t hurt. We didn’t make the mistake, after all."
             "She joins Mayumi at the door and pays the delivery person. The team splits the order up and everyone enjoys the food."
             y "(thinking to herself) No harm done, right?"
@@ -799,6 +886,7 @@ label random_16:
             neighbour "If you want to avoid trouble, you better pay up!"
             show yukari sad
             y "I’m sorry!"
+            $rechoice_16_1()
         "Clarify to the delivery person that he's at the wrong address":
             show yukari sigh
             y "Sorry, but I’m afraid this isn’t ours. You must have gotten the address wrong."
@@ -806,6 +894,8 @@ label random_16:
             m "B-but-..."
             y "Sorry guys. We have to be honest."
             m "Honesty doesn’t fill an empty stomach..."
+            $rechoice_16_2()
+    return
 # Coffee or Tea?
 label random_17:
     scene cafe with fade
@@ -816,6 +906,7 @@ label random_17:
     y "It's not every day that the café has such an amazing offer. I better pick one. Now if only I could remember if the others prefer coffee or tea…"
     menu:
         "Coffee":
+            $rechoice_17_1()
             show sumiko sad at pos_right
             show shunsuke sad at pos_outerright
             show mayumi happy at Position(xalign=0.25,yalign=1.0) behind yukari
@@ -826,6 +917,7 @@ label random_17:
             s "Aww, why did you have to get that?"
             ss "Were they all out of tea?"
         "Tea":
+            $rechoice_17_2()
             show mayumi_f sad at Position(xalign=0.80,yalign=1.0)
             show yuuko sad at pos_outerright behind mayumi_f
             show shunsuke_f happy at Position(xalign=0.25,yalign=1.0) behind yukari
@@ -837,6 +929,7 @@ label random_17:
             "Yuuko says nothing, but her shoulders slump and she sighs."
     show yukari worry
     y "Sorry! It’s really hard to please everyone."
+    return
 #Street Artist Sketch
 label random_18:
     scene street with fade
@@ -853,12 +946,15 @@ label random_18:
     old_lady "Before you leave, would you care to make a donation?"
     menu:
         "Small tip $":
+            $rechoice_18_1()
             y "Here you go."
             old_lady "Thank you."
         "Moderate tip $$":
+            $rechoice_18_2()
             y "Here you go."
             old_lady "Thank you, this should help."
         "Generous tip $$$":
+            $rechoice_18_3()
             y "Here you go."
             old_lady "Wow, that’s very generous of you! Thank you. This will definitely help."
     scene studio_main with fade
@@ -876,6 +972,7 @@ label random_18:
     y "No way! Could this be from the lady in the park?"
     show yuuko laugh_eyes_closed
     yuu " It’s beautiful… It’s given me a brilliant idea for [anime.name]!"
+    return
 #Overdue Library Book
 label random_19:
     scene studio_main with fade
@@ -886,6 +983,7 @@ label random_19:
     y "Why didn’t the librarian contact me? The fine must be insane by now."
     menu:
         "Return the book to the library on the way to work":
+            $rechoice_19_1()
             scene street with fade
             show yukari at left with dissolve
             "On the way to work, Yukari stops by the library, but it’s closed. She reads the hours on the sign."
@@ -908,6 +1006,8 @@ label random_19:
             show yukari sad
             y "No way! The library went through its records and noticed the missing book? The fine is so steep! I could buy a new copy cheaper than this."
             y "I guess there’s no running away this time…"
+            $rechoice_19_2()
+    return
 #Newbie Voice Actor Looking for Work 
 label random_20:
     scene black with fade
@@ -931,6 +1031,7 @@ label random_20:
     y "(thinking to self): Horribly, but it really would be nice to use this studio…"
     menu:
         "Truthfully inform Miki that she needs more practice":
+            $rechoice_20_1()
             miki "Oh…"
             miki "You’re right. I understand. Thank you for being honest with me. I’ll practice harder than ever from now on!"
         "Lie to Miki that her voice acting is great, in order to make use of her studio":
@@ -945,6 +1046,8 @@ label random_20:
             y "What’s this? It’s not from Miki, but… from her father?"
             show yukari sad_angry
             y "Yikes! Looks like they know I lied to take advantage of the studio."
+            $rechoice_20_2()
+    return
 
 #Suspicious Backpack
 label random_21:
@@ -969,8 +1072,9 @@ label random_21:
             y "No way am I opening that."
             y "Who knows what could be in there?"
             "She calls the police and explains the situation to them, and then hurries on her way, still a little shaken from the strange incident."
+    return
 #New Menu - Food Tasting Session 
-label random_21:
+label random_22:
     scene studio_main with fade
     show yukari at left with dissolve
     y "This seems like a good time to announce the workshop I registered us for this weekend."
@@ -981,17 +1085,20 @@ label random_21:
     y "(thinking to self): Oh no… it’s at the same time as the workshop!"
     menu:
         "Tell the team that there are already plans to attend the workshop":
+            $rechoice_22_1()
             show yukari sad
             y "Sorry guys. I registered us for an important workshop this weekend, so we won’t be trying that new food until next week."
             show sumiko sigh
             s "No way! Why didn’t you say something sooner? By next week, it’ll be on the menu for everyone. There won’t be another chance like this until next season!"
             "Everyone groans in disappointment."
         "Scrap the workshop plan and join the food tasting session with everyone":
+            $rechoice_22_2()
             show yukari happy
             y "Yeah, that sounds amazing. The food better be good!"
             s "Of course! I thought up some of the concepts myself!"
             y "Huh? Oh boy."
-label random_21_eat:
+    return
+label random_22_eat:
     #weekend stuff
     scene restaurant with fade
     show yukari at left
@@ -1004,7 +1111,7 @@ label random_21_eat:
     y "This food is excellent!"
     y "(thinking to self): The workshop probably wasn’t too helpful anyway."
 #Bumped into popular Seiyū Mamoru-san!
-label random_22:
+label random_23:
     scene street with fade
     show mayumi at left with dissolve
     "Mayumi walks down the street, gaze fixed on her cell phone as she plays her current favorite game. Suddenly, she collides with someone. Her phone falls to the ground along with the man’s sunglasses."
@@ -1022,6 +1129,7 @@ label random_22:
             "Mamoru puts on his shades and hurries away."
             show mayumi sad
             m "Aw, darn, he must be avoiding the paparazzi."
+            $rechoice_23_1()
         "Return his sunglasses and ask if he's fine first":
             m "Here are your glasses. Are you all right?"
             mamoru "I’m fine. Thank you."
@@ -1035,8 +1143,10 @@ label random_22:
             show mayumi happy
             m "Thank you, Mamoru-san! Thank you!"
             "Mamoru hurries off to avoid an approaching crowd, while Mayumi continues on her way with the precious autographed notebook clutched to her chest."
+            $rechoice_23_2()
+    return
 #Unbelievably Hot Summer
-label random_23:
+label random_24:
     scene studio_main with fade
     show yukari at left
     show sumiko at right
@@ -1063,6 +1173,7 @@ label random_23:
             show yukari happy
             y "Wow, good call, Sumiko. Thanks for noticing!"
             s "I’m just glad you believed me."
+            $rechoice_24_1()
         "Tell Sumiko the AC isn't broken":
             scene studio with fade
             show yukari at left
@@ -1078,9 +1189,11 @@ label random_23:
             show sumiko sad_angry
             s "Now we have to work in the studio without an air conditioner. Great."
             s "You should've listened to me last week…"
+            $rechoice_24_2()
+    return
 
 #Arts Festival Performance
-label random_24:
+label random_25:
     scene studio_main with fade
     show mayumi at left with dissolve
     m "Ooh, what’s this? There's an art festival this week and Rosette is playing? Cool! I love that group."
@@ -1098,6 +1211,7 @@ label random_24:
             m "Oh?"
             m "(thinking to self): Oops, guess I remembered wrong."
             m "Never mind. Let's just have fun."
+            $rechoice_25_2()
         "Sumiko":
             scene street with fade
             show mayumi at left
@@ -1109,6 +1223,7 @@ label random_24:
             m "Oh?"
             m "(thinking to self): Oops, guess I remembered wrong."
             m "Never mind. Let's just have fun."
+            $rechoice_25_3()
         "Shunsuke":
             scene street with fade
             show mayumi at left
@@ -1120,6 +1235,7 @@ label random_24:
             m "Oh?"
             m "(thinking to self): Oops, guess I remembered wrong."
             m "Never mind. Let's just have fun."
+            $rechoice_25_4()
         "Yuuko":
             scene street with fade
             show mayumi at left
@@ -1131,8 +1247,10 @@ label random_24:
             show mayumi happy
             m "Hehe, of course I remembered!"
             m "Let's check out the lucky draw later."
+            $rechoice_25_1()
+    return
 #Animation Studio Ex-Employee 
-label random_25:
+label random_26:
     scene street with fade
     show yukari at left with dissolve
     show yukari sigh
@@ -1164,8 +1282,9 @@ label random_25:
             show yukari sad_angry
             y "What? How could you say something so mean?!"
             "The former employee stomps away without another word."
+    return
 #Shunsuke shows a surprise video montage
-label random_26:
+label random_27:
     scene studio_main with fade
     show yukari at pos_left
     show mayumi at pos_farleft behind yukari
@@ -1186,14 +1305,17 @@ label random_26:
             show yukari happy
             y "Let's have a good time this weekend!"
             #weekend restaurant stuff
+            $rechoice_27_1()
         "Skip the restaurant to work on getting more funds instead.":
             show yukari sad
             y "Sorry, but I can't make it this weekend."
             y "I will be attending some events that could help us raise additional funds."
             y "I hope you understand how important this is."
             ss "I understand… Let’s postpone the surprise until everyone is free."
+            $rechoice_27_2()
+    return
 #Child's Birthday Celebration
-label random_27:
+label random_28:
     scene cafe with fade
     show sumiko_f at left
     show yuuko at right
@@ -1217,13 +1339,16 @@ label random_27:
             show yuuko laugh_eyes_closed
             yuu "You're so cute, I'd shower you with gifts if I had more."
             little_girl "Mommy and Daddy are calling, bye-bye!"
+            $rechoice_28_1()
         "Sumiko gives the girl a set of animal stickers she got at a bazaar":
             little_girl "Thanks, Onee-san! I love animals!"
             s "Then we’re even, because I love cake! You better run along now. Your parents are calling."
             little_girl "Bye-bye!"
+            $rechoice_28_2()
+    return
 
 #Decorate Restaurant (Not Y&S Restaurant) for Funds 
-label random_28:
+label random_29:
     scene studio_main with fade
     show yukari at pos_left
     show mayumi at pos_farleft behind yukari
@@ -1246,6 +1371,7 @@ label random_28:
     m "We should accept the offer before someone else snatches it!"
     menu:
         "Take up the décor job at the restaurant":
+            $rechoice_29_1()
             scene cafe with fade
             show yukari at pos_left
             show yuuko at pos_outerright behind sumiko
@@ -1266,8 +1392,8 @@ label random_28:
             y "This is even more than we agreed on!"
             y "That's very generous of you, thanks!"
             restaurant_owner "Seeing how hard you worked, I thought you guys deserved a bonus."
-
         "Pass on the opportunity":
+            $rechoice_29_2()
             y "Thanks for your suggestion, Shunsuke, but I think we have to pass."
             y "If we work the whole weekend and continue working the following week, it'll affect the quality of our work on [anime.name]."
             show shunsuke sad
@@ -1276,8 +1402,9 @@ label random_28:
             show mayumi sad
             m "This is awful! I’ll have to borrow some money to finance our operations."
             m "Someone better break the news to Sumiko and Yuuko. They won’t be happy."
+    return
 #Funding Crisis 
-label random_29:
+label random_30:
     scene studio_main with fade
     show yukari at left with dissolve
     y "Wow, it says on this website that these consultants provide help on finance and legal matters, offer leadership courses, and more!"
@@ -1317,6 +1444,7 @@ label random_29:
             yuu "I agree."
             m "This might be our only chance to meet our deadline, so count me in."
             y "Thanks, everyone. We’ll definitely see [anime.name] come to fruition!"
+            $rechoice_30_1()
         "Continue business-as-usual for the time being and be spontaneous":
             show yukari
             y "We're not exactly broke yet, so I think things will solve themselves if we’re frugal from now on."
@@ -1329,9 +1457,11 @@ label random_29:
             show sumiko sad_angry
             s "A coin toss?! That's what we’re pinning our financial hopes on?"
             y "Relax, Sumiko. If anything happens, we’ll take care of it then."
+            $rechoice_30_2()
+    return
 
 #Dance Challenge 
-label random_30:
+label random_31:
     scene street with fade
     show yukari at left with dissolve
     "I wonder what all the commotion is about?"
@@ -1349,7 +1479,7 @@ label random_30:
             y "Oh gosh, I haven't played this in forever!"
             y "What was I thinking?"
             y "Forget fourth place, I guess I'll have to settle for being the comic relief."
-
+            $rechoice_31_1()
         "Cheer on the competitors":
             show yukari happy
             "It’s been too long since she played. Yukari stays with the crowd and cheers." 
@@ -1359,59 +1489,7 @@ label random_30:
             show yukari laugh_eyes_closed
             y "No way! Really? Thank you so much!"
             y "Wow, I wasn't even cheering for him in particular…"
-    return
-
-#Gachapon Madness
-label random_31:
-    scene cafe with fade
-    show yukari at left
-    show sumiko at pos_right
-    show yuuko at pos_outerright
-    show shunsuke at pos_middleright
-    with dissolve
-    show shunsuke sigh
-    ss "Yukari, could you try to act more ladylike?"
-    show yukari angry_mouth_closed
-    y "What's your problem?!"
-    ss "This isn’t how you behave at a nice café like this."
-    show yuuko sigh
-    yuu "Please, let’s just make our orders."
-    s "This stuff happens way too often when we’re out together…"
-    "Mayumi ignores her friends’ arguments and checks her texts."
-    show mayumi at left
-    hide yukari
-    hide sumiko
-    hide yuuko
-    hide shunsuke
-    with dissolve
-    "Advertisement: 1-for-1 Gachapon! Get your tickets now!"
-    m "This is too good to be true!"
-    "She stares at the advertisement and decides to…"
-    menu:
-        "Buy some tickets":
-            "When will she ever get another opportunity like this? Mayumi jumps on the deal and ends the day with 10 tickets for the price of 5."
-            "Next week, she’s watching the news when they cover the story of a recent Gachapon scam."
-            "Hundreds have lodged complaints about XYZ company…"
-            show mayumi sad_angry
-            m "What… but that’s the company I bought from! They were closing down, and…?"
-            m "It was all a scam?! They cheated me? Oh no, my money…"
-        "Ask her friends to buy tickets together":
-            show mayumi happy at left
-            show yukari_f at pos_middleright
-            show shunsuke at pos_right
-            with dissolve
-            m "Everyone, look at this! It’s a 1-for-1 Gachapon sale! Want to get in on the deal with me?"
-            show shunsuke sigh
-            ss "C'mon, Mayumi , that's obviously a scam."
-            show mayumi worry
-            m "It is?"
-            show yukari_f tsundere
-            y "If it sounds too good to be true, you should always be cautious. And there’s something fishy about this deal."
-            ss "Everything about it looks shady."
-            show mayumi worry
-            m "Yukari and Shunsuke agree on something? That’s so rare, they’re probably right."
-            m "All right, I’ll trust you guys on this."
-            "When news of a Gachapon scam emerges a week later, she’s glad she did."
+            $rechoice_31_2()
     return
 
 #Free Breakfast Samples! 
@@ -1452,6 +1530,7 @@ label random_32:
             yuu "We're going to be so late… I hope Yukari isn’t angry."
             show sumiko_f
             s "We’ll just tell her about the café. A tip about great food like this should make up for anything!"
+            $rechoice_32_1()
 
         "Continue to work":
             scene studio
@@ -1467,6 +1546,7 @@ label random_32:
             s "We should’ve gone for that breakfast…"
             show yuuko sad
             "Yuuko gives her sister a sad nod, but it’s too late now. They trudge forward to help Yukari clean."
+            $rechoice_32_2()
     return
 # Accessories at 50% Off!
 label random_33:
@@ -1505,6 +1585,7 @@ label random_33:
             m "Eheheh…"
             "She sets down the bags and tries to look innocent."
             y " Oh Mayumi…"
+            $rechoice_33_1()
         "Return to the office":
             scene studio
             show mayumi at left
@@ -1516,6 +1597,7 @@ label random_33:
             show yukari_f happy
             y " I got this bangle for just $5!"
             m "Aw, I should have gone in…"
+            $rechoice_33_2()
     return
 #Ideal Office Fragrance 
 label random_34:
@@ -1530,7 +1612,7 @@ label random_34:
         "Tropical Grapefruit air freshener":
             show yukari happy
             "Ahhh… Grapefruit's so refreshing! No one has complained, so I’m glad I picked it."
-
+            $rechoice_34_1()
         "Ocean Breeze air freshener":
             show shunsuke at right
             hide yukari
@@ -1539,6 +1621,7 @@ label random_34:
             ss "Hmm, the office smells pretty good today."
             m "You noticed, too? I thought it was just me! Feels like I'm on the beach."
             "The two of them smile as they head to their desks. Mayumi is even more upbeat than usual and Shunsuke seems more relaxed. The air freshener is a hit!"
+            $rechoice_34_2()
         "Classic Rosemary air freshener":
             hide yukari
             show yuuko_f at left
@@ -1551,6 +1634,7 @@ label random_34:
             yuu "Kind of reminds me of a garden we used to play in. Do you remember?"
             "The sisters reminisce as they sit at their desks, but it doesn’t take away from their work. Instead, both seem more at ease and inspired."
             "A fresher atmosphere in the studio is just what they needed."
+            $rechoice_34_3()
     return
 #How to Catch a Thief?  
 label random_35:
@@ -1575,6 +1659,7 @@ label random_35:
             show shunsuke_f happy
             ss "Thank you, Miss. I'm glad to have been of service."
             ss "I have to go for a meeting now. Thanks again!"
+            $rechoice_35_1()
         "Ask the lady to call the police":
             office_l "Is this the police? We've just been robbed!"
             ss "Yes, right along ABC Street."
@@ -1589,6 +1674,7 @@ label random_35:
             ss "Not only do I not have my phone, but I’m going to be late for the meeting."
             office_l "Oh no… my purse…"
             ss "This will be hard to explain to Yukari…"
+            $rechoice_35_2()
     return
 #Playful Child  
 label random_36:
@@ -1620,6 +1706,7 @@ label random_36:
             show yukari sad
             m "Oh no, he was lost?"
             "Aw man, now I feel bad..."
+            $rechoice_36_1()
         "Entertain the child":
             show mayumi_f happy
             m "Here here, Onee-san will play with you!"
@@ -1638,6 +1725,7 @@ label random_36:
             m "Aw, isn't he cute?"
             show yukari happy
             y "Yukari rolls her eyes again, but smiles. She’s glad she didn’t chase the kid away after all."
+            $rechoice_36_2()
     return
 
 label random_37:
@@ -1665,23 +1753,28 @@ label random_37:
             hp_guy "Here you go."
             m "Um, thanks… I really should be going now!"
             "She dashes away before he can ask any questions."
+            
         "Tell him the truth":
             m "Actually… I’m the composer for [anime.name]."
-            #success
-            hp_guy "Really? Cool! I’m so happy to meet you! Your music is fantastic."
-            show mayumi laugh_eyes_closed
-            m "Thanks!"
-            hp_guy "If the rest of the soundtrack is half as good as this, I can’t wait to hear it!"
-            m "You really think it’s that good?"
-            hp_guy "Definitely. I’m going to tell all of my friends to check out [anime.name]."
-            m "Wow! Thanks!"
-            "They talk a little longer about music, and then Mayumi continues on her way, feeling like she’s on top of the world."
-            #failure
-            show headphone_guy sad
-            hp_guy "Sure you are. And I’m the director of Yu Yu Hakusho."
-            show mayumi sad
-            m "No, I mean it!"
-            hp_guy "Come on, don’t joke about something like that. This is a great song, and you shouldn’t steal credit for yourself."
-            m "But I… Never mind."
-            m "She runs past him down the street, crestfallen that he didn’t believe her."
+            $dice_number = renpy.random.randint(0,100)
+            if number <= choice_raise_funds_formula():
+                $rechoice_37_1()
+                hp_guy "Really? Cool! I’m so happy to meet you! Your music is fantastic."
+                show mayumi laugh_eyes_closed
+                m "Thanks!"
+                hp_guy "If the rest of the soundtrack is half as good as this, I can’t wait to hear it!"
+                m "You really think it’s that good?"
+                hp_guy "Definitely. I’m going to tell all of my friends to check out [anime.name]."
+                m "Wow! Thanks!"
+                "They talk a little longer about music, and then Mayumi continues on her way, feeling like she’s on top of the world."
+            else:
+                $rechoice_37_2()
+                show headphone_guy sad
+                hp_guy "Sure you are. And I’m the director of Yu Yu Hakusho."
+                show mayumi sad
+                m "No, I mean it!"
+                hp_guy "Come on, don’t joke about something like that. This is a great song, and you shouldn’t steal credit for yourself."
+                m "But I… Never mind."
+                m "She runs past him down the street, crestfallen that he didn’t believe her."
+    return
 

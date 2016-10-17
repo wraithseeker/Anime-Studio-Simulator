@@ -17,6 +17,12 @@
                 setattr(self,"prev_" + self.db_stats[i],0)
             self.prev_happiness = Stats.DEFAULT_HAPPINESS
             self.prev_stress = Stats.DEFAULT_STRESS
+        def setRandomStats(self):
+            self.happiness = renpy.random.randint(5,10)
+            self.stress = renpy.random.randint(3, 6)
+            self.proficiency = renpy.random.randint(0, 2)
+            if self.name == "Yukari":
+                self.management = renpy.random.randint(1,3)
 
         def storePreviousWeekValues(self):
             for i in range (0,len(self.db_stats)):
@@ -62,7 +68,7 @@
                 if self.name != "Yukari":
                     renpy.call_in_new_context("dead_burnout",self)
                 else:
-                    self._stress = 10
+                    renpy.call_in_new_context("dead_burnout_yukari")
             elif value <= 0:
                 self._stress = 0
             elif 0 <= value <= Stats.MAXIMUM_STRESS_TO_DIE:
@@ -78,7 +84,7 @@
                 if self.name != "Yukari":
                     renpy.call_in_new_context("dead_burnout",self)
                 else:
-                    self._happiness = 0
+                    renpy.call_in_new_context("dead_burnout_yukari")
             elif value >= 10.0:
                 self._happiness = 10
             elif Stats.MINIMUM_HAPPINESS_TO_DIE <= value <= 10:

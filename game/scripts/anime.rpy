@@ -45,6 +45,25 @@
             self._quality_check = 0
             self._marketing = 0
 
+        def setTestStats(self):
+            self.plot = 2.5
+            self.character_development = 1.5
+            self.storyboards = 1
+            self.character_design = 3
+            self.background = 2
+            self.animation = 1
+            self.voice_acting = 0.5
+            self.op_ed = 0
+            self.ost = 1.5
+            self.setProgress()
+
+        def setProgress(self):
+            #15 stars is the max number of stars we have, * 100 to convert it to percentage
+            # 30 comes from 3*10, 3 sub stats & upper boundary 10
+            self.story_progress = int((self.plot + self.storyboard + self.character_development) / 15.0 * 100.0)
+            self.art_progress = int((self.character_design + self.background + self.animation) / 15.0 * 100.0)
+            self.music_progress = int((self.op_ed + self.ost + self.voice_acting) / 15.0 * 100.0)
+
 
         def storePreviousWeekValues(self):
             for i in range (0,len(self.db_stats)):
@@ -79,9 +98,7 @@
         def updateDashboard(self):
             for i in range (0,len(self.db_stats)):
                 self.getStatChanges(self.db_stats[i])
-            self.story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
-            self.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
-            self.music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
+            self.setProgress()
 
         def checkCategory(self,category):
             #0 = none, 1 = positive, 2 = negative
@@ -281,8 +298,9 @@
 
         @funds.setter
         def funds(self,value):
-            if value <= 0:
-                renpy.jump("dead_no_funds")
+            global in_gameplay_menu
+            if value <= 0 and not in_gameplay_menu:
+                renpy.call_in_new_context("dead_no_funds")
             else:
                 self._funds = value
 

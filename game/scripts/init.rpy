@@ -1,6 +1,6 @@
 ﻿label start:
     #initialize the class objects at runtime here instead of python init so object will be saved
-    $anime = Anime("Macross Delta")
+    $anime = Anime("Herb and Fox")
     #stats for characters
     $yukari_stats = Stats("Yukari")
     $yukari_stats.management = 1
@@ -9,11 +9,7 @@
     $sumiko_stats = Stats("Sumiko")
     $yuuko_stats = Stats("Yuuko")
     $shunsuke_stats = Stats("Shunsuke")
-    #15 stars is the max number of stars we have, * 100 to convert it to percentage
-    # 30 comes from 3*10, 3 sub stats & upper boundary 10
-    $anime.story_progress = int((anime.plot + anime.storyboard + anime.character_development) / 15.0 * 100.0)
-    $anime.art_progress = int((anime.character_design + anime.background + anime.animation) / 15.0 * 100.0)
-    $anime.music_progress = int((anime.op_ed + anime.ost + anime.voice_acting) / 15.0 * 100.0)
+    $anime.setProgress()
     #Anime final score here
     $anime_score_components = (anime.plot + anime.character_development + anime.storyboard + anime.character_design + anime.background + anime.animation + anime.voice_acting +anime.op_ed + anime.ost ) 
     $anime_score_multipliers = (1 + yukari_stats.management * 0.05 + anime.marketing * 0.05 + anime.quality_check * 0.3)
@@ -23,9 +19,10 @@
     $anime.plot = 1
     $anime.prev_plot = 1
     $UpdateProgressReport()
-    jump week_0_1
-    #jump week_7_1_1
-    #jump pre_game
+    #jump week_0_1
+    #jump week_1_6
+    jump week_10_2
+    #jump random_16
 
 init python:
     import datetime
@@ -83,14 +80,17 @@ init:
 
     #Random Events
     $rd_e_holder = RandomEventsHolder()
-    # rd_e_holder.wk_4_to_12 = ["random_1","random_2","random_4","random_5","random_6"]
-    # rd_e_holder.wk_4_to_6 = second
-    # rd_e_holder.wk_5_to_7 = third
-    # rd_e_holder.wk_5_to_10 = ["random_3",]
-    # rd_e_holder.wk_6_to_8 = ["random_7"]
-    # rd_e_holder.wk_8_to_10 = sixth
-    # rd_e_holder.theme_song = seventh
-    # rd_e.all = ["random_8","random_9"]
+    $rd_e_holder.wk_4_to_12 = ["random_2","random_4","random_5","random_6","random_12"]
+    $rd_e_holder.wk_4 = ["random_26"]
+    $rd_e_holder.wk_5_to_7 = ["random_20","random_22"]
+    $rd_e_holder.wk_5_to_10 = ["random_3","random_14",]
+    $rd_e_holder.wk_6_to_8 = ["random_7"]
+    $rd_e_holder.wk_10_to_12 = ["random_37","random_27"]
+    $rd_e_holder.all = ["random_1","random_8","random_9","random_10","random_11","random_13","random_15","random_16",
+                "random_17","random_18","random_19","random_21","random_23","random_24","random_25",
+                "random_28","random_29","random_30","random_31","random_32","random_33","random_34","random_35",
+                "random_36"]
+    $rd_e_holder.calculateEvents()
     #upgrade screen
     $upgrade_tooltip_default = "Send your team out for training! This will increase their Proficiency stats."
     $upgrade_tooltip_complete = "Success!"
@@ -132,8 +132,6 @@ init:
     $anim_studio_cheap = getRandomCompany() + " Studio"
     $anim_studio = "Default Studios"
     $va_choice = "Talent Agency"
-    #$anim_studio_expensive_price = 
-    #$$anim_studio_cheap_price = 
     #voice actor automatically defaults to harem
     $va_a = "Bradley"
     $va_b = getRandomFemaleName()

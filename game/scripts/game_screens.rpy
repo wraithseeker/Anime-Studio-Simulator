@@ -270,7 +270,6 @@ screen anime_status():
         style "anime_status_window"
 
     #star_full.png, star_half.png,star_empty.png
-    #story
     imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return() 
     vbox:
         xalign 0.35 
@@ -536,7 +535,6 @@ screen outsource():
 
     default outsource_tt = Tooltip("")
     imagebutton auto "ui/load/close_button_%s.png" xalign 0.665 yalign 0.10 action Return() 
-    text str(outsource.selection_count) size 30
     frame:
         background None
         text "Produce 1" color "#000" xalign 0.5 yalign 0.10 size 55
@@ -747,7 +745,6 @@ screen side_nav():
                 textbutton ("Outsource")  action If(side_nav_interaction,ShowMenu("outsource"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 textbutton ("Upgrades")  action If(side_nav_interaction,ShowMenu("upgrade"))  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                 textbutton ("Progress")  action If (side_nav_interaction,ShowMenu("progress_report_sidenav")) text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
-                # textbutton ("Monday")  action ShowMenu("load")  text_style "sidenav_menu_buttons_text" style "sidenav_menu_buttons"
                
         vbox:
             if task_ready:
@@ -760,6 +757,7 @@ screen start_game:
     use side_nav
     if task_ready:
         timer 0.03 action [Return(),SetVariable("task_ready",False),renpy.curry(EndTurn)()]
+
     # else:
     #     use progress_report
 

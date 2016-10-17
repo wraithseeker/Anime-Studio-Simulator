@@ -248,7 +248,7 @@ image bg storyboard_mystery = "cg/storyboard/storyboard_mystery.png"
 image bg expo_harem = "cg/expo/expo_harem.png"
 image bg expo_action = "cg/expo/expo_action.png"
 image bg expo_mystery = "cg/expo/expo_mystery.png"
-
+image bg first_anime = "cg/first_anime.png"
 
 image money = "ui/money_bag.png"
 

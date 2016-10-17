@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/random_event_holder.rpy", line 2: expected an indented block
-    class RandomEventsHolder(object):
+File "game/scripts/random_events_choices.rpy", line 513: invalid syntax
+    def rechoice_33_1()
     
 
 Ren'Py Version: Ren'Py 6.99.11.1749

@@ -317,13 +317,29 @@ label pre_game:
     hide image "ui/done_idle.png"
     "You can also see an overview of your actions each week under {font=fonts/LiberationSans-Bold.ttf}Progress{/font}, which should help you decide what to focus on."
     "You'll eventually have to {font=fonts/LiberationSans-Bold.ttf}Outsource{/font} work and it is a good idea to occasionally {font=fonts/LiberationSans-Bold.ttf}Upgrade{/font} your team members by sending them for training."
+    "If you run out of funds, you'll no longer be able to continue working on [anime.name]. Likewise, you won't be able to continue if one of your team members becomes too stressed or dissatisfied."
     "Good luck!"
     $side_nav_interaction = True
     $show_floating_buttons = True
     hide screen start_game
     play music "music/ost/scheduled_days.ogg" fadein 1.0
     $renpy.retain_after_load()
+    $nextWeek()
+    $nextWeek()
+    $nextWeek()
+    $nextWeek()
+    $nextWeek()
+    $nextWeek()
+    $anime.funds = renpy.random.randint(30,75)
+    $anime.setTestStats()
+    $yukari_stats.setRandomStats()
+    $yuuko_stats.setRandomStats()
+    $sumiko_stats.setRandomStats()
+    $shunsuke_stats.setRandomStats()
+    $mayumi_stats.setRandomStats()
+    $in_gameplay_menu = True
     call screen start_game
+    $in_gameplay_menu = False
     stop music
 
 label week_1_1:
@@ -492,7 +508,8 @@ label week_1_2:
                 y "Hmm, something exciting and flashy!"
             show sumiko happy
             s "Great, thanks for the advice."
-
+    $random_game_event = rd_e_holder.singleRandom(rd_e_holder.all)
+    call expression random_game_event
 
 label week_1_3:
     $nextDay()
@@ -705,7 +722,9 @@ label week_1_6:
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
+    $in_gameplay_menu = True
     call screen start_game
+    $in_gameplay_menu = False
     stop music
     $fastForwardDays(2)
     stop music 
@@ -769,10 +788,8 @@ label week_2_1:
             $choice_2_1_2()
             "Shunsuke is right. While they may have a tight deadline to finish the two episodes of [anime.name], Yukari decides it’s best to work with a firm foundation instead of a shaky one."
             "The character designs need to be re-done to match the scenario, or else the project’s value will ultimately be lowered."
-
-    # $rand_choice = renpy.random.choice(first_w_events)
-    # $first_w_events.remove(rand_choice)
-    # call expression rand_choice from _call_expression
+    $random_game_event = rd_e_holder.singleRandom(rd_e_holder.all)
+    call expression random_game_event
 label week_2_3:
     $fastForwardDays(2)
     scene studio_main with fade
@@ -838,9 +855,6 @@ label week_2_3:
             $choice_2_2_2()
             show yukari worry
             y "Sorry, Shunsuke, but I agree with Mayumi. We’ve already got a lot on our plate, and we don’t want to cause feature creep for [anime.name]."
-    # $rand_choice = renpy.random.choice(first_w_events)
-    # $first_w_events.remove(rand_choice)
-    # call expression rand_choice from _call_expression_1
 label week_2_4:
     $nextDay()
     scene bg street with fade
@@ -980,7 +994,9 @@ label week_2_6:
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
+    $in_gameplay_menu = True
     call screen start_game
+    $in_gameplay_menu = False
     stop music
     $fastForwardDays(2)
     stop music 
@@ -1086,9 +1102,6 @@ label week_3_1:
         "Don't contact the studio":
             $choice_3_1_2()
             pass
-    # $rand_choice = renpy.random.choice(first_w_events)
-    # $first_w_events.remove(rand_choice)
-    # call expression rand_choice from _call_expression_2
 label week_3_2:
     $nextDay()
     scene studio_main with fade
@@ -1139,7 +1152,8 @@ label week_3_2:
     y "Why can’t they just tell me they’re not interested instead of leaving me hanging?"
     "Yukari rubs her head. The pressure and stress is starting to get to her. She looks around the studio. Everyone else is hard at work."
     "As much as she wants to complain to them about what happens, she knows it’s better if she doesn’t distract them."
-
+    $random_game_event = rd_e_holder.singleRandom(rd_e_holder.all)
+    call expression random_game_event
 label week_3_3:
     $nextDay()
     scene studio_main with fade
@@ -1175,9 +1189,9 @@ label week_3_3:
             y "Losing some progress now is better than coming down with a serious illness that could jeopardize the whole project!"
             s "Yes, ma’am..."
             "Yukari takes Sumiko to see a doctor. She is indeed sick. She’ll be recuperating at home for the rest of the week and won’t be able to work on [anime.name]."
-    # $rand_choice = renpy.random.choice(first_w_events)
-    # $first_w_events.remove(rand_choice)
-    # call expression rand_choice from _call_expression_3
+
+    $random_game_event = rd_e_holder.singleRandom(rd_e_holder.all)
+    call expression random_game_event
 
 label week_3_4:
     $nextDay()
@@ -1361,7 +1375,9 @@ label week_3_6:
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
+    $in_gameplay_menu = True
     call screen start_game
+    $in_gameplay_menu = False
     stop music
     $fastForwardDays(2)
     stop music 
@@ -1403,6 +1419,8 @@ label week_4_1:
             $choice_4_1_3()
             "Although there’s a lot of work to do, brightening the mood is more important. But how? Yukari considers it for a moment, and then leaves the studio to visit a nearby bakery."
             "She returns with enough cookies for everyone to have some. It isn’t a permanent solution, but the tension in the air eases as she passes around the cookies."
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4,rd_e_holder.wk_4_to_12)
+    call expression random_game_event
 
 label week_4_3:
     $fastForwardDays(2)
@@ -1459,6 +1477,8 @@ label week_4_3:
     y "I’ll tell her tomorrow. Be sure to talk to her and Sumiko soon. If they’re already feeling down, it might be hard for them to cope with extra pressure."
     m "Don’t worry, I will."
     y "I know I can count on you."
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4,rd_e_holder.wk_4_to_12)
+    call expression random_game_event
 
 label week_4_4:
     $nextDay()
@@ -1514,6 +1534,7 @@ label week_4_4:
 
 label week_4_5:
     $nextDay()
+    $fastForwardDays(33)
     scene studio_main with fade
     show yukari worry at left
     show mayumi_f at Position(xalign = 0.80,yalign = 1.0)
@@ -1780,7 +1801,9 @@ label week_4_6:
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
+    $in_gameplay_menu = True
     call screen start_game
+    $in_gameplay_menu = False
     stop music
     $fastForwardDays(2)
     stop music 

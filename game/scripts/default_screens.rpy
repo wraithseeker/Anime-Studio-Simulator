@@ -565,7 +565,7 @@ screen quick_menu():
         textbutton _("Q.Save") action QuickSave() text_style "quick_menu_text" style "quick_menu_text_button"
         textbutton _("Q.Load") action QuickLoad() text_style "quick_menu_text" style "quick_menu_text_button"
         textbutton _("Auto") action Preference("auto-forward", "toggle") text_style "quick_menu_text" style "quick_menu_text_button"
-        textbutton _("Skip") action Skip() text_style "quick_menu_text" style "quick_menu_text_button"
+        textbutton _("Skip") action Skip(fast=True) text_style "quick_menu_text" style "quick_menu_text_button"
         #textbutton _("F.Skip") action Skip(fast=True, confirm=True)
         #textbutton _("Prefs") action ShowMenu('preferences')
 

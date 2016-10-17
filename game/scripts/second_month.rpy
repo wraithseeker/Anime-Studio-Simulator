@@ -34,20 +34,25 @@ label week_5_1:
     "Yukari didn’t want to decide, but she has no choice. Hers is the deciding vote."
     "Which studio should she get in touch with?"
     menu:
-        "[anim_studio_expensive]":
+        "[anim_studio_expensive] {space=15}{image=small_moneybag.png} [EXPENSIVE_STUDIO_FUNDS_VALUE]":
             $choice_5_1_1()
             "Yukari decides to get in touch with [anim_studio_expensive]."
             "Working with a studio renowned for its production quality will help save them a lot more money in the long run."
             "They will have proper procedures and guidelines during the production process which will definitely be a great help to the inexperienced team."
             "Best of all, it will ensure [anime.name] has top-notch animation."
             $anim_studio = anim_studio_expensive
-        "[anim_studio_cheap]":
+        "[anim_studio_cheap] {space=15}{image=small_moneybag.png} [CHEAP_STUDIO_FUNDS_VALUE]":
             $choice_5_1_2()
             "Yukari decides to get in touch with [anim_studio_cheap]."
             "Despite the studio’s recent slump, her research suggests it’s only due to poor management. If she manages the team effectively, she’ll be able to turn things around for everyone."
             "The main selling point, of course, is the competitive price." 
             "[anim_studio_cheap]’s quality can be hit-and-miss, so Yukari will need to pay extra attention to them if she wants things to go smoothly."
             $anim_studio = anim_studio_cheap
+    $rd_e_holder.emptyList(rd_e_holder.wk_4)
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10)
+    $renpy.notify(random_game_event)
+    call expression random_game_event
+
 label week_5_2:
     $nextDay()
     scene studio with fade 
@@ -288,10 +293,11 @@ label week_5_3:
     y "Nice, I like the way you think! I’ll start editing the storyboards now. Thanks!"
     ss "Anytime."
     "Yukari spends some time working on the storyboard. Between Shunsuke’s advice and some input from Mayumi, she feels she’s on the right track."
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10)
+    call expression random_game_event
 
 label week_5_4:
     $nextDay()
-    $anim_studio = anim_studio_expensive
     scene studio_main with fade
     show yukari at left with dissolve
     y "Well, unless anyone objects to working with [anim_studio], I guess I should head over there."
@@ -416,7 +422,6 @@ label week_5_5:
     show sumiko at Position(xalign=0.87,yalign=1.0)
     show yuuko at pos_outerright behind sumiko
     with dissolve
-    $anim_studio = anim_studio_cheap
     y "In case anyone forgot, I went back to [anim_studio] yesterday to sign the contract."
     y "I'll be heading over there later to provide them with the storyboards they need to start animating the first episode of [anime.name]."
     y "Yuuko, Sumiko, since they’ll be sharing the workload with you, do you have any questions about the arrangements?"
@@ -598,7 +603,9 @@ label week_5_6:
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
+    $in_gameplay_menu = True
     call screen start_game
+    $in_gameplay_menu = False
     stop music fadeout 1.0
     $fastForwardDays(2)
 
@@ -812,18 +819,18 @@ label week_6_2:
     "Yukari reads over the three options multiple times."
     m "Well? Which sounds best for [anime.name]?"
     menu:
-        "Talent Agency":
+        "Talent Agency {space=15}{image=small_moneybag.png} [TALENT_AGENCY_FUNDS_VALUE]":
             $choice_6_2_1()
             y "The talent agency is the best way for us to ensure we get quality voice acting."
             y "Yes, it costs more, but it will also free up our time to work on other things."
             $va_choice = "Talent Agency"
             #va choice is for branching text
-        "Agent":
+        "Agent {space=15}{image=small_moneybag.png} [AGENT_FUNDS_VALUE]":
             $choice_6_2_2()
             y "Working through agents is the ideal middle ground."
             y "We won’t have to search for the voice actors ourselves, but we won’t have to deal with a talent agency’s high prices either."
             $va_choice = "Agent"
-        "Freelancers":
+        "Freelancers {space=15}{image=small_moneybag.png} [FREELANCER_FUNDS_VALUE]":
             $choice_6_2_3()
             y "We need to look for freelance voice actors ourselves."
             y "It’ll take a lot of time and could be risky, but our budget can’t handle too much of a strain."
@@ -837,6 +844,8 @@ label week_6_2:
     elif va_choice == "Freelancers":
         m "I'll look for freelancers and shortlist the most promising ones. Then I’ll hold auditions to make the final decision."
 
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8)
+    call expression random_game_event
 label week_6_3:
     $nextDay()
     scene studio_main with fade
@@ -963,7 +972,6 @@ label week_6_4:
     show yukari surprised at left 
     show sumiko at right
     with dissolve
-    $anim_studio = anim_studio_expensive
     #phone ringing sound
     y "Who could that be?"
     y "It’s our investor! What should I do?"
@@ -1038,7 +1046,7 @@ label week_6_4:
     "On the other hand, not only will they have to dip into their funds, but they’ll also need to put in the time and effort to promote it."
     investor "It’s just my advice. What do you think?"
     menu:
-        "Listen to your investor's advice and start marketing":
+        "Listen to your investor's advice and start marketing {space=15}{image=small_moneybag.png} [INVESTOR_FUNDS_MARKETING_6_3_1]":
             $choice_6_3_1()
             $investor_marketing = True
             y "You’re right. We need to start marketing, and this is the best time to do it. We’ll get started immediately."
@@ -1053,6 +1061,8 @@ label week_6_4:
     investor "I look forward to hearing more about your progress in the future. However, I need to leave now. Good luck, Yukari."
     "She shakes his hand."
     y "Thank you."
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8)
+    call expression random_game_event
 
 label week_6_5:
     $nextDay()
@@ -1254,7 +1264,9 @@ label week_6_6:
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
+    $in_gameplay_menu = True
     call screen start_game
+    $in_gameplay_menu = False
     stop music fadeout 1.0
     $fastForwardDays(2) 
            
@@ -1273,6 +1285,10 @@ label week_7_1_1:
     y "I should be fine myself, even though it's nicer to have you with me."
     m "All right, if no one needs anything, I'm heading over now. Bye!"
     m "Bye!"
+
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8)
+    call expression random_game_event
+
     scene animation_studio with fade
     show yukari at left
     show anim_dir at right
@@ -1680,7 +1696,6 @@ label week_7_2:
     show shunsuke at Position(xalign=0.82,yalign=1.0)
     show yuuko at Position(xalign=1.15,yalign=1.0)
     with dissolve
-    $anim_studio = anim_studio_cheap
     ss "Yukari, are you ready to work out a new deal for the animation work?"
     "From the tone of his voice, he worries she still isn’t in a good state of mind to handle negotiations."
     y "Almost there... Give me a moment."
@@ -1914,7 +1929,8 @@ label week_7_4:
     "As for Sumiko and Mayumi, they act determined to restore optimism to the team through force of will alone if necessary."
     "When Yukari returns later that day, cheerful greetings meet her at the door. It’s almost like the incident with the key frames never happened at all." 
     "Despite her worries about the future, she can’t help but smile back. Her responsibilities no longer seem so difficult to bear." 
-
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8)
+    call expression random_game_event
 label week_7_5:
     $nextDay()
     scene studio_main with fade
@@ -2361,7 +2377,9 @@ label week_7_6:
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
+    $in_gameplay_menu = True
     call screen start_game
+    $in_gameplay_menu = False
     stop music fadeout 1.0
     $fastForwardDays(2)
 
@@ -2616,7 +2634,9 @@ label week_8_2:
     m "A lot of freelancers check online job boards. I can post there, if you like." 
     y "That sounds great." 
     "The two of them search for freelance animators until it’s once again time to catch the train and go home." 
-
+    $rd_e_holder.emptyList(rd_e_holder.wk_5_to_7)
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8)
+    call expression random_game_event
 label week_8_3:
     $nextDay()
     scene studio with fade
@@ -3360,7 +3380,6 @@ label week_8_5:
     show yukari at left
     with dissolve
     # studio cheap, never check BG (FAILURE)
-    $anim_studio = anim_studio_cheap
     if anim_studio == anim_studio_cheap:
         "When she arrives, the director is waiting for her." 
         show anim_dir at right with dissolve
@@ -3402,7 +3421,11 @@ label week_8_5:
     scene street with fade
     show yukari at left with dissolve
     "Once she leaves the studio, she gets in touch with Sumiko’s friends. Like Sumiko promised, they’re ready to work on [anime.name] right away." 
-    "It’s been a bumpy road, but at last everything is coming together." 
+    "It’s been a bumpy road, but at last everything is coming together."
+
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8)
+    call expression random_game_event
+
     scene restaurant with fade   
     show yukari at pos_left
     show sumiko at pos_right
@@ -3495,7 +3518,9 @@ label week_8_6:
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
+    $in_gameplay_menu = True
     call screen start_game
+    $in_gameplay_menu = False
     stop music fadeout 1.0
     $fastForwardDays(2)
     jump week_9_1

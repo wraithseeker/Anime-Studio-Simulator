@@ -217,6 +217,9 @@ label week_9_2:
     "With their plan for the website decided, everyone gets back to work. Yukari contacts Sumiko’s friends to check on their progress."
     "To her delight, they’re almost done with their work on the first episode already, and they ask if they can meet with her the next morning about it." 
     "For once, everything is going well."
+    $rd_e_holder.emptyList(rd_e_holder.wk_6_to_8)
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10)
+    call expression random_game_event
 label week_9_3:
     $nextDay()
     scene black with fade
@@ -431,6 +434,8 @@ label week_9_3:
     va_dir "All we need to do now is edit the voice tracks to prepare them for the show. Can you come by next Thursday to get them? " 
     y "Yes, that’s fine." 
     "She copies the current audio files to her USB drive, bids everyone farewell, and leaves the recording studio satisfied with the day’s work." 
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10)
+    call expression random_game_event
 
 label week_9_4:
     $nextDay()
@@ -721,7 +726,9 @@ label week_9_6:
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
+    $in_gameplay_menu = True
     call screen start_game
+    $in_gameplay_menu = False
     stop music fadeout 1.0
     $fastForwardDays(2)
 
@@ -729,8 +736,6 @@ label week_10_1:
     scene studio_main with fade
     show yukari at left
     with dissolve
-    $anim_studio = anim_studio_cheap
-    $anime.category = Anime.ACTION
     $wk_9_forgot_home = True
     #phone ringing sound
     "Yukari answers her phone." 
@@ -762,7 +767,7 @@ label week_10_1:
                 "With their budget, it doesn't feel right to go the more expensive route, even at a discount."
                 "Besides, as long as they pick good scenes, it should still appeal to their target audience." 
                 $trailer_choice = "Reuse"
-            "Create new animations for the trailer.": 
+            "Create new animations for the trailer. {space=15}{image=small_moneybag.png} [ANIM_STUDIO_VALUE_10_2]": 
                 $choice_10_1_2()
                 y "Let's create new animations for the trailer." 
                 "She wants [anime.name] to be as professional as possible, and a trailer with custom animations sounds like perfect way to do that." 
@@ -846,6 +851,7 @@ label week_10_2:
     show sumiko at pos_textbox_right
     show shunsuke at pos_outerright
     with dissolve
+    stop music
     m "Okay, who wants to hear some sound effects?" 
     show sumiko happy
     s "I do!" 
@@ -858,7 +864,7 @@ label week_10_2:
         s "Good! What would a science club be without things exploding?" 
         ss "That is a very alarming question." 
         m "How's this?" 
-        #[explosion sound effect] 
+        play sound "music/sfx/anime/harem/flask_explosion.ogg" 
         show sumiko laugh_eyes_closed
         s "I like it." 
     elif anime.category == Anime.ACTION:
@@ -867,11 +873,13 @@ label week_10_2:
         show sumiko sad_angry
         s "But there's tons of action!" 
         m "I don't have an explosion, but I have some gunshots." 
+        play sound "music/sfx/anime/action/gunshot.ogg" 
         ss "That sounds pretty good." 
     elif anime.category == Anime.MYSTERY:
         show shunsuke sigh
         ss "Where would there possibly be an explosion in [anime.name]'s story?" 
         s "Isn't there a scene where the protagonist hears a loud noise?" 
+        play sound "music/sfx/anime/mystery/dropping_boxes.ogg" 
         m "That loud noise isn't an explosion, though. It's made by boxes falling on the ground." 
         ss "Much more fitting for the story." 
     show shunsuke
@@ -880,17 +888,11 @@ label week_10_2:
     y "What other sound effects do you have ready?" 
     m "Here are two more." 
     if anime.category == Anime.HAREM:
-        pass
-        # [mixing liquids sound effect] 
-        # [flask breaking sound effect] 
+        play sound ["music/sfx/anime/harem/mix_flask.ogg","music/sfx/anime/harem/flask_drop.ogg"] 
     elif anime.category == Anime.ACTION:
-        pass
-        # [car driving/engine sound effect] 
-        # [tires squealing sound effect] 
+        play sound ["music/sfx/anime/action/car_engine.ogg","music/sfx/anime/action/tire screech.ogg"] 
     elif anime.category == Anime.MYSTERY:
-        pass
-        # [mysterious footsteps sound effect] 
-        # [stabbing sound effect] 
+        play sound ["music/sfx/anime/mystery/footsteps.ogg","music/sfx/anime/mystery/knife_stab.ogg"] 
     show yukari laugh_eyes_closed
     y "Sounds like things are coming together nicely." 
     show sumiko happy
@@ -905,6 +907,8 @@ label week_10_2:
     ss "Is the audio work almost finished, then?" 
     m "Yep! Once we get the edited voice tracks from the recording studio, we'll be almost done." 
     y "And that'll be on Thursday. We're almost there, everyone! Hang in there." 
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_10_to_12)
+    call expression random_game_event
 label week_10_3:
     $nextDay()
     scene studio_main with fade
@@ -1052,13 +1056,12 @@ label week_10_4:
     m "This is perfect. See, Yukari? I knew you'd be fine."
     show yukari sigh 
     y "It still was stressful to handle it myself. But since everything worked out, I can't complain."  
-     #[random event] 
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_10_to_12)
+    call expression random_game_event 
 
 label week_10_5: 
     $nextDay()
     scene black with fade 
-    $anim_studio = anim_studio_cheap
-    $anime.category = Anime.MYSTERY
     "As promised, Yukari visits the animation studio on Friday to meet with the director about the trailer." 
     if anim_studio == anim_studio_expensive:
         scene animation_studio with fade
@@ -1267,7 +1270,9 @@ label week_10_6:
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
+    $in_gameplay_menu = True
     call screen start_game
+    $in_gameplay_menu = False
     stop music fadeout 1.0
     $fastForwardDays(2)
 
@@ -1294,7 +1299,6 @@ label week_11_1:
     ss "Nice! I can't wait to see it." 
     show yukari laugh_eyes_closed
     y "Same. I'll be back soon." 
-    $anim_studio = anim_studio_cheap
     if anim_studio == anim_studio_expensive:
         scene animation_studio with fade
         show yukari happy at left with dissolve
@@ -1383,7 +1387,7 @@ label week_11_1:
     m "Me too! I'm nervous about how it'll be…" 
     y "Give me a minute to set it up, and then we can all watch it together!" 
     "She puts the disc into her computer. Everyone gathers around to watch the video." 
-    #[a cg of everyone staring at the computer screen (anime episode) ] 
+    scene first_anime with fade
     "Everyone watches with excitement and anticipation as the episode begins. After all, this is the result of their hard work over the past few months." 
     m "Oooh, it looks so good! Yukari, you did a fantastic job!" 
     y "I'm just the director. Everyone here and at [anim_studio] helped make this possible." 
@@ -1401,7 +1405,6 @@ label week_11_1:
     yuu "If you all think so, then… okay! I accept it." 
     m "Now that that's settled, shh… let's watch!" 
     "They watch in silence until the video reaches its end." 
-    #[end CG]
     scene studio_main with fade
     show yukari laugh_eyes_closed at pos_left
     show sumiko at pos_right
@@ -1568,7 +1571,9 @@ label week_11_3:
     ss "At the beginning, something like this could have shattered us. But now? Everyone has the will to succeed. Don't worry, Yukari. We'll be fine." 
     show yukari laugh_eyes_closed
     y "All right, then! In that case, we should get back to work. We have a lot to do and only a limited time to do it in. Let's do this!" 
-     #[random event]  
+    $rd_e_holder.emptyList(rd_e_holder.wk_5_to_10)
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_10_to_12)
+    call expression random_game_event
 label week_11_4:
     $nextDay()
     show studio_main with fade
@@ -1731,7 +1736,8 @@ label week_11_5:
     s "Anyway, I'm on board with getting this done tonight!" 
     show yukari happy
     y "Great! Also, I'll be dropping by the studio over the weekend to do some of the final checks on [anime.name]. If anyone wants to join me, feel free." 
-     #[random event] 
+    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_10_to_12)
+    call expression random_game_event
 # [weekend] 
 label week_11_6:
     scene studio_main with fade
@@ -1797,7 +1803,9 @@ label week_11_6:
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
+    $in_gameplay_menu = True
     call screen start_game
+    $in_gameplay_menu = False
     stop music fadeout 1.0
     $fastForwardDays(2)
 
@@ -2025,7 +2033,6 @@ label week_12_2:
     y "We're a new studio, and [anime.name] is our debut project."  
     attendee "It looks interesting. What's it about?" 
     "Shunsuke steps in to explain the plot. While they talk, a small group of people joins the first attendee. Before long, more and more people are visiting their booth." 
-    #[CG of Yukari, Sumiko and Yuuko at their booth with happy faces]
     if anime.category == Anime.HAREM:
         scene expo_harem with fade
     elif anime.category == Anime.ACTION:
@@ -2094,7 +2101,6 @@ label week_12_3:
     with dissolve
     "Yukari hurries away to a quieter section of the convention center to take the call." 
     y "Hello?" 
-    $anim_studio = anim_studio_expensive
     if anim_studio == anim_studio_expensive:
         anim_dir "Hello, Yukari. I just wanted to let you know that Episode Two of [anime.name] is ready." 
         y "Great! I'll be by later today to pick it up." 
