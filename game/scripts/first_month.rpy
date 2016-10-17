@@ -324,19 +324,19 @@ label pre_game:
     hide screen start_game
     play music "music/ost/scheduled_days.ogg" fadein 1.0
     $renpy.retain_after_load()
-    $nextWeek()
-    $nextWeek()
-    $nextWeek()
-    $nextWeek()
-    $nextWeek()
-    $nextWeek()
-    $anime.funds = renpy.random.randint(30,75)
-    $anime.setTestStats()
-    $yukari_stats.setRandomStats()
-    $yuuko_stats.setRandomStats()
-    $sumiko_stats.setRandomStats()
-    $shunsuke_stats.setRandomStats()
-    $mayumi_stats.setRandomStats()
+    # $nextWeek()
+    # $nextWeek()
+    # $nextWeek()
+    # $nextWeek()
+    # $nextWeek()
+    # $nextWeek()
+    # $anime.funds = renpy.random.randint(30,75)
+    # $anime.setTestStats()
+    # $yukari_stats.setRandomStats()
+    # $yuuko_stats.setRandomStats()
+    # $sumiko_stats.setRandomStats()
+    # $shunsuke_stats.setRandomStats()
+    # $mayumi_stats.setRandomStats()
     $in_gameplay_menu = True
     call screen start_game
     $in_gameplay_menu = False
@@ -1394,8 +1394,8 @@ label week_4_1:
     y "Not to mention our art assets were delayed when Sumiko fell sick."
     m "Maybe we should hire freelancers so we can complete it on time."
     m "It'll be a hassle, but it might be worth it. I’ll look online for new investors, too."
+    play sound sfx_anim_d_open
     scene sumiko_walk_in with fade
-    #door sound
     s "I’m sorry… This is all my fault. If I’d taken better care of my health, I wouldn’t have gotten sick and we wouldn’t be in this situation."
     "With a gloomy look on her face, Sumiko apologizes repeatedly to Yukari and Mayumi until Shunsuke interrupts her."
     ss "It's not your fault, Sumiko. You were only trying to work hard on [anime.name]. Maybe we share the blame for not noticing you were overworked."
@@ -1419,7 +1419,7 @@ label week_4_1:
             $choice_4_1_3()
             "Although there’s a lot of work to do, brightening the mood is more important. But how? Yukari considers it for a moment, and then leaves the studio to visit a nearby bakery."
             "She returns with enough cookies for everyone to have some. It isn’t a permanent solution, but the tension in the air eases as she passes around the cookies."
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4,rd_e_holder.wk_4_to_12)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4,rd_e_holder.wk_4_to_12])
     call expression random_game_event
 
 label week_4_3:
@@ -1477,7 +1477,7 @@ label week_4_3:
     y "I’ll tell her tomorrow. Be sure to talk to her and Sumiko soon. If they’re already feeling down, it might be hard for them to cope with extra pressure."
     m "Don’t worry, I will."
     y "I know I can count on you."
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4,rd_e_holder.wk_4_to_12)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4,rd_e_holder.wk_4_to_12])
     call expression random_game_event
 
 label week_4_4:

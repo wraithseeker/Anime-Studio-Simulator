@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/random_events_choices.rpy", line 513: invalid syntax
-    def rechoice_33_1()
+File "game/scripts/choices.rpy", line 395: invalid syntax
+    def negotiate_default:
+                          ^
     
 
 Ren'Py Version: Ren'Py 6.99.11.1749

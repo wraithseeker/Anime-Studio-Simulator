@@ -49,7 +49,7 @@ label week_5_1:
             "[anim_studio_cheap]’s quality can be hit-and-miss, so Yukari will need to pay extra attention to them if she wants things to go smoothly."
             $anim_studio = anim_studio_cheap
     $rd_e_holder.emptyList(rd_e_holder.wk_4)
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10])
     $renpy.notify(random_game_event)
     call expression random_game_event
 
@@ -151,14 +151,13 @@ label week_5_2:
         y "This is why your room doesn't have enough space!"
         m "Pffft... You don't appreciate Nendoroids enough."
         "Footsteps echo from deeper within the studio. Someone must finally be coming. A few seconds later, the door behind the reception desk opens."
-        #door sound
+        play sound sfx_anim_d_open
         scene animation_studio
         show yukari at pos_left
         show mayumi at pos_farleft behind yukari
         with dissolve
         staff "Hello! What brings you to [anim_studio_expensive] today?"
-        #hardcoded spice and wolf inside
-        staff "Oh! I see you’ve taken a liking to those Nendoroids. They’re from Spice and Wolf, which is our most popular anime series so far."
+        staff "Oh! I see you’ve taken a liking to those Nendoroids. They’re from Grim Grim, which is our most popular anime series so far."
         show mayumi laugh_eyes_closed
         m "Yes, I love them!"
         staff "This is a special set produced for us, so they’re not for sale, in case you were hoping to purchase them."
@@ -221,7 +220,7 @@ label week_5_2:
         "Yukari looks around for a bell or some other way to call, but Mayumi has her own idea. Before Yukari can stop her, she cups her hands around her mouth."
         m "Hey, is anyone from [anim_studio_cheap] here right now?"
         m "Mayumi!"
-        #door sound
+        play sound sfx_anim_d_open
         "The door behind the reception desk opens and a casually-dressed man steps out."
         scene animation_studio
         show yukari at pos_left
@@ -293,11 +292,12 @@ label week_5_3:
     y "Nice, I like the way you think! I’ll start editing the storyboards now. Thanks!"
     ss "Anytime."
     "Yukari spends some time working on the storyboard. Between Shunsuke’s advice and some input from Mayumi, she feels she’s on the right track."
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10])
     call expression random_game_event
 
 label week_5_4:
     $nextDay()
+    $anim_studio = anim_studio_expensive
     scene studio_main with fade
     show yukari at left with dissolve
     y "Well, unless anyone objects to working with [anim_studio], I guess I should head over there."
@@ -320,22 +320,22 @@ label week_5_4:
         "It’s an unexpected question since Yukari never reached out to any other studios besides [anim_studio_cheap]. Then again, he’d have no way of knowing that."
         y "Yes, we’d like to work with [anim_studio_cheap]."
         anim_dir "Great! Just give me a moment while I have my assistant print out the contract for our work."
-        #door sound
+        play sound [sfx_anim_d_open,sfx_anim_d_close]
         hide anim_dir with dissolve
         "He disappears behind the door again. Yukari can hear faint voices, but they aren’t clear enough for her to make out the words."
         show yukari worry
         "A little nervous now that their partnership is about to become official, she paces back and forth in front of the reception desk."
         "Is [anim_studio_cheap] the right choice? Will she be able to make things work out?"
         y "(thinking to self): If something goes wrong, what am I supposed to do?"
-        #door sound
+        play sound sfx_anim_d_open
         show anim_dir at right with dissolve 
         anim_dir "Sorry to keep you waiting. Here is the contract."
         "He hands the contract over to Yukari. She stares at it, overwhelmed."
         "She doesn’t know much about the legal side of things, but if she doesn’t look over the contract carefully, she could miss something that comes back to haunt them in the future."
         anim_dir "Just let me know when you’re ready."
-        #door sound
         hide anim_dir with dissolve
         show yukari
+        play sound sfx_anim_d_close
         "As the director leaves, Yukari reads through the contract. After she goes through it once, she decides to call Mayumi. Her friend knows more about legal matters than she does."
         play sound "music/sfx/dialing_numbers.ogg"
         "Yukari gets out her phone and dials Mayumi’s number."
@@ -343,14 +343,15 @@ label week_5_4:
         y "I’m at [anim_studio_cheap] now. Mind if I go over the contract with you?"
         m "Go ahead."
         "She reads the contact out loud, with particular attention to the sections she’s most unsure about. Mayumi explains them to her and points out one or two they might want to have changed."
-        #surprised yukari
+        show yukari surprised
         y "Changed? Can you do that?"
         m "Of course. You’re negotiating!"
         "She carefully goes over what Yukari should say to the director."
+        show yukari 
         y "Thanks, Mayumi. You’re a life saver."
         m "Don’t mention it. Good luck!"
         "Yukari hangs up and approaches the door behind the reception desk. A little uncertain, she knocks."
-        #door sound
+        play sound sfx_anim_d_open
         show anim_dir at right with dissolve 
         anim_dir "Are you finished?"
         y "Yes, but there are a few matters I’d like to discuss with you first…"
@@ -364,27 +365,24 @@ label week_5_4:
         with dissolve
         "This time, the staff member sits waiting at the reception desk. He smiles when Yukari enters."
         staff "One moment. I’ll let [anim_studio_dir] know you’re here."
-        #door sound
         "Yukari clasps her hands in front of her and admires the Nendoroids Mayumi liked so much to calm her nerves. She only has to wait a minute."
-        #door sound
+        play sound [sfx_anim_d_open,sfx_anim_d_close]
         show anim_dir smile at right with dissolve
         anim_dir "Hello, Yukari! Well then, has your team decided upon a studio to work with for [anime.name]’s animation?"
         "It’s an unexpected question since Yukari never reached out to any other studios besides [anim_studio_expensive]. Then again, he’d have no way of knowing that."
         y "Yes, we’ve decided to work with [anim_studio_expensive]."
         anim_dir "I’m happy to hear that. If you’ll wait here a minute, I’ll get the contract for our work."
         hide anim_dir with dissolve
-        # door sound
+        play sound [sfx_anim_d_open,sfx_anim_d_close]
         "For the brief moment the door is open, Yukari hears faint voices, but once the door closes behind him, it’s as silent as when she and Mayumi first visited."
         "She can’t help but question her decision to work with [anim_studio_expensive]. High quality comes with a high price."
         "She definitely needs to make sure there aren’t extra revisions for the animation work, or they’ll be out on the streets in no time. Even the initial work will push the budget."
-        #door sound
         show anim_dir smile at right with dissolve
         anim_dir "Sorry to keep you waiting. Here is the contract for our partnership."
         anim_dir "I recommend you take a good look at it, since you’re new to the anime business. You don’t want to miss critical details in the contract."
         "He hands over the contract to Yukari. She stares at it, overwhelmed. It’s a huge contract and it looks complicated. The director is right, she can’t afford to overlook important details."
         anim_dir "Read it over carefully and let my receptionist know when you’re ready."
         y "Thank you."
-        #door sound
         hide anim_dir with dissolve
         "Yukari begins to read the contract. Partway through, she decides to call Mayumi. Her friend knows more about legal matters than she does."
         play sound "music/sfx/dialing_numbers.ogg"
@@ -404,7 +402,7 @@ label week_5_4:
         "She hangs up and approaches the reception desk."
         y "Would you let the director know I’m ready to sign the contract?"
         staff "Yes, one minute."
-        #door sound
+        play sound sfx_anim_d_open
         staff "Sir, Yukari is ready."
         show anim_dir happy at right with dissolve
         anim_dir "Wonderful! Is everything in order, then?"
@@ -449,7 +447,7 @@ label week_5_5:
     y "What a mess. I need to clean up all our files for [anime.name] soon. It takes so much time just to find the character designs."
     y "I better show them to Yuuko for a final check. Better safe than sorry!"
     "Yukari files them neatly into a folder and hurries over to Yuuko's desk."
-    #sound effect
+    play sound "music/sfx/paper_thud.ogg"
     scene yukari_bump with fade
     "Yukari bumps into Sumiko and the folder falls from her hands. The papers fall out all across the floor."
     y "Nooo! It took me so long to arrange them properly. Now I have to organize them again, and I was just about to head to [anim_studio]…"
@@ -458,7 +456,6 @@ label week_5_5:
     s "You’re so clumsy sometimes… Come on, I’ll help you."
     yuu "Me too."
     "The three of them work together to pick up the scattered pieces of paper and file them again."
-    #end cg
     scene studio_main with fade
     show yukari at left
     show sumiko at Position(xalign=0.87,yalign=1.0)
@@ -472,7 +469,7 @@ label week_5_5:
     s "Didn't we all check it together a few days ago? It'll be fine."
     y "Well, if you say so."
     "She turns to Yuuko in case the artist disagrees with her sister, but stops in surprise when she sees Yuuko’s computer screen."
-    #surprised yukari
+    show yukari surprised
     y "What are these?"
     "Yukari points to the thumbnail images displayed at the side of Yuuko's screen."
     y "They look similar to our characters."
@@ -497,7 +494,6 @@ label week_5_5:
     if anim_studio == anim_studio_expensive:
         y "Hello. Is [anim_studio_dir] here? I’ve brought the storyboards for our first episode."
         staff "One moment."
-        #door sound
         show anim_dir at right with dissolve
         anim_dir "Hello, Yukari. The adjustments for the storyboard are finished, I presume?"
         y "Yes. They’re more detailed now and the direction of the scenes should be clearer, too."
@@ -531,7 +527,6 @@ label week_5_5:
     yuu "It’s almost overwhelming."
     y "I know. [anime.name] has gone from a dream to something that’s really happening."
     m "Have you guys thought about what you’ll do if [anime.name] is successful?"
-    #surprised yukari
     y "I… Honestly I’ve spent too much time worrying about what I’ll do if it fails."
     yuu "Me too."
     show mayumi laugh_eyes_closed
@@ -551,9 +546,10 @@ label week_5_5:
     ss "I always have ideas for sequels. That’s why I started writing fanfiction, you know. My favorite series ended, and I wanted to know what happened next."
     ss "If no one official was going to write it, I decided to do it myself."
     yuu "I know what you mean. That’s one of the reasons I started drawing."
-    #surprised sumiko
+    show sumiko surprised
     s "Huh?! Since when?"
     yuu "Sumiko and her friends were working on a manga, but some of the most interesting moments were off-panel. That frustrated me, so I drew those scenes myself."
+    show sumiko
     s "I thought that was your way of saying you wanted to join us. That’s why I invited you to help."
     show yuuko sigh
     yuu "I did. The missed potential in your manga was driving me crazy."
@@ -725,7 +721,7 @@ label week_6_1:
         show yukari worry at left with dissolve
         y "Hello? Is anyone here?"
         "Why does the studio always seem deserted whenever she arrives?"
-        #door sound
+        play sound sfx_anim_d_open
         show yukari
         show anim_dir at right with dissolve
         anim_dir "Ah, hello, Yukari! Is there something I can do for you?"
@@ -824,7 +820,6 @@ label week_6_2:
             y "The talent agency is the best way for us to ensure we get quality voice acting."
             y "Yes, it costs more, but it will also free up our time to work on other things."
             $va_choice = "Talent Agency"
-            #va choice is for branching text
         "Agent {space=15}{image=small_moneybag.png} [AGENT_FUNDS_VALUE]":
             $choice_6_2_2()
             y "Working through agents is the ideal middle ground."
@@ -844,7 +839,7 @@ label week_6_2:
     elif va_choice == "Freelancers":
         m "I'll look for freelancers and shortlist the most promising ones. Then I’ll hold auditions to make the final decision."
 
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8])
     call expression random_game_event
 label week_6_3:
     $nextDay()
@@ -972,7 +967,7 @@ label week_6_4:
     show yukari surprised at left 
     show sumiko at right
     with dissolve
-    #phone ringing sound
+    play sound "music/sfx/phone_ringing.ogg"
     y "Who could that be?"
     y "It’s our investor! What should I do?"
     show sumiko sigh
@@ -980,6 +975,7 @@ label week_6_4:
     "Yukari stares at the phone, frozen with dread. Why would the investor call?"
     s "Ignoring our investor is probably a terrible idea. My guess is that he wants to check up on our progress on [anime.name]. Just talk to the man!"
     show yukari
+    stop sound fadeout 1.0
     y "Okay, I'll be right back."
     scene black with fade
     "She leaves the studio and heads toward the staircase so her phone conversation won’t disturb the rest of the team as they work."
@@ -1035,11 +1031,11 @@ label week_6_4:
         investor "I’ll leave that up to your judgment, then."
     investor "Anyway, there’s one more reason I called you here. I think this is a good time to start marketing [anime.name] to hype it up."
     y "Yes, our writer was interested in that."
-    # if week 2 gureilla marketing
-    # y "We’ve also done a little pre-release marketing through social networks."
-    # investor "That only goes so far. A larger push will help [anime.name] receive the attention it needs."
-    # if no guerilla marketing
-    #y "We haven’t done any marketing yet,though."
+    if guerilla_marketing:
+        y "We’ve also done a little pre-release marketing through social networks."
+        investor "That only goes so far. A larger push will help [anime.name] receive the attention it needs."
+    else:
+        y "We haven’t done any marketing yet,though."
     investor "Remember, a small studio like yours won’t have the name recognition to attract fans to [anime.name] from the start."
     investor "With a proper marketing campaign, you can catch people’s attention."
     "Yukari nods. They’ll need to work hard to win an audience for [anime.name]."
@@ -1061,7 +1057,7 @@ label week_6_4:
     investor "I look forward to hearing more about your progress in the future. However, I need to leave now. Good luck, Yukari."
     "She shakes his hand."
     y "Thank you."
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8])
     call expression random_game_event
 
 label week_6_5:
@@ -1089,7 +1085,6 @@ label week_6_5:
     show mayumi_f laugh_eyes_closed at right with dissolve
     m "Hey Yukari, I hired our major voice actors!"
     y "Awesome! Who are they?"
-    #to do category stuff
     if anime.category == Anime.HAREM:
         m "A guy named [va_a] will voice Keiji. He’s new in the industry, but his audition was perfect for our protagonist. He really captured the tone of [anime.name]."
         m "I’ve also picked [va_b] for Natsume."
@@ -1275,6 +1270,7 @@ label week_7_1_1:
     show yukari at left 
     show mayumi_f at right
     with dissolve
+    $anim_studio = anim_studio_cheap
     y "I'll be heading over to [anim_studio] now to get some updates on their progress."
     "The prospect thrills her. She'll finally be able to see her storyboards come to life."
     "What will the key frames look like? Will the animation be like she imagined it? She can barely breathe from anticipation."
@@ -1286,7 +1282,7 @@ label week_7_1_1:
     m "All right, if no one needs anything, I'm heading over now. Bye!"
     m "Bye!"
 
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8])
     call expression random_game_event
 
     scene animation_studio with fade
@@ -1310,12 +1306,12 @@ label week_7_1_1:
         y "That sounds good."
         anim_dir "Sit down at the table over there, and I’ll be right back with a laptop so we can look at them."
         hide anim_dir with dissolve
-        #door sound
         "As he departs to get the laptop, Yukari can’t help but wonder why he didn’t have it with him already. Surely he could have guessed she wanted to see the key frames."
-        #door sound
+        play sound sfx_anim_d_open
+        show anim_dir at right with dissolve
         anim_dir "All right, here we go. What do you think?"
     if anime.category == Anime.HAREM:
-        "All right, here we go. What do you think? Everything looks fine until Keiji attends the first meeting of the science club."
+        "Everything looks fine until Keiji attends the first meeting of the science club."
         "It’s a critical scene to set up the plot and introduce the characters, but the introductions have so little personality to them, Yukari can’t help but wonder if they skipped some key frames."
     elif anime.category == Anime.MYSTERY:
         "In theory, it’s [anime.name]. Yukari recognizes Itaru, Chie, Norio, and everyone else who appears in the first episode."
@@ -1350,9 +1346,9 @@ label week_7_1_1:
         "Yes, but even with Kogu Studio’s reputation, she expected the animation team to follow them a little better than this."
         "She stares at the key frames and tries to keep her emotions in check. Disaster or not, she can’t cry in front of the director."
         y "Can I see the storyboards?"
-        hide anim_dir with dissolve
         "Sure, it’ll just take me a few minutes to find them."
-    #door sound
+        hide anim_dir with dissolve
+    play sound [sfx_anim_d_open,sfx_anim_d_close]
     show yukari
     hide anim_dir with dissolve
     "Once the director leaves, Yukari takes a few deep breaths to calm down."
@@ -1440,7 +1436,6 @@ label week_7_1_2:
     ss "I see what you mean. What a mess. I hope you can resolve this issue with [anim_studio]. Let us know if you need any help."
     show yukari sad
     y "Thanks. I'll see what I can do."
-    #door sound
     "Just as she finishes her conversation with Shunsuke, the director returns."
     show anim_dir at right with dissolve
     if anim_studio == anim_studio_expensive:
@@ -1465,8 +1460,7 @@ label week_7_1_2:
     if anim_studio == anim_studio_expensive:
         anim_dir "That explains why the storyboards seemed so unclear. We can speed up the animation work, although we’ll have to charge an additional fee."
         y "How much?"
-        #need number medium
-        anim_dir "some number"
+        # some number
         "She almost accepts, but bites her tongue. It’s a large sum of money, and while she can’t see another solution, it isn’t the sort of decision she should make on her own."
         "She’s caused enough problems already."
         y "Okay, I’ll have to discuss this with my team members first."
@@ -1479,7 +1473,7 @@ label week_7_1_2:
         "Although she hates to reject the easy way out, she won’t let [anime.name] be ruined by low production values like going with the key frames in their current state."
         anim_dir "In that case, yes, we can work faster, for a fee."
         y "How much?"
-        # need number cheaper
+        # some number
         anim_dir "some number"
         "She almost accepts, but stops. It’ll be hard enough to tell the others how she messed up, let alone admit she sacrificed a large chunk of their funds as well."
         "Even if it’s the only answer, she doesn’t have the right to make that decision alone."
@@ -1696,6 +1690,7 @@ label week_7_2:
     show shunsuke at Position(xalign=0.82,yalign=1.0)
     show yuuko at Position(xalign=1.15,yalign=1.0)
     with dissolve
+    $anim_studio = anim_studio_cheap
     ss "Yukari, are you ready to work out a new deal for the animation work?"
     "From the tone of his voice, he worries she still isn’t in a good state of mind to handle negotiations."
     y "Almost there... Give me a moment."
@@ -1715,43 +1710,46 @@ label week_7_2:
         y "Oh! Hello."
         anim_dir "Hello. I assume you’ve discussed the situation with your team members?"
         y "Yes. In order to keep [anime.name] on schedule, we need the animation team to work faster."
-        #some number
-        anim_dir "I understand. As I said yesterday, we’ll need to add an additional fee of <medium range number>."
-        y "My team and I think <lower price value> should be more than enough to cover it."
+        anim_dir "I understand. As I said yesterday, we’ll need to add an additional fee of {space=15}{image=small_moneybag.png} [NEGOTIATE_DEFAULT_FUNDS]."
+        $negotiation_buffer_high = NEGOTIATE_SUCCESS_FUNDS - 3
+        y "My team and I think {space=15}{image=small_moneybag.png} [negotiation_buffer_high] should be more than enough to cover it."
         "She puts on a valiant look in the hopes that perceived confidence will convince him to accept her offer."
         "Deep in her heart, however, she can’t help but picture the worst possible outcome—the director walking away from the deal completely."
         anim_dir "Hmm..."
         "Her heart hammers. “Hmm”? Is that a good sign or a bad one?"
         "It feels like an eternity as Yukari waits for his response. All she can do is silently pray for success."
-        # success
-        # anim_dir "Since [anime.name] is a smaller project than many we deal with, I can see how a lower price would be acceptable. However…"
-        # "Yukari holds her breath."
-        # anim_dir "I propose a price of <number lower than his original but higher than hers> instead."
-        # "She feels like she might pass out, but she reminds herself that Shunsuke told her to expect a counter-offer once she named her price. So far so good."
-        # y "Well…"
-        # "Their negotiations continue for a while longer, with each of them suggesting prices until at last they reach an amount they both can agree on."
-        # anim_dir " Very well then. I’ll prepare a new contract to speed up the animation work for [anime.name] at an additional fee of <final price, in the middle of their initial prices>."
-        # y "Thank you, sir!"
-        # anim_dir "I’ll be right back with the contract."
-        # hide anim_dir with dissolve
-        # show yukari happy
-        # "Yukari lets out a long breath and leans back. She did it."
-        # "Despite all her fears, she pulled off a successful deal with Asahi Studio."
-        # "Her blunder with the storyboards could have been disastrous, but she managed to minimize the damage it caused."
-        # failure
-        anim_dir "I’m sorry. I’m afraid it isn’t in our best interests to accept your offer."
-        show yukari surprised
-        y "What? Why?"
-        anim_dir "We have several other projects to work on besides [anime.name]. Accepting a lower fee could compromise them."
-        "Yukari’s heart sinks, but she knows she has no choice but to accept his original offer now."
-        "It will hurt their budget a fair bit. She needs to raise more funds for [anime.name] as soon as possible."
-        show yukari sad
-        y "In that case, we’ll accept your original offer."
-        anim_dir "Very well then. This morning I had a new contract prepared to speed up the animation work for [anime.name] at an additional fee of <medium range number>."
-        anim_dir "I’ll be right back with it."
-        hide anim_dir with dissolve
-        "As he leaves to get the contract, Yukari puts her head in her hands."
-        "Telling the team about this won’t be easy, but at least her blunder with the storyboards hasn’t cost [anime.name] its future."
+        $dice_number = renpy.random.randint(0,100)
+        if dice_number <= choice_raise_funds_formula():
+            anim_dir "Since [anime.name] is a smaller project than many we deal with, I can see how a lower price would be acceptable. However…"
+            "Yukari holds her breath."
+            anim_dir "I propose a price of {space=15}{image=small_moneybag.png} [NEGOTIATE_SUCCESS_FUNDS] instead."
+            "She feels like she might pass out, but she reminds herself that Shunsuke told her to expect a counter-offer once she named her price. So far so good."
+            y "Well…"
+            "Their negotiations continue for a while longer, with each of them suggesting prices until at last they reach an amount they both can agree on."
+            anim_dir " Very well then. I’ll prepare a new contract to speed up the animation work for [anime.name] at an additional fee of {space=15}{image=small_moneybag.png} [NEGOTIATE_SUCCESS_FUNDS]."
+            y "Thank you, sir!"
+            anim_dir "I’ll be right back with the contract."
+            hide anim_dir with dissolve
+            show yukari happy
+            "Yukari lets out a long breath and leans back. She did it."
+            "Despite all her fears, she pulled off a successful deal with Asahi Studio."
+            "Her blunder with the storyboards could have been disastrous, but she managed to minimize the damage it caused."
+            $negotiate_success()
+        else:
+            anim_dir "I’m sorry. I’m afraid it isn’t in our best interests to accept your offer."
+            show yukari surprised
+            y "What? Why?"
+            anim_dir "We have several other projects to work on besides [anime.name]. Accepting a lower fee could compromise them."
+            "Yukari’s heart sinks, but she knows she has no choice but to accept his original offer now."
+            "It will hurt their budget a fair bit. She needs to raise more funds for [anime.name] as soon as possible."
+            show yukari sad
+            y "In that case, we’ll accept your original offer."
+            anim_dir "Very well then. This morning I had a new contract prepared to speed up the animation work for [anime.name] at an additional fee of {space=15}{image=small_moneybag.png} [NEGOTIATE_DEFAULT_FUNDS]."
+            anim_dir "I’ll be right back with it."
+            hide anim_dir with dissolve
+            "As he leaves to get the contract, Yukari puts her head in her hands."
+            "Telling the team about this won’t be easy, but at least her blunder with the storyboards hasn’t cost [anime.name] its future."
+            $negotiate_default()
     elif anim_studio == anim_studio_cheap:
         scene animation_studio with fade
         show anim_dir smile at right
@@ -1760,34 +1758,38 @@ label week_7_2:
         anim_dir "Hello. I thought I might be seeing you today!"
         "Yukari jumps. Was he waiting for her?"
         y "I’m here about what we discussed yesterday. In order to keep [anime.name] on schedule, we need the animation team to work faster."
-        anim_dir "At an additional fee of <medium range number>, right?"
-        y "My team and I think <lower price value> should be more than enough to cover it."
+        anim_dir "At an additional fee of {space=15}{image=small_moneybag.png} [NEGOTIATE_DEFAULT_FUNDS], right?"
+        $negotiation_buffer_high = NEGOTIATE_SUCCESS_FUNDS - 3
+        y "My team and I think {space=15}{image=small_moneybag.png} [negotiation_buffer_high] should be more than enough to cover it."
         "She puts on a valiant look in the hopes that perceived confidence will convince him to accept her offer."
         "Deep in her heart, however, she can’t help but picture the worst possible outcome—the director walking away from the deal completely."
         show anim_dir smile 
         anim_dir "Aha, going to negotiate with me, are you?"
         "Her heart hammers. He sounds intrigued, but does that mean he’ll accept, or will he reject her offer anyway?"
         "It feels like an eternity as Yukari waits for his response. All she can do is silently pray for success."
-        #success
-        # anim_dir "Just this one time, okay?"
-        # show yukari surprised
-        # y "Yukari blinks at him in confusion before she realizes he’s accepting her offer. No counter-offer? The negotiations went much better than she expected."
-        # anim_dir "I can tell you’re sincere enough to learn from your mistakes, and I can feel your burning passion to produce anime. I can’t let you down."
-        # show yukari happy
-        # y "Thank you, sir!"
-        # "She beams, thrilled that she negotiated a better deal with [anim_studio] so quickly."
-        #failure
-        # show anim_dir
-        # anim_dir "I admire your initiative… but I’m afraid I can’t accept your offer."
-        # show yukari sad
-        # y "What? Why?"
-        # anim_dir "We have multiple projects and only a small team. If we accept a lower fee to work on [anime.name], it might force us to lower the production values of the other shows."
-        # "Yukari’s heart sinks and she wants to argue, but considering [anim_studio]’s recent track record, he probably has good reason to be concerned."
-        # "She nods. She has no choice but to accept his original offer."
-        # "It will hurt their budget a fair bit, the outcome she’d hoped to avoid by working with [anim_studio] in the first place."
-        # "She needs to raise more funds for [anime.name] as soon as possible. Telling the rest of the team about this won’t be easy."
-        # y "I understand. We accept your original offer."
-        # anim_dir "All right, then we’ll speed up our work on [anime.name] for a fee of <medium range number>."
+        $dice_number = renpy.random.randint(0,100)
+        if dice_number <= choice_raise_funds_formula():
+            anim_dir "Just this one time, okay?"
+            show yukari surprised
+            y "Yukari blinks at him in confusion before she realizes he’s accepting her offer. No counter-offer? The negotiations went much better than she expected."
+            anim_dir "I can tell you’re sincere enough to learn from your mistakes, and I can feel your burning passion to produce anime. I can’t let you down."
+            show yukari happy
+            y "Thank you, sir!"
+            "She beams, thrilled that she negotiated a better deal with [anim_studio] so quickly."
+            $negotiate_success()
+        else:
+            show anim_dir
+            anim_dir "I admire your initiative… but I’m afraid I can’t accept your offer."
+            show yukari sad
+            y "What? Why?"
+            anim_dir "We have multiple projects and only a small team. If we accept a lower fee to work on [anime.name], it might force us to lower the production values of the other shows."
+            "Yukari’s heart sinks and she wants to argue, but considering [anim_studio]’s recent track record, he probably has good reason to be concerned."
+            "She nods. She has no choice but to accept his original offer."
+            "It will hurt their budget a fair bit, the outcome she’d hoped to avoid by working with [anim_studio] in the first place."
+            "She needs to raise more funds for [anime.name] as soon as possible. Telling the rest of the team about this won’t be easy."
+            y "I understand. We accept your original offer."
+            anim_dir "All right, then we’ll speed up our work on [anime.name] for a fee of {space=15}{image=small_moneybag.png} [NEGOTIATE_DEFAULT_FUNDS]."
+            $negotiate_default()
     anim_dir "Aside from price, though, there’s one other concern you should know about."
     show yukari worry
     y "Concern? What is it?"
@@ -1929,7 +1931,7 @@ label week_7_4:
     "As for Sumiko and Mayumi, they act determined to restore optimism to the team through force of will alone if necessary."
     "When Yukari returns later that day, cheerful greetings meet her at the door. It’s almost like the incident with the key frames never happened at all." 
     "Despite her worries about the future, she can’t help but smile back. Her responsibilities no longer seem so difficult to bear." 
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8])
     call expression random_game_event
 label week_7_5:
     $nextDay()
@@ -2635,7 +2637,7 @@ label week_8_2:
     y "That sounds great." 
     "The two of them search for freelance animators until it’s once again time to catch the train and go home." 
     $rd_e_holder.emptyList(rd_e_holder.wk_5_to_7)
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8])
     call expression random_game_event
 label week_8_3:
     $nextDay()
@@ -3423,7 +3425,7 @@ label week_8_5:
     "Once she leaves the studio, she gets in touch with Sumiko’s friends. Like Sumiko promised, they’re ready to work on [anime.name] right away." 
     "It’s been a bumpy road, but at last everything is coming together."
 
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8])
     call expression random_game_event
 
     scene restaurant with fade   

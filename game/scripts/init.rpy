@@ -21,7 +21,7 @@
     $UpdateProgressReport()
     #jump week_0_1
     #jump week_1_6
-    jump week_10_2
+    jump week_7_2
     #jump random_16
 
 init python:

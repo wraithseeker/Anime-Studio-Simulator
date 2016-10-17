@@ -149,7 +149,7 @@
         #(2) Announce the café break (+happiness – stress for everyone)
         yukari_stats.happiness  += 0.5
         mayumi_stats.happiness  += 0.5
-        shunsuke_stats.Happiness += 0.5
+        shunsuke_stats.happiness += 0.5
         sumiko_stats.happiness  += 0.5
         yuuko_stats.happiness   += 0.5
 

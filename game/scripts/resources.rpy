@@ -258,9 +258,10 @@ image ctc_fixed:
     linear 0.4 alpha 1.0
     2.0
     #repeat
-# image yukari = "yukari.png"
-# image yukari_charge = "yukari_charge.png"
-# image yukari_success = "yukari_yes.png"
-# image yukari_failure = "yukari_no.png"
 
-#navigation
+#some SFX
+init -1 python:
+    sfx_anim_d_open = "music/sfx/anim_door_open.ogg"
+    sfx_anim_d_close = "music/sfx/anim_door_close.ogg"
+    sfx_rs_door_open = "music/sfx/rs_door_open.ogg"
+    sfx_rs_door_close = "music/sfx/rs_door_close.ogg"

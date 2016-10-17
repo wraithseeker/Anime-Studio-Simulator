@@ -218,7 +218,7 @@ label week_9_2:
     "To her delight, they’re almost done with their work on the first episode already, and they ask if they can meet with her the next morning about it." 
     "For once, everything is going well."
     $rd_e_holder.emptyList(rd_e_holder.wk_6_to_8)
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10])
     call expression random_game_event
 label week_9_3:
     $nextDay()
@@ -434,7 +434,7 @@ label week_9_3:
     va_dir "All we need to do now is edit the voice tracks to prepare them for the show. Can you come by next Thursday to get them? " 
     y "Yes, that’s fine." 
     "She copies the current audio files to her USB drive, bids everyone farewell, and leaves the recording studio satisfied with the day’s work." 
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10])
     call expression random_game_event
 
 label week_9_4:
@@ -858,7 +858,7 @@ label week_10_2:
     y "Ooh, the sound effects are ready?" 
     show sumiko
     m "Not all of them, but I have a sample of [anime.name]'s soundboard for you to hear." 
-    s "Is there an explosion?" 
+    s "Is there an explosion?"
     if anime.category == Anime.HAREM:
         ss "There are explosions in the script."
         s "Good! What would a science club be without things exploding?" 
@@ -907,7 +907,7 @@ label week_10_2:
     ss "Is the audio work almost finished, then?" 
     m "Yep! Once we get the edited voice tracks from the recording studio, we'll be almost done." 
     y "And that'll be on Thursday. We're almost there, everyone! Hang in there." 
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_10_to_12)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_10_to_12])
     call expression random_game_event
 label week_10_3:
     $nextDay()
@@ -1056,7 +1056,7 @@ label week_10_4:
     m "This is perfect. See, Yukari? I knew you'd be fine."
     show yukari sigh 
     y "It still was stressful to handle it myself. But since everything worked out, I can't complain."  
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_10_to_12)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_10_to_12])
     call expression random_game_event 
 
 label week_10_5: 
@@ -1572,7 +1572,7 @@ label week_11_3:
     show yukari laugh_eyes_closed
     y "All right, then! In that case, we should get back to work. We have a lot to do and only a limited time to do it in. Let's do this!" 
     $rd_e_holder.emptyList(rd_e_holder.wk_5_to_10)
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_10_to_12)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_10_to_12])
     call expression random_game_event
 label week_11_4:
     $nextDay()
@@ -1736,7 +1736,7 @@ label week_11_5:
     s "Anyway, I'm on board with getting this done tonight!" 
     show yukari happy
     y "Great! Also, I'll be dropping by the studio over the weekend to do some of the final checks on [anime.name]. If anyone wants to join me, feel free." 
-    $random_game_event = rd_e_holder.random(rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_10_to_12)
+    $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_10_to_12])
     call expression random_game_event
 # [weekend] 
 label week_11_6:

@@ -17,6 +17,9 @@
     INVESTOR_FUNDS_MARKETING_6_3_1 = 10
     ANIM_STUDIO_VALUE_10_2 = 10
 
+    NEGOTIATE_DEFAULT_FUNDS = 15
+    NEGOTIATE_SUCCESS_FUNDS = 10
+
 
     def choice_raise_funds_formula():
         #Formula to calculate % chance to raise funds
@@ -388,5 +391,10 @@
     def choice_12_1_3():
         anime.marketing += 0.5
 
+    # happens in Week 7, Monday
+    def negotiate_default():
+        anime.funds -= NEGOTIATE_DEFAULT_FUNDS
 
+    def negotiate_success():
+        anime.funds -= NEGOTIATE_SUCCESS_FUNDS
 
