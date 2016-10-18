@@ -278,7 +278,7 @@ init -1 python hide:
 
     ## The default auto-forward time setting.
 
-    config.default_afm_time = 10
+    config.default_afm_time = 15
     config.default_music_volume = 0.65
     config.default_sfx_volume = 1.0
 
@@ -293,12 +293,12 @@ init python:
     ## The name that's used for directories and archive files. For example, if
     ## this is 'mygame-1.0', the windows distribution will be in the
     ## directory 'mygame-1.0-win', in the 'mygame-1.0-win.zip' file.
-    build.directory_name = "Anime_Studio_Simulator-1.0"
+    build.directory_name = "Anime_Studio_Simulator"
 
     ## The name that's uses for executables - the program that users will run
     ## to start the game. For example, if this is 'mygame', then on Windows,
     ## users can click 'mygame.exe' to start the game.
-    build.executable_name = "Anime_Studio_Simulator"
+    build.executable_name = "Anime_Studio_Sim"
 
     ## If True, Ren'Py will include update information into packages. This
     ## allows the updater to run.

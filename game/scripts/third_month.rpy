@@ -2390,5 +2390,9 @@ label week_12_5:
     "In a few days, the first episode of [anime.name] will air."
     "They'll finally learn what an audience thinks of it. It could be a success, and they'll have to plan their next move, maybe even make plans for a sequel. Or it could be a flop, and she'll be forced to accept that she might not be ready to direct her own anime yet."
     "But the thought of failure no longer terrifies her." 
-    "Come what may, Yukari has a group of friends—a team—that won't ever let her down."  
+    "Come what may, Yukari has a group of friends—a team—that won't ever let her down."
+    $anime_score_components = (anime.plot + anime.character_development + anime.storyboard + anime.character_design + anime.background + anime.animation + anime.voice_acting +anime.op_ed + anime.ost ) 
+    $anime_score_multipliers = (1 + yukari_stats.management * 0.05 + anime.marketing * 0.05 + anime.quality_check * 0.3)
+    $anime_score = anime_score_components * anime_score_multipliers 
+    "Anime score is [anime_score]"
               

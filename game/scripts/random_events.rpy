@@ -144,7 +144,7 @@ label random_1:
     y "What should I do?"
     menu:
         "Assume [rd_c.person] will get over it":
-            $rechoice_1_1(rd_c)
+            $rechoice_1_1(rd_c.stats)
         "Offer [rd_c.person] money from [anime.name] funds {space=15}{image=small_moneybag.png} [JOB_OFFER_FUNDS]":
             show yukari sad_angry
             y "I understand that [company] is a great company to work with, but won't you consider staying with us?"
@@ -199,13 +199,13 @@ label random_2:
             rd_c.say " Not yet…"
             y "I’ve heard that bank loans are pretty reasonable nowadays. Give it a try."
             rd_c.say "Okay…"
-            $rechoice_2_1(rd_c)
+            $rechoice_2_1(rd_c.stats)
         "Give [rd_c.person] money from the project funds {space=15}{image=small_moneybag.png} [REQUEST_SALARY_FUNDS]":
             y "Here."
             rd_c.say "What? But this money is meant for [anime.name]!"
             y "Take it. You’re a friend and part of the team, so we should help you out. Besides, your family’s health is more important than an anime."
             rd_c.say "Thank you so much…"
-            $rechoice_2_2()
+            $rechoice_2_2(rd_c.stats)
     return
 
 #Conflict during Team Meetings 
@@ -244,13 +244,13 @@ label random_3:
     y "Guys, please calm down!"
     menu:
         "Agree with [rd_c.person]":
-            $rechoice_3_1(rd_c)
+            $rechoice_3_1(rd_c.stats)
         "Agree with Mayumi":
             $rechoice_3_2()
         "Try to distract them by changing the topic":
             show yukari happy
             y "Have you guys listened to the new song released by Love Live? It's selling like hotcakes right now and must be really good."
-            if rechoice_3_3(rd_c):
+            if rechoice_3_3(rd_c.stats):
                 m "I purchased their new album a few days ago. It's hard to describe how amazing they are, so I'll just let you guys listen to understand!"
                 "Mayumi brings out her phone from her pocket and plays one of the tracks on the new album released by Love Live."
                 "Everyone seems to be mesmerized by it."
@@ -321,7 +321,7 @@ label random_4:
             rd_c.say "M-Me?"
             y "Yes, since you think it’s such a good idea."
             rd_c.say "Well, all right."
-            $rechoice_4_3(rd_c)
+            $rechoice_4_3(rd_c.stats)
     return
 
 # Receiving Anonymous Troll E-Mails 
@@ -337,7 +337,7 @@ label random_5:
     ss "Yukari, what do you make of this?"
     y "(Thinking to herself) These messages are pretty awful… How should I handle this?"
     $dice_number = renpy.random.randint(0,100)
-    if number <= choice_raise_funds_formula():
+    if dice_number <= choice_raise_funds_formula():
         show yukari happy
         show mayumi sad
         y " Come on, guys, don’t let some stupid emails get you down!"
@@ -453,7 +453,7 @@ label random_7:
     $rd_stay_behind = False
     menu:
         "Tell Yuuko she won't be going" if "yuu" in rd_remaining_c:
-            $rechoice_7_1(rd_remaining_c)
+            $rechoice_7_1(rd_remaining_c.stats)
             if rd_c.p == "s":
                 hide sumiko
             elif rd_c.p == "m":
@@ -469,7 +469,7 @@ label random_7:
             y "Do you really?"
             yuu "Sure, I guess…"
         "Tell Sumiko she won't be going" if "s" in rd_remaining_c:
-            $rechoice_7_1(rd_remaining_c)
+            $rechoice_7_1(rd_remaining_c.stats)
             if rd_c.p == "yuu":
                 hide yuuko
             elif rd_c.p == "m":
@@ -483,7 +483,7 @@ label random_7:
             y "Well, we have two artists. Yuuko can tell you what she learns from the professionals there. You wouldn’t argue that your sister should stay behind instead, would you?"
             s "Ugh, you sure know how to make a girl feel guilty."
         "Tell Shunsuke she won't be going" if "ss" in rd_remaining_c:
-            $rechoice_7_1(rd_remaining_c)
+            $rechoice_7_1(rd_remaining_c.stats)
             if rd_c.p == "yuu":
                 hide yuuko
             elif rd_c.p == "m":
@@ -500,7 +500,7 @@ label random_7:
             y "Someone has to stay behind."
             ss "Oh, fine. I’ll do it for the team."
         "Tell Mayumi she won't be going" if "m" in rd_remaining_c:
-            $rechoice_7_1(rd_remaining_c)
+            $rechoice_7_1(rd_remaining_c.stats)
             if rd_c.p == "yuu":
                 hide yuuko
             elif rd_c.p == "s":
@@ -675,7 +675,7 @@ label random_12:
     teacher "I love the enthusiasm here. I’m so happy to see you’re doing well."
     y "Thank you, Sensei. I'm happy you took the time to visit!"
     $dice_number = renpy.random.randint(0,100)
-    if number <= choice_raise_funds_formula():
+    if dice_number <= choice_raise_funds_formula():
         $rechoice_12_1_success()
         teacher "Since you’re all working so hard, I’d like to give you something special."
         y "You don’t have to do that."
@@ -850,13 +850,13 @@ label random_15_share:
             $rechoice_15_1()
             rd_c.say "No problem!"
         "50\%":
-            $rechoice_15_2(rd_c)
+            $rechoice_15_2(rd_c.stats)
             rd_c.say "A 50/50 split? I suppose that’s fair."
         "75\%":
-            $rechoice_15_3(rd_c)
+            $rechoice_15_3(rd_c.stats)
             rd_c.say "That’s a little steep, isn’t it? If you insist…"
         "100\%":
-            $rechoice_15_4(rd_c)
+            $rechoice_15_4(rd_c.stats)
             rd_c.say "So when you said “some,” you really meant “all”? You have the makings of a good tyrant, Yukari. Sheesh."
     return
 #Wrong Food Delivery Address 
@@ -1757,7 +1757,7 @@ label random_37:
         "Tell him the truth":
             m "Actually… I’m the composer for [anime.name]."
             $dice_number = renpy.random.randint(0,100)
-            if number <= choice_raise_funds_formula():
+            if dice_number <= choice_raise_funds_formula():
                 $rechoice_37_1()
                 hp_guy "Really? Cool! I’m so happy to meet you! Your music is fantastic."
                 show mayumi laugh_eyes_closed

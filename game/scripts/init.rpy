@@ -19,8 +19,8 @@
     $anime.plot = 1
     $anime.prev_plot = 1
     $UpdateProgressReport()
-    jump week_0_1
-    #jump week_1_6
+    #jump week_0_1
+    jump random_15
     #jump week_12_4
     #jump random_16
 
