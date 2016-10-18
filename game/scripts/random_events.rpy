@@ -822,7 +822,7 @@ label random_15:
             rd_c.say "Today, they had a prize ready for the eleventh person to call the station."
             menu:
                 "Celebrate with [rd_c.person] and suggest sharing with the studio funds":
-                   jump random_17_share
+                   jump random_15_share
                 "Tell off [rd_c.person] for listening to the radio during work.":
                     show yukari angry_mouth_closed
                     y "You shouldn’t be listening to the radio during work!"

@@ -302,7 +302,7 @@
             if value <= 0 and not in_gameplay_menu:
                 renpy.call_in_new_context("dead_no_funds")
             else:
-                self._funds = value
+                self._funds = int(value)
 
         @property
 

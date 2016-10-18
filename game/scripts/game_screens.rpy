@@ -41,6 +41,9 @@
                     textbutton yukari_tasks[i].title:
                         text_style "task_text_selected" 
                         style "task_button" 
+                        hovered [task_tt_positive_stats.Action(yukari_tasks[i].positive_stats)
+                                ,task_tt_negative_stats.Action(yukari_tasks[i].negative_stats)
+                                ,task_tt_description.Action(yukari_tasks[i].description)] 
                         action [SetField(yukari_tasks[i],"selected",False),
                                 SetVariable("yukari_task_selected",False)]
                 else:
@@ -68,6 +71,9 @@
                     textbutton yuuko_tasks[i].title:
                         text_style "task_text_selected" 
                         style "task_button" 
+                        hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
+                                ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
+                                ,task_tt_description.Action(yuuko_tasks[i].description)] 
                         action [SetField(yuuko_tasks[i],"selected",False),
                                 SetVariable("yuuko_task_selected",False)]
                 else:
@@ -95,6 +101,9 @@
                     textbutton mayumi_tasks[i].title:
                         text_style "task_text_selected" 
                         style "task_button" 
+                        hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
+                                ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
+                                ,task_tt_description.Action(yuuko_tasks[i].description)] 
                         action [SetField(mayumi_tasks[i],"selected",False),
                                 SetVariable("mayumi_task_selected",False)]
                 else:
@@ -122,6 +131,9 @@
                     textbutton shunsuke_tasks[i].title:
                         text_style "task_text_selected" 
                         style "task_button" 
+                        hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
+                                ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
+                                ,task_tt_description.Action(yuuko_tasks[i].description)] 
                         action [SetField(shunsuke_tasks[i],"selected",False),
                                 SetVariable("shunsuke_task_selected",False)]
                 else:
@@ -147,7 +159,10 @@
                 if sumiko_tasks[i].selected:
                     textbutton sumiko_tasks[i].title:
                         text_style "task_text_selected" 
-                        style "task_button" 
+                        style "task_button"
+                        hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
+                                ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
+                                ,task_tt_description.Action(yuuko_tasks[i].description)] 
                         action [SetField(sumiko_tasks[i],"selected",False),
                                 SetVariable("sumiko_task_selected",False)]
                 else:
@@ -185,6 +200,7 @@ screen upgrade():
             imagebutton:
                 idle "char_image/upgrade/yukari_upgrade_selected.png"
                 action [SetVariable("yukari_upgrade",Outsource.NOT_SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
+                hovered upgrade_tt.Action(yukari_current_u_text)
         elif yukari_upgrade == Outsource.NOT_SELECTED:
             imagebutton:
                 idle "char_image/upgrade/yukari_upgrade_idle.png"
@@ -198,6 +214,7 @@ screen upgrade():
             imagebutton:
                 idle "char_image/upgrade/yuuko_upgrade_selected.png"
                 action [SetVariable("yuuko_upgrade",Outsource.NOT_SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
+                hovered upgrade_tt.Action(yuuko_current_u_text)
         elif yuuko_upgrade == Outsource.NOT_SELECTED:
             imagebutton:
                 idle "char_image/upgrade/yuuko_upgrade_idle.png"
@@ -211,6 +228,7 @@ screen upgrade():
             imagebutton:
                 idle "char_image/upgrade/sumiko_upgrade_selected.png"
                 action [SetVariable("sumiko_upgrade",Outsource.NOT_SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
+                hovered upgrade_tt.Action(sumiko_current_u_text)
         elif sumiko_upgrade == Outsource.NOT_SELECTED:
             imagebutton:
                 idle "char_image/upgrade/sumiko_upgrade_idle.png"
@@ -224,6 +242,7 @@ screen upgrade():
             imagebutton:
                 idle "char_image/upgrade/mayumi_upgrade_selected.png"
                 action [SetVariable("mayumi_upgrade",Outsource.NOT_SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
+                hovered upgrade_tt.Action(mayumi_current_u_text)
         elif mayumi_upgrade == Outsource.NOT_SELECTED:
             imagebutton:
                 idle "char_image/upgrade/mayumi_upgrade_idle.png"
@@ -237,6 +256,7 @@ screen upgrade():
             imagebutton:
                 idle "char_image/upgrade/shunsuke_upgrade_selected.png"
                 action [SetVariable("shunsuke_upgrade",Outsource.NOT_SELECTED),SetVariable("upgrade_selection_count",upgrade_selection_count - 1)]
+                hovered upgrade_tt.Action(shunsuke_current_u_text)
         elif shunsuke_upgrade == Outsource.NOT_SELECTED:
             imagebutton:
                 idle "char_image/upgrade/shunsuke_upgrade_idle.png"
@@ -752,8 +772,8 @@ screen side_nav():
 
 screen start_game:
     #use side_nav
-    if not initial_week and not task_ready:
-        use progress_report
+    # if not initial_week and not task_ready:
+    #     use progress_report
     use side_nav
     if task_ready:
         timer 0.03 action [Return(),SetVariable("task_ready",False),renpy.curry(EndTurn)()]

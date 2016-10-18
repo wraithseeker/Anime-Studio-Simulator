@@ -12,7 +12,6 @@ init -1 python hide:
     ## These control the width and height of the screen.
     config.screen_width = 1920
     config.screen_height = 1080
-
     config.thumbnail_height = 187
     config.thumbnail_width = 330
 

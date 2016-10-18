@@ -6,7 +6,8 @@
     global sumiko_stats
     global yuuko_stats
 
-    #minus funds
+    WEEK_8_GOOD_MARKETING_VALUE = 2.5
+    #minus funds below
     EXPENSIVE_STUDIO_FUNDS_VALUE = 20
     CHEAP_STUDIO_FUNDS_VALUE = 10
 
@@ -16,6 +17,10 @@
 
     INVESTOR_FUNDS_MARKETING_6_3_1 = 10
     ANIM_STUDIO_VALUE_10_2 = 10
+
+    PROFESSIONAL_WEBSITE_VALUE = 20
+    SHUNSUKE_WEBSITE_VALUE = 10
+
 
     NEGOTIATE_DEFAULT_FUNDS = 15
     NEGOTIATE_SUCCESS_FUNDS = 10
@@ -36,7 +41,7 @@
     def choice_1_2_1():
         yukari_stats.management += 1
     def choice_1_2_2():
-        yukari_stats.proficiency += 1
+        yukari_stats.proficiency += 0.5
     def choice_1_2_3():
         anime.character_design += 0.5
 
@@ -48,11 +53,11 @@
         anime.storyboard += 0.5
 
     def choice_2_1_1():
-        shunsuke_stats.happiness -= 3
-        yuuko_stats.happiness += 3
+        shunsuke_stats.happiness -= 2
+        yuuko_stats.happiness += 2
     def choice_2_1_2():
-        shunsuke_stats.happiness += 3
-        yuuko_stats.happiness -= 3
+        shunsuke_stats.happiness += 2
+        yuuko_stats.happiness -= 2
 
     def choice_2_2_1():
         anime.marketing += 0.5
@@ -80,7 +85,6 @@
     def choice_3_1_1():
         number = renpy.random.randint(0,100)
         if number <= choice_raise_funds_formula():
-            yukari_stats.proficiency += 1
             yukari_stats.management += 1
             return True
         else:
@@ -101,7 +105,7 @@
     def choice_3_3_2():
         yukari_stats.stress += 3
         yukari_stats.happiness -= 3
-        yukari_stats.proficiency += 2
+        yukari_stats.proficiency += 1
 
     def choice_3_4_1():
         yukari_stats.happiness += 1
@@ -328,10 +332,12 @@
     ###MISSING - FUNDS FOR WEBSITE, IMPORTANT, READ IT NOW #######
     def choice_9_2_1():
         #Professional Website ($$$)
+        anime.funds -= PROFESSIONAL_WEBSITE_VALUE
         anime.quality_check += 1
         anime.marketing += 0.5
     def choice_9_2_2():
         #Website made by Shunsuke ($$)
+        anime.funds -= SHUNSUKE_WEBSITE_VALUE
         anime.quality_check += 0.5
         anime.marketing += 0.5
     def choice_9_2_3():

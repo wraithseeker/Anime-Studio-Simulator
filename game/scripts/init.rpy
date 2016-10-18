@@ -19,9 +19,9 @@
     $anime.plot = 1
     $anime.prev_plot = 1
     $UpdateProgressReport()
-    #jump week_0_1
+    jump week_0_1
     #jump week_1_6
-    jump week_7_2
+    #jump week_12_4
     #jump random_16
 
 init python:
@@ -142,6 +142,7 @@ init:
     $guerilla_marketing = False #from week 2_3
     $week_7_people_choices = ["Yuuko","Sumiko","Shunsuke","Mayumi"]
     $week_7_current_choice = ""
+    $week_8_cheap_studio_visited = False
     $trailer_choice = "Reuse"
     #Trailer choices include "Reuse" or "New"
     $wk_9_forgot_home = True

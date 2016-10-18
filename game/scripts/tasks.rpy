@@ -17,13 +17,13 @@
                     current_anime_value = getattr(anime,item)
                     new_value = task_value + current_anime_value
                     ########CHANGE FORMULA HERE #############
-                    formula = task_value * person.proficiency + current_anime_value
+                    formula = task_value * (0.65*person.proficiency) + current_anime_value
                     ####### ANIMATION TASK FORMULA ############
                     if item == "animation":
                         formula = (0.5*task_value) * person.proficiency + current_anime_value
                     ############## YUKARI TASK FORMULA ########################
                     if person == yukari_stats:
-                        formula = task_value * person.proficiency * (0.5*person.management) + current_anime_value
+                        formula = task_value * (0.5*person.proficiency) * (0.5*person.management) + current_anime_value
                     setattr(anime,item,formula)
             for item in char_stats:
                 if hasattr(self,item):

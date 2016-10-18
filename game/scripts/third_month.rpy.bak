@@ -200,11 +200,11 @@ label week_9_2:
     y "Well, okay…" 
     "She considers the options and decides to go with a..." 
     menu:
-        "Professional Website {space=15}{image=small_moneybag.png} [PROFESSIONAL_WEBSITE_VALUE]":
+        "Professional Website":
             $choice_9_2_1()
             ss "Excellent decision. Since we’re an unknown studio, we want everything about [anime.name] to be as professional as possible. I’ll look into hiring someone to make our website."
             $website_choice = "Professional" 
-        "Website made by Shunsuke {space=15}{image=small_moneybag.png} [SHUNSUKE_WEBSITE_VALUE]":
+        "Website made by Shunsuke":
             $choice_9_2_2()
             ss "Thank you for your confidence in my skills. I hope I can live up to it. I’ll get back to work, then."
             $website_choice = "Shunsuke"
@@ -219,7 +219,7 @@ label week_9_2:
     "For once, everything is going well."
     $rd_e_holder.emptyList(rd_e_holder.wk_6_to_8)
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10])
-    call expression random_game_event from _call_expression_14
+    call expression random_game_event
 label week_9_3:
     $nextDay()
     scene black with fade
@@ -435,7 +435,7 @@ label week_9_3:
     y "Yes, that’s fine." 
     "She copies the current audio files to her USB drive, bids everyone farewell, and leaves the recording studio satisfied with the day’s work." 
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10])
-    call expression random_game_event from _call_expression_15
+    call expression random_game_event
 
 label week_9_4:
     $nextDay()
@@ -737,10 +737,9 @@ label week_10_1:
     show yukari at left
     with dissolve
     $wk_9_forgot_home = True
-    play sound "music/sfx/phone_ringing.ogg" fadeout 1.0
+    #phone ringing sound
     "Yukari answers her phone." 
     scene black with fade
-    stop sound fadeout 1.0
     y "Hello?" 
     if anim_studio == anim_studio_expensive:
         anim_dir "Hello, Yukari. How have you been?" 
@@ -909,7 +908,7 @@ label week_10_2:
     m "Yep! Once we get the edited voice tracks from the recording studio, we'll be almost done." 
     y "And that'll be on Thursday. We're almost there, everyone! Hang in there." 
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_10_to_12])
-    call expression random_game_event from _call_expression_16
+    call expression random_game_event
 label week_10_3:
     $nextDay()
     scene studio_main with fade
@@ -1058,7 +1057,7 @@ label week_10_4:
     show yukari sigh 
     y "It still was stressful to handle it myself. But since everything worked out, I can't complain."  
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_10_to_12])
-    call expression random_game_event from _call_expression_17 
+    call expression random_game_event 
 
 label week_10_5: 
     $nextDay()
@@ -1070,6 +1069,7 @@ label week_10_5:
         with dissolve
         staff "It's good to see you again, Yukari. [anim_studio_dir] is expecting you. I'll let him know you're here." 
         y "Okay." 
+        #door sound
         "The receptionist leaves and returns a moment later with the director." 
         show anim_dir at right with dissolve
         anim_dir "All right, let's talk about this trailer. Above all else, the trailer should be a tool to attract an audience for [anime.name]."
@@ -1101,7 +1101,8 @@ label week_10_5:
         with dissolve
         "Yukari looks around the empty lobby and sighs. The director asked to meet her, so hopefully he hasn't forgotten…" 
         "She waits for a while, and then walks to the door that leads deeper within the studio." 
-        show anim_dir at right with hpunch
+        #[door sound] 
+        show anim_dir at right with dissolve
         y "Agh!" 
         anim_dir "Oops!" 
         "He opened the door right as she approached it and nearly collided with her on his way out." 
@@ -1132,6 +1133,7 @@ label week_10_5:
     anim_dir "Perfect." 
     y "And please, if there's anything you're unsure about, contact me." 
     anim_dir "Don't worry, I will." 
+    #----- 
     scene studio with fade
     show yukari laugh_eyes_closed at pos_left
     show sumiko at pos_right
@@ -1304,6 +1306,7 @@ label week_11_1:
         staff "It's good to see you again, Yukari. Are you here to pick up the first episode of [anime.name]?" 
         y "That's right." 
         staff "I'll let [anim_studio_dir] know you're here." 
+        #[door sound] 
         show yukari
         "As Yukari waits for the director, she can't help but marvel at how far along [anime.name] has come." 
         show anim_dir at right with dissolve
@@ -1472,11 +1475,10 @@ label week_11_2:
     show shunsuke at right with dissolve
     ss "Need a hand?" 
     y "Sure, if you have time." 
-    play sound "music/sfx/phone_ringing.ogg" fadeout 1.0
+    #[phone ringing] 
     y "Just a minute." 
     hide shunsuke with dissolve
     "She steps away from the desks so she can answer the phone without disturbing anyone. The caller is one of Sumiko's friends, and she braces herself."
-    stop sound fadeout 1.0
     "Any unexpected call could mean bad news. However, the news is good for a change! They've finished all of their tasks." 
     show yukari happy
     y "Good work! I'll drop by on Thursday to collect it. By the way, we're going to have a party after [anime.name] airs…" 
@@ -1486,11 +1488,10 @@ label week_11_2:
     ss "Something important?" 
     show yukari happy
     y "Our freelance animation work is complete!" 
-    play sound "music/sfx/phone_ringing.ogg" fadeout 1.0
+    #[phone ringing] 
     show yukari surprised
     y "Another call, already?" 
     ss "Maybe they forgot something." 
-    stop sound fadeout 1.0
     "But when Yukari steps away to take the call, she sees it's from their primary investor this time." 
     scene studio with fade
     show yukari at left with dissolve
@@ -1572,7 +1573,7 @@ label week_11_3:
     y "All right, then! In that case, we should get back to work. We have a lot to do and only a limited time to do it in. Let's do this!" 
     $rd_e_holder.emptyList(rd_e_holder.wk_5_to_10)
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_10_to_12])
-    call expression random_game_event from _call_expression_18
+    call expression random_game_event
 label week_11_4:
     $nextDay()
     show studio_main with fade
@@ -1736,7 +1737,7 @@ label week_11_5:
     show yukari happy
     y "Great! Also, I'll be dropping by the studio over the weekend to do some of the final checks on [anime.name]. If anyone wants to join me, feel free." 
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_10_to_12])
-    call expression random_game_event from _call_expression_19
+    call expression random_game_event
 # [weekend] 
 label week_11_6:
     scene studio_main with fade
@@ -2090,10 +2091,9 @@ label week_12_3:
     y "Of course!" 
     "When the doors open this time, attendees enter in smaller groups rather than as a massive crowd. It's a decent turnout, but noticeably less busy than it was the day before." 
     "However, many people still stop by the booth for [anime.name]. Yukari tells everyone about it, Shunsuke and Mayumi pass out flyers, and Sumiko and Yuuko sell merchandise. All of them answer questions from interested attendees." 
-    play sound "music/sfx/phone_ringing.ogg" fadeout 1.0
+    #[phone ringing sound] 
     y "Huh? Who could be calling me now?" 
     "She glances at her phone. It's the director of [anim_studio]." 
-    stop sound fadeout 1.0
     y "Can you guys handle the booth without me for a few minutes?" 
     m "No problem." 
     scene anime_con
@@ -2163,8 +2163,9 @@ label week_12_3:
     ss "I just checked our website's stats. Its traffic has increased significantly over these past two days. While it could be a coincidence, it's most likely related to Anime Rising." 
     y "Awesome!"
     show mayumi
-    if guerilla_marketing:
-        ss "Our social media followers have also increased." 
+    #If the player started guerilla marketing, 
+    ss "Our social media followers have also increased." 
+    #-----
     show sumiko laugh_eyes_closed
     s "I knew our preparations would pay off!"
     show yuuko sigh
@@ -2188,8 +2189,8 @@ label week_12_4:
     show yukari at left
     with dissolve
     "It feels strange to be in the studio alone. Nevertheless, she sits down at her computer so she can check over the episodes." 
+    #[door sound] 
     y "Huh?" 
-    play sound [sfx_anim_d_open,sfx_anim_d_close]
     "She looks up as the studio door opens." 
     show mayumi_f laugh_eyes_closed at right with dissolve
     m "Hi!" 

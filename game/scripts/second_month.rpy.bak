@@ -51,7 +51,7 @@ label week_5_1:
     $rd_e_holder.emptyList(rd_e_holder.wk_4)
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10])
     $renpy.notify(random_game_event)
-    call expression random_game_event from _call_expression
+    call expression random_game_event
 
 label week_5_2:
     $nextDay()
@@ -293,10 +293,11 @@ label week_5_3:
     ss "Anytime."
     "Yukari spends some time working on the storyboard. Between Shunsuke’s advice and some input from Mayumi, she feels she’s on the right track."
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10])
-    call expression random_game_event from _call_expression_1
+    call expression random_game_event
 
 label week_5_4:
     $nextDay()
+    $anim_studio = anim_studio_expensive
     scene studio_main with fade
     show yukari at left with dissolve
     y "Well, unless anyone objects to working with [anim_studio], I guess I should head over there."
@@ -839,7 +840,7 @@ label week_6_2:
         m "I'll look for freelancers and shortlist the most promising ones. Then I’ll hold auditions to make the final decision."
 
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8])
-    call expression random_game_event from _call_expression_2
+    call expression random_game_event
 label week_6_3:
     $nextDay()
     scene studio_main with fade
@@ -1057,7 +1058,7 @@ label week_6_4:
     "She shakes his hand."
     y "Thank you."
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8])
-    call expression random_game_event from _call_expression_3
+    call expression random_game_event
 
 label week_6_5:
     $nextDay()
@@ -1269,6 +1270,7 @@ label week_7_1_1:
     show yukari at left 
     show mayumi_f at right
     with dissolve
+    $anim_studio = anim_studio_cheap
     y "I'll be heading over to [anim_studio] now to get some updates on their progress."
     "The prospect thrills her. She'll finally be able to see her storyboards come to life."
     "What will the key frames look like? Will the animation be like she imagined it? She can barely breathe from anticipation."
@@ -1281,7 +1283,7 @@ label week_7_1_1:
     m "Bye!"
 
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8])
-    call expression random_game_event from _call_expression_4
+    call expression random_game_event
 
     scene animation_studio with fade
     show yukari at left
@@ -1458,7 +1460,7 @@ label week_7_1_2:
     if anim_studio == anim_studio_expensive:
         anim_dir "That explains why the storyboards seemed so unclear. We can speed up the animation work, although we’ll have to charge an additional fee."
         y "How much?"
-        anim_dir "{space=15}{image=small_moneybag.png} [NEGOTIATE_DEFAULT_FUNDS]."
+        # some number
         "She almost accepts, but bites her tongue. It’s a large sum of money, and while she can’t see another solution, it isn’t the sort of decision she should make on her own."
         "She’s caused enough problems already."
         y "Okay, I’ll have to discuss this with my team members first."
@@ -1471,7 +1473,8 @@ label week_7_1_2:
         "Although she hates to reject the easy way out, she won’t let [anime.name] be ruined by low production values like going with the key frames in their current state."
         anim_dir "In that case, yes, we can work faster, for a fee."
         y "How much?"
-        anim_dir "{space=15}{image=small_moneybag.png} [NEGOTIATE_DEFAULT_FUNDS]."
+        # some number
+        anim_dir "some number"
         "She almost accepts, but stops. It’ll be hard enough to tell the others how she messed up, let alone admit she sacrificed a large chunk of their funds as well."
         "Even if it’s the only answer, she doesn’t have the right to make that decision alone."
         y "Okay, I’ll have to discuss this with my team members first."
@@ -1687,6 +1690,7 @@ label week_7_2:
     show shunsuke at Position(xalign=0.82,yalign=1.0)
     show yuuko at Position(xalign=1.15,yalign=1.0)
     with dissolve
+    $anim_studio = anim_studio_cheap
     ss "Yukari, are you ready to work out a new deal for the animation work?"
     "From the tone of his voice, he worries she still isn’t in a good state of mind to handle negotiations."
     y "Almost there... Give me a moment."
@@ -1928,7 +1932,7 @@ label week_7_4:
     "When Yukari returns later that day, cheerful greetings meet her at the door. It’s almost like the incident with the key frames never happened at all." 
     "Despite her worries about the future, she can’t help but smile back. Her responsibilities no longer seem so difficult to bear." 
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8])
-    call expression random_game_event from _call_expression_5
+    call expression random_game_event
 label week_7_5:
     $nextDay()
     scene studio_main with fade
@@ -2021,7 +2025,7 @@ label week_7_5:
     m "Of course, you still could relax a little…" 
     y "You know, I haven’t thought about that play in years. I wonder if that’s when my dream of directing an anime began, even though I didn’t watch anime yet back then." 
     m "Maybe it was. Hey, do you hear footsteps? I think someone’s coming!" 
-    play sound [sfx_rs_door_open,sfx_rs_door_close]
+    #door sound recording studio
     if anime.category == Anime.HAREM:
         #a = male,b = female, c = female
         scene recording_studio
@@ -2037,7 +2041,7 @@ label week_7_5:
         m "I’m excited, too! This is Yukari, the director of [anime.name]." 
         y "Good to meet you." 
         va_c_char "This is going to be so much fun!" 
-        play sound sfx_rs_door_open 
+        #door sound recording studio 
         show va_sakura at va_pos_c
         show va_a at va_pos_a
         with dissolve
@@ -2050,6 +2054,7 @@ label week_7_5:
         "Yukari shakes his hand, puzzled by his behavior until she remembers Mayumi said he was new to voice acting." 
         y "I’m happy to meet you. This studio is beautiful, isn’t it?" 
         va_a_char "Yeah, it really is!" 
+        #door sound recording studio 
         show va_b happy at va_pos_b with dissolve
         "A woman sweeps into the room with a calm smile." 
         va_b_char "You must be Yukari, the director. I’m [va_b]." 
@@ -2075,7 +2080,7 @@ label week_7_5:
         m "Hi! Yukari, this is [va_a]. He’ll be doing the voice of Itaru." 
         y "It’s good to meet you. I’m the director." 
         va_a_char "Good to meet you, too. I’m looking forward to [anime.name]." 
-        play sound sfx_rs_door_open 
+        #door sound recording studio 
         show va_a at va_pos_a
         show va_c at va_pos_c
         with dissolve
@@ -2088,6 +2093,7 @@ label week_7_5:
         m "I did warn you that Norio’s voice actor is intense." 
         y "No kidding…" 
         show yukari
+        #door sound recording studio 
         show va_b at va_pos_b with dissolve
         va_b_char "I see I’m the last to arrive." 
         "She politely bows to everyone." 
@@ -2124,7 +2130,7 @@ label week_7_5:
         "He stops his impromptu acting and dashes over to them." 
         show va_a
         va_a_char "I’m so glad to meet you. I’m [va_a], I’ll be playing Hideaki, and don’t worry, I’ve been practicing by reading up on all the great detective stories and watching mystery films and everything! It’s going to be great!" 
-        play sound sfx_rs_door_open 
+        #door sound recording studio
         show va_b at va_pos_b with dissolve
         unknown "Anyone here?"
         show va_a happy 
@@ -2142,7 +2148,8 @@ label week_7_5:
         va_b_char "It was so authentic. The police arrived and everything!" 
         "Yukari glances at Mayumi, who shrugs." 
         m "Actors can be eccentric." 
-        "Yes, but too much eccentricity could make these recording sessions a nightmare."
+        "Yes, but too much eccentricity could make these recording sessions a nightmare." 
+        #door sound recording studio 
         show va_c at va_pos_a with dissolve
         va_c_char "Is this… oh good, I’m in the right place." 
         "As he walks toward them calmly, Yukari lets out a sigh of relief that at least one of their three voice actors isn’t crazy." 
@@ -2163,6 +2170,7 @@ label week_7_5:
         show yukari
         "Yukari stares at them and then turns her confused gaze to Mayumi in the hopes of getting an explanation. Mayumi shrugs." 
         m "At least they’re into it, right?" 
+    #door sound recording studio 
     scene recording_studio with fade
     show va_dir_f at left
     show va_a at va_pos_a
@@ -2630,7 +2638,7 @@ label week_8_2:
     "The two of them search for freelance animators until it’s once again time to catch the train and go home." 
     $rd_e_holder.emptyList(rd_e_holder.wk_5_to_7)
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8])
-    call expression random_game_event from _call_expression_6
+    call expression random_game_event
 label week_8_3:
     $nextDay()
     scene studio with fade
@@ -2651,65 +2659,64 @@ label week_8_3:
     show shunsuke sigh
     ss "Now I feel left out. However, the convention reminded me that we should talk about marketing." 
     show shunsuke
-    #If (guerilla marketing) back in Week 2 and has a good marketing stat
-    if guerilla_marketing and anime.marketing >= WEEK_8_GOOD_MARKETING_VALUE:
-        ss "Our pre-release marketing efforts are going well. We already have several followers on social media."
-        ss "Better yet, I saw people discussing [anime.name] on an anime forum."
-        show mayumi_f surprised
-        m "Wow, really?" 
-        show yukari happy
-        y "Awesome!"
-        ss "But guerilla marketing alone won’t be enough." 
-    elif investor_marketing and anime.marketing >= WEEK_8_GOOD_MARKETING_VALUE:
-        #If the player chose to start  marketing due to Investor Advice in Week 6 and has a good marketing stat, 
-        ss "Now, I’ve started several online ad campaigns."
-        ss "It will be difficult to judge their effectiveness so early, but I’ve tracked their stats and they seem to have good visibility."
-        show sumiko laugh_eyes_closed 
-        s "For what it’s worth, some of my friends told me they’re excited for [anime.name]."
-        show yukari happy 
-        y "That’s good!" 
-        ss "However, we still can do more." 
-    elif (investor_marketing or guerilla_marketing) and anime.marketing <= WEEK_8_GOOD_MARKETING_VALUE:
-        show shunsuke sigh
-        ss "Honestly, our promotion efforts are not going well." 
-        y "Oh…" 
-        ss "We really need to step up our game if we want to get [anime.name] the attention it deserves." 
-    elif not investor_marketing and not guerilla_marketing:
-        "If the player declined marketing both times," 
-        show shunsuke worry
-        ss "We should start promoting [anime.name] now, since there's only a little time left before it will be on the air." 
-        ss "Producing a great anime series is only half the battle. The other half relies on marketing."
-        show sumiko surprised 
-        s "What do you mean? If [anime.name] is awesome, shouldn’t the fans come naturally?"
-        ss "And how will they know [anime.name] is awesome if they don't even know it exists?" 
-        y "Shunsuke's right. We need to put some thought into marketing." 
+    #If the player chose to start pre-release marketing back in Week 2 and has a good marketing stat 
+    # ss "Our pre-release marketing efforts are going well. We already have several followers on social media."
+    # ss "Better yet, I saw people discussing [anime.name] on an anime forum."
+    # show mayumi_f surprised
+    # m "Wow, really?" 
+    # show yukari happy
+    # y "Awesome!"
+    # ss "But guerilla marketing alone won’t be enough." 
+    #If the player chose to start  marketing due to Investor Advice in Week 6 and has a good marketing stat, 
+    # ss "Now, I’ve started several online ad campaigns."
+    # ss "It will be difficult to judge their effectiveness so early, but I’ve tracked their stats and they seem to have good visibility."
+    # show sumiko laugh_eyes_closed 
+    # s "For what it’s worth, some of my friends told me they’re excited for [anime.name]."
+    # show yukari happy 
+    # y "That’s good!" 
+    # ss "However, we still can do more." 
+    #If the player chose to start marketing either or both times, but has a low marketing stat
+    #show shunsuke sigh
+    #ss "Honestly, our promotion efforts are not going well." 
+    #y "Oh…" 
+    #ss "We really need to step up our game if we want to get [anime.name] the attention it deserves." 
+    #"If the player declined marketing both times," 
+    #show shunsuke worry
+    # ss "We should start promoting [anime.name] now, since there's only a little time left before it will be on the air." 
+    # ss "Producing a great anime series is only half the battle. The other half relies on marketing."
+    # show sumiko surprised 
+    # s "What do you mean? If [anime.name] is awesome, shouldn’t the fans come naturally?"
+    # ss "And how will they know [anime.name] is awesome if they don't even know it exists?" 
+    # y "Shunsuke's right. We need to put some thought into marketing." 
+    #----- 
     "Yukari thinks about different advertising techniques. What would help them the most?" 
     y "Ads on TV and the Internet are quite effective. They got me to try different kinds of anime I wouldn’t have watched otherwise!"
     show mayumi happy 
     m "Don't forget about posters and banners, too! I see lots of them in Akihabara. Why don’t we try renting some advertisement space there?" 
     show shunsuke sigh
     ss "Are you joking? We don't have that kind of budget!" 
-    if not guerilla_marketing:
-        ss "Right now, we should try some guerilla marketing."
-        show sumiko surprised
-        s "Guerilla marketing? But we're not in a war." 
-        "For a long moment, Shunsuke just stares at her. Then he shakes his head." 
-        ss "Didn’t I explain this once already?"
-        show sumiko
-        ss "Guerilla marketing is when you use unconventional methods to market something to achieve the highest possible gains with the lowest possible costs." 
-        ss "To put it in simple terms, we’ll use creative methods to get as many fans as we can for [anime.name]." 
-        m "Like going viral on social networks, right?"
-        show shunsuke happy
-        ss "Exactly!" 
-        s "But how?" 
-        y "We can’t expect to go viral right away, but we should probably set up social media accounts for [anime.name]." 
-        m "Sounds good to me, but who should handle it?" 
-        s "Shunsuke, definitely. He’s the closest thing we have to a marketing expert." 
-        ss "Thanks, I think. I’ll create the accounts today." 
-        "It’s the most sensible choice, not only because of Shunsuke’s experience, but also because he has the fewest remaining tasks of anyone on the team." 
-        ss "However, [anime.name] should have its own website." 
-    else:
-        ss "What we really need is to give [anime.name] its own website."
+    #If the player didn’t start guerilla marketing back in Week 2
+    # ss "Right now, we should try some guerilla marketing."
+    # show sumiko surprised
+    # s "Guerilla marketing? But we're not in a war." 
+    # "For a long moment, Shunsuke just stares at her. Then he shakes his head." 
+    # ss "Didn’t I explain this once already?"
+    # show sumiko
+    # ss "Guerilla marketing is when you use unconventional methods to market something to achieve the highest possible gains with the lowest possible costs." 
+    # ss "To put it in simple terms, we’ll use creative methods to get as many fans as we can for [anime.name]." 
+    # m "Like going viral on social networks, right?"
+    # show shunsuke happy
+    # ss "Exactly!" 
+    # s "But how?" 
+    # y "We can’t expect to go viral right away, but we should probably set up social media accounts for [anime.name]." 
+    # m "Sounds good to me, but who should handle it?" 
+    # s "Shunsuke, definitely. He’s the closest thing we have to a marketing expert." 
+    # ss "Thanks, I think. I’ll create the accounts today." 
+    # "It’s the most sensible choice, not only because of Shunsuke’s experience, but also because he has the fewest remaining tasks of anyone on the team." 
+    #ss "However, [anime.name] should have its own website." 
+    #----- 
+    #if player start guerilla marketing
+    #ss "What we really need is to give [anime.name] its own website."
     show yukari worry
     show shunsuke
     y "Will that be difficult?" 
@@ -2734,18 +2741,18 @@ label week_8_3:
     if anim_studio == anim_studio_cheap:
         menu:
             "Visit [anim_studio]":
-                $week_8_cheap_studio_visited = True
                 $choice_8_1_1_cheap()
                 "Yukari decides to pay a visit to [anim_studio]. With the studio’s reputation in mind, she has a bad feeling things might not be going exactly as planned." 
                 scene animation_studio with fade
                 show yukari at left with dissolve
                 "The empty lobby is a familiar sight at this point." 
                 y "Hello? [anim_studio_dir], are you here?" 
+                #door sound
                 show anim_dir at right with dissolve
                 anim_dir "Yukari? What brings you here today?" 
                 y "I came to check on the new background art for episode one of [anime.name]." 
                 anim_dir "Background art? Sure, please hold on while I get the files from our staff." 
-                play sound [sfx_anim_d_open,sfx_anim_d_close]
+                #door sound
                 hide anim_dir with dissolve
                 "Yukari sits down and waits for him to return. A minute passes… then another."
                 "After a few minutes, she gets a little impatient. What could be taking him so long?" 
@@ -2756,6 +2763,7 @@ label week_8_3:
                 show yukari
                 "On the other hand, it could be about [anime.name]. Yukari leans closer and presses her ear against the door, but she still can’t hear the conversation." 
                 "The sudden sound of approaching footsteps makes her hurry back to her seat."
+                #door sound
                 show anim_dir at right with dissolve
                 anim_dir "Sorry for the delay. Here's the new background art we’ve been working on this week." 
                 "His tense posture sends off more warning bells in Yukari’s mind. Nevertheless, she accepts the art from him and looks through it."
@@ -3373,7 +3381,8 @@ label week_8_5:
     scene animation_studio with fade
     show yukari at left
     with dissolve
-    if anim_studio == anim_studio_cheap and not week_8_cheap_studio_visited:
+    # studio cheap, never check BG (FAILURE)
+    if anim_studio == anim_studio_cheap:
         "When she arrives, the director is waiting for her." 
         show anim_dir at right with dissolve
         anim_dir "I’m glad you could make it. Are you ready to take a look?" 
@@ -3408,7 +3417,7 @@ label week_8_5:
         anim_dir "Okay. And I really am sorry about this." 
         y "It’s fine." 
         "It isn’t what she wants, but since the team is on board with it and their deadline can’t be changes, she’ll accept the art in its current state. At least [anime.name] still has a chance." 
-    elif anim_studio == anim_studio_cheap and week_8_cheap_studio_visited:
+    elif anim_studio == anim_studio_expensive: # or anim_studio_cheap (SUCCESS) 
         "To Yukari’s pleasant surprise, the work provided by [anim_studio] is satisfactory, with no issues or mistakes." 
         "It’s hard to believe [anime.name] has come so far in only two months. She has faith all their efforts will pay off soon, once [anime.name] is on the air." 
     scene street with fade
@@ -3417,7 +3426,7 @@ label week_8_5:
     "It’s been a bumpy road, but at last everything is coming together."
 
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10,rd_e_holder.wk_6_to_8])
-    call expression random_game_event from _call_expression_7
+    call expression random_game_event
 
     scene restaurant with fade   
     show yukari at pos_left
@@ -3427,15 +3436,16 @@ label week_8_5:
     show mayumi at pos_farleft behind yukari
     with dissolve
     "Yukari is the last to arrive at the restaurant, but everyone greets her with happy greetings. It’s a welcome change from the previous Friday, when everyone was so quiet." 
-    if not week_8_cheap_studio_visited:
-        m "So did you get everything worked out at [anim_studio]?"
-        show yukari sigh 
-        y "Yeah. I wish we didn’t have to go with lower quality, but…" 
-        m "It’ll be fine." 
-    elif anim_studio == anim_studio_expensive or week_8_cheap_studio_visited:
+    # if cheap studio fail
+    m "So did you get everything worked out at [anim_studio]?"
+    show yukari sigh 
+    y "Yeah. I wish we didn’t have to go with lower quality, but…" 
+    m "It’ll be fine." 
+    if anim_studio == anim_studio_expensive: # or cheap studio (SUCCESS)
         m "How did things go at [anim_studio]?" 
         show yukari laugh_eyes_closed
         y "Everything is on track." 
+    #----- 
     show yukari happy
     y "I also got in touch with our new animators, and that went smoothly." 
     show sumiko tsundere

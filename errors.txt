@@ -2,9 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/scripts/choices.rpy", line 395: invalid syntax
-    def negotiate_default:
-                          ^
-    
+File "game/scripts/second_month.rpy", line 2667: expected statement.
+    If the player chose to start  marketing due to Investor Advice in Week 6 and has a good marketing stat, 
+                                                                   ^
 
 Ren'Py Version: Ren'Py 6.99.11.1749

@@ -508,7 +508,7 @@ label week_1_2:
             show sumiko happy
             s "Great, thanks for the advice."
     $random_game_event = rd_e_holder.singleRandom(rd_e_holder.all)
-    call expression random_game_event from _call_expression_8
+    call expression random_game_event
 
 label week_1_3:
     $nextDay()
@@ -788,7 +788,7 @@ label week_2_1:
             "Shunsuke is right. While they may have a tight deadline to finish the two episodes of [anime.name], Yukari decides it’s best to work with a firm foundation instead of a shaky one."
             "The character designs need to be re-done to match the scenario, or else the project’s value will ultimately be lowered."
     $random_game_event = rd_e_holder.singleRandom(rd_e_holder.all)
-    call expression random_game_event from _call_expression_9
+    call expression random_game_event
 label week_2_3:
     $fastForwardDays(2)
     scene studio_main with fade
@@ -1152,7 +1152,7 @@ label week_3_2:
     "Yukari rubs her head. The pressure and stress is starting to get to her. She looks around the studio. Everyone else is hard at work."
     "As much as she wants to complain to them about what happens, she knows it’s better if she doesn’t distract them."
     $random_game_event = rd_e_holder.singleRandom(rd_e_holder.all)
-    call expression random_game_event from _call_expression_10
+    call expression random_game_event
 label week_3_3:
     $nextDay()
     scene studio_main with fade
@@ -1190,7 +1190,7 @@ label week_3_3:
             "Yukari takes Sumiko to see a doctor. She is indeed sick. She’ll be recuperating at home for the rest of the week and won’t be able to work on [anime.name]."
 
     $random_game_event = rd_e_holder.singleRandom(rd_e_holder.all)
-    call expression random_game_event from _call_expression_11
+    call expression random_game_event
 
 label week_3_4:
     $nextDay()
@@ -1419,7 +1419,7 @@ label week_4_1:
             "Although there’s a lot of work to do, brightening the mood is more important. But how? Yukari considers it for a moment, and then leaves the studio to visit a nearby bakery."
             "She returns with enough cookies for everyone to have some. It isn’t a permanent solution, but the tension in the air eases as she passes around the cookies."
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4,rd_e_holder.wk_4_to_12])
-    call expression random_game_event from _call_expression_12
+    call expression random_game_event
 
 label week_4_3:
     $fastForwardDays(2)
@@ -1477,7 +1477,7 @@ label week_4_3:
     m "Don’t worry, I will."
     y "I know I can count on you."
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4,rd_e_holder.wk_4_to_12])
-    call expression random_game_event from _call_expression_13
+    call expression random_game_event
 
 label week_4_4:
     $nextDay()
