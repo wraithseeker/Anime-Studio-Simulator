@@ -22,7 +22,7 @@
                 self.person = "Yuuko"
                 self.p = "yuu"
                 self.g = "her"
-                self.stat = yuuko_stats
+                self.stats = yuuko_stats
             elif character == "s":
                 self.say = s
                 self.person = "Sumiko"
@@ -33,7 +33,7 @@
                 self.say = ss
                 self.person = "Shunsuke"
                 self.p = "ss"
-                self.g = "him"
+                self.g = "his"
                 self.stats = shunsuke_stats
             else:
                 self.say = m

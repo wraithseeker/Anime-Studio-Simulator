@@ -210,7 +210,6 @@ label random_2:
 
 #Conflict during Team Meetings 
 label random_3:
-    #need to test
     $rd_c = RandomCharacter()
     scene studio_main with fade
     show mayumi at left
@@ -245,8 +244,22 @@ label random_3:
     menu:
         "Agree with [rd_c.person]":
             $rechoice_3_1(rd_c.stats)
+            show yukari sad
+            y "I'm sorry, Mayumi, but [rd_c.person] is right."
+            show mayumi sad_angry
+            m "W-what? But I…"
+            rd_c.say "See?"
+            y "You're a great composer, but this song needs work."
+            m "Aw, okay…"
         "Agree with Mayumi":
             $rechoice_3_2()
+            show yukari sad
+            y "I'm sorry, [rd_c.person], but Mayumi is right."
+            show mayumi happy
+            m "Yes!"
+            rd_c.say "Huh? But I was so sure…"
+            m "Thanks, Yukari!"
+            y " There's no need to thank me. The song is fine, and that's all there is to it.."
         "Try to distract them by changing the topic":
             show yukari happy
             y "Have you guys listened to the new song released by Love Live? It's selling like hotcakes right now and must be really good."
@@ -614,9 +627,7 @@ label random_10:
     show yukari at left with dissolve
     schoolgirls "Onee-sama! Would you be so kind as to buy our flowers?"
     schoolgirls "We're helping out the local cancer support organization!"
-    y "How much do they cost?"
-    schoolgirls "Just XX a flower"
-    y "Yikes, isn’t that a bit steep for a flower? Well, it IS for charity… and I could pay for it personally."
+    y "What should I do? It is for charity… and I could pay for it personally."
     schoolgirls "We have many flowers, take your pick!"
     menu:
         "Buy the flowers":
@@ -646,7 +657,7 @@ label random_11:
             show yukari
             "To her surprise, the other pedestrian doesn’t pick up the object, either."
             y "It looks like a pendant."
-            #"sound effect of pendant being crushed"
+            "As she watches, a car speeds by and flattens the pendant. The pedestrian continues to walk, oblivious to what happened."
             show yukari sad
             y "Oh no! Well, either it wasn’t his, or it wasn’t worth much to him."
         "Attempt to pick up the object":
@@ -703,7 +714,7 @@ label random_13:
     "She suddenly remembers where she saw it last: on the table at home."
     menu:
         "Dash home as fast as possible to try and avoid the storm":
-            scene street_rain
+            scene street_rain with fade
             show yukari at left
             with dissolve
             "rain sound effect"
@@ -717,7 +728,7 @@ label random_13:
             "Despite her hope, symptoms of a cold show themselves the next day. Miserable though she feels, she knows she’ll have to work on [anime.name] anyway."
             $rechoice_13_1()
         "Wait under a small shelter until the storm subsides":
-            scene street_rain
+            scene street_rain with fade
             show yukari sad at left
             with dissolve
             "Yukari dashes to a nearby shelter just in time. A few drops of rain soon lead into a downpour."
@@ -812,7 +823,7 @@ label random_15:
         show sumiko happy
     else:
         show shunsuke happy
-    rd_c.say "Guess what? I just won $XXXX!"
+    rd_c.say "Guess what? I just won {space=15}{image=small_moneybag.png} [WON_RADIO_FUNDS]"
     menu:
         "Ask how [rd_c.person] won the prize":
             show yukari happy
@@ -845,24 +856,26 @@ label random_15_share:
     rd_c.say "Thank you!"
     y "Since that’s a fair amount of money, why don’t you add some of it to the studio’s funds?"
     rd_c.say "Sure, that’s fine, especially since I used studio time for this without asking permission. How much did you have in mind?"
+    $radio_funds_25 = int(WON_RADIO_FUNDS * 0.25)
+    $radio_funds_50 = int(WON_RADIO_FUNDS * 0.50)
+    $radio_funds_75 = int(WON_RADIO_FUNDS * 0.75)
     menu:
-        "25\%":
+        "25\% {space=15}{image=small_moneybag.png} [radio_funds_25]":
             $rechoice_15_1()
             rd_c.say "No problem!"
-        "50\%":
+        "50\% {space=15}{image=small_moneybag.png} [radio_funds_50]":
             $rechoice_15_2(rd_c.stats)
             rd_c.say "A 50/50 split? I suppose that’s fair."
-        "75\%":
+        "75\% {space=15}{image=small_moneybag.png} [radio_funds_75]":
             $rechoice_15_3(rd_c.stats)
             rd_c.say "That’s a little steep, isn’t it? If you insist…"
-        "100\%":
+        "100\% {space=15}{image=small_moneybag.png} [WON_RADIO_FUNDS]":
             $rechoice_15_4(rd_c.stats)
             rd_c.say "So when you said “some,” you really meant “all”? You have the makings of a good tyrant, Yukari. Sheesh."
     return
 #Wrong Food Delivery Address 
 label random_16:
     scene studio_main with fade
-    "The studio’s doorbell rings."
     show yukari at left
     show mayumi_f at right
     with dissolve
@@ -1077,10 +1090,10 @@ label random_21:
 label random_22:
     scene studio_main with fade
     show yukari at left with dissolve
-    y "This seems like a good time to announce the workshop I registered us for this weekend."
+    y "This seems like a good time to announce the workshop I registered us for this afternoon."
     "Before she can speak, Sumiko stands up."
     show sumiko at right with dissolve
-    s "Hey everyone, our family’s restaurant is switching to a new menu next week, and I'd like you guys to be the tasters this weekend!"
+    s "Hey everyone, our family’s restaurant is switching to a new menu next week. I'd like you guys to preview the menu this afternoon once we finish our work!"
     s "You'll be the first people to enjoy the scrumptious new meals the master chef has planned for this season. What do you say?"
     y "(thinking to self): Oh no… it’s at the same time as the workshop!"
     menu:
@@ -1097,19 +1110,23 @@ label random_22:
             y "Yeah, that sounds amazing. The food better be good!"
             s "Of course! I thought up some of the concepts myself!"
             y "Huh? Oh boy."
+            jump random_22_eat
     return
 label random_22_eat:
     #weekend stuff
     scene restaurant with fade
-    show yukari at left
-    show mayumi_f at Position(xalign=0.85,yalign=1.0)
-    show shunsuke at pos_outerright behind mayumi_f
+    show yukari at pos_left
+    show yuuko at pos_right
+    show sumiko at pos_outerright behind yuuko
+    show shunsuke at pos_middleright
+    show mayumi at pos_farleft behind yukari
     with dissolve
-    show mayumi_f happy
+    show mayumi happy
     m "Wow, everything tastes amazing!"
     ss "Thank you for inviting us."
     y "This food is excellent!"
     y "(thinking to self): The workshop probably wasn’t too helpful anyway."
+    return
 #Bumped into popular Seiyū Mamoru-san!
 label random_23:
     scene street with fade
@@ -1291,25 +1308,44 @@ label random_27:
     show shunsuke at pos_middleright_half
     show sumiko at pos_outerright
     with dissolve
-    ss "Hey guys, are you free to have a meal together this weekend?"
+    ss "Hey guys, are you free to have a meal together this evening?"
     m "Yep!"
     s "Yuuko and I are also free."
     y "What's the occasion?"
     ss "I can’t tell you yet. It's a surprise."
     y "Let me check our work progress first."
-    ss "C'mon, Yukari, surely you can spare a day."
+    ss "C'mon, Yukari, surely you can spare one evening!"
     menu:
-        "Hang out with the team at the restaurant this weekend.":
+        "Hang out with the team at the restaurant this evening.":
             show yukari sigh
             y "Fine, fine! I’ll go, okay?"
             show yukari happy
-            y "Let's have a good time this weekend!"
-            #weekend restaurant stuff
+            y "Let's have a good time tonight!"
+            scene restaurant with fade
+            show yukari at pos_left
+            show yuuko at pos_right
+            show sumiko at pos_outerright behind yuuko
+            show shunsuke at pos_middleright
+            show mayumi at pos_farleft behind yukari
+            s "Okay, Shunsuke, what’s the big surprise?"
+            ss "I've been secretly filming us at work for the past few weeks."
+            show shunsuke laugh_eyes_closed
+            ss "Allow me to present to you our journey from Week 1!"
+            "He sets a laptop on the table and begins a video. It shows all of them working on various tasks for the production of [anime.name]."
+            "Even from the short selection, it's easy to see them become more efficient and confident as time passes."
+            show yukari happy
+            y "Wow. We’ve come so far! It’s… hard to believe."
+            show sumiko happy
+            s "That was cool!"
+            show yuuko laugh_eyes_closed
+            yuu "Thank you for making that, Shunsuke."
+            show mayumi happy
+            m "Yeah, thanks!"
             $rechoice_27_1()
         "Skip the restaurant to work on getting more funds instead.":
             show yukari sad
-            y "Sorry, but I can't make it this weekend."
-            y "I will be attending some events that could help us raise additional funds."
+            y "Sorry, but I can't make it."
+            y "I'll be attending some events tonight that could help us raise additional funds."
             y "I hope you understand how important this is."
             ss "I understand… Let’s postpone the surprise until everyone is free."
             $rechoice_27_2()
@@ -1350,20 +1386,19 @@ label random_28:
 #Decorate Restaurant (Not Y&S Restaurant) for Funds 
 label random_29:
     scene studio_main with fade
-    show yukari at pos_left
+    show yukari worry at pos_left
     show mayumi at pos_farleft behind yukari
     show shunsuke at right
     with dissolve
-    show yukari worry
-    y "Oh my gosh, we're almost broke"
+    y "Oh my gosh, we're almost broke!"
     y "All those Economics classes I took haven’t helped one bit."
     ss "Calm down. I know a place where we can make some extra cash."
     show yukari
     y "Really? Where?"
     ss "A local restaurant needs help putting up seasonal décor. If all of us work together, we can get quite a hefty sum."
-    ss "The downside is we'll spend our entire weekend working without any rest."
+    ss "The downside is we'll spend our entire afternoon and evening working without any rest."
     show yukari worry
-    y "The whole weekend? I’m afraid we could be too stressed to work efficiently the following Monday..."
+    y "Afternoon AND evening? That might leave us too tired to work efficiently…"
     m "We need the money, so let’s do it anyway."
     y "But is it the right thing to do? We might get out of touch with our skills, too."
     show mayumi sigh
@@ -1384,7 +1419,7 @@ label random_29:
             s "Sure, let me get the right tools."
             yuu "Shunsuke, where's the paint?"
             ss "It's behind the counter. Be careful with the white. The lid is chipped."
-            "Over the next few hours, they work under the restaurant owner’s guidance until the job is complete."
+            "For the rest of the day, they work under the restaurant owner’s guidance. By the time night falls, the job is complete."
             scene cafe with fade
             show yukari at left with dissolve
             restaurant_owner "Thanks for the work, kids. Here's your payment."
@@ -1395,7 +1430,7 @@ label random_29:
         "Pass on the opportunity":
             $rechoice_29_2()
             y "Thanks for your suggestion, Shunsuke, but I think we have to pass."
-            y "If we work the whole weekend and continue working the following week, it'll affect the quality of our work on [anime.name]."
+            y "If we take that much time to do something extra, it’ll affect the quality of our work on [anime.name]."
             show shunsuke sad
             ss "That's a fair point. I wanted you to weigh the options for yourself."
             ss "However, without any funds left to tap, we'll struggle much more as we proceed."

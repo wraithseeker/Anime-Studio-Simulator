@@ -1,5 +1,6 @@
 ﻿init -1000 python:
     class RandomEventsHolder(object):
+        global anime
         def __init__(self):
             self.list = []
         def remove(self,item):
@@ -8,8 +9,8 @@
                     event.remove(item)
                     #print("Removed " + str(item) + " from " + str(event))
         def calculateEvents(self):
-            self.list = [self.wk_4_to_12,self.wk_10_to_12,self.all]
-            self.choice_holder = self.wk_4_to_12 + self.wk_10_to_12 + self.all
+            self.list = [self.wk_4_to_12,self.wk_10_to_12,self.all,self.help]
+            self.choice_holder = self.wk_4_to_12 + self.wk_10_to_12 + self.all + self.help
         def random(self,included=None):
             if self.choice_holder:
                 if included:
@@ -18,12 +19,18 @@
                     for included_events in included:
                         events = events + included_events
                     filtered_event = [x for x in self.choice_holder if x in events]
-                    choice = renpy.random.choice(filtered_event)
+                    if anime.funds <= 20 and self.help:
+                        choice = renpy.random.choice(self.help)
+                    else:
+                        choice = renpy.random.choice(filtered_event)
                     self.remove(choice)
                     self.calculateEvents()
                     return choice
                 else:
-                    choice = renpy.random.choice(self.choice_holder)
+                    if anime.funds <= 20 and self.help:
+                        choice = renpy.random.choice(self.help)
+                    else:
+                        choice = renpy.random.choice(self.choice_holder)
                     self.remove(choice)
                     self.calculateEvents()
                     return choice

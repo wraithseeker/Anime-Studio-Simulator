@@ -11,6 +11,8 @@
     REQUEST_SALARY_FUNDS = 10
     SUSPICIOUS_BUSINESSMAN_FUNDS = 5
     WRONG_FOOD_FUNDS = 5
+    #plus funds
+    WON_RADIO_FUNDS = 15
 
 ##1.joboffering
     def rechoice_1_1(character): 
@@ -226,7 +228,7 @@
         ##(b) Tell off Character Name for listening to the radio during work 
     def rechoice_15_1():
         #25%
-        anime.funds += 5
+        anime.funds += int(WON_RADIO_FUNDS *0.25)
         yukari_stats.happiness += 1
         mayumi_stats.happiness += 1
         shunsuke_stats.happiness += 1
@@ -235,7 +237,7 @@
     def rechoice_15_2(character):
         ##(B) 50% (+ minor funds)( - [character name] happiness ) (everyone else + happiness).
         character_list = [yukari_stats,mayumi_stats,shunsuke_stats,yuuko_stats,sumiko_stats]
-        anime.funds += 8
+        anime.funds += int(WON_RADIO_FUNDS *0.50)
         character.happiness  -= 1
         for char in character_list:
             if char.name != character.name:
@@ -243,7 +245,7 @@
     def rechoice_15_3(character):
         ##(C) 75% (+ normal funds) ( - [character name] happiness ) (everyone else + happiness)
         character_list = [yukari_stats,mayumi_stats,shunsuke_stats,yuuko_stats,sumiko_stats]
-        anime.funds += 10
+        anime.funds += int(WON_RADIO_FUNDS *0.75)
         character.happiness  -= 2
         for char in character_list:
             if char.name != character.name:
@@ -251,7 +253,7 @@
     def rechoice_15_4(character):
         ##(D) 100%(abit more than normal funds)  ( - [character name] a lot happiness ) (everyone else + happiness)
         character_list = [yukari_stats,mayumi_stats,shunsuke_stats,yuuko_stats,sumiko_stats]
-        anime.funds += 15
+        anime.funds += WON_RADIO_FUNDS
         character.happiness  -= 3
         for char in character_list:
             if char.name != character.name:

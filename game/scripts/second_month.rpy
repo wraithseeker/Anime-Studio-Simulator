@@ -50,7 +50,6 @@ label week_5_1:
             $anim_studio = anim_studio_cheap
     $rd_e_holder.emptyList(rd_e_holder.wk_4)
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_5_to_7,rd_e_holder.wk_4_to_12,rd_e_holder.wk_5_to_10])
-    $renpy.notify(random_game_event)
     call expression random_game_event from _call_expression
 
 label week_5_2:

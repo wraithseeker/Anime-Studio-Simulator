@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/second_month.rpy", line 2667: expected statement.
-    If the player chose to start  marketing due to Investor Advice in Week 6 and has a good marketing stat, 
-                                                                   ^
+File "game/scripts/random_event_holder.rpy", line 22: invalid syntax
+                    if anime.funds <= 20 & not self.help:
+                                              ^
+    
 
 Ren'Py Version: Ren'Py 6.99.11.1749
