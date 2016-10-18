@@ -2,23 +2,35 @@
     def getRandomCompany():
         global random_company
         company = renpy.random.choice(random_company)
-        random_company.remove(company)
-        return company
+        if company:
+            random_company.remove(company)
+            return company
+        else:
+            return "Matsura"
     def getRandomName():
         global random_names
         name = renpy.random.choice(random_names)
-        random_names.remove(name)
-        return name
+        if name:
+            random_names.remove(name)
+            return name
+        else:
+            return "Nobu"
     def getRandomFemaleName():
         global random_va_female
         name = renpy.random.choice(random_va_female)
-        random_va_female.remove(name)
-        return name
+        if name:
+            random_va_female.remove(name)
+            return name
+        else:
+            return "Kaoru"
     def getRandomMaleName():
         global random_va_male
         name = renpy.random.choice(random_va_male)
-        random_va_male.remove(name)
-        return name
+        if name:
+            random_va_male.remove(name)
+            return name
+        else:
+            return "Motoki"
     def nextWeek():
         global current_week
         current_week += 1

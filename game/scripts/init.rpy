@@ -20,7 +20,7 @@
     $anime.prev_plot = 1
     $UpdateProgressReport()
     #jump week_0_1
-    jump random_15
+    jump week_5_1
     #jump week_12_4
     #jump random_16
 
@@ -48,7 +48,7 @@ init:
         yukari_first_task = Tasks("Networking","Mingle with people in the anime industry.",marketing=0.5,management=1,stress=1)
         yukari_second_task = Tasks("Storyboards","Work on the storyboards for [anime.name].",storyboard=0.5,stress=1)
         yukari_third_task = Tasks("Networking","Make new connections to increase [anime.name]'s visibility.",marketing=0.5,management=1,stress=1)
-        yukari_raise_funds = Tasks("Raise Funds","Raise money for [anime.name].",funds=2,stress=1)
+        yukari_raise_funds = Tasks("Raise Funds","Raise money for [anime.name].",funds=2,stress=1,happiness=-1)
         yukari_read_books = Tasks("Read Books","Read books to learn more about making anime.",proficiency=1,happiness=-1)
 
         mayumi_first_task = Tasks("Compose Music","Work on ideas for the OST of [anime.name].",ost=0.5,stress=1)

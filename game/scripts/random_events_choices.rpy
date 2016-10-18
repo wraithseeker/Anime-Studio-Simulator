@@ -47,7 +47,7 @@
             return True
         else:
             #failure
-            mayumi.stats.happiness -= 1 
+            mayumi_stats.happiness -= 1 
             character.happiness -= 1 
             return False
         
@@ -181,16 +181,16 @@
 #12. Homeroom Teacher Surprise Visit
         #Random % chance for teacher to like their anime depending on Yukari stats (High management, low stress high happiness = higher chance)
 
-        def rechoice_12_1_success():
-            #If the teacher likes the anime, (+ happiness for everyone)
-            yukari_stats.happiness += 1
-            mayumi_stats.happiness += 1
-            shunsuke_stats.happiness += 1
-            sumiko_stats.happiness += 1
-            yuuko_stats.happiness  += 1
-        def rechoice_12_1_failure():
-            pass
-            #If the teacher doesn’t like it,
+    def rechoice_12_1_success():
+        #If the teacher likes the anime, (+ happiness for everyone)
+        yukari_stats.happiness += 1
+        mayumi_stats.happiness += 1
+        shunsuke_stats.happiness += 1
+        sumiko_stats.happiness += 1
+        yuuko_stats.happiness  += 1
+    def rechoice_12_1_failure():
+        pass
+        #If the teacher doesn’t like it,
 
 #13. Where's my umbrella?
     def rechoice_13_1(): 
@@ -281,7 +281,7 @@
         yukari_stats.stress -= 1
         mayumi_stats.stress -= 1
 
-    def rehoice_17_2(): 
+    def rechoice_17_2(): 
         #(2) Pick the matcha (+happiness –stress for Shunsuke and Sumiko)
         shunsuke_stats.happiness += 1
         sumiko_stats.happiness += 1

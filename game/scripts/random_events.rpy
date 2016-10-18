@@ -169,7 +169,7 @@ label random_2:
     if rd_c.p == "m":
         show mayumi_f sad at right
     elif rd_c.p == "s":
-        show sumi sad at right
+        show sumiko sad at right
     elif rd_c.p == "yuu":
         show yuuko sad at right
     else:
@@ -205,7 +205,7 @@ label random_2:
             rd_c.say "What? But this money is meant for [anime.name]!"
             y "Take it. You’re a friend and part of the team, so we should help you out. Besides, your family’s health is more important than an anime."
             rd_c.say "Thank you so much…"
-            $rechoice_2_2(rd_c.stats)
+            $rechoice_2_2()
     return
 
 #Conflict during Team Meetings 
@@ -389,7 +389,7 @@ label random_6:
             $rechoice_6_1()
             y "Well, let's give it a try."
             rd_c.say "Great!"
-            "She calls the businessman back, and Yukari arranges payment for the advertising program. She and [Character Name] return to work."
+            "She calls the businessman back, and Yukari arranges payment for the advertising program. She and [rd_c.person] return to work."
             "An hour later, Shunsuke clears his throat."
             ss " I don't mean to interrupt, but I just read something important. There's a new scam going around."
             "Yukari has a sudden sinking feeling she won't like what he says."
@@ -453,7 +453,7 @@ label random_7:
     $rd_stay_behind = False
     menu:
         "Tell Yuuko she won't be going" if "yuu" in rd_remaining_c:
-            $rechoice_7_1(rd_remaining_c.stats)
+            $rechoice_7_1(rd_c.stats)
             if rd_c.p == "s":
                 hide sumiko
             elif rd_c.p == "m":
@@ -469,7 +469,7 @@ label random_7:
             y "Do you really?"
             yuu "Sure, I guess…"
         "Tell Sumiko she won't be going" if "s" in rd_remaining_c:
-            $rechoice_7_1(rd_remaining_c.stats)
+            $rechoice_7_1(rd_c.stats)
             if rd_c.p == "yuu":
                 hide yuuko
             elif rd_c.p == "m":
@@ -483,7 +483,7 @@ label random_7:
             y "Well, we have two artists. Yuuko can tell you what she learns from the professionals there. You wouldn’t argue that your sister should stay behind instead, would you?"
             s "Ugh, you sure know how to make a girl feel guilty."
         "Tell Shunsuke she won't be going" if "ss" in rd_remaining_c:
-            $rechoice_7_1(rd_remaining_c.stats)
+            $rechoice_7_1(rd_c.stats)
             if rd_c.p == "yuu":
                 hide yuuko
             elif rd_c.p == "m":
@@ -500,7 +500,7 @@ label random_7:
             y "Someone has to stay behind."
             ss "Oh, fine. I’ll do it for the team."
         "Tell Mayumi she won't be going" if "m" in rd_remaining_c:
-            $rechoice_7_1(rd_remaining_c.stats)
+            $rechoice_7_1(rd_c.stats)
             if rd_c.p == "yuu":
                 hide yuuko
             elif rd_c.p == "s":

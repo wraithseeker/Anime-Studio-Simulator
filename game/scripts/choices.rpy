@@ -289,7 +289,7 @@
         # the animation number - here should be big, like what I put because it is major event in game 
         anime.animation -= 1
         anime.marketing += 0.5
-    def choic_8_1_3_cheap():
+    def choice_8_1_3_cheap():
         anime.storyboard += 0.5
         anime.animation -= 1
 

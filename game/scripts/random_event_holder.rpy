@@ -20,7 +20,7 @@
                     filtered_event = [x for x in self.choice_holder if x in events]
                     choice = renpy.random.choice(filtered_event)
                     self.remove(choice)
-                    self.calculateEvents
+                    self.calculateEvents()
                     return choice
                 else:
                     choice = renpy.random.choice(self.choice_holder)
