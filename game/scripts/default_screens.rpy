@@ -84,12 +84,19 @@ screen say(who, what, side_image=None, two_window=False):
 # http://www.renpy.org/doc/html/screen_special.html#choice
 
 screen choice(items):
-
+    frame:
+        left_padding 15
+        xalign 1.0
+        yalign 0.0
+        background Frame("ui/textbox.png",10,10)
+        hbox:
+            spacing 10
+            add "ui/choice_moneybag.png"
+            text (str(anime.funds)) color "#000" xalign 0.5 yalign 1.0 text_align 0.5 size 40
     window:
         style "menu_window"
         xalign 0.5
         yalign 0.45
-
         vbox:
             style "menu"
             spacing 25

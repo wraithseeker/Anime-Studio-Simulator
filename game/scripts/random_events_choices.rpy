@@ -17,7 +17,7 @@
 ##1.joboffering
     def rechoice_1_1(character): 
         #1) Continue working as normal and assume [Character Name] will get over it (- a lot of happiness)
-        character.happiness -= 1.5
+        character.happiness -= 2
     def rechoice_1_2():
         #2) Offer [Character Name] money from funds to persuade [him/her] to stay ( -funds )
         anime.funds -= JOB_OFFER_FUNDS
@@ -25,7 +25,7 @@
 ##2. Request for Raise in Salary/Allowance or Money  #Condition : Happens when (A lot of funds)
     def rechoice_2_1(character): 
         #1) Tell [Character Name] to approach <abc bank>. They are known to offer reasonable loans. ( [Character Name] +stress – happiness)
-        character.happiness -= 1
+        character.happiness -= 2
         character.stress += 1
 
     def rechoice_2_2(): 
@@ -50,7 +50,7 @@
         else:
             #failure
             mayumi_stats.happiness -= 1 
-            character.happiness -= 1 
+            character.happiness -= 2 
             return False
         
 #4. Interview Request for Aspiring Anime Producers
@@ -64,7 +64,7 @@
         else:
             #failure
             yukari_stats.happiness -= 1
-            yukari_stats.stress += 1
+            yukari_stats.stress += 3
             return False
         
     def rechoice_4_2(): 
@@ -79,8 +79,8 @@
             anime.marketing += 1.5
         else:
             #failure
-            character.happiness -= 1
-            character.stress += 1
+            character.happiness -= 2
+            character.stress += 1.5
            
 
 
@@ -90,15 +90,15 @@
         # if Yukari happiness < 50% ( -happiness, + stress for everyone)
         yukari_stats.happiness    -= 1
         mayumi_stats.happiness    -= 1
-        shunsuke_stats.happiness  -= 1
+        shunsuke_stats.happiness  -= 2
         sumiko_stats.happiness    -= 1
         yuuko_stats.happiness -= 1
     def rechoice_5_1_failure():
         yukari_stats.stress   += 1
-        mayumi_stats.stress   += 1
+        mayumi_stats.stress   += 2
         shunsuke_stats.stress += 1
         sumiko_stats.stress   += 1
-        yuuko_stats.stress    += 1
+        yuuko_stats.stress    += 2
 
 #6. A Suspicious Businessman Calls
     def rechoice_6_1(): 
@@ -126,7 +126,7 @@
         #1) Tell [Character Name] he/she won't be going 
         #(Characters who attend the convention will get a small boost in happiness or proficiency, while the one who is left out – happiness)(+ marketing for anime )
         anime.marketing += 0.5
-        character.happiness  -= 1
+        character.happiness  -= 2
         character_list = [yukari_stats,mayumi_stats,shunsuke_stats,yuuko_stats,sumiko_stats]
         #test this now (boost happiness and proficiency for other characters)
         for char in character_list:
@@ -138,7 +138,7 @@
         #2) Stay behind and let the four team members go
         anime.marketing += 0.5
 
-        yukari_stats.happiness  -= 1
+        yukari_stats.happiness  -= 2
         mayumi_stats.happiness  += 1
         shunsuke_stats.proficiency  += 0.5
         sumiko_stats.happiness  += 1
@@ -163,7 +163,7 @@
 #9. Street Musician Donation
     def rechoice_9_1(): 
         #(1) Continue walking home without donating( - mayumi happiness )
-        mayumi_stats.happiness -= 1
+        mayumi_stats.happiness -= 2
 
     def rechoice_9_2(): 
         #(2) Take out your walletto donate ( + mayumi happiness)
@@ -197,7 +197,7 @@
 #13. Where's my umbrella?
     def rechoice_13_1(): 
         #(1) Dash home as fast as possible to try and avoid the storm ( - happiness, + stress for yukari)
-        yukari_stats.happiness -= 1
+        yukari_stats.happiness -= 1.5
         yukari_stats.stress += 1
 
     def rechoice_13_2(): 
@@ -208,14 +208,14 @@
     def rechoice_14_1(): 
         #(1) Invite the clique of girls to the studio to catch up( - happiness + stress for everyone )
         yukari_stats.happiness  -= 1
-        mayumi_stats.happiness  -= 1
+        mayumi_stats.happiness  -= 1.5
         shunsuke_stats.happiness    -= 1
-        sumiko_stats.happiness  -= 1
-        yuuko_stats.happiness   -= 1
+        sumiko_stats.happiness  -= 1.5
+        yuuko_stats.happiness   -= 2
 
-        yukari_stats.stress += 1
-        mayumi_stats.stress += 1
-        shunsuke_stats.stress += 1
+        yukari_stats.stress += 1.5
+        mayumi_stats.stress += 1.5
+        shunsuke_stats.stress += 1.5
         sumiko_stats.stress += 1
         yuuko_stats.stress  += 1
     def rechoice_14_2(): 
@@ -238,7 +238,7 @@
         ##(B) 50% (+ minor funds)( - [character name] happiness ) (everyone else + happiness).
         character_list = [yukari_stats,mayumi_stats,shunsuke_stats,yuuko_stats,sumiko_stats]
         anime.funds += int(WON_RADIO_FUNDS *0.50)
-        character.happiness  -= 1
+        character.happiness  -= 1.5
         for char in character_list:
             if char.name != character.name:
                 char.happiness += 1
@@ -314,8 +314,8 @@
 
     def rechoice_19_2(): 
         #(2) Choose to remain quiet since the librarian never said anything  (- happiness, + stress for yukari)
-        yukari_stats.happiness -= 1
-        yukari_stats.stress += 1
+        yukari_stats.happiness -= 2
+        yukari_stats.stress += 2
 
 #20. Newbie Voice Actor Looking for Work
     def rechoice_20_1(): 
@@ -331,11 +331,11 @@
 
 #22. New Menu - Food Tasting Session
     def rechoice_22_1(): #(1) Tell the team that there are already plans to attend the workshop (+ proficiency for everyone, - happiness for everyone)
-        yukari_stats.happiness  -= 1
+        yukari_stats.happiness  -= 2
         mayumi_stats.happiness  -= 1
-        shunsuke_stats.happiness    -= 1
+        shunsuke_stats.happiness    -= 2
         sumiko_stats.happiness  -= 1
-        yuuko_stats.happiness   -= 1
+        yuuko_stats.happiness   -= 2
 
         yukari_stats.proficiency += 0.5
         mayumi_stats.proficiency    += 0.5
@@ -361,8 +361,8 @@
 #23. Bumped into popular Seiyū Mamoru-san!
     def rechoice_23_1(): 
         #(1) Ask for an autograph and to take a picture first (mayumi +stress, - happiness)
-        mayumi_stats.stress += 1
-        mayumi_stats.happiness -= 1
+        mayumi_stats.stress += 1.5
+        mayumi_stats.happiness -= 2
 
     def rechoice_23_2(): 
         #(2) Return his sunglasses and ask if he's fine first (mayumi – stress, + happiness )
@@ -377,17 +377,17 @@
 
     def rechoice_24_2(): 
         #2) Tell Sumiko the AC isn’t broken (everyone –happiness + stress )
-        yukari_stats.happiness  -= 1
-        mayumi_stats.happiness  -= 1
-        shunsuke_stats.happiness -= 1
+        yukari_stats.happiness  -= 2
+        mayumi_stats.happiness  -= 1.5
+        shunsuke_stats.happiness -= 1.5
         sumiko_stats.happiness  -= 1
         yuuko_stats.happiness   -= 1
 
         yukari_stats.stress += 1
-        mayumi_stats.stress += 1
-        shunsuke_stats.stress += 1
+        mayumi_stats.stress += 2
+        shunsuke_stats.stress += 2
         sumiko_stats.stress += 1
-        yuuko_stats.stress  += 1
+        yuuko_stats.stress  += 1.5
 
 #25. Arts Festival Performance
     def rechoice_25_1(): 
@@ -452,11 +452,11 @@
         sumiko_stats.proficiency    -= 0.5
         yuuko_stats.proficiency -= 0.5
 
-        yukari_stats.stress += 1
-        mayumi_stats.stress += 1
+        yukari_stats.stress += 1.5
+        mayumi_stats.stress += 2
         shunsuke_stats.stress += 1
-        sumiko_stats.stress += 1
-        yuuko_stats.stress  += 1
+        sumiko_stats.stress += 1.5
+        yuuko_stats.stress  += 2
     def rechoice_29_2(): 
         pass
         #(2) Pass on the opportunity
@@ -494,7 +494,7 @@
 #31. Dance Challenge
     def rechoice_31_1(): 
         #(1) Register for the competition  (Yukari – happiness, + stress )
-        yukari_stats.happiness -= 1
+        yukari_stats.happiness -= 2
         yukari_stats.stress += 1
     def rechoice_31_2():
          #(2) Cheer on the competitors(Yukari + happiness, - stress)
@@ -543,7 +543,7 @@
         sumiko_stats.happiness += 1
         sumiko_stats.stress -= 1
 
-        yuuko_stats.happiness += 1
+        yuuko_stats.happiness += 2
         yuuko_stats.stress -= 1
 
 #35. How to Catch a Thief?
@@ -575,7 +575,7 @@
             anime.marketing += 1
         else:
             #failure
-            mayumi_stats.happiness -= 1
+            mayumi_stats.happiness -= 2
 
 
 

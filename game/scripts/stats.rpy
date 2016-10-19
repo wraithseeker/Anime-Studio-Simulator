@@ -2,7 +2,7 @@
     class Stats(object):
         DEFAULT_STRESS = 5
         DEFAULT_HAPPINESS = 5
-        DEFAULT_PROFICIENCY = 0
+        DEFAULT_PROFICIENCY = 1
         MINIMUM_HAPPINESS_TO_DIE = 0
         MAXIMUM_STRESS_TO_DIE = 10
         def __init__(self,name):

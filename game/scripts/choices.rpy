@@ -46,10 +46,10 @@
         anime.character_design += 0.5
 
     def choicewe_1_1_1():
-        yukari_stats.happiness += 2
+        yukari_stats.happiness += 1
         yukari_stats.stress -= 1
     def choicewe_1_1_2():
-        yukari_stats.stress += 1
+        yukari_stats.stress += 1.5
         anime.storyboard += 0.5
 
     def choice_2_1_1():
@@ -114,7 +114,7 @@
         yukari_stats.stress += 2
 
     def choicewe_3_1_1():
-        yukari_stats.stress += 1
+        yukari_stats.stress += 1.5
         anime.storyboard += 0.5
     def choicewe_3_1_2():
         # this choice adjusts management value
@@ -126,7 +126,7 @@
         else:
             #failure   
             yukari_stats.management -= 1
-            yukari_stats.stress += 1
+            yukari_stats.stress += 1.5
             return False
     def choicewe_3_1_3():
         yukari_stats.stress -= 1
@@ -247,13 +247,13 @@
 
     # wrong choices during phone call
     def choice_7_1_1():
-        mayumi_stats.stress += 1
+        mayumi_stats.stress += 1.5
         mayumi_stats.happiness -= 2
     def choice_7_1_2():
-        yuuko_stats.stress += 1
+        yuuko_stats.stress += 1.5
         yuuko_stats.happiness -= 2
     def choice_7_1_3():
-        sumiko_stats.stress += 1
+        sumiko_stats.stress += 1.5
         sumiko_stats.happiness -= 2
 
     def choice_7_2_1():
@@ -264,8 +264,8 @@
         else:
             return False
     def choice_7_2_2():
-        yukari_stats.happiness += 2
-        yukari_stats.stress -= 2
+        yukari_stats.happiness += 1
+        yukari_stats.stress -= 1
     def choice_7_2_3():
         number = renpy.random.randint(0,100)
         if number <= choice_raise_funds_formula():

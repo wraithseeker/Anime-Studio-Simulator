@@ -101,9 +101,9 @@
     $mayumi_task_selected = False
     $shunsuke_task_selected = False
 
-    jump week_0_1
+    #jump week_0_1
     #jump week_5_1
-    #jump week_12_4
+    jump week_12_5
     #jump random_10
 
 

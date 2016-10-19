@@ -2,9 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/scripts/random_event_holder.rpy", line 22: invalid syntax
-                    if anime.funds <= 20 & not self.help:
-                                              ^
-    
+File "game/scripts/default_screens.rpy", line 97: keyword argument u'xalign' appears more than once in a frame statement.
+    xalign 0.5
+          ^
 
 Ren'Py Version: Ren'Py 6.99.11.1749
