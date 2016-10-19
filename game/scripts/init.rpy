@@ -76,6 +76,7 @@
     $side_nav_interaction = True
     $show_floating_buttons = True
     $initial_week = True
+    $default_screen_funds_hidden = True # to hide funds when selecting difficulty
     $upgrade_tooltip_color = "#2ecc71"
     #Upgrade engine stuff
     $yukari_current_u_text = renpy.random.choice(yukari_upgrade_text)
@@ -102,9 +103,10 @@
     $shunsuke_task_selected = False
 
     #jump week_0_1
+    jump pre_game
     #jump week_5_1
-    jump week_12_5
-    #jump random_10
+    #jump week_12_5
+    #jump random_13
 
 
 init python:

@@ -51,12 +51,13 @@
     def choicewe_1_1_2():
         yukari_stats.stress += 1.5
         anime.storyboard += 0.5
+        yukari_stats.happiness -= 2
 
     def choice_2_1_1():
         shunsuke_stats.happiness -= 2
-        yuuko_stats.happiness += 2
+        yuuko_stats.happiness += 1
     def choice_2_1_2():
-        shunsuke_stats.happiness += 2
+        shunsuke_stats.happiness += 1
         yuuko_stats.happiness -= 2
 
     def choice_2_2_1():
@@ -95,8 +96,8 @@
     def choice_3_2_1():
         yukari_stats.happiness -= 2
         yukari_stats.stress += 3
-        sumiko_stats.happiness -= 1
-        sumiko_stats.stress += 1
+        sumiko_stats.happiness -= 1.5
+        sumiko_stats.stress += 2
     def choice_3_2_2():
         pass
 
@@ -111,10 +112,10 @@
         yukari_stats.happiness += 1
         yukari_stats.stress -= 1
     def choice_3_4_2():
-        yukari_stats.stress += 2
+        yukari_stats.stress += 3
 
     def choicewe_3_1_1():
-        yukari_stats.stress += 1.5
+        yukari_stats.stress += 2
         anime.storyboard += 0.5
     def choicewe_3_1_2():
         # this choice adjusts management value
@@ -125,8 +126,8 @@
             return True
         else:
             #failure   
-            yukari_stats.management -= 1
-            yukari_stats.stress += 1.5
+            yukari_stats.management -= 0.5
+            yukari_stats.stress += 2
             return False
     def choicewe_3_1_3():
         yukari_stats.stress -= 1
@@ -247,13 +248,13 @@
 
     # wrong choices during phone call
     def choice_7_1_1():
-        mayumi_stats.stress += 1.5
+        mayumi_stats.stress += 2
         mayumi_stats.happiness -= 2
     def choice_7_1_2():
-        yuuko_stats.stress += 1.5
+        yuuko_stats.stress += 2
         yuuko_stats.happiness -= 2
     def choice_7_1_3():
-        sumiko_stats.stress += 1.5
+        sumiko_stats.stress += 2
         sumiko_stats.happiness -= 2
 
     def choice_7_2_1():

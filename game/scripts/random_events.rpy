@@ -717,9 +717,10 @@ label random_13:
             scene street_rain with fade
             show yukari at left
             with dissolve
-            "rain sound effect"
+            play sound "music/sfx/rain.ogg" fadeout 1.0
             "With a sigh, Yukari breaks into a sprint. As she runs, the skies open up and rain pours down. She tries to run faster, but by the time she gets home, she’s completely soaked."
             "She tries to run faster, but by the time she gets home, she’s completely soaked."
+            stop sound fadeout 1.0
             scene home with fade
             show yukari sad at left with dissolve
             y "F-freezing… n-need to warm up…"
@@ -728,6 +729,7 @@ label random_13:
             "Despite her hope, symptoms of a cold show themselves the next day. Miserable though she feels, she knows she’ll have to work on [anime.name] anyway."
             $rechoice_13_1()
         "Wait under a small shelter until the storm subsides":
+            play sound "music/sfx/rain.ogg" fadeout 1.0
             scene street_rain with fade
             show yukari sad at left
             with dissolve
@@ -740,6 +742,7 @@ label random_13:
             y "Thank you!"
             "They hurry home together, and Yukari makes it into her house without getting too wet from the rain. She makes a mental note to thank her neighbor again the next time they meet."
             $rechoice_13_2()
+            stop sound fadeout 1.0
     return
 #Classmates Wish to Drop By
 label random_14:

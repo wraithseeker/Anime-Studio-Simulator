@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/scripts/default_screens.rpy", line 97: keyword argument u'xalign' appears more than once in a frame statement.
-    xalign 0.5
-          ^
+File "game/scripts/first_month.rpy", line 342: expected statement.
+    default_screen_funds_hidden = False
+                                ^
 
 Ren'Py Version: Ren'Py 6.99.11.1749

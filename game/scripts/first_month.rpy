@@ -339,6 +339,7 @@ label pre_game:
     $in_gameplay_menu = True
     call screen start_game
     $in_gameplay_menu = False
+    $default_screen_funds_hidden = False
     stop music
 
 label week_1_1:

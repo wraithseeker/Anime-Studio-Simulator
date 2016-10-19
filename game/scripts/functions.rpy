@@ -1,32 +1,32 @@
 ﻿init -100 python:
     def getRandomCompany():
         global random_company
-        company = renpy.random.choice(random_company)
-        if company:
+        if random_company:
+            company = renpy.random.choice(random_company)
             random_company.remove(company)
             return company
         else:
             return "Matsura"
     def getRandomName():
         global random_names
-        name = renpy.random.choice(random_names)
-        if name:
+        if random_names:
+            name = renpy.random.choice(random_names)            
             random_names.remove(name)
             return name
         else:
             return "Nobu"
     def getRandomFemaleName():
         global random_va_female
-        name = renpy.random.choice(random_va_female)
-        if name:
+        if random_va_female:
+            name = renpy.random.choice(random_va_female)
             random_va_female.remove(name)
             return name
         else:
             return "Kaoru"
     def getRandomMaleName():
         global random_va_male
-        name = renpy.random.choice(random_va_male)
-        if name:
+        if random_va_male:
+            name = renpy.random.choice(random_va_male)
             random_va_male.remove(name)
             return name
         else:
