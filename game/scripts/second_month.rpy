@@ -593,7 +593,7 @@ label week_5_6:
     $sumiko_tasks[0] = sumiko_third_task
     $yuuko_tasks[0] = yuuko_third_task
     $mayumi_tasks[0] = mayumi_third_task
-    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    play music dashboard_music fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
@@ -1253,7 +1253,7 @@ label week_6_6:
             "Yukari sleeps in on the weekend, watches some anime, and de-stresses to prepare for the week ahead."
     scene studio 
     $nextWeek()
-    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    play music dashboard_music fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
@@ -2366,7 +2366,7 @@ label week_7_6:
     $nextWeek()
     $mayumi_tasks[0] = mayumi_second_task
     $yukari_tasks[0] = yukari_third_task
-    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    play music dashboard_music fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
@@ -3505,7 +3505,7 @@ label week_8_6:
     $nextWeek()
     $shunsuke_tasks[0] = shunsuke_second_task
     $mayumi_tasks[0] = mayumi_fourth_task
-    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    play music dashboard_music fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)

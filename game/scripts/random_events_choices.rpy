@@ -293,19 +293,13 @@
 
 #18. Street Artist Sketch
     def rechoice_18_1(): 
-        #(1) Small tip $ (Yukari + minor happiness, - minor stress )
+        #(1) Donate (Yukari + minor happiness, - minor stress )
         yukari_stats.happiness += 1
         yukari_stats.stress -= 1
 
     def rechoice_18_2(): 
-        #(2) Moderate tip $$ (Yukari + happiness, - stress )
-        yukari_stats.happiness += 2
-        yukari_stats.stress -= 2
-
-    def rechoice_18_3(): 
-        #(3) Generous tip $$$ (Yukari + more happiness, - more stress )
-        yukari_stats.happiness += 3
-        yukari_stats.stress -= 3
+        #(3) walk away
+        pass
 
 #19. Overdue library book!  
     def rechoice_19_1():

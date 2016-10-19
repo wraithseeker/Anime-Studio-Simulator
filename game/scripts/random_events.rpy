@@ -961,18 +961,13 @@ label random_18:
     y "Thanks! And I hope you earn a lot of money for the orphanage."
     old_lady "Before you leave, would you care to make a donation?"
     menu:
-        "Small tip $":
+        "Donate":
             $rechoice_18_1()
             y "Here you go."
             old_lady "Thank you."
-        "Moderate tip $$":
+        "Walk away":
             $rechoice_18_2()
-            y "Here you go."
-            old_lady "Thank you, this should help."
-        "Generous tip $$$":
-            $rechoice_18_3()
-            y "Here you go."
-            old_lady "Wow, that’s very generous of you! Thank you. This will definitely help."
+            return
     scene studio_main with fade
     show yukari at left
     show sumiko at pos_middleright

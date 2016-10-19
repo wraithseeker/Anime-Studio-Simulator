@@ -321,7 +321,7 @@ label pre_game:
     $side_nav_interaction = True
     $show_floating_buttons = True
     hide screen start_game
-    play music "music/ost/scheduled_days.ogg" fadein 1.0
+    play music dashboard_music fadein 1.0
     $renpy.retain_after_load()
     # $nextWeek()
     # $nextWeek()
@@ -385,7 +385,7 @@ label week_1_1:
     y "It's …"
     $anime.name = renpy.input("Name of your anime?",default="",length=20)
     if anime.name == "":
-        $anime.name = "Macross Delta"
+        $anime.name = "Herb and Fox"
     show mayumi happy
     m "[anime.name] sounds great!"
     y "Now that we have our studio, let's assign desks."
@@ -718,7 +718,7 @@ label week_1_6:
             "Now that she has a clearer idea of [anime.name]'s scenario, she’s able to translate that to the initial storyboard. She’s tired by the end of the weekend, but pleased with her progress."
     scene studio 
     $nextWeek()
-    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    play music dashboard_music fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
@@ -798,7 +798,6 @@ label week_2_3:
     show sumiko laugh_eyes_closed at pos_middleright_half
     show shunsuke at Position(xalign = 1.05,yalign = 1.0)
     with dissolve
-    play music "music/ost/Working Hard, Or... proof of concept.mp3" fadein 1.0
     s "Now that we’ve straightened out the scenario and character designs for [anime.name], why don’t we try to do some pre-release marketing?"
     y "Pre-release marketing?"
     show sumiko happy
@@ -990,7 +989,7 @@ label week_2_6:
     $shunsuke_tasks[0] = shunsuke_second_task
     $sumiko_tasks[0] = sumiko_second_task
     $yuuko_tasks[0] = yuuko_second_task
-    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    play music dashboard_music fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
@@ -1116,7 +1115,7 @@ label week_3_2:
     "She picks up her cell phone and dials the number for one of the potential investors."
     "It rings, and then.."
     scene black with dissolve
-    $random_company = getRandomCompany()
+    $company = getRandomCompany()
     bot "Thank you for calling [random_company]."
     bot "Our office hours are from 9AM to 5 PM on weekdays and from 9 AM to 3 PM on Saturday. Our offices are closed on Sunday. For general inquiries, please press 1. For support issues, please press 2."
     y "Stupid automated software..."
@@ -1371,7 +1370,7 @@ label week_3_6:
     $yukari_tasks[0] = yukari_second_task
     $shunsuke_tasks[0] = shunsuke_third_task
     $mayumi_tasks[0] = mayumi_second_task
-    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    play music dashboard_music fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
@@ -1387,7 +1386,7 @@ label week_4_1:
     show mayumi at pos_farleft behind yukari
     show shunsuke at right
     with dissolve
-    play music "music/ost/Unavoidable Delays rough mix.ogg"
+    #play music "music/ost/Unavoidable Delays rough mix.ogg"
     y "At our current rate, we won't have enough money to outsource the animation work. This is a huge problem. It could stall the entire project."
     y "And according to our current schedule, we need to hire animators within the next two weeks or we won’t make it in time."
     show yukari sad
@@ -1569,7 +1568,7 @@ label week_4_5:
     "Nerves threaten to overtake her again, but her team members toss encouraging smiles her way. With another deep breath, she rehearses the answers in her mind. Confidence. Preparation. She can do this."
     scene cafe with fade
     show yukari at left with dissolve
-    play music "music/ost/nervous.ogg" fadein 1.0
+    #play music "music/ost/nervous.ogg" fadein 1.0
     y "There's still about 20 minutes before we’re supposed to meet… Maybe I arrived too early."
     y "Better to be early than late, though. That would give him a bad impression of me from the start."
     "She finds a seat. Thoughts of the upcoming meeting still have her on edge, so she checks through all the materials she brought to make sure she didn’t forget something."
@@ -1797,7 +1796,7 @@ label week_4_6:
             "Over the weekend, she polishes it up until she’s satisfied enough to consider the first episode’s storyboard complete."
     scene studio 
     $nextWeek()
-    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    play music dashboard_music fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)

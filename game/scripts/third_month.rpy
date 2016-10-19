@@ -722,7 +722,7 @@ label week_9_6:
         scene studio 
     scene studio 
     $nextWeek()
-    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    play music dashboard_music fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
@@ -1264,7 +1264,7 @@ label week_10_6:
     scene studio 
     $nextWeek()
     $mayumi_tasks[0] = mayumi_fifth_task
-    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    play music dashboard_music fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)
@@ -1798,7 +1798,7 @@ label week_11_6:
     "If they can keep this up, everything will work out after all." 
     scene studio 
     $nextWeek()
-    play music "music/ost/scheduled_days.ogg" fadein 1.0 fadeout 1.0
+    play music dashboard_music fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
     $renpy.transition(dissolve)

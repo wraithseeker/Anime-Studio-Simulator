@@ -37,7 +37,8 @@
 
     $random_company = ["Wadaka","Sokono","Kirodo","Matsura","Enshu","Nosata"
                         ,"Zekoy","Inoshi","Pokomi","Takiza","Kibono","Koiga","Vozobi"
-                        ,"Asozo","Noyoko","Kibachi","Tamaza","Kirodo","Shinu","Pokomi","Koiga"]
+                        ,"Asozo","Noyoko","Kibachi","Tamaza","Kirodo","Shinu","Pokomi","Koiga",
+                        "Kibono"]
     #animation and recording director names
     $random_names = ["Hayate","Haruto","Kaito","Nobu","Yuuto","Yoshiro","Takeshi","Souta","Hiroyuki","Ryosei"]
     $random_va_female = ["Shina","Kaoru","Kagami","Yoshike","Shizue","Akemi"]
@@ -102,11 +103,11 @@
     $mayumi_task_selected = False
     $shunsuke_task_selected = False
 
-    #jump week_0_1
-    jump pre_game
-    #jump week_5_1
+    jump week_0_1
+    #jump pre_game
+    #jump week_7_1_1
     #jump week_12_5
-    #jump random_13
+    #jump random_4
 
 
 init python:

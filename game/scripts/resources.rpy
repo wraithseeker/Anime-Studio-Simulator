@@ -265,3 +265,9 @@ init -1 python:
     sfx_anim_d_close = "music/sfx/anim_door_close.ogg"
     sfx_rs_door_open = "music/sfx/rs_door_open.ogg"
     sfx_rs_door_close = "music/sfx/rs_door_close.ogg"
+
+    dashboard_music = "music/ost/Scheduled Days.ogg"
+    casual_music = "music/ost/Working as Intended.ogg"
+    studio_music = "music/ost/Working Hard.ogg"
+    sad_music = "music/ost/Unavoidable Delays.ogg"
+    tension_music = "music/ost/No Free Lunches.ogg"
