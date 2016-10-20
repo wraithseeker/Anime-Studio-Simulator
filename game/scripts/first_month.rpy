@@ -664,6 +664,7 @@ label week_1_5:
     show shunsuke at pos_middleright
     show mayumi at pos_farleft behind yukari
     with dissolve
+    play music "music/ost/Actual Restaurant Theme rough mix.mp3" fadeout 1.0 fadein 1.0
     "What a stroke of luck that Sumiko and Yuuko’s family owns a classy restaurant like this. Yukari and the others can dine in style with good friends and a discounted bill."
     show yukari happy
     y "The tempura in this shop is always so good! Maybe it's just because I love tempura so much."

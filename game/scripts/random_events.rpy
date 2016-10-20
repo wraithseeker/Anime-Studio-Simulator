@@ -303,7 +303,7 @@ label random_4:
     menu:
         "Attend the interview":
             if rechoice_4_1():
-                "Yukari attends the interview and manages to speak to the public fluently. She’s happy she decided to attend this interview which should give [anime name] a nice boost in publicity."
+                "Yukari attends the interview and manages to speak to the public fluently. She’s happy she decided to attend this interview which should give [anime.name] a nice boost in publicity."
             else:
                 "Yukari attends the interview, but it’s just as nightmarish as the rumors claim."
                 "Fortunately, she’s young enough that the interviewer couldn’t dig up too much dirt about her private life, but she’s still humiliated and more than happy to leave once it finally ends."

@@ -103,9 +103,9 @@
     $mayumi_task_selected = False
     $shunsuke_task_selected = False
 
-    jump week_0_1
+    #jump week_0_1
     #jump pre_game
-    #jump week_7_1_1
+    jump week_1_5
     #jump week_12_5
     #jump random_4
 
@@ -129,7 +129,7 @@ init:
                         "quality_check","marketing","funds"]
         char_stats = ["proficiency","happiness","management","stress"]
 
-        relax_task = Tasks("Relax","Take it easy today.",happiness=1,stress=-2)
+        relax_task = Tasks("Relax","Take it easy today.",happiness=1.25,stress=-2)
 
         yukari_first_task = Tasks("Networking","Mingle with people in the anime industry.",marketing=0.5,management=1,stress=1)
         yukari_second_task = Tasks("Storyboards","Work on the storyboards for [anime.name].",storyboard=0.5,stress=1)
@@ -192,7 +192,7 @@ init:
     $outsource.cost = 5
     $outsource.value = 1
     $upgrade_proficiency_value = 1
-    $upgrade_proficiency_cost = 12
+    $upgrade_proficiency_cost = 7
 
     #positions for images
     $pos_farleft = Position(xalign = -0.045,yalign = 1.0)

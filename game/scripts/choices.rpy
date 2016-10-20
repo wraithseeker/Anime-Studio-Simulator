@@ -136,6 +136,8 @@
         number = renpy.random.randint(0,100)
         if number <= choice_raise_funds_formula():
             anime.funds += 15
+            yukari_stats.happiness -= 1.5
+            yukari_stats.stress += 1.5
             return True
         else:
             return False
@@ -235,6 +237,8 @@
         number = renpy.random.randint(0,100)
         if number <= choice_raise_funds_formula():
             anime.funds += 15
+            yukari_stats.happiness -= 1.5
+            yukari_stats.stress += 1.5
             return True
         else:
             return False
@@ -261,6 +265,8 @@
         number = renpy.random.randint(0,100)
         if number <= choice_raise_funds_formula():
             anime.funds += 15
+            yukari_stats.happiness -= 1.5
+            yukari_stats.stress += 1.5
             return True
         else:
             return False
@@ -302,6 +308,8 @@
         number = renpy.random.randint(0,100)
         if number <= choice_raise_funds_formula():
             anime.funds += 15
+            yukari_stats.happiness -= 1.5
+            yukari_stats.stress += 1.5
             return True
         else:
             return False
@@ -334,13 +342,13 @@
     def choice_9_2_1():
         #Professional Website ($$$)
         anime.funds -= PROFESSIONAL_WEBSITE_VALUE
-        anime.quality_check += 1
-        anime.marketing += 0.5
+        anime.quality_check += 5
+        anime.marketing += 2
     def choice_9_2_2():
         #Website made by Shunsuke ($$)
         anime.funds -= SHUNSUKE_WEBSITE_VALUE
-        anime.quality_check += 0.5
-        anime.marketing += 0.5
+        anime.quality_check += 3
+        anime.marketing += 1
     def choice_9_2_3():
         pass
 

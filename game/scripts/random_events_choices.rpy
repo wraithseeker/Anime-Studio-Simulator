@@ -458,18 +458,18 @@
 #30. Funding Crisis  #Conditions: Funds are low
     def rechoice_30_1(): 
         #(1) Everyone should chip in so we have more money to fall back on (+ some funds, everyone except yukari – happiness, + stress )
-        anime.funds += 25
+        anime.funds += 30
 
         #need - more happiness & stress
-        mayumi_stats.happiness -= 2
-        shunsuke_stats.happiness -= 2
-        sumiko_stats.happiness -= 2
-        yuuko_stats.happiness -= 2
+        mayumi_stats.happiness -= 1.5
+        shunsuke_stats.happiness -= 1.5
+        sumiko_stats.happiness -= 1.5
+        yuuko_stats.happiness -= 1.5
 
-        mayumi_stats.stress += 2
-        shunsuke_stats.stress += 2
-        sumiko_stats.stress += 2
-        yuuko_stats.stress  += 2
+        mayumi_stats.stress += 1.5
+        shunsuke_stats.stress += 1.5
+        sumiko_stats.stress += 1.5
+        yuuko_stats.stress  += 1.5
 
     def rechoice_30_2(): 
         #(2) Continue business-as-usual for the time being and be spontaneous ( - very little happiness, + very little stress for everyone)
