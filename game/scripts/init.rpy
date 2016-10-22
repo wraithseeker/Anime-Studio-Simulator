@@ -116,8 +116,8 @@
     $mayumi_tasks = [mayumi_first_task,mayumi_practise,copy.deepcopy(relax_task)]
     $shunsuke_tasks = [shunsuke_first_task,shunsuke_practise,copy.deepcopy(relax_task)]
 
-    #jump week_0_1
-    jump epilogue
+    jump week_0_1
+    #jump epilogue
     #jump pre_game
     #jump week_4_5
     #jump week_12_5
