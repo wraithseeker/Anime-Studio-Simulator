@@ -693,7 +693,7 @@ label week_6_1:
     scene animation_studio with fade
     if anim_studio == anim_studio_expensive:
         show yukari at left with dissolve
-        y "Hello, I’m here to see [Director Name 1]."
+        y "Hello, I’m here to see [anim_studio_dir]."
         staff "Ah yes, he’s been expecting you."
         show anim_dir smile at right with dissolve
         anim_dir "Hello again, Yukari."
@@ -2614,7 +2614,7 @@ label week_8_2:
     "Even with their overtime work factored in, it doesn’t look like they’ll get everything done in time." 
     if anim_studio == anim_studio_expensive:
         "The animation studio has increased its pace, but they still need to do an extensive amount of work. They might need to call in outside help." 
-        "Yukari sends a quick email to [anim_studio_dir, asking for advice."
+        "Yukari sends a quick email to [anim_studio_dir], asking for advice."
         "To her relief, he responds within minutes and says they can delegate smaller tasks to freelance animators if that’s their preference." 
     elif anim_studio == anim_studio_cheap:
         "The director was right. If the sisters do all this work alone, they’ll burn out. They need to delegate some of the work to freelance animators."

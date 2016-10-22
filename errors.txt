@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/scripts/first_month.rpy", line 342: expected statement.
-    default_screen_funds_hidden = False
-                                ^
+File "game/scripts/third_month.rpy", line 2813: expected statement.
+    va_c_char: "I prepared for this possibility by walking out onto stage during a rock concert, but this is even better!" 
+             ^
 
 Ren'Py Version: Ren'Py 6.99.11.1749

@@ -72,11 +72,13 @@
         global shunsuke_upgrade
         global sumiko_upgrade
         global yuuko_upgrade
+        global upgrade_selection_count
         yukari_upgrade = Outsource.NOT_SELECTED
         mayumi_upgrade = Outsource.NOT_SELECTED
         shunsuke_upgrade = Outsource.NOT_SELECTED
         sumiko_upgrade = Outsource.NOT_SELECTED
         yuuko_upgrade = Outsource.NOT_SELECTED
+        upgrade_selection_count = 0
 
     def StorePreviousWeekValuesForStats():
         yukari_stats.storePreviousWeekValues()

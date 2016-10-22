@@ -203,13 +203,13 @@
 
     def choice_6_2_1():
         #talent agency
-        anime.quality_check += 1.5
+        anime.quality_check += 5
         anime.marketing += 1.5
         anime.funds -= TALENT_AGENCY_FUNDS_VALUE
     def choice_6_2_2():
         #agent
-        anime.quality_check += 0.5
-        anime.marketing += 0.5
+        anime.quality_check += 2.5
+        anime.marketing += 1
         anime.funds -= AGENT_FUNDS_VALUE
     def choice_6_2_3():
         #freelancers

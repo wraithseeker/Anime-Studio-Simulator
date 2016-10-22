@@ -30,10 +30,10 @@ label week_0_1:
     stop music fadeout 1.0
     scene home with fade
     show yukari worry at left with dissolve
-    $achievement.clear_all()
-    $achievement.Sync()
-    $achievement.grant("ACH_1")
-    "granted ach_1"
+    # $achievement.clear_all()
+    # $achievement.Sync()
+    # $achievement.grant("ACH_1")
+    # "granted ach_1"
     "It’s the day after high school graduation. Yukari settles down to watch her favorite anime, but she can’t concentrate."
     "Her acceptance letter from the university she applied to sits on her desk. In a few months, she’ll be back in school. Usually, she spends vacation relaxing or working a part-time job. That’s what most of her classmates are doing."
     show yukari
@@ -352,6 +352,7 @@ label week_1_1:
     show sumiko at pos_outerright behind yuuko
     show yuuko at pos_right
     with dissolve
+    play music studio_music fadein 2.0
     "On Monday, Yukari gathers everyone together at the studio. It’s time to discuss and finalize the details about their anime."
     show mayumi worry at pos_farleft
     m "So… what type of anime are we making, again?"
@@ -705,6 +706,7 @@ label week_1_5:
     "Despite her agreement, Yukari gets the feeling Yuuko still isn’t happy with her art. If she’s a perfectionist, that could be a problem, but they’ll deal with that when they get there."
 
 label week_1_6:
+    stop music fadeout 2.0
     $nextDay()
     scene home with fade
     show yukari at left with dissolve
@@ -857,6 +859,7 @@ label week_2_3:
             y "Sorry, Shunsuke, but I agree with Mayumi. We’ve already got a lot on our plate, and we don’t want to cause feature creep for [anime.name]."
 label week_2_4:
     $nextDay()
+    play music casual_music fadein 2.0 fadeout 2.0
     scene bg street with fade
     show yukari at left
     show mayumi_f at right
@@ -902,6 +905,7 @@ label week_2_4:
     "They end the day with a little bit of information and a lot of merchandise. As they head home, it occurs to Yukari that maybe she shouldn’t take money with her the next time she conducts research."
 label week_2_5:
     $nextDay()
+    play music tension_music fadein 2.0
     scene restaurant with fade
     show yukari at pos_left
     show yuuko at pos_right
@@ -1002,6 +1006,7 @@ label week_2_6:
     stop music 
 
 label week_3_1:
+    play music studio_music fadein 2.0 fadeout 2.0
     scene studio_main with fade
     show yukari at left
     show yuuko at right
@@ -1107,6 +1112,7 @@ label week_3_2:
     scene studio_main with fade
     show yukari sad_angry at left
     with dissolve
+    stop music fadeout 2.0
     y "Agh! This is taking forever. I wish I could write a generic email and send it to all the investors, instead of writing personalized ones."
     y "But everyone says generic emails are often ignored while personalized emails have a better chance of catching their interest."
     y "That greater chance is what we need right now, so I shouldn’t complain, I guess."
@@ -1117,7 +1123,7 @@ label week_3_2:
     "It rings, and then.."
     scene black with dissolve
     $company = getRandomCompany()
-    bot "Thank you for calling [random_company]."
+    bot "Thank you for calling [company]."
     bot "Our office hours are from 9AM to 5 PM on weekdays and from 9 AM to 3 PM on Saturday. Our offices are closed on Sunday. For general inquiries, please press 1. For support issues, please press 2."
     y "Stupid automated software..."
     "The recorded voice lists several other options, none of which are any help to Yukari."
@@ -1195,18 +1201,13 @@ label week_3_3:
 
 label week_3_4:
     $nextDay()
-    $week_3_3_doctor = True
-    scene studio_main with fade
     if not week_3_3_doctor:
+        scene studio_main with fade
         show yukari sad at pos_left
         show mayumi at pos_farleft behind yukari
         show shunsuke at pos_middleright_half
         show yuuko at pos_outerright
-    else:
-        show yukari at left
-        show shunsuke at right
-    with dissolve
-    if not week_3_3_doctor:
+        with dissolve
         show yuuko sad
         yuu "I’m afraid Sumiko can’t make it today."
         y "What’s wrong?"
@@ -1222,11 +1223,12 @@ label week_3_4:
         yuu "Thank you."
         "Yukari tries to stifle her own guilt over not saying something to Sumiko. Now she’s sick, her art will be delayed, and [anime.name] is still at risk for a funding crisis."
         "There’s too much to worry about all at once…"
-        ss "Yukari, if you have a minute, I’d like to talk to you… "
-    scene studio_main
-    show yukari at left
-    show shunsuke at right
-    with dissolve
+        ss "Yukari, if you have a minute, I’d like to talk to you…"
+    else:
+        scene studio_main
+        show yukari at left
+        show shunsuke at right
+        with dissolve
     ss "Here’s the script for the pilot episode. We can get started with the episode’s storyboard soon, too."
     ss "Let me know what you think!"
     "It takes Yukari a moment to realize he’s speaking to her."
@@ -1287,6 +1289,7 @@ label week_3_4:
     
 label week_3_5:
     $nextDay()
+    play music sad_music fadein 2.0 fadeout 2.0
     scene bg restaurant with fade
     show yukari worry at pos_left
     show shunsuke at pos_middleright_half
@@ -1345,6 +1348,7 @@ label week_3_5:
             "Yukari shakes her head. She’s the director. She can handle this herself."
 
 label week_3_6:
+    stop music fadeout 2.0
     $nextDay()
     scene home with fade
     "At last, the weekend arrives. Yukari debates about how she should spend it."
@@ -1387,7 +1391,6 @@ label week_4_1:
     show mayumi at pos_farleft behind yukari
     show shunsuke at right
     with dissolve
-    #play music "music/ost/Unavoidable Delays rough mix.ogg"
     y "At our current rate, we won't have enough money to outsource the animation work. This is a huge problem. It could stall the entire project."
     y "And according to our current schedule, we need to hire animators within the next two weeks or we won’t make it in time."
     show yukari sad
@@ -1540,6 +1543,7 @@ label week_4_5:
     show mayumi_f at Position(xalign = 0.80,yalign = 1.0)
     show shunsuke at pos_outerright
     with dissolve
+    play music tension_music fadein 2.0 fadeout 2.0
     y "My heart's pounding. Do you think I should offer to foot the bill for lunch?"
     m "Those things don’t matter. Remember why you’re going there. You need to convince him it's a great idea to invest in [anime.name]."
     y " I want to make a good impression."
@@ -1644,6 +1648,7 @@ label week_4_5:
     show shunsuke at pos_middleright
     show mayumi at pos_farleft behind yukari
     with dissolve
+    play music casual_music fadein 2.0 fadeout 2.0
     s "All right, Yukari! That was amazing! Now we can focus on producing [anime.name]."
     show yuuko happy
     yuu "Congratulations."

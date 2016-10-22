@@ -43,6 +43,7 @@
         def reset(self):
             for i in range (0,len(self.stats)):
                 setattr(self,self.stats[i],Outsource.NOT_SELECTED)
+            self.selection_count = 0
 
 
             

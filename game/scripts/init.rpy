@@ -15,6 +15,13 @@
     $anime_score_multipliers = (1 + yukari_stats.management * 0.05 + anime.marketing * 0.05 + anime.quality_check * 0.3)
     $anime_score = anime_score_components * anime_score_multipliers
 
+    $ANIME_MIN_FLOP_VALUE = 10
+    $ANIME_MIN_POOR_VALUE = 15
+    $ANIME_MIN_AVERAGE_VALUE = 25
+    $ANIME_MIN_GOOD_VALUE = 35
+    $ANIME_MIN_GREAT_VALUE = 45
+    $ANIME_MIN_AMAZING_VALUE = 55
+
     $anime.funds = 50
     $anime.plot = 1
     $anime.prev_plot = 1
@@ -103,9 +110,16 @@
     $mayumi_task_selected = False
     $shunsuke_task_selected = False
 
+    $yukari_tasks = [yukari_first_task,yukari_raise_funds,yukari_read_books,copy.deepcopy(relax_task)]
+    $yuuko_tasks = [yuuko_first_task,copy.deepcopy(sumiko_practise),copy.deepcopy(relax_task)]
+    $sumiko_tasks = [sumiko_first_task,copy.deepcopy(sumiko_practise),copy.deepcopy(relax_task)]
+    $mayumi_tasks = [mayumi_first_task,mayumi_practise,copy.deepcopy(relax_task)]
+    $shunsuke_tasks = [shunsuke_first_task,shunsuke_practise,copy.deepcopy(relax_task)]
+
     #jump week_0_1
+    jump epilogue
     #jump pre_game
-    jump week_1_5
+    #jump week_4_5
     #jump week_12_5
     #jump random_4
 
@@ -157,12 +171,6 @@ init:
         shunsuke_second_task = Tasks("Writing","Flesh out the character development of [anime.name]'s cast.",character_development=0.5,stress=1)
         shunsuke_third_task = Tasks("Writing","Work on the storyboards for [anime.name].",storyboard=0.5,stress=1)
         shunsuke_practise = Tasks("Practice","Hone your writing skills",proficiency=1,happiness=-1)
-
-        yukari_tasks = [yukari_first_task,yukari_raise_funds,yukari_read_books,copy.deepcopy(relax_task)]
-        yuuko_tasks = [yuuko_first_task,copy.deepcopy(sumiko_practise),copy.deepcopy(relax_task)]
-        sumiko_tasks = [sumiko_first_task,copy.deepcopy(sumiko_practise),copy.deepcopy(relax_task)]
-        mayumi_tasks = [mayumi_first_task,mayumi_practise,copy.deepcopy(relax_task)]
-        shunsuke_tasks = [shunsuke_first_task,shunsuke_practise,copy.deepcopy(relax_task)]
 
     #upgrade screen
     $upgrade_tooltip_default = "Send your team out for training! This will increase their Proficiency stats."
