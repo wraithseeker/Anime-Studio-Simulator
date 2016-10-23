@@ -2403,7 +2403,7 @@ label epilogue:
     show shunsuke at pos_outerright
     show mayumi at pos_farleft behind yukari
     with dissolve
-    $anime_score = ANIME_MIN_AMAZING_VALUE
+    #$anime_score = ANIME_MIN_AMAZING_VALUE
     "At last, the day of [anime.name]'s premiere arrives." 
     "Yukari and her team gather in the studio once again, with a wide-screen TV brought in special so they can watch the episode." 
     show yukari worry

@@ -45,7 +45,6 @@ label week_0_1:
     show yukari happy at left
     show mayumi_f at right
     with dissolve
-    #play music "music/ost/working_as_intended.ogg"
     "When Yukari arrives at the café, it only takes her a minute to spot Mayumi."
     "She sits alone with headphones on, smiling as she enjoys whatever music she’s currently listening to. Yukari sits down across from her, and Mayumi’s eyes open. A second later, she removes her headphones."
     show mayumi_f happy
@@ -210,7 +209,8 @@ label week_0_3:
     "Soon, her dream will come true…"
     "Not only her dream, but her grandmother’s too. Yukari smiles as she imagines how happy her grandmother will be when she hears the news."
     unknown "You’re Yukari, aren’t you?"
-    "Lost in her thoughts, it takes Yukari a moment to realize someone is talking to her. She blinks at him. It’s the same boy who tried to get her attention the other day. Now that she’s not in such a hurry, she has time to give him a closer look."
+    "Lost in her thoughts, it takes Yukari a moment to realize someone is talking to her. She blinks at him."
+    "It’s the same boy who tried to get her attention the other day. Now that she’s not in such a hurry, she has time to give him a closer look."
     "He’s familiar. It takes a moment, but then she recognizes him. He went to her school, although they never spoke."
     y "You’re… Shunsuke, right?"
     ss "Yes. I heard a rumor you’re making your own anime."
@@ -665,7 +665,7 @@ label week_1_5:
     show shunsuke at pos_middleright
     show mayumi at pos_farleft behind yukari
     with dissolve
-    play music "music/ost/Actual Restaurant Theme rough mix.mp3" fadeout 1.0 fadein 1.0
+    #play music "music/ost/Actual Restaurant Theme rough mix.mp3" fadeout 1.0 fadein 1.0
     "What a stroke of luck that Sumiko and Yuuko’s family owns a classy restaurant like this. Yukari and the others can dine in style with good friends and a discounted bill."
     show yukari happy
     y "The tempura in this shop is always so good! Maybe it's just because I love tempura so much."

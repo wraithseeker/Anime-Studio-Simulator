@@ -996,3 +996,56 @@ screen anime_report:
 
     imagebutton auto "ui/load/close_button_%s.png" xalign 0.69 yalign 0.22 action ShowMenu("progress_report_sidenav")
 
+screen credits:
+    tag menu
+    window:
+        background "bg/studio.png"
+    frame:
+        xysize(1350,800)
+        xalign 0.5 yalign 0.5
+        background Frame("ui/blank_screen_large.png",15,15)
+        text "Credits" size 60 color "#000" xalign 0.5 yalign 0.10
+        text "Main Team" style "credits_header" xalign 0.25 yalign 0.22
+        text "Special Thanks" style "credits_header" xalign 0.70 yalign 0.22
+        imagebutton auto "ui/load/close_button_%s.png" xalign 0.925 yalign 0.10 action Return()
+        textbutton "Kickstarter Backers" background None text_style "credit_buttons" xalign 0.5 yalign 0.875 action ShowMenu("kickstarter_credits")
+        hbox:
+            yalign 0.405
+            xalign 0.58
+            spacing 80
+            vbox:
+                spacing 15
+                text "wraithseeker - Developer" style "credits"
+                text "Samantha - Writer" style "credits"
+                text "Gato - Sprite & CGs" style "credits"
+                text "Thai Chau - BGs" style "credits"
+                text "Mondonater - Composer" style "credits"
+            vbox:
+                spacing 15
+                text "LogenGT - Production Assistant" style "credits"
+                text "Kah Hao - Simulation Balance" style "credits"
+                text "Saw Zheng - Random Events Writer" style "credits"
+
+screen kickstarter_credits:
+    tag menu
+    window:
+        background "bg/studio.png"
+    frame:
+        xysize(1450,1000)
+        xalign 0.5 yalign 0.5
+        background Frame("ui/blank_screen_large.png",15,15)
+        text "Kickstarter Backers" size 60 color "#000" xalign 0.5 yalign 0.10
+        imagebutton auto "ui/load/close_button_%s.png" xalign 0.925 yalign 0.10 action ShowMenu("credits")
+        grid 5 21:
+            spacing 8
+            xpos 0.13
+            yalign 0.55
+            for name in ks_backers:
+                text name style "ks_backers"
+        grid 2 1 :
+            xpos 0.13
+            yalign 0.872
+            spacing 147
+            text "Trevor" style "ks_backers"
+            text "Leeisl" style "ks_backers"
+        

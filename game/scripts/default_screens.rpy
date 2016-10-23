@@ -229,6 +229,7 @@ screen main_menu():
         textbutton _("New") action Start() text_style "mainmenu_text" style "mainmenu_button"
         textbutton _("Load") action ShowMenu("load","main_menu")  text_style "mainmenu_text" style "mainmenu_button"
         textbutton _("Options") action ShowMenu("preferences")  text_style "mainmenu_text" style "mainmenu_button"
+        textbutton _("Credits") action ShowMenu("credits")  text_style "mainmenu_text" style "mainmenu_button"
         #textbutton _("Dashboard") action ShowMenu("game_dashboard")  text_style "mainmenu_text" style "mainmenu_button"
         #textbutton _("Help") action Help()  text_style "mainmenu_text" style "mainmenu_button"
         textbutton _("Exit") action Quit(confirm=False)  text_style "mainmenu_text" style "mainmenu_button"

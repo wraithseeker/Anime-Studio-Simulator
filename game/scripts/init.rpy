@@ -116,10 +116,10 @@
     $mayumi_tasks = [mayumi_first_task,mayumi_practise,copy.deepcopy(relax_task)]
     $shunsuke_tasks = [shunsuke_first_task,shunsuke_practise,copy.deepcopy(relax_task)]
 
-    jump week_0_1
+    #jump week_0_1
     #jump epilogue
     #jump pre_game
-    #jump week_4_5
+    jump week_0_1
     #jump week_12_5
     #jump random_4
 
@@ -215,3 +215,16 @@ init:
     $va_pos_a = Position(xalign=0.60,yalign=1.0)
     $va_pos_b = Position(xalign = 1.1,yalign = 1.0)
     $va_pos_c = Position(xalign=0.85,yalign=1.0)
+
+    #backers
+
+    $ks_backers = ["Bradley Neal","Eric Tsai","Vader4587","Ricardo","Fabian","Hanz","Jean","Pyronic","Christopher","Jarten",
+                    "Mankoto","USRPG","James","Giovanni","Al Romaithi","Nina","Kimberly","Dom","Michaela","JJ","Christopher",
+                    "Raymond","PirateKing","Eric","David","Marcus","Melissa","Bryan","Yury","Marcel","Luke","winged_runner",
+                    "David Blake","Tanique","Shiro","Amanda","Paul","Alain","Jacob","Thomas","Craig","Marco","Riley","donovan20055",
+                    "Brian","Matthew","Jacob","Nerv987","Kenny","Vulconych","Jean-Marc","warpkun","Jeremy","Caim","Eric Rivera",
+                    "SeaburnEye","Eric Mo","Steven","Evan","aggea","1i Wonder","Joel","Sang","Philip","Jonathan","Aaron","Rui",
+                    "ArchmageTay","Chad","Kon","Jason","Andrew","Impracticalmagic","Tate","Mike","Dustin","Heesung","David","Kurt",
+                    "Yuri","Robert","Breannah","Dave","Darn","Angelus","Rusty Katt","Taiga","Alex","James","Annie","Usman","Crazy Cactus",
+                    "Daniel","Alyssa","Vince","Polo","Calum","Patrick","Fiona","mattrack","VahnSeru","Umbaglo","Lucas","Thái Thiện",
+                    "Lauren"]

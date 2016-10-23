@@ -288,6 +288,19 @@ init -1:
     style progress_anime_text:
         color "#000" 
         size 30
+    style credits:
+        color "#000"
+        size 25
+    style credits_header:
+        color "#000"
+        size 40
+    style credit_buttons:
+        size 30
+        color "#000"
+        hover_color "#27ae60"
+    style ks_backers:
+        color "#000"
+
 
 
 init python:
