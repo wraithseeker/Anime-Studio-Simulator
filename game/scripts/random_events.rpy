@@ -565,7 +565,7 @@ label random_8:
             y "Come on, everyone, back to work. The sooner we make progress on [anime.name], the better we’ll all feel!"
             show mayumi
             m "I don’t know about that… but okay, I guess we should keep working…"
-        "Announce the café break (at the cost of moderate funds)":
+        "Announce the café break":
             y "Hey everyone, why don’t we take a break?"
             ss " Can we afford to?"
             y "We won’t get any work done if we’re unhappy. Let’s go to the café and relax for a little while. It’ll make us all feel better."
@@ -830,7 +830,7 @@ label random_15:
     menu:
         "Ask how [rd_c.person] won the prize":
             show yukari happy
-            y "How did you win $XXXX from a phone call?"
+            y "How did you win{space=15}{image=small_moneybag.png} [WON_RADIO_FUNDS] from a phone call?"
             rd_c.say "Sometimes I listen to my favorite radio station while working."
             rd_c.say "It doesn't affect my work proficiency, I promise. Actually, it inspires me!"
             rd_c.say "Today, they had a prize ready for the eleventh person to call the station."
@@ -916,6 +916,7 @@ label random_16:
 label random_17:
     scene cafe with fade
     show yukari at left
+    with dissolve
     y "Wow, there’s a promotion on the ground coffee!"
     y "And even though the matcha isn’t on sale, it’s still being sold at a good price."
     y " I’ve already spent a lot of this month’s pantry budget, though…"

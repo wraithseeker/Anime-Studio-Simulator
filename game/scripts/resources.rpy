@@ -271,3 +271,6 @@ init -1 python:
     studio_music = "music/ost/Working Hard.ogg"
     sad_music = "music/ost/Unavoidable Delays.ogg"
     tension_music = "music/ost/No Free Lunches.ogg"
+    restaurant_music = "music/ost/Culinary Bonding.ogg"
+    cafe_music = "music/ost/Don't Forget to Breathe.ogg"
+    happy_music = "music/ost/Overtime.ogg"

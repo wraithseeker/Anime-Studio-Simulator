@@ -6,6 +6,7 @@ label week_5_1:
     show shunsuke at pos_outerright
     show mayumi at pos_farleft behind yukari
     with dissolve
+    play music studio_music fadein 2.0 fadeout 2.0
     s "I just realized it's been one month since we started working on [anime.name]!"
     s "We still have about two more months left to go before our deadline."
     yuu "I can't wait for the day we can see [anime.name] on air."
@@ -86,6 +87,7 @@ label week_5_2:
     scene street with fade
     show mayumi_f at right
     show yukari at left
+    with dissolve
     m "So where is the studio, anyway?"
     y "Hmm?"
     m "The studio. Where is it?"
@@ -309,6 +311,7 @@ label week_5_4:
     m "You were fine last time. Don’t worry so much!"
     y "Okay, I guess you’re right."
     "She checks to make sure no one on the team needs her for anything before she leaves, and then she heads to the animation studio."
+    play music cafe_music fadein 2.0 fadeout 2.0
     if anim_studio == anim_studio_cheap:
         scene animation_studio with fade
         show yukari at left with dissolve
@@ -511,6 +514,7 @@ label week_5_5:
         y "I can bring everything by on Monday, if that works for you."
         anim_dir "Sure, no problem."
         y "All right, I’ll see you then!"
+    play music restaurant_music fadein 2.0 fadeout 2.0
     scene restaurant with fade
     show yukari at pos_left
     show sumiko at pos_middleright
@@ -604,6 +608,7 @@ label week_5_6:
     $fastForwardDays(2)
 
 label week_6_1:
+    $achievement.grant("ACH_2")
     scene studio with fade
     show yukari at pos_left
     show sumiko at pos_middleright
@@ -611,6 +616,7 @@ label week_6_1:
     show shunsuke at pos_outerright
     show mayumi at pos_farleft behind yukari
     with dissolve
+    play music happy_music fadeout 2.0 fadein 2.0
     y "Today I’ll make a trip to [anim_studio] to give them the assets they need for [anime.name]."
     y "Before I go, I want to know everyone’s plans for the next few days."
     m "I’m trying to figure out the right method to hire voice actors. We could hire them through a talent agency, freelancers, or agents."
@@ -845,6 +851,7 @@ label week_6_3:
     show yukari at left
     show shunsuke at right
     with dissolve
+    play music studio_music fadein 2.0 fadeout 2.0
     ss "Is our current pace all right, Yukari? We just completed the storyboards for episodes 1 a few days ago."
     ss "When do we need to send the storyboards for episode 2 over to [anim_studio]?"
     y "By the end of next week."
@@ -945,7 +952,7 @@ label week_6_3:
         m "I got in touch with a talent agency this morning and spent the rest of the day making arrangements and explaining what we need."
         m "They’ll contact me soon."
     elif va_choice == "Agent":
-        m "I spent all day talking to agents. We’ve already got a few promising [va_c]andidates lined up."
+        m "I spent all day talking to agents. We’ve already got a few promising candidates lined up."
     elif va_choice == "Freelancers":
         m "I talked to freelance voice actors all day long, and I’ve finally make a list of people to invite to auditions."
     y "That’s fantastic! Keep me updated, okay?"
@@ -997,6 +1004,7 @@ label week_6_4:
     s "Hear Hear!"
     show yukari
     y "And that means we shouldn’t waste time chitchatting. Back to work, everyone."
+    play music cafe_music fadeout 2.0 fadein 2.0
     scene cafe with fade
     show yukari at left
     show investor at right
@@ -1063,6 +1071,7 @@ label week_6_5:
     scene studio_main with fade
     show yukari at left
     with dissolve
+    play music restaurant_music fadeout 2.0 fadein 2.0
     if investor_marketing:
         show shunsuke at right with dissolve
         y "Shunsuke, do you have a minute?"
@@ -1268,6 +1277,7 @@ label week_7_1_1:
     show yukari at left 
     show mayumi_f at right
     with dissolve
+    play music studio_music fadein 2.0 fadeout 2.0
     y "I'll be heading over to [anim_studio] now to get some updates on their progress."
     "The prospect thrills her. She'll finally be able to see her storyboards come to life."
     "What will the key frames look like? Will the animation be like she imagined it? She can barely breathe from anticipation."
@@ -1318,6 +1328,7 @@ label week_7_1_1:
         "The story setup is correct, but the presentation is too grim, which in turn makes the lighthearted moments feel awkward and out of place."
         "Later scenes jump around so much, it gives Yukari a headache trying to follow the story—and she made the storyboards! Something is definitely wrong."
     show yukari worry
+    play music tension_music fadeout 2.0 fadein 2.0
     y "Wait a minute… This doesn’t look like what I gave you. Are you sure this is the right thing?"
     "She doesn’t know what answer he can possibly have to make this better."
     "It’s not like the animation studio would work on something completely different just for fun, and it’s too close to be from a different show. What in the world is going on?"
@@ -1503,7 +1514,7 @@ label week_7_1_2:
     show yukari sad_angry
     y "She nods mutely, once again feeling like she might cry. She let them all down."
     show sumiko
-    y "I’m sorry, everyone… I gave [anim_studio] the draft storyboards by mistake. All they animation work they did last week was for nothing, and now…"
+    y "I’m sorry, everyone… I gave [anim_studio] the draft storyboards by mistake. All the animation work they did last week was for nothing, and now…"
     "She trails off and shakes her head."
     y "It won’t happen again, I promise…"
     show yukari sad
@@ -1804,6 +1815,7 @@ label week_7_3:
     show yukari at left
     show mayumi_f happy at right
     with dissolve
+    stop music fadeout 2.0
     m "Hey Yukari, I’ve got good news for you."
     y "Oh? What is it?"
     "Good news is something they definitely need. The atmosphere in the studio still hasn’t recovered."
@@ -1949,7 +1961,8 @@ label week_7_5:
     m "You'll be fine. I’ll be here for this session, so pay close attention. And if anything goes wrong, you can always ask me for help." 
     show yukari
     y "All right." 
-    "All in all, it’s not nearly as bad of news as she feared." 
+    "All in all, it’s not nearly as bad of news as she feared."
+    play music cafe_music fadeout 2.0 fadein 2.0 
     scene recording_studio with fade
     show yukari laugh_eyes_closed at left
     show mayumi_f at right
@@ -2289,6 +2302,7 @@ label week_7_5:
     show shunsuke at pos_outerright
     show mayumi at pos_farleft behind yukari
     with dissolve
+    play music restaurant_music fadein 2.0 fadeout 2.0
     "Yukari is exhausted by the time she joins the others at the restaurant that evening. The day itself wasn’t too tiring, but the entire week left her drained." 
     show yukari sigh
     y "What a week…" 
@@ -2382,6 +2396,7 @@ label week_8_1:
     show sumiko surprised at pos_right
     show yuuko at pos_outerright behind sumiko
     with dissolve
+    play music studio_music fadeout 2.0 fadein 2.0
     s "Whoa, there you are! I thought you overslept." 
     y "Nope. I went to [anim_studio] this morning to check on their progress and photocopy the key frames. I thought it was better to do it early so I can work on [anime.name] this afternoon." 
     y "If I remember right, both you and Yuuko wanted to check the key frames." 
@@ -2569,6 +2584,7 @@ label week_8_2:
     show yukari at left
     show shunsuke at right
     with dissolve
+    play music happy_music fadeout 2.0 fadein 2.0
     "The next morning, everyone gets to work right away. The future of [anime.name] hangs in the balance, and they can’t afford to waste any time." 
     ss "Yukari, I was looking at the storyboards for the second episode, and I’m confused about its direction." 
     y "What do you mean?" 
@@ -2827,6 +2843,7 @@ label week_8_4:
     show yukari at left
     show mayumi_f at right
     with dissolve
+    play music restaurant_music fadeout 2.0 fadein 2.0
     "Yukari paces back and forth in the studio. It’s almost time for the second recording session with the voice actors." 
     y "So, Mayumi, you’re sure you don’t want to come?"
     show mayumi_f sigh
@@ -2875,7 +2892,7 @@ label week_8_4:
         "If that’s what they want to record, maybe she should let them… no, Mayumi made it clear that they should focus first on the scenes where only their three characters appear."
         show yukari 
         y "A-actually, no." 
-        "She turns to a different part of the script" 
+        "She turns to a different part of the script." 
         y "These lines." 
         show va_sakura sad
         va_c_char "Oh…" 
@@ -3190,6 +3207,7 @@ label week_8_4:
     show shunsuke at pos_middleright
     show mayumi at pos_farleft behind yukari
     with dissolve
+    play music casual_music fadeout 2.0 fadein 2.0
     y "I’m back!" 
     show mayumi laugh_eyes_closed
     m "How did everything go?" 
@@ -3425,6 +3443,7 @@ label week_8_5:
     show shunsuke laugh_eyes_closed at pos_middleright
     show mayumi at pos_farleft behind yukari
     with dissolve
+    play music restaurant_music fadein 2.0 fadeout 2.0
     "Yukari is the last to arrive at the restaurant, but everyone greets her with happy greetings. It’s a welcome change from the previous Friday, when everyone was so quiet." 
     if not week_8_cheap_studio_visited:
         m "So did you get everything worked out at [anim_studio]?"

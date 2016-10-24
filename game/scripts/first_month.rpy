@@ -27,24 +27,19 @@ define va_c_char = Character("[va_c]", color="#000",ctc="ctc_fixed",ctc_position
 # The game starts here.
 
 label week_0_1:
-    stop music fadeout 1.0
+    stop music fadeout 2.0
     scene home with fade
     show yukari worry at left with dissolve
-    # $achievement.clear_all()
-    # $achievement.Sync()
-    # $achievement.grant("ACH_1")
-    # "granted ach_1"
     "It’s the day after high school graduation. Yukari settles down to watch her favorite anime, but she can’t concentrate."
     "Her acceptance letter from the university she applied to sits on her desk. In a few months, she’ll be back in school. Usually, she spends vacation relaxing or working a part-time job. That’s what most of her classmates are doing."
     show yukari
-    $achievement.grant("ACH_3")
-    $achievement.grant("ACH_2")
     "But something about it doesn’t feel right. She doesn’t want to be like everyone else. She wants to do something special. Fulfill her secret dream. Maybe this vacation is the best time to do it."
     "Her mind made up, Yukari grabs her cell phone and sends a quick message to her best friend."
     scene cafe with fade
     show yukari happy at left
     show mayumi_f at right
     with dissolve
+    play music happy_music fadein 2.0
     "When Yukari arrives at the café, it only takes her a minute to spot Mayumi."
     "She sits alone with headphones on, smiling as she enjoys whatever music she’s currently listening to. Yukari sits down across from her, and Mayumi’s eyes open. A second later, she removes her headphones."
     show mayumi_f happy
@@ -88,7 +83,6 @@ label week_0_1:
     m "Yukari, you have a lot of work to do…"
     scene home with fade
     show yukari at left with dissolve
-    stop music fadeout 1.0
     "That night, Yukari goes online and browses art on Pixiv. Some of the artists are fantastic. She wishes she could draw that well, but she never had much talent there."
     y "I’ve just got to work up the nerve to contact some of these artists and ask if they’d be interested in working on an anime."
     "Will she sound professional enough? Will the artists take her seriously? Despite her worries, Yukari braces herself and contacts the artists whose work she likes the most."
@@ -102,7 +96,6 @@ label week_0_1:
     show yukari at left
     show mayumi_f worry at right
     with dissolve
-    #play music "music/ost/working_as_intended.ogg" fadein 1.0
     m "Yukari! Are you all right? When you asked to meet with me, you sounded ready to pass out."
     "Then again, it could be concern rather than excitement."
     y "I’m just a little nervous. I think I found a character artist."
@@ -140,7 +133,6 @@ label week_0_1:
     unknown "Excuse me—"
     show yukari tsundere
     y "Sorry, no time!"
-    #surprised_face
     "She steps past the boy who called out to her, thoughts fixed on her destination. If he’s lost or needs help with something, there are plenty of people around he can ask."
     show shunsuke sad
     unknown "Wait—"
@@ -149,6 +141,7 @@ label week_0_1:
 label week_0_2:
     scene restaurant with fade
     show yukari at left with dissolve
+    play music restaurant_music fadein 2.0
     "Yukari double-checks the address. She’s at the right place. A little nervous, she looks around the stylish restaurant."
     show sumiko at Position(xalign=0.8,yalign=1.0) with dissolve
     unknown "Hi! Yukari?"
@@ -233,7 +226,8 @@ label week_0_4:
     show mayumi at pos_farleft behind yukari
     with dissolve
     y " Everyone, I have great news!"
-    "It’s the first time she’s assembled everyone, although they don’t seem like a cohesive team yet. Yuuko remains quiet and Shunsuke hasn’t quite integrated himself into the group. In contrast, Mayumi and Sumiko talk every time they’re together."
+    "It’s the first time she’s assembled everyone, although they don’t seem like a cohesive team yet."
+    "Yuuko remains quiet and Shunsuke hasn’t quite integrated himself into the group. In contrast, Mayumi and Sumiko talk every time they’re together."
     "Everyone looks up at Yukari’s announcement."
     ss "You look excited. Is this about our funding?"
     "Funding was the one sticking point that prevented them from starting immediately. Without money, they couldn’t rent a studio or get the equipment they’d need to make a proper anime."
@@ -263,7 +257,7 @@ label week_0_4:
     show mayumi happy
     m "Yeah! The rest can wait. Let’s celebrate!"
     "Everyone is in high spirits now that they have an investor, and they celebrate the good news until late in the evening."
-    stop music fadeout 1.0
+    stop music fadeout 2.0
     scene home with fade
     show yukari happy at left with dissolve
     y "I can’t believe it… It’s finally happening. Next week, I’ll start work on my own anime. I’ll fulfill my dream. No… our dream."
@@ -294,48 +288,25 @@ label week_0_4:
 label pre_game:
     $nextDay()
     scene bg studio with dissolve
-    menu:
-        "What difficulty level would you like to choose?"
-        "Casual":
-            $game_casual = True
-        "Normal":
-            $game_casual = False
-    if game_casual:
-        "You have chosen casual mode."
-    else:
-        "You have chosen the default mode."
     "Let's go through the basics of the game."
     "This is Yukari’s new studio, where her team will work hard to produce their anime series within three months."
     show screen start_game
     $side_nav_interaction = False
     $show_floating_buttons = False
-    "You'll oversee the production of [anime.name]. The deadline for [anime.name] is during {font=fonts/LiberationSans-Bold.ttf}Week 12{/font}."
+    "You'll oversee the production of their upcoming anime series and the deadline is during {font=fonts/LiberationSans-Bold.ttf}Week 12{/font}."
     "The most important thing for you to do is choose daily {font=fonts/LiberationSans-Bold.ttf}Tasks{/font} for the team members to perform." 
     show image "ui/done_idle.png" at Position(xalign=0.96,yalign=0.929)
     "After you have assigned tasks to everyone, you can end your turn by selecting {font=fonts/LiberationSans-Bold.ttf}Done{/font}."
     hide image "ui/done_idle.png"
     "You can also see an overview of your actions each week under {font=fonts/LiberationSans-Bold.ttf}Progress{/font}, which should help you decide what to focus on."
     "You'll eventually have to {font=fonts/LiberationSans-Bold.ttf}Outsource{/font} work and it is a good idea to occasionally {font=fonts/LiberationSans-Bold.ttf}Upgrade{/font} your team members by sending them for training."
-    "If you run out of funds, you'll no longer be able to continue working on [anime.name]. Likewise, you won't be able to continue if one of your team members becomes too stressed or dissatisfied."
+    "If you run out of funds, you'll no longer be able to continue working. Likewise, you won't be able to continue if one of your team members becomes too stressed or dissatisfied."
     "Good luck!"
     $side_nav_interaction = True
     $show_floating_buttons = True
     hide screen start_game
     play music dashboard_music fadein 1.0
     $renpy.retain_after_load()
-    # $nextWeek()
-    # $nextWeek()
-    # $nextWeek()
-    # $nextWeek()
-    # $nextWeek()
-    # $nextWeek()
-    # $anime.funds = renpy.random.randint(30,75)
-    # $anime.setTestStats()
-    # $yukari_stats.setRandomStats()
-    # $yuuko_stats.setRandomStats()
-    # $sumiko_stats.setRandomStats()
-    # $shunsuke_stats.setRandomStats()
-    # $mayumi_stats.setRandomStats()
     $in_gameplay_menu = True
     call screen start_game
     $in_gameplay_menu = False
@@ -343,9 +314,10 @@ label pre_game:
     stop music
 
 label week_1_1:
+    $achievement.grant("ACH_1")
     $initial_week = False
     $fastForwardDays(2)
-    scene bg studio
+    scene bg studio_main
     show yukari at pos_left
     show mayumi at pos_farleft behind yukari
     show shunsuke at pos_middleright
@@ -367,14 +339,14 @@ label week_1_1:
     menu:
         "Harem Anime":
             $anime.category = Anime.HAREM
-            $va_a = "Bradley" #male
+            $va_a =  getRandomMaleName()
             $va_b = "Sakura"
             $va_c = getRandomFemaleName()
         "Mystery Anime":
             $anime.category = Anime.MYSTERY
             $va_a = getRandomMaleName()
             $va_b = getRandomFemaleName()
-            $va_c = getRandomMaleName()
+            $va_c = "Bradley" #male
         "Action Anime":
             $anime.category = Anime.ACTION
             $va_a = getRandomMaleName()
@@ -384,7 +356,7 @@ label week_1_1:
     show sumiko
     m "Okay! I can’t wait! Is the name for our anime finalized, too?"
     y "It's …"
-    $anime.name = renpy.input("Name of your anime?",default="",length=20)
+    $anime.name = renpy.input("Name of your anime?",default="",length=16)
     if anime.name == "":
         $anime.name = "Herb and Fox"
     show mayumi happy
@@ -654,10 +626,12 @@ label week_1_4:
 
 label week_1_5:
     $nextDay()
+    stop music fadeout 2.0
     scene black with dissolve
     "It’s Friday."
     "When Yukari first gathered the team to work on [anime.name], she made a promise with them to meet up and have dinner together every Friday."
     "Ever since then, they’ve all made it to this recurring event without fail."
+    play music restaurant_music fadein 2.0
     scene bg restaurant with fade
     show yukari at pos_left
     show sumiko at pos_right
@@ -665,7 +639,6 @@ label week_1_5:
     show shunsuke at pos_middleright
     show mayumi at pos_farleft behind yukari
     with dissolve
-    #play music "music/ost/Actual Restaurant Theme rough mix.mp3" fadeout 1.0 fadein 1.0
     "What a stroke of luck that Sumiko and Yuuko’s family owns a classy restaurant like this. Yukari and the others can dine in style with good friends and a discounted bill."
     show yukari happy
     y "The tempura in this shop is always so good! Maybe it's just because I love tempura so much."
@@ -905,7 +878,7 @@ label week_2_4:
     "They end the day with a little bit of information and a lot of merchandise. As they head home, it occurs to Yukari that maybe she shouldn’t take money with her the next time she conducts research."
 label week_2_5:
     $nextDay()
-    play music tension_music fadein 2.0
+    play music restaurant_music fadein 2.0
     scene restaurant with fade
     show yukari at pos_left
     show yuuko at pos_right
@@ -1573,7 +1546,6 @@ label week_4_5:
     "Nerves threaten to overtake her again, but her team members toss encouraging smiles her way. With another deep breath, she rehearses the answers in her mind. Confidence. Preparation. She can do this."
     scene cafe with fade
     show yukari at left with dissolve
-    #play music "music/ost/nervous.ogg" fadein 1.0
     y "There's still about 20 minutes before we’re supposed to meet… Maybe I arrived too early."
     y "Better to be early than late, though. That would give him a bad impression of me from the start."
     "She finds a seat. Thoughts of the upcoming meeting still have her on edge, so she checks through all the materials she brought to make sure she didn’t forget something."
@@ -1680,7 +1652,7 @@ label week_4_5:
     scene studio
     show yukari at left
     show mayumi_f at Position(xalign = 0.80,yalign = 1.0)
-    show shunsuke at pos_outerright
+    show shunsuke at Position(xalign=1.05,yalign = 1.0)
     with dissolve
     y "Have either of you had experience with hiring freelancers? "
     "Silence."

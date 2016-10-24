@@ -17,6 +17,7 @@
                 setattr(self,"prev_" + self.db_stats[i],0)
             self.prev_happiness = Stats.DEFAULT_HAPPINESS
             self.prev_stress = Stats.DEFAULT_STRESS
+            self.prev_proficiency = Stats.DEFAULT_PROFICIENCY
         def setRandomStats(self):
             self.happiness = renpy.random.randint(5,10)
             self.stress = renpy.random.randint(3, 6)

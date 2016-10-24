@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/scripts/game_screens.rpy", line 1009: keyword argument u'yalign' appears more than once in a text statement.
-    text "Special Thanks" style "credits_header" yalign 0.6 yalign 0.15
-                                                                  ^
+File "game/scripts/third_month.rpy", line 1289: expected end of line
+    stop music fadein 2.0
+               ^
 
 Ren'Py Version: Ren'Py 6.99.11.1749

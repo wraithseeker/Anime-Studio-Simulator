@@ -56,7 +56,7 @@
     $anim_studio = "Default Studios"
     $va_choice = "Talent Agency"
     #voice actor automatically defaults to harem
-    $va_a = "Bradley"
+    $va_a = getRandomMaleName()
     $va_b = getRandomFemaleName()
     $va_c = getRandomFemaleName()
     $va_studio = getRandomCompany() + " Studio"
@@ -79,7 +79,6 @@
     $current_day = 5
     $current_date = datetime.date(2016,3,12) 
     #ends at 6/21, starts at 3/21, pregame = 3/12
-    $game_casual = False
     $task_ready = False
     $side_nav_interaction = True
     $show_floating_buttons = True
@@ -117,9 +116,8 @@
     $shunsuke_tasks = [shunsuke_first_task,shunsuke_practise,copy.deepcopy(relax_task)]
 
     #jump week_0_1
-    #jump epilogue
+    jump epilogue
     #jump pre_game
-    jump week_0_1
     #jump week_12_5
     #jump random_4
 

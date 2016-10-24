@@ -3,6 +3,7 @@ label week_9_1:
     show yukari laugh_eyes_closed at left
     show yuuko at right
     with dissolve
+    play music studio_music fadein 2.0 fadeout 2.0
     y "Hey Yuuko! Are you getting along well with the members from [anim_studio]?" 
     show yuuko laugh_eyes_closed
     yuu "Yes, they’re very friendly. I’ve learned a lot from them, too, especially about animating characters." 
@@ -148,6 +149,7 @@ label week_9_2:
     show sumiko laugh_eyes_closed at right
     show yukari at left
     with dissolve
+    play music happy_music fadein 2.0 fadeout 2.0
     s "Hey Yukari, look at this!" 
     "Yukari hurries to her desk, expecting to see something about [anime.name]. Instead, there’s a blue plush toy of some sort displayed on Sumiko’s computer screen." 
     s "Isn’t it the cutest thing ever?!"
@@ -292,6 +294,7 @@ label week_9_3:
     show yukari at left 
     show va_dir at right
     with dissolve
+    play music cafe_music fadein 2.0 fadeout 2.0
     "Yukari can’t help but feel nervous when she arrives at the recording studio."
     "They’re almost done with the recording for [anime.name]. If anything goes wrong today, it will be a major setback." 
     va_dir "Oh good, you’re here early. Here are the lyrics for the opening and ending themes."
@@ -442,6 +445,7 @@ label week_9_4:
     scene home with fade
     show yukari at left
     with dissolve
+    stop music fadeout 2.0
     "Today is a national holiday. Yukari wonders what she should do with her free time." 
     menu:
         "Visit Grandma":
@@ -529,6 +533,7 @@ label week_9_5:
     show sumiko at va_pos_c
     show yuuko at pos_outerright
     with dissolve
+    play music restaurant_music fadein 2.0 fadeout 2.0
     ss "We completed the voice recordings for [anime.name] on Wednesday right?" 
     y "That's right. Once they edit the audio, they’ll send us the completed voice tracks." 
     ss "How did it go?" 
@@ -736,11 +741,13 @@ label week_10_1:
     scene studio_main with fade
     show yukari at left
     with dissolve
+    play music studio_music fadein 2.0 fadeout 2.0
     $wk_9_forgot_home = True
     play sound "music/sfx/phone_ringing.ogg" fadeout 1.0
     "Yukari answers her phone." 
     scene black with fade
     stop sound fadeout 1.0
+    $anim_studio = anim_studio_expensive
     y "Hello?" 
     if anim_studio == anim_studio_expensive:
         anim_dir "Hello, Yukari. How have you been?" 
@@ -852,7 +859,6 @@ label week_10_2:
     show sumiko at pos_textbox_right
     show shunsuke at pos_outerright
     with dissolve
-    stop music
     m "Okay, who wants to hear some sound effects?" 
     show sumiko happy
     s "I do!" 
@@ -1139,6 +1145,7 @@ label week_10_5:
     show shunsuke at pos_middleright
     show mayumi at pos_farleft behind yukari
     with dissolve 
+    play music restaurant_music fadein 2.0 fadeout 2.0
     y "Well, we finally worked out the details for the trailer!" 
     show mayumi happy
     m "Yay!" 
@@ -1279,6 +1286,7 @@ label week_11_1:
     show yukari at left
     show shunsuke at right
     with dissolve
+    stop music fadeout 2.0
     ss "There's only a few weeks left before the deadline for [anime.name]. I'm curious about what still needs to be done before it'll be ready." 
     y "There's a fair amount of work we still have to do for post-production, since our production phase just ended not long ago." 
     ss "Like what?"  
@@ -1375,6 +1383,7 @@ label week_11_1:
     show shunsuke at pos_middleright
     show mayumi at pos_farleft behind yukari
     with dissolve 
+    play music casual_music fadein 2.0 fadeout 2.0
     y "Here it is!" 
     ss "Episode One?" 
     y "Yep!" 
@@ -1677,6 +1686,7 @@ label week_11_5:
     show shunsuke laugh_eyes_closed at pos_middleright
     show mayumi at pos_farleft behind yukari
     with dissolve
+    play music cafe_music fadein 2.0 fadeout 2.0
     ss "Gather round, everyone. The time has come!" 
     m "Melodrama from Shunsuke? This must be important." 
     ss "I'm ready to unveil the website for [anime.name]."
@@ -1737,7 +1747,7 @@ label week_11_5:
     y "Great! Also, I'll be dropping by the studio over the weekend to do some of the final checks on [anime.name]. If anyone wants to join me, feel free." 
     $random_game_event = rd_e_holder.random([rd_e_holder.all,rd_e_holder.wk_4_to_12,rd_e_holder.wk_10_to_12])
     call expression random_game_event from _call_expression_19
-# [weekend] 
+
 label week_11_6:
     scene studio_main with fade
     show yukari at left with dissolve
@@ -1811,6 +1821,8 @@ label week_11_6:
 label week_12_1:
     scene studio_main with fade
     show yukari at left with dissolve
+    play music studio_music fadein 2.0 fadeout 2.0
+    $achievement.grant("ACH_3")
     "As soon as she gets to the studio on Monday, Yukari calls up the director of [anim_studio] to check on their current status."
     "After all, time is short… and since they'll be busy with Anime Rising soon, she needs to know immediately if any problems have come up." 
     scene black with fade
@@ -1985,6 +1997,7 @@ label week_12_2:
     "Each flyer contains a basic overview of [anime.name] and its characters, along with important information like the URL for their website."  
     "Within a few minutes, they finish setting up the booth. The remaining time passes slowly, but then the doors fly open." 
     show yuuko surprised
+    play music dashboard_music fadein 2.0 fadeout 2.0
     yuu "Aaah… look at all those people…"
     show sumiko surprised
     s "It's a mob!"
@@ -2071,6 +2084,7 @@ label week_12_2:
      
 label week_12_3: 
     $nextDay()
+    play music cafe_music fadein 2.0 fadeout 2.0
     scene anime_con with fade
     show yukari happy at pos_left
     show sumiko surprised at pos_right
@@ -2246,6 +2260,7 @@ label week_12_5:
     show shunsuke at pos_middleright
     show mayumi at pos_farleft behind yukari
     with dissolve 
+    play music happy_music fadein 2.0 fadeout 2.0
     "The next day, excitement fills the air. Everyone knows this is it." 
     y "Okay, I know we've looked through these files a thousand times, but I'd like you all to take another look." 
     "She paces back and forth while her team members check over the files for [anime.name]'s episodes. One by one, they report their satisfaction with the final product." 
@@ -2403,7 +2418,8 @@ label epilogue:
     show shunsuke at pos_outerright
     show mayumi at pos_farleft behind yukari
     with dissolve
-    #$anime_score = ANIME_MIN_AMAZING_VALUE
+    $anime_score = ANIME_MIN_AMAZING_VALUE
+    play music tension_music fadein 2.0 fadeout 2.0
     "At last, the day of [anime.name]'s premiere arrives." 
     "Yukari and her team gather in the studio once again, with a wide-screen TV brought in special so they can watch the episode." 
     show yukari worry
@@ -2432,6 +2448,7 @@ label epilogue:
         y "…Oh." 
         ss "What's wrong?" 
         show yukari sad_angry
+        play music sad_music fadein 1.5 fadeout 1.5
         "She takes a deep breath and relays the news to the team as gently as she can."
         "Hardly anyone watched [anime.name], and those few who did were unimpressed. Reading the harsh words from viewers hurts, but not as much as seeing how many people didn't bother to watch at all." 
         show mayumi sad
@@ -2451,7 +2468,8 @@ label epilogue:
         investor "…Ah. From your tone of voice, I gather you know how it went?" 
         y "Yeah… I'm sorry…" 
         "He's understandably disappointed, but she can't focus on his words. All she can do is apologize, think over everything that happened, and wonder what she can do from here." 
-        "No one actually comes to the party, but that's fine, since no one on the team feels like celebrating anyway. They talk a little to try to cheer each other up, but Yukari barely hears them. When it's time to leave the studio, she feels like she might burst into tears." 
+        "No one actually comes to the party, but that's fine, since no one on the team feels like celebrating anyway."
+        "They talk a little to try to cheer each other up, but Yukari barely hears them. When it's time to leave the studio, she feels like she might burst into tears." 
         y "Before you go… I'd like to apologize…" 
         m "Yukari…" 
         y "Our anime was a failure, and as the director… I feel it's my responsibility."
@@ -2471,6 +2489,7 @@ label epilogue:
         "But someday, she will be." 
     elif anime_score <= ANIME_MIN_POOR_VALUE:
         show yukari sad
+        play music sad_music fadein 1.5 fadeout 1.5
         "Unfortunately, the reactions are pretty negative."
         "Some viewers already knew about [anime.name] because of its marketing, while others just tuned in to see what it was, but almost none of them enjoyed it. Only a handful of people seem interested in watching Episode Two when it airs." 
         m "Yukari? You've gone all pale." 
@@ -2566,6 +2585,7 @@ label epilogue:
         show yukari
         y "Yeah, I guess…" 
         show sumiko laugh_eyes_closed
+        stop music fadeout 2.0
         s "Let's celebrate!" 
         y "…You're right. We made an anime and people actually watched it! Let's celebrate that, if nothing else."  
         "Partway into their celebration, a knock at the door heralds the arrival of Sumiko's friends."
@@ -2589,6 +2609,7 @@ label epilogue:
         "[anime.name] didn't turn out as well as they hoped, but Yukari will do everything in her power to make her next anime a success." 
     elif anime_score <= ANIME_MIN_GOOD_VALUE:
         show yukari surprised
+        play music dashboard_music fadein 1.5 fadeout 1.5
         y "Wow!" 
         m "What is it, what is it?" 
         show yukari laugh_eyes_closed
@@ -2671,11 +2692,13 @@ label epilogue:
         "But even though she fulfilled her dream… it's only the beginning."  
     elif anime_score <= ANIME_MIN_GREAT_VALUE: 
         "For a moment, she just stares at the screen in shock, unable to form words." 
+        play music dashboard_music fadein 1.5 fadeout 1.5
         show mayumi surprised
         m "Earth to Yukari…" 
         show shunsuke worry
         ss "Is everything all right?" 
         show yukari laugh_eyes_closed
+        $achievement.grant("ACH_8")
         y "People… liked it a lot!" 
         show mayumi
         show sumiko happy
@@ -2794,9 +2817,12 @@ label epilogue:
     elif anime_score <= ANIME_MIN_AMAZING_VALUE: 
         show yukari surprised
         "Her eyes widen, and she stares at the screen in shock." 
-        m "What is it?" 
+        m "What is it?"
+        play music casual_music fadein 1.5 fadeout 1.5
         y "S-so… many people…" 
         yuu "So many people what?" 
+        $achievement.grant("ACH_8")
+        $achievement.grant("ACH_9")
         "Wordlessly, Yukari waves her hand at the computer. Everyone online is talking about [anime.name]."
         "Lots of people tuned in to check out the first episode, and almost all of them loved it. Fans are abuzz with speculation on where the story will go in the second episode and whether or not more will follow if [anime.name] does well." 
         show sumiko laugh_eyes_closed
@@ -3002,10 +3028,17 @@ label epilogue:
         "Sumiko presents Yukari with a new background, 'just in case' they need one soon. Mayumi cuts straight to the chase and asks when they can begin work." 
         "Three months earlier, Yukari wasn't sure they could handle the stress and pressure of creating an anime. Now she knows they can." 
         "This is the start of a bright future for Yukari… and her anime studio." 
+    ### BETA TESTING ###
     menu:
-        "END GAME, dont skip anymore":
-            pass
-        "abc":
+        "Beta Testing, remember to inform me about what anime score you got and Screenshot It)":
             pass
     "Anime score is [anime_score]"
+    ######################
+    $achievement.grant("ACH_4")
+    if anime.category == Anime.HAREM:
+        $achievement.grant("ACH_5")
+    elif anime.category == Anime.ACTION:
+        $achievement.grant("ACH_6")
+    elif anime.category == Anime.MYSTERY:
+        $achievement.grant("ACH_7")
               
