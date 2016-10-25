@@ -987,9 +987,9 @@ screen anime_report:
         background Frame("ui/blank_screen_large.png")
         text "Anime Progress Report" size 50 color "#000" xpos 55
     frame:
-        xalign 0.5013
+        xalign 0.55
         yalign 0.34
-        xysize (835,290)
+        xysize (450,290)
         background None
         vbox:
             spacing -10
@@ -997,10 +997,10 @@ screen anime_report:
             for i in range (0,len(anime.db_positive)):
                 text anime.db_positive[i] style "progress_anime_text"
     frame:
-        xalign 0.5013
+        xalign 0.55
         yalign 0.73
         background None
-        xysize (835,290)
+        xysize (450,290)
         vbox:
             spacing -10
             xminimum 835
