@@ -110,9 +110,9 @@
                         textbutton mayumi_tasks[i].title:
                             text_style "task_text_selected" 
                             style "task_button" 
-                            hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
-                                    ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
-                                    ,task_tt_description.Action(yuuko_tasks[i].description)] 
+                            hovered [task_tt_positive_stats.Action(mayumi_tasks[i].positive_stats)
+                                    ,task_tt_negative_stats.Action(mayumi_tasks[i].negative_stats)
+                                    ,task_tt_description.Action(mayumi_tasks[i].description)]   
                             action [SetField(mayumi_tasks[i],"selected",False),
                                     SetVariable("mayumi_task_selected",False)]
                     else:
@@ -143,9 +143,9 @@
                         textbutton shunsuke_tasks[i].title:
                             text_style "task_text_selected" 
                             style "task_button" 
-                            hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
-                                    ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
-                                    ,task_tt_description.Action(yuuko_tasks[i].description)] 
+                            hovered [task_tt_positive_stats.Action(shunsuke_tasks[i].positive_stats)
+                                    ,task_tt_negative_stats.Action(shunsuke_tasks[i].negative_stats)
+                                    ,task_tt_description.Action(shunsuke_tasks[i].description)]   
                             action [SetField(shunsuke_tasks[i],"selected",False),
                                     SetVariable("shunsuke_task_selected",False)]
                     else:
@@ -175,9 +175,9 @@
                         textbutton sumiko_tasks[i].title:
                             text_style "task_text_selected" 
                             style "task_button"
-                            hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
-                                    ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
-                                    ,task_tt_description.Action(yuuko_tasks[i].description)] 
+                            hovered [task_tt_positive_stats.Action(sumiko_tasks[i].positive_stats)
+                                    ,task_tt_negative_stats.Action(sumiko_tasks[i].negative_stats)
+                                    ,task_tt_description.Action(sumiko_tasks[i].description)] 
                             action [SetField(sumiko_tasks[i],"selected",False),
                                     SetVariable("sumiko_task_selected",False)]
                     else:
@@ -979,37 +979,35 @@ screen progress_report:
 screen anime_report:
     tag menu
     frame:
-        xysize(900,600)
+        xysize(900,950)
         xalign 0.5
         yalign 0.35
         xpadding 25
-        ypadding 72
+        ypadding 102
         background Frame("ui/blank_screen_large.png")
         text "Anime Progress Report" size 50 color "#000" xpos 55
     frame:
-        xalign 0.57
-        yalign 0.35
-        xysize (500,170)
+        xalign 0.5013
+        yalign 0.34
+        xysize (835,290)
         background None
         vbox:
             spacing -10
+            xminimum 835
             for i in range (0,len(anime.db_positive)):
                 text anime.db_positive[i] style "progress_anime_text"
-            # for i in range (0,2):
-            #     text RED_COLOR + MINUS_SIGN + "Marketing" style "progress_text"
     frame:
-        xalign 0.57
-        yalign 0.575
+        xalign 0.5013
+        yalign 0.73
         background None
-        xysize (500,170)
+        xysize (835,290)
         vbox:
             spacing -10
+            xminimum 835
             for i in range (0,len(anime.db_negative)):
                 text anime.db_negative[i] style "progress_anime_text"
-            # for i in range (0,5):
-            #     text GREEN_COLOR + MINUS_SIGN + "VOICE ACTING" style "progress_text"
 
-    imagebutton auto "ui/load/close_button_%s.png" xalign 0.69 yalign 0.22 action ShowMenu("progress_report_sidenav")
+    imagebutton auto "ui/load/close_button_%s.png" xalign 0.69 yalign 0.135 action ShowMenu("progress_report_sidenav")
 
 screen credits:
     tag menu

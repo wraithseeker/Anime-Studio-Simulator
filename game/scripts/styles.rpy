@@ -287,6 +287,8 @@ init -1:
         hover_color "#27ae60"
     style progress_anime_text:
         color "#000" 
+        text_align 0.5
+        xalign 0.5
         size 30
     style credits:
         color "#000"

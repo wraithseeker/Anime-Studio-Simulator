@@ -1683,7 +1683,7 @@ label random_35:
     "The stranger rushes past without a word."
     ss "Huh. Someone’s in a hurry…"
     office_l "Help! That man stole my purse!"
-    show shunsuke_f worry
+    show shunsuke_f sad_angry
     ss "Wait a second, where's my phone?!"
     menu:
         "Chase the thief":

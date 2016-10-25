@@ -992,7 +992,7 @@ label week_3_1:
         show yuuko worry
         yuu "We can’t keep redesigning the main cast…"
         y "I know! I just want to make sure [anime.name]’s harem appeals to fans as much as possible."
-        ss "Why don’t you talk to Shunsuke about it? He can write cuter dialogue for them."
+        yuu "Why don’t you talk to Shunsuke about it? He can write cuter dialogue for them."
         show yukari happy
         y "Good idea! So how are the side characters coming along?"
 
