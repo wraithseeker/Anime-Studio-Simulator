@@ -27,154 +27,169 @@
                     xysize(260,120)
                     text task_tt_negative_stats.value style "task_stats_tooltip"    text_align 0.0
     hbox:
-        xalign 0.097
+        xalign 0.11
         yalign 0.232
         add "char_image/yukari.png" 
         text "Yukari" style "char_title_text"
         #SetDict is used to modify arrays, SetField is to modify the field of an object's value
-        vbox:
-            ypos 65
-            xpos -130
-            spacing 10
-            for i in range(0,len(yukari_tasks)):
-                if yukari_tasks[i].selected:
-                    textbutton yukari_tasks[i].title:
-                        text_style "task_text_selected" 
-                        style "task_button" 
-                        hovered [task_tt_positive_stats.Action(yukari_tasks[i].positive_stats)
-                                ,task_tt_negative_stats.Action(yukari_tasks[i].negative_stats)
-                                ,task_tt_description.Action(yukari_tasks[i].description)] 
-                        action [SetField(yukari_tasks[i],"selected",False),
-                                SetVariable("yukari_task_selected",False)]
-                else:
-                    textbutton yukari_tasks[i].title:
-                        text_style "task_text"
-                        style "task_button"
-                        hovered [task_tt_positive_stats.Action(yukari_tasks[i].positive_stats)
-                                ,task_tt_negative_stats.Action(yukari_tasks[i].negative_stats)
-                                ,task_tt_description.Action(yukari_tasks[i].description)] 
-                        action If ((yukari_tasks[i].selected == False),
-                                [renpy.curry(ResetCharacterTask)(yukari_tasks),SetField(yukari_tasks[i],"selected",True),
-                                SetVariable("yukari_task_selected",True)])  
-
-    hbox:
-        xalign 0.097
-        yalign 0.55
-        add "char_image/yuuko.png" 
-        text "Yuuko" style "char_title_text"
-        vbox:
-            ypos 65
-            xpos -130
-            spacing 10
-            for i in range(0,len(yuuko_tasks)):
-                if yuuko_tasks[i].selected:
-                    textbutton yuuko_tasks[i].title:
-                        text_style "task_text_selected" 
-                        style "task_button" 
-                        hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
-                                ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
-                                ,task_tt_description.Action(yuuko_tasks[i].description)] 
-                        action [SetField(yuuko_tasks[i],"selected",False),
-                                SetVariable("yuuko_task_selected",False)]
-                else:
-                    textbutton yuuko_tasks[i].title:
-                        text_style "task_text" 
-                        style "task_button" 
-                        hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
-                                ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
-                                ,task_tt_description.Action(yuuko_tasks[i].description)] 
-                        action If ((yuuko_tasks[i].selected == False),
-                                [renpy.curry(ResetCharacterTask)(yuuko_tasks),SetField(yuuko_tasks[i],"selected",True),
-                                SetVariable("yuuko_task_selected",True)])  
-
-    hbox:
-        xalign 0.097
-        yalign 0.862
-        add "char_image/mayumi.png" 
-        text "Mayumi" style "char_title_text"
-        vbox:
+        frame:
             ypos 65
             xpos -146
-            spacing 10
-            for i in range(0,len(mayumi_tasks)):
-                if mayumi_tasks[i].selected:
-                    textbutton mayumi_tasks[i].title:
-                        text_style "task_text_selected" 
-                        style "task_button" 
-                        hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
-                                ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
-                                ,task_tt_description.Action(yuuko_tasks[i].description)] 
-                        action [SetField(mayumi_tasks[i],"selected",False),
-                                SetVariable("mayumi_task_selected",False)]
-                else:
-                    textbutton mayumi_tasks[i].title:
-                        text_style "task_text" 
-                        style "task_button" 
-                        hovered [task_tt_positive_stats.Action(mayumi_tasks[i].positive_stats)
-                                ,task_tt_negative_stats.Action(mayumi_tasks[i].negative_stats)
-                                ,task_tt_description.Action(mayumi_tasks[i].description)]  
-                        action If ((mayumi_tasks[i].selected == False),
-                                [renpy.curry(ResetCharacterTask)(mayumi_tasks),SetField(mayumi_tasks[i],"selected",True),
-                                SetVariable("mayumi_task_selected",True)]) 
+            xysize(375,155)
+            background None
+            vbox:
+                spacing 10
+                for i in range(0,len(yukari_tasks)):
+                    if yukari_tasks[i].selected:
+                        textbutton yukari_tasks[i].title:
+                            text_style "task_text_selected" 
+                            style "task_button" 
+                            hovered [task_tt_positive_stats.Action(yukari_tasks[i].positive_stats)
+                                    ,task_tt_negative_stats.Action(yukari_tasks[i].negative_stats)
+                                    ,task_tt_description.Action(yukari_tasks[i].description)] 
+                            action [SetField(yukari_tasks[i],"selected",False),
+                                    SetVariable("yukari_task_selected",False)]
+                    else:
+                        textbutton yukari_tasks[i].title:
+                            text_style "task_text"
+                            style "task_button"
+                            hovered [task_tt_positive_stats.Action(yukari_tasks[i].positive_stats)
+                                    ,task_tt_negative_stats.Action(yukari_tasks[i].negative_stats)
+                                    ,task_tt_description.Action(yukari_tasks[i].description)] 
+                            action If ((yukari_tasks[i].selected == False),
+                                    [renpy.curry(ResetCharacterTask)(yukari_tasks),SetField(yukari_tasks[i],"selected",True),
+                                    SetVariable("yukari_task_selected",True)])  
 
     hbox:
-        xalign 0.526
-        yalign 0.858
-        add "char_image/shunsuke.png" 
-        text "Shunsuke" style "char_title_text"
-        vbox:
+        xalign 0.1070
+        yalign 0.547
+        add "char_image/yuuko.png" 
+        text "Yuuko" style "char_title_text"
+        frame:
             ypos 65
-            xpos -205
-            spacing 10
-            for i in range(0,len(shunsuke_tasks)):
-                if shunsuke_tasks[i].selected:
-                    textbutton shunsuke_tasks[i].title:
-                        text_style "task_text_selected" 
-                        style "task_button" 
-                        hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
-                                ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
-                                ,task_tt_description.Action(yuuko_tasks[i].description)] 
-                        action [SetField(shunsuke_tasks[i],"selected",False),
-                                SetVariable("shunsuke_task_selected",False)]
-                else:
-                    textbutton shunsuke_tasks[i].title:
-                        text_style "task_text" 
-                        style "task_button" 
-                        hovered [task_tt_positive_stats.Action(shunsuke_tasks[i].positive_stats)
-                                ,task_tt_negative_stats.Action(shunsuke_tasks[i].negative_stats)
-                                ,task_tt_description.Action(shunsuke_tasks[i].description)]  
-                        action If ((shunsuke_tasks[i].selected == False),
-                                [renpy.curry(ResetCharacterTask)(shunsuke_tasks),SetField(shunsuke_tasks[i],"selected",True),
-                                SetVariable("shunsuke_task_selected",True)])  
+            xpos -136
+            xysize(375,150)
+            background None
+            vbox:
+                spacing 10
+                for i in range(0,len(yuuko_tasks)):
+                    if yuuko_tasks[i].selected:
+                        textbutton yuuko_tasks[i].title:
+                            text_style "task_text_selected" 
+                            style "task_button" 
+                            hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
+                                    ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
+                                    ,task_tt_description.Action(yuuko_tasks[i].description)] 
+                            action [SetField(yuuko_tasks[i],"selected",False),
+                                    SetVariable("yuuko_task_selected",False)]
+                    else:
+                        textbutton yuuko_tasks[i].title:
+                            text_style "task_text" 
+                            style "task_button" 
+                            hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
+                                    ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
+                                    ,task_tt_description.Action(yuuko_tasks[i].description)] 
+                            action If ((yuuko_tasks[i].selected == False),
+                                    [renpy.curry(ResetCharacterTask)(yuuko_tasks),SetField(yuuko_tasks[i],"selected",True),
+                                    SetVariable("yuuko_task_selected",True)])  
+
     hbox:
-        xalign 0.565
-        yalign 0.55
-        add "char_image/sumiko.png" ypos -5
-        text "Sumiko" style "char_title_text"
-        vbox:
+        xalign 0.108
+        yalign 0.863
+        add "char_image/mayumi.png" 
+        text "Mayumi" style "char_title_text"
+        frame:
             ypos 65
+            xpos -151
+            xysize(375,150)
+            background None
+            vbox:
+                spacing 10
+                for i in range(0,len(mayumi_tasks)):
+                    if mayumi_tasks[i].selected:
+                        textbutton mayumi_tasks[i].title:
+                            text_style "task_text_selected" 
+                            style "task_button" 
+                            hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
+                                    ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
+                                    ,task_tt_description.Action(yuuko_tasks[i].description)] 
+                            action [SetField(mayumi_tasks[i],"selected",False),
+                                    SetVariable("mayumi_task_selected",False)]
+                    else:
+                        textbutton mayumi_tasks[i].title:
+                            text_style "task_text" 
+                            style "task_button" 
+                            hovered [task_tt_positive_stats.Action(mayumi_tasks[i].positive_stats)
+                                    ,task_tt_negative_stats.Action(mayumi_tasks[i].negative_stats)
+                                    ,task_tt_description.Action(mayumi_tasks[i].description)]  
+                            action If ((mayumi_tasks[i].selected == False),
+                                    [renpy.curry(ResetCharacterTask)(mayumi_tasks),SetField(mayumi_tasks[i],"selected",True),
+                                    SetVariable("mayumi_task_selected",True)]) 
+
+    hbox:
+        xalign 0.626
+        yalign 0.86
+        add "char_image/shunsuke.png" 
+        text "Shunsuke" style "char_title_text" xpos 10
+        frame:
+            ypos 65
+            xpos -222
+            xysize(375,150)
+            background None
+            vbox:
+                spacing 10
+                for i in range(0,len(shunsuke_tasks)):
+                    if shunsuke_tasks[i].selected:
+                        textbutton shunsuke_tasks[i].title:
+                            text_style "task_text_selected" 
+                            style "task_button" 
+                            hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
+                                    ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
+                                    ,task_tt_description.Action(yuuko_tasks[i].description)] 
+                            action [SetField(shunsuke_tasks[i],"selected",False),
+                                    SetVariable("shunsuke_task_selected",False)]
+                    else:
+                        textbutton shunsuke_tasks[i].title:
+                            text_style "task_text" 
+                            style "task_button" 
+                            hovered [task_tt_positive_stats.Action(shunsuke_tasks[i].positive_stats)
+                                    ,task_tt_negative_stats.Action(shunsuke_tasks[i].negative_stats)
+                                    ,task_tt_description.Action(shunsuke_tasks[i].description)]  
+                            action If ((shunsuke_tasks[i].selected == False),
+                                    [renpy.curry(ResetCharacterTask)(shunsuke_tasks),SetField(shunsuke_tasks[i],"selected",True),
+                                    SetVariable("shunsuke_task_selected",True)])  
+    hbox:
+        xalign 0.583
+        yalign 0.55
+        add "char_image/sumiko.png" ypos -4 xpos 13
+        text "Sumiko" style "char_title_text"
+        frame:
+            ypos 60
             xpos -145
-            spacing 10
-            for i in range(0,len(sumiko_tasks)):
-                if sumiko_tasks[i].selected:
-                    textbutton sumiko_tasks[i].title:
-                        text_style "task_text_selected" 
-                        style "task_button"
-                        hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
-                                ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
-                                ,task_tt_description.Action(yuuko_tasks[i].description)] 
-                        action [SetField(sumiko_tasks[i],"selected",False),
-                                SetVariable("sumiko_task_selected",False)]
-                else:
-                    textbutton sumiko_tasks[i].title:
-                        text_style "task_text" 
-                        style "task_button" 
-                        hovered [task_tt_positive_stats.Action(sumiko_tasks[i].positive_stats)
-                                ,task_tt_negative_stats.Action(sumiko_tasks[i].negative_stats)
-                                ,task_tt_description.Action(sumiko_tasks[i].description)]  
-                        action If ((sumiko_tasks[i].selected == False),
-                                [renpy.curry(ResetCharacterTask)(sumiko_tasks),SetField(sumiko_tasks[i],"selected",True),
-                                SetVariable("sumiko_task_selected",True)]) 
+            xysize(375,150)
+            background None
+            vbox:
+                spacing 10
+                for i in range(0,len(sumiko_tasks)):
+                    if sumiko_tasks[i].selected:
+                        textbutton sumiko_tasks[i].title:
+                            text_style "task_text_selected" 
+                            style "task_button"
+                            hovered [task_tt_positive_stats.Action(yuuko_tasks[i].positive_stats)
+                                    ,task_tt_negative_stats.Action(yuuko_tasks[i].negative_stats)
+                                    ,task_tt_description.Action(yuuko_tasks[i].description)] 
+                            action [SetField(sumiko_tasks[i],"selected",False),
+                                    SetVariable("sumiko_task_selected",False)]
+                    else:
+                        textbutton sumiko_tasks[i].title:
+                            text_style "task_text" 
+                            style "task_button" 
+                            hovered [task_tt_positive_stats.Action(sumiko_tasks[i].positive_stats)
+                                    ,task_tt_negative_stats.Action(sumiko_tasks[i].negative_stats)
+                                    ,task_tt_description.Action(sumiko_tasks[i].description)]  
+                            action If ((sumiko_tasks[i].selected == False),
+                                    [renpy.curry(ResetCharacterTask)(sumiko_tasks),SetField(sumiko_tasks[i],"selected",True),
+                                    SetVariable("sumiko_task_selected",True)]) 
 
 
 transform grow_success_text:
@@ -406,7 +421,7 @@ screen member_status():
     text "Yuuko" xalign 0.168 yalign 0.455 color "#000" size 40
     add "char_image/sumiko.png" xalign 0.413 yalign 0.545
     text "Sumiko" xalign 0.507 yalign 0.445 color "#000" size 40
-    add "char_image/shunsuke.png" xalign 0.415 yalign 0.86
+    add "char_image/shunsuke.png" xalign 0.413 yalign 0.86
     text "Shunsuke" xalign 0.529 yalign 0.715 color "#000" size 40
     add "char_image/mayumi.png" xalign 0.075 yalign 0.863
     text "Mayumi" xalign 0.172 yalign 0.715 color "#000" size 40

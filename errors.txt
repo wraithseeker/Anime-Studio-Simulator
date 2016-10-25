@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/scripts/init.rpy", line 119: end of line expected.
-    jump dead_burnout(yukari_stats)
-                     ^
+File "game/scripts/game_screens.rpy", line 153: u'background' is not a keyword argument or valid child for the hbox statement.
+    background "#333"
+              ^
 
 Ren'Py Version: Ren'Py 6.99.11.1749
