@@ -747,7 +747,6 @@ label week_10_1:
     "Yukari answers her phone." 
     scene black with fade
     stop sound fadeout 1.0
-    $anim_studio = anim_studio_expensive
     y "Hello?" 
     if anim_studio == anim_studio_expensive:
         anim_dir "Hello, Yukari. How have you been?" 
