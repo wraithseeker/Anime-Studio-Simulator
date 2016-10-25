@@ -2439,7 +2439,7 @@ label epilogue:
     show shunsuke
     show sumiko
     show yuuko
-    if anime_score <= ANIME_MIN_POOR_VALUE:
+    if anime_score < ANIME_MIN_POOR_VALUE:
         m "Well?" 
         y "I'm looking… give it time…" 
         "Time passes with no reactions on the site. She eventually gives up and checks another anime site. And another. Finally, she finds people talking about it." 
@@ -2485,7 +2485,7 @@ label epilogue:
         "In the end, she encourages Yukari to learn from her mistakes and try again when she's more prepared." 
         "Yukari's greatest dream has always been to create her own anime. [anime.name] failed, but that doesn't mean her dream needs to die. She isn't ready to direct her own anime yet." 
         "But someday, she will be." 
-    elif ANIME_MIN_POOR_VALUE <= anime_score <= ANIME_MIN_AVERAGE_VALUE:
+    elif ANIME_MIN_POOR_VALUE <= anime_score < ANIME_MIN_AVERAGE_VALUE:
         show yukari sad
         play music sad_music fadein 1.5 fadeout 1.5
         "Unfortunately, the reactions are pretty negative."
@@ -2538,7 +2538,7 @@ label epilogue:
         "The next time she talks to her grandmother, she's calm enough to tell her the unfortunate news without breaking down."
         "Although both of them are disappointed, they know this isn't the end. It will be difficult for Yukari to try again after this. She won't be able to do it right away." 
         "But one day in the future, she'll make another anime. And this time, it will be a success." 
-    elif ANIME_MIN_AVERAGE_VALUE <= anime_score <= ANIME_MIN_GOOD_VALUE:
+    elif ANIME_MIN_AVERAGE_VALUE <= anime_score < ANIME_MIN_GOOD_VALUE:
         "People's reactions are pretty mixed. Some enjoyed the episode, but many people point out flaws in it."
         "There are even a couple debates about whether certain aspects of [anime.name] are justified or not. More than one person points out that it was made by a tiny new studio, and Yukari isn't sure if that should make her feel better or worse." 
         m "Well?" 
@@ -2605,7 +2605,7 @@ label epilogue:
         "A few days later, she visits her grandmother and tells her about [anime.name]'s mixed reception… and her ideas for how they can avoid making the same mistakes in the future." 
         "Yukari and her friends aren't ready to leap into a new project right away, especially since their vacation is almost over. But everyone on the team is willing to try again." 
         "[anime.name] didn't turn out as well as they hoped, but Yukari will do everything in her power to make her next anime a success." 
-    elif ANIME_MIN_GOOD_VALUE <= anime_score <= ANIME_MIN_GREAT_VALUE:
+    elif ANIME_MIN_GOOD_VALUE <= anime_score < ANIME_MIN_GREAT_VALUE:
         show yukari surprised
         play music dashboard_music fadein 1.5 fadeout 1.5
         y "Wow!" 
@@ -2688,7 +2688,7 @@ label epilogue:
         show yukari at left with dissolve 
         "The next day, she visits her grandmother to tell her how she made her dream come true. It feels like so long ago her grandmother offered to help, and now Yukari has created her own anime… and a successful one, at that." 
         "But even though she fulfilled her dream… it's only the beginning."  
-    elif ANIME_MIN_GREAT_VALUE <= anime_score <= ANIME_MIN_AMAZING_VALUE: 
+    elif ANIME_MIN_GREAT_VALUE <= anime_score < ANIME_MIN_AMAZING_VALUE: 
         "For a moment, she just stares at the screen in shock, unable to form words." 
         play music dashboard_music fadein 1.5 fadeout 1.5
         show mayumi surprised
@@ -2812,7 +2812,7 @@ label epilogue:
         "Ever since she was a child, she dreamed of becoming an anime director. Now it's come true. She made [anime.name], and people love it. Now it's time for the next step." 
         "She doesn't want only a single anime credit to her name. Once they work out the details, she can start planning her next anime. And the next." 
         "Come what may, Yukari and her anime studio will press forward until they make their mark on the anime industry." 
-    elif anime_score >= ANIME_MIN_AMAZING_VALUE: 
+    elif anime_score >= ANIME_MIN_AMAZING_VALUE:
         show yukari surprised
         "Her eyes widen, and she stares at the screen in shock." 
         m "What is it?"
