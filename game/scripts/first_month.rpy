@@ -283,35 +283,6 @@ label week_0_4:
     show yukari at left
     with fade
     y "Don’t worry, Grandma, I won’t let you down."
-    jump pre_game
-
-label pre_game:
-    $nextDay()
-    scene bg studio with dissolve
-    "Let's go through the basics of the game."
-    "This is Yukari’s new studio, where her team will work hard to produce their anime series within three months."
-    show screen start_game
-    $side_nav_interaction = False
-    $show_floating_buttons = False
-    "You'll oversee the production of their upcoming anime series and the deadline is during {font=fonts/LiberationSans-Bold.ttf}Week 12{/font}."
-    "The most important thing for you to do is choose daily {font=fonts/LiberationSans-Bold.ttf}Tasks{/font} for the team members to perform." 
-    show image "ui/done_idle.png" at Position(xalign=0.96,yalign=0.929)
-    "After you have assigned tasks to everyone, you can end your turn by selecting {font=fonts/LiberationSans-Bold.ttf}Done{/font}."
-    hide image "ui/done_idle.png"
-    "You can also see an overview of your actions each week under {font=fonts/LiberationSans-Bold.ttf}Progress{/font}, which should help you decide what to focus on."
-    "You'll eventually have to {font=fonts/LiberationSans-Bold.ttf}Outsource{/font} work and it is a good idea to occasionally {font=fonts/LiberationSans-Bold.ttf}Upgrade{/font} your team members by sending them for training."
-    "If you run out of funds, you'll no longer be able to continue working. Likewise, you won't be able to continue if one of your team members becomes too stressed or dissatisfied."
-    "Good luck!"
-    $side_nav_interaction = True
-    $show_floating_buttons = True
-    hide screen start_game
-    play music dashboard_music fadein 1.0
-    $renpy.retain_after_load()
-    $in_gameplay_menu = True
-    call screen start_game
-    $in_gameplay_menu = False
-    $default_screen_funds_hidden = False
-    stop music
 
 label week_1_1:
     $achievement.grant("ACH_1")
@@ -324,7 +295,6 @@ label week_1_1:
     show sumiko at pos_outerright behind yuuko
     show yuuko at pos_right
     with dissolve
-    play music studio_music fadein 2.0
     "On Monday, Yukari gathers everyone together at the studio. It’s time to discuss and finalize the details about their anime."
     show mayumi worry at pos_farleft
     m "So… what type of anime are we making, again?"
@@ -446,10 +416,40 @@ label week_1_1:
             "Shunsuke takes another look at the scenario to tighten and polish the story. Yukari delegates tasks to the others, and everyone begins work."
             $choice_1_1_2()
 
+label pre_game:
+    $nextDay()
+    scene bg studio with dissolve
+    "Let's go through the basics of the game."
+    "This is Yukari’s new studio, where her team will work hard to produce their anime series within three months."
+    show screen start_game
+    $side_nav_interaction = False
+    $show_floating_buttons = False
+    "You'll oversee the production of their upcoming anime series and the deadline is during {font=fonts/LiberationSans-Bold.ttf}Week 12{/font}."
+    "The most important thing for you to do is choose daily {font=fonts/LiberationSans-Bold.ttf}Tasks{/font} for the team members to perform." 
+    show image "ui/done_idle.png" at Position(xalign=0.96,yalign=0.929)
+    "After you have assigned tasks to everyone, you can end your turn by selecting {font=fonts/LiberationSans-Bold.ttf}Done{/font}."
+    hide image "ui/done_idle.png"
+    "You can also see an overview of your actions each week under {font=fonts/LiberationSans-Bold.ttf}Progress{/font}, which should help you decide what to focus on."
+    "You'll eventually have to {font=fonts/LiberationSans-Bold.ttf}Outsource{/font} work and it is a good idea to occasionally {font=fonts/LiberationSans-Bold.ttf}Upgrade{/font} your team members by sending them for training."
+    "If you run out of funds, you'll no longer be able to continue working. Likewise, you won't be able to continue if one of your team members becomes too stressed or dissatisfied."
+    "Good luck!"
+    $side_nav_interaction = True
+    $show_floating_buttons = True
+    hide screen start_game
+    play music dashboard_music fadein 1.0
+    $renpy.retain_after_load()
+    $in_gameplay_menu = True
+    call screen start_game
+    $in_gameplay_menu = False
+    $default_screen_funds_hidden = False
+    stop music
+
 label week_1_2:
+    play music studio_music fadein 2.0
     $nextDay()
     scene bg studio with fade
     show yukari sad at pos_farleft
+    with dissolve
     "Although the others have their tasks set out for them, Yukari realizes there isn’t much she can do at this stage in the process. The same goes for Mayumi."
     "Yukari paces in frustration. She can’t sit around and do nothing."
     "After taking a moment to think of possible things she can do to help, Yukari decides to…"
