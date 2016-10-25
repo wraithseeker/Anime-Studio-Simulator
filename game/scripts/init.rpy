@@ -15,12 +15,11 @@
     $anime_score_multipliers = (1 + yukari_stats.management * 0.05 + anime.marketing * 0.05 + anime.quality_check * 0.3)
     $anime_score = anime_score_components * anime_score_multipliers
 
-    $ANIME_MIN_FLOP_VALUE = 120
-    $ANIME_MIN_POOR_VALUE = 160
-    $ANIME_MIN_AVERAGE_VALUE = 200
-    $ANIME_MIN_GOOD_VALUE = 250
-    $ANIME_MIN_GREAT_VALUE = 300
-    $ANIME_MIN_AMAZING_VALUE = 55
+    $ANIME_MIN_POOR_VALUE = 120
+    $ANIME_MIN_AVERAGE_VALUE = 160
+    $ANIME_MIN_GOOD_VALUE = 200
+    $ANIME_MIN_GREAT_VALUE = 250
+    $ANIME_MIN_AMAZING_VALUE = 300
 
     $anime.funds = 50
     $anime.plot = 1
