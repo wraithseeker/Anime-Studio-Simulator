@@ -3033,6 +3033,7 @@ label epilogue:
         "Beta Testing, remember to inform me about what anime score you got and Screenshot It)":
             pass
     "Anime score is [anime_score]"
+    "Remember to let me know of your final score, since this is a beta test!"
     ######################
     $achievement.grant("ACH_4")
     if anime.category == Anime.HAREM:

@@ -1,13 +1,4 @@
-﻿## This file contains some of the options that can be changed to customize
-## your Ren'Py game. It only contains the most common options... there
-## is quite a bit more customization you can do.
-##
-## Lines beginning with two '#' marks are comments, and you shouldn't
-## uncomment them. Lines beginning with a single '#' mark are
-## commented-out code, and you may want to uncomment them when
-## appropriate.
-
-init -1 python hide:
+﻿init -1 python hide:
 
     ## These control the width and height of the screen.
     config.screen_width = 1920
@@ -83,78 +74,11 @@ init -1 python hide:
         )
 
 
-    #########################################
-    ## These settings let you customize the window containing the
-    ## dialogue and narration, by replacing it with an image.
-
-    ## The background of the window. In a Frame, the two numbers
-    ## are the size of the left/right and top/bottom borders,
-    ## respectively.
-
-    # style.window.background = Frame("ui/textbox.png", 10, 10)
-
-    # ## Margin is space surrounding the window, where the background
-    # ## is not drawn.
-
-    # style.window.left_margin = 500
-    # style.window.right_margin = 500
-    # style.window.top_margin = 6
-    # style.window.bottom_margin = 50
-
-    # ## Padding is space inside the window, where the background is
-    # ## drawn.
-
-    # style.window.left_padding = 30
-    # style.window.right_padding = 10
-    # #style.window.top_padding = 6
-    # style.window.bottom_padding = 0
-
-    # ## This is the minimum height of the window, including the margins
-    # ## and padding.
-
-    # style.window.yminimum = 250
-    #style.what_.color ="#000"
-
-    #########################################
-    ## This lets you change the placement of the main menu.
-
-    ## The way placement works is that we find an anchor point
-    ## inside a displayable, and a position (pos) point on the
-    ## screen. We then place the displayable so the two points are
-    ## at the same place.
-
-    ## An anchor/pos can be given as an integer or a floating point
-    ## number. If an integer, the number is interpreted as a number
-    ## of pixels from the upper-left corner. If a floating point,
-    ## the number is interpreted as a fraction of the size of the
-    ## displayable or screen.
-
-    # style.mm_menu_frame.xpos = 0.5
-    # style.mm_menu_frame.xanchor = 0.5
-    # style.mm_menu_frame.ypos = 0.75
-    # style.mm_menu_frame.yanchor = 0.5
-
-
-    #########################################
-    ## These let you customize the default font used for text in Ren'Py.
-
-    ## The file containing the default font.
-
     style.default.font = "fonts/Multicolore.otf"
 
     ## The default size of text.
 
     #style.default.size = 22
-
-    ## Note that these only change the size of some of the text. Other
-    ## buttons have their own styles.
-
-
-    #########################################
-    ## These settings let you change some of the sounds that are used by
-    ## Ren'Py.
-
-    ## Set this to False if the game does not have any sound effects.
 
     config.has_sound = True
 
@@ -274,7 +198,7 @@ init -1 python hide:
 
     ## The default text speed in characters per second. 0 is infinite.
 
-    config.default_text_cps = 45
+    config.default_text_cps = 75
 
     ## The default auto-forward time setting.
 
