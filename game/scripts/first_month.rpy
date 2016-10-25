@@ -953,7 +953,7 @@ label week_2_6:
             scene black with dissolve
             "She has her doubts about how good of company he’ll be, and when they meet up, she can tell he has similar doubts about her."
             "After a few awkward moments, he suggests a game of chess and offers to teach her when she admits she’s never played."
-            "Though Shunsuke seems to be reserved, he slowly opens up as he teaches Yukari how to play chess. They spend the rest of the day discussing about their school life while playing chess."
+            "Though Shunsuke seems to be reserved, he slowly opens up as he teaches Yukari how to play chess. They spend the rest of the day discussing about their school life while playing."
         "Yuuko and Sumiko":
             $choicewe_2_1_3()
             $week_2_5_choice = "Yuuko and Sumiko"
