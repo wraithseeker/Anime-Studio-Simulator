@@ -2670,7 +2670,7 @@ label week_8_3:
     if guerilla_marketing and anime.marketing >= WEEK_8_GOOD_MARKETING_VALUE:
         ss "Our pre-release marketing efforts are going well. We already have several followers on social media."
         ss "Better yet, I saw people discussing [anime.name] on an anime forum."
-        show mayumi_f surprised
+        show mayumi surprised
         m "Wow, really?" 
         show yukari happy
         y "Awesome!"
