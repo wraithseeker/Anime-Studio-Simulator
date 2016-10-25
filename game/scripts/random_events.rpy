@@ -25,6 +25,7 @@ define hp_guy = Character("David Buki", color="#000",ctc="ctc_fixed",ctc_positio
 
 #Burnout scenario (Stress high, happiness low)
 label dead_burnout(character):
+    play music sad_music fadein 2.0
     scene cafe with fade
     show yukari at left
     if character.name == "Mayumi":
@@ -62,6 +63,7 @@ label dead_burnout(character):
     "Yukari and the others try to continue on alone, but it’s no use. Without a complete team, [anime.name] is doomed to remain just a dream."
     $renpy.full_restart()
 label dead_burnout_yukari:
+    play music sad_music fadein 2.0
     scene studio with fade
     show yukari sad at left
     with dissolve
@@ -72,6 +74,7 @@ label dead_burnout_yukari:
 
 #ran out of funds
 label dead_no_funds:
+    play music sad_music fadein 2.0
     scene studio with fade
     show yukari at pos_left
     show sumiko at pos_right

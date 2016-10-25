@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/scripts/third_month.rpy", line 1289: expected end of line
-    stop music fadein 2.0
-               ^
+File "game/scripts/init.rpy", line 119: end of line expected.
+    jump dead_burnout(yukari_stats)
+                     ^
 
 Ren'Py Version: Ren'Py 6.99.11.1749
