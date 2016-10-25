@@ -286,8 +286,7 @@ label week_0_4:
 
 label week_1_1:
     $achievement.grant("ACH_1")
-    $initial_week = False
-    $fastForwardDays(2)
+    $fastForwardDays(3)
     scene bg studio_main
     show yukari at pos_left
     show mayumi at pos_farleft behind yukari
@@ -417,7 +416,6 @@ label week_1_1:
             $choice_1_1_2()
 
 label pre_game:
-    $nextDay()
     scene bg studio with dissolve
     "Let's go through the basics of the game."
     "This is Yukari’s new studio, where her team will work hard to produce their anime series within three months."
@@ -447,6 +445,7 @@ label pre_game:
 label week_1_2:
     play music studio_music fadein 2.0
     $nextDay()
+    $initial_week = False
     scene bg studio with fade
     show yukari sad at pos_farleft
     with dissolve
