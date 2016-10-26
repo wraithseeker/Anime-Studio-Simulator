@@ -2408,7 +2408,7 @@ label week_12_5:
 
 label epilogue:
     $anime_score_components = (anime.plot + anime.character_development + anime.storyboard + anime.character_design + anime.background + anime.animation + anime.voice_acting +anime.op_ed + anime.ost ) 
-    $anime_score_multipliers = (1 + yukari_stats.management * 0.05 + anime.marketing * 0.05 + anime.quality_check * 0.3)
+    $anime_score_multipliers = (1 + yukari_stats.management * 0.05 + anime.marketing * 0.05 + anime.quality_check * 0.25)
     $anime_score = anime_score_components * anime_score_multipliers 
     scene studio_main with fade
     show yukari at pos_left

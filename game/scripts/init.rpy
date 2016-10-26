@@ -12,14 +12,14 @@
     $anime.setProgress()
     #Anime final score here
     $anime_score_components = (anime.plot + anime.character_development + anime.storyboard + anime.character_design + anime.background + anime.animation + anime.voice_acting +anime.op_ed + anime.ost ) 
-    $anime_score_multipliers = (1 + yukari_stats.management * 0.05 + anime.marketing * 0.05 + anime.quality_check * 0.3)
+    $anime_score_multipliers = (1 + yukari_stats.management * 0.05 + anime.marketing * 0.05 + anime.quality_check * 0.25)
     $anime_score = anime_score_components * anime_score_multipliers
 
-    $ANIME_MIN_POOR_VALUE = 120
-    $ANIME_MIN_AVERAGE_VALUE = 160
-    $ANIME_MIN_GOOD_VALUE = 200
-    $ANIME_MIN_GREAT_VALUE = 250
-    $ANIME_MIN_AMAZING_VALUE = 300
+    $ANIME_MIN_POOR_VALUE = 110
+    $ANIME_MIN_AVERAGE_VALUE = 150
+    $ANIME_MIN_GOOD_VALUE = 190
+    $ANIME_MIN_GREAT_VALUE = 240
+    $ANIME_MIN_AMAZING_VALUE = 285
 
     $anime.funds = 50
     $anime.plot = 1
@@ -91,6 +91,14 @@
     $mayumi_current_u_text = renpy.random.choice(mayumi_upgrade_text)
     $sumiko_current_u_text = renpy.random.choice(sumiko_upgrade_text)
     $shunsuke_current_u_text = renpy.random.choice(shunsuke_upgrade_text)
+
+    #outsource screen
+    $outsource = Outsource()
+    $outsource.cost = 5
+    $outsource.value = 1
+    $upgrade_proficiency_value = 1
+    $upgrade_proficiency_cost = 7
+    
     $yukari_upgrade = Outsource.NOT_SELECTED
     $yuuko_upgrade = Outsource.NOT_SELECTED
     $sumiko_upgrade = Outsource.NOT_SELECTED
@@ -108,6 +116,7 @@
     $sumiko_task_selected = False
     $mayumi_task_selected = False
     $shunsuke_task_selected = False
+
 
     $yukari_tasks = [yukari_first_task,yukari_raise_funds,yukari_read_books,copy.deepcopy(relax_task)]
     $yuuko_tasks = [yuuko_first_task,copy.deepcopy(sumiko_practise),copy.deepcopy(relax_task)]
@@ -189,13 +198,7 @@ init:
                             ,"Invite a veteran writer to review Shunsuke's writing."
                             ,"Convince Shunsuke to join a local critique group."
                             ,"Send Shunsuke to attend discussion panels held by published writers."]                      
-    #outsource screen
-    $outsource = Outsource()
-    $outsource.cost = 5
-    $outsource.value = 1
-    $upgrade_proficiency_value = 1
-    $upgrade_proficiency_cost = 7
-
+   
     #positions for images
     $pos_farleft = Position(xalign = -0.045,yalign = 1.0)
     $pos_left = Position(xalign = 0.18,yalign = 1.0)
