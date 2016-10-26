@@ -68,7 +68,7 @@ label week_0_1:
     m "Really? That’s great!"
     "She lets out a sigh of relief. Her best friend never called her crazy before, but the fear lurked in the back of her mind that she might this time. Mayumi’s enthusiasm calms her worries, and she speaks up with more confidence."
     y "It won’t be anything big, just two episodes of my very own anime."
-    m "Even a short anime is a step in the right direction. Can I help! You’ll need someone to handle the music and sound, right?"
+    m "Even a short anime is a step in the right direction. Can I help? You’ll need someone to handle the music and sound, right?"
     show yukari worry
     y "I don’t want to interfere with your plans…"
     show mayumi_f sigh
@@ -173,6 +173,7 @@ label week_0_2:
     show sumiko at pos_right
     show yuuko at pos_outerright behind sumiko
     with dissolve
+    "One day later, their small team meets up for lunch."
     m "Hi, I’m Mayumi!"
     s "I’m Sumiko, and this is Yuuko. Don’t we know each other from school?"
     show mayumi laugh_eyes_closed
@@ -262,6 +263,7 @@ label week_0_4:
     show yukari happy at left with dissolve
     y "I can’t believe it… It’s finally happening. Next week, I’ll start work on my own anime. I’ll fulfill my dream. No… our dream."
     scene flashback with fade
+    $show_floating_buttons = False
     grandma "Yukari? It’s been so long! Did you travel all the way out here just to visit me?"
     y "Grandma! I was going to call you, but I changed my mind. I want to tell you this news in person."
     grandma "You’re getting married?"
@@ -282,10 +284,12 @@ label week_0_4:
     scene home
     show yukari at left
     with fade
+    $show_floating_buttons = True
     y "Don’t worry, Grandma, I won’t let you down."
 
 label week_1_1:
     $achievement.grant("ACH_1")
+    $show_status_buttons = True
     $fastForwardDays(3)
     scene bg studio_main
     show yukari at pos_left
@@ -323,13 +327,7 @@ label week_1_1:
             $va_c = getRandomMaleName()
     show mayumi happy
     show sumiko
-    m "Okay! I can’t wait! Is the name for our anime finalized, too?"
-    y "It's …"
-    $anime.name = renpy.input("Name of your anime?",default="",length=16)
-    if anime.name == "":
-        $anime.name = "Herb and Fox"
-    show mayumi happy
-    m "[anime.name] sounds great!"
+    m "Okay! I can’t wait!"
     y "Now that we have our studio, let's assign desks."
     y "Yuuko and Sumiko should sit next to each other."
     show sumiko happy
@@ -353,7 +351,7 @@ label week_1_1:
     ss "Does it really matter? All the desks are the same…"
     "Yukari takes the centermost desk, where she can easily look around to see what everyone is doing. Mayumi and Shunsuke sit at the remaining two."
     y "All right, if anyone has a problem with this arrangement, let me know."
-    "As for Mayumi, since you won’t have much to do in the planning phase, you can help me with some paperwork for now."
+    y "As for Mayumi, since you won’t have much to do in the planning phase, you can help me with some paperwork for now."
     show yukari
     show mayumi
     m "Okay!"
@@ -384,6 +382,13 @@ label week_1_1:
         s "I bet I get to design some car chase scenes, right? Please tell me there are car chase scenes."
         ss "I’m sure I can find a place for one."
     yuu "This scenario sounds very nice."
+    m "So, does our anime have a name yet?"
+    y "Yes, it's…"
+    $anime.name = renpy.input("Name of your anime?",default="",length=16)
+    if anime.name == "":
+        $anime.name = "Herb and Fox"
+    show mayumi happy
+    m "Ooh, okay! [anime.name] sounds great!"
     y "Now, down to business."
     show shunsuke
     show yukari

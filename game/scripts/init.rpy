@@ -82,6 +82,7 @@
     $side_nav_interaction = True
     $show_floating_buttons = True
     $initial_week = True
+    $show_status_buttons = False
     $default_screen_funds_hidden = True # to hide funds when selecting difficulty
     $upgrade_tooltip_color = "#2ecc71"
     #Upgrade engine stuff
