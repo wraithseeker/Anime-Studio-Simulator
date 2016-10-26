@@ -617,7 +617,6 @@ label random_9:
         "Donate some money":
             "Mayumi beams as Yukari approaches the guitarist."
             "The guitarist plays another song accordingly."
-            "some sound effects"
             show yukari happy
             y "Wow, that really is good."
             m "I can’t wait for work tomorrow. I have so many new ideas!"

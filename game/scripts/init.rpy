@@ -126,7 +126,6 @@
 
     jump week_0_1
 
-
 init python:
     import datetime
     import copy

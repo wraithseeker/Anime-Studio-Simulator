@@ -496,7 +496,7 @@ label week_1_3:
     show yukari at left
     show mayumi_f at right
     with dissolve
-    "It’s the third day of work on [anime.name]. Yukari looks around the studio and can’t help but grin. The team is hard at work. [anime.name] will be a reality. This is exactly what she’s always dreamed up."
+    "It’s the third day of work on [anime.name]. Yukari looks around the studio and can’t help but grin. The team is hard at work. This is exactly what she’s always dreamed of."
     m "Hey Yukari, want to get lunch?"
     show yukari worry
     y "What? Now?"
@@ -715,6 +715,7 @@ label week_2_1:
     scene studio with fade
     show yukari at left
     with dissolve
+    play music cafe_music fadein 2.0 fadeout 2.0
     "On Monday, Yukari spends some time going through the scenario for [anime.name]."
     if anime.category == Anime.HAREM:
         "One of the girls’ personalities doesn’t seem as well thought out as the others, so she makes a mental note to discuss that with Shunsuke later."
@@ -909,6 +910,7 @@ label week_2_5:
     m "But don’t worry! If we start now and cast our net as wide as possible, we can complete [anime.name] with a comfortable budget."
     show yukari sigh
     show shunsuke
+    show mayumi
     "After listening to them, Yukari understands how important it is to get more funding."
     "While they do need a solid product to attract investors with, money won’t come to them on its own. Waiting for something to happen accomplishes nothing."
     y "You’re right. I’m sorry I didn’t realize it before."

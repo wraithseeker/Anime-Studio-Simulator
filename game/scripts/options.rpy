@@ -200,11 +200,11 @@ init -1 python hide:
 
     ## The default text speed in characters per second. 0 is infinite.
 
-    # config.default_text_cps = 75
+    config.default_text_cps = 75
 
     # ## The default auto-forward time setting.
 
-    # config.default_afm_time = 15
+    config.default_afm_time = 15
     config.default_music_volume = 1.0
     config.default_sfx_volume = 1.0
 

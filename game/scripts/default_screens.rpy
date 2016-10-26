@@ -128,8 +128,8 @@ init -2:
         clear
 
     style menu_choice_button is button:
-        xminimum int(config.screen_width * 0.45)
-        xmaximum int(config.screen_width * 0.45)
+        xminimum 850#int(config.screen_width * 0.45)
+        xmaximum 850#int(config.screen_width * 0.45)
 
 
 ##############################################################################
