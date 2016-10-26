@@ -1,5 +1,7 @@
-﻿init -1 python hide:
+﻿default preferences.text_cps = 75
+default preferences.afm_time = 15
 
+init -1 python hide:
     ## These control the width and height of the screen.
     config.screen_width = 1920
     config.screen_height = 1080
@@ -198,11 +200,11 @@ init -1 python hide:
 
     ## The default text speed in characters per second. 0 is infinite.
 
-    config.default_text_cps = 75
+    # config.default_text_cps = 75
 
-    ## The default auto-forward time setting.
+    # ## The default auto-forward time setting.
 
-    config.default_afm_time = 15
+    # config.default_afm_time = 15
     config.default_music_volume = 1.0
     config.default_sfx_volume = 1.0
 
