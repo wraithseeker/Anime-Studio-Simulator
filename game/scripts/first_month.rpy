@@ -427,6 +427,7 @@ label pre_game:
     show screen start_game
     $side_nav_interaction = False
     $show_floating_buttons = False
+    $show_status_buttons = False
     "You'll oversee the production of their upcoming anime series and the deadline is during {font=fonts/LiberationSans-Bold.ttf}Week 12{/font}."
     "The most important thing for you to do is choose daily {font=fonts/LiberationSans-Bold.ttf}Tasks{/font} for the team members to perform." 
     show image "ui/done_idle.png" at Position(xalign=0.96,yalign=0.929)
@@ -437,6 +438,7 @@ label pre_game:
     "If you run out of funds, you'll no longer be able to continue working. Likewise, you won't be able to continue if one of your team members becomes too stressed or dissatisfied."
     "Good luck!"
     $side_nav_interaction = True
+    $show_status_buttons = True
     $show_floating_buttons = True
     hide screen start_game
     play music dashboard_music fadein 1.0
