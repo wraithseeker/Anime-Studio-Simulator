@@ -324,7 +324,7 @@ label random_4:
             rd_c.say "What?"
             y "It looks good on the surface, but it’s way too risky."
             rd_c.say "Aw, I thought it was a good idea…"
-        "Send [rd_c.person] to be interviewed instead.":
+        "Send [rd_c.person] to be interviewed instead":
             y "Why don’t you go?"
             if rd_c.p == "yuu":
                 show yuuko worry

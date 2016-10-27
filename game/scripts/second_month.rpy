@@ -3184,7 +3184,6 @@ label week_8_4:
             "He gathers the voice actors back together, and Yukari points out the lines she wants re-recorded."
             "It takes a few tries, but finally all the lines for [anime.name] have been recorded to her satisfaction." 
             y "That should be everything." 
-            "If success," 
             va_dir "Perfect. I wish you the best of luck with [anime.name]." 
             y "Is there an extra charge for going over our time?" 
             va_dir "No, don’t worry about it." 
@@ -3192,7 +3191,6 @@ label week_8_4:
             va_dir "I can tell you’re passionate about this project, and I want to see your team succeed. Consider it my contribution to the future of [anime.name]."
             show yukari happy 
             y "Wow, thanks!" 
-            "If failure," 
             va_dir "Now, since you went over your time, there will be an additional fee."
             show yukari sad
             y "Oh. I understand." 
@@ -3391,10 +3389,10 @@ label week_8_5:
     "[anime.name] might still be behind schedule, but they’re slowly handling every obstacle. The gloomy mood in the studio has almost vanished entirely." 
     "Yukari finishes up some of her work and jots down notes on what she needs to tell Sumiko’s friends, when her phone buzzes."
     "She checks it. It’s a text message from the director of [anim_studio] telling her their work is complete. Yukari crosses her fingers and heads over to the animation studio." 
-    scene animation_studio with fade
-    show yukari at left
-    with dissolve
     if anim_studio == anim_studio_cheap and not week_8_cheap_studio_visited:
+        scene animation_studio with fade
+        show yukari at left
+        with dissolve
         "When she arrives, the director is waiting for her." 
         show anim_dir at right with dissolve
         anim_dir "I’m glad you could make it. Are you ready to take a look?" 
@@ -3429,7 +3427,10 @@ label week_8_5:
         anim_dir "Okay. And I really am sorry about this." 
         y "It’s fine." 
         "It isn’t what she wants, but since the team is on board with it and their deadline can’t be changes, she’ll accept the art in its current state. At least [anime.name] still has a chance." 
-    elif anim_studio == anim_studio_cheap and week_8_cheap_studio_visited:
+    elif (anim_studio == anim_studio_cheap and week_8_cheap_studio_visited) or anim_studio == anim_studio_expensive:
+        scene studio_main
+        show yukari at left
+        with dissolve
         "To Yukari’s pleasant surprise, the work provided by [anim_studio] is satisfactory, with no issues or mistakes." 
         "It’s hard to believe [anime.name] has come so far in only two months. She has faith all their efforts will pay off soon, once [anime.name] is on the air." 
     scene street with fade
