@@ -355,7 +355,7 @@ label week_1_1:
     show yukari
     show mayumi
     m "Okay!"
-    m "Shunsuke, how far along is the scenario for [anime.name]?"
+    m "Shunsuke, how far along is the scenario for our anime?"
     show shunsuke happy
     ss "I finished writing it a few weeks ago, actually. Last weekend, I completed the edits, so I’m pretty happy with it."
     show yukari happy
