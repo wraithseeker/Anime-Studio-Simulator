@@ -1518,7 +1518,6 @@ label week_4_4:
 
 label week_4_5:
     $nextDay()
-    $fastForwardDays(33)
     scene studio_main with fade
     show yukari worry at left
     show mayumi_f at Position(xalign = 0.80,yalign = 1.0)
@@ -1760,6 +1759,7 @@ label week_4_5:
     "As they debate, Yukari leans back in her seat and smiles to herself. Their group has come a long way since the beginning."
     "At first, she worried they might clash when they worked together, but they’ve turned into a cohesive team. Someday, she hopes they all have a bond as strong as the one shared by Sumiko and Yuuko."
 label week_4_6:
+    $nextDay()
     scene home with fade
     show yukari at left
     with dissolve

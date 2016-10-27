@@ -128,6 +128,7 @@ label week_5_2:
     m "Knowing where to go from the start..."
     y "Come on, it’s this way."
     m "Are you sure? You aren’t going to suddenly bolt into a store shouting that you need to buy something?"
+    show yukari sigh
     y "Very funny. Let’s go."
     scene animation_studio with fade
     if anim_studio == anim_studio_expensive:
@@ -573,6 +574,7 @@ label week_5_5:
     y "Come on, everyone. Let’s make Shunsuke’s sequels possible!"
 
 label week_5_6:
+    $nextDay()
     scene home with fade
     show yukari at left with dissolve
     "What shall Yukari do this weekend?"
@@ -1236,6 +1238,7 @@ label week_6_5:
     "But even as she says it, she knows there’s no place she’d rather be than with her team."
 
 label week_6_6:
+    $nextDay()
     scene home with fade
     show yukari at left with dissolve
     "It's the weekend! What will you do?"
@@ -2370,6 +2373,7 @@ label week_7_5:
 
 
 label week_7_6:
+    $nextDay()
     scene home with fade
     show yukari at left with dissolve
     "Over the weekend, Yukari writes up a report to send to their investors about the current status of [anime.name]."
@@ -3504,6 +3508,7 @@ label week_8_5:
     everyone "To Shunsuke!" 
 
 label week_8_6:
+    $nextDay()
     scene home with fade
     show yukari at left with dissolve
     "Another weekend has arrived. What should Yukari do?"

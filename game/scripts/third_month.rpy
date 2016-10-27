@@ -588,6 +588,7 @@ label week_9_5:
     "As they eat, they finalize their shopping plans. The conversation makes Yukari feel better about the sisters not being able to join them for dinner." 
 
 label week_9_6:
+    $nextDay()
     scene home with fade
     show yukari at left with dissolve
     "When the weekend arrives, Yukari tries to decide the best use of her time." 
@@ -1247,6 +1248,7 @@ label week_10_5:
     s "I'm serious here! It's going to happen." 
     y "You might be aiming a little too high there, Sumiko… but who knows? We'll make [anime.name] the best it can be!" 
 label week_10_6:
+    $nextDay()
     scene home with fade
     show yukari at left with dissolve
     "When Yukari checks her email on the weekend, she finds a request from the media. A journalist who covers anime news would like to interview her." 
@@ -1748,6 +1750,7 @@ label week_11_5:
     call expression random_game_event from _call_expression_19
 
 label week_11_6:
+    $nextDay()
     scene studio_main with fade
     show yukari at left with dissolve
     "When the weekend arrives, Yukari heads to the studio and gathers all of the assets for [anime.name] they compiled earlier in the week. As she sits down at her desk, the studio door opens." 
@@ -2407,6 +2410,7 @@ label week_12_5:
     "Come what may, Yukari has a group of friends—a team—that won't ever let her down."
 
 label epilogue:
+    $fastForwardDays(3)
     $anime_score_components = (anime.plot + anime.character_development + anime.storyboard + anime.character_design + anime.background + anime.animation + anime.voice_acting +anime.op_ed + anime.ost ) 
     $anime_score_multipliers = (1 + yukari_stats.management * 0.05 + anime.marketing * 0.05 + anime.quality_check * 0.25)
     $anime_score = anime_score_components * anime_score_multipliers 
