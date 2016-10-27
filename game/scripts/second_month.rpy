@@ -594,8 +594,6 @@ label week_5_6:
             "She stays at home all weekend, reading books and watching anime. It’s a nice, stress-free way to recharge for the next week."
     scene studio 
     $nextWeek()
-    $sumiko_tasks[0] = sumiko_third_task
-    $yuuko_tasks[0] = yuuko_third_task
     $mayumi_tasks[0] = mayumi_third_task
     play music dashboard_music fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
@@ -1262,6 +1260,8 @@ label week_6_6:
             "Yukari sleeps in on the weekend, watches some anime, and de-stresses to prepare for the week ahead."
     scene studio 
     $nextWeek()
+    $sumiko_tasks[0] = sumiko_third_task
+    $yuuko_tasks[0] = yuuko_third_task
     play music dashboard_music fadein 1.0 fadeout 1.0
     $renpy.retain_after_load()
     $UpdateProgressReport()
