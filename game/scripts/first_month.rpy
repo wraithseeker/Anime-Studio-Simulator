@@ -422,7 +422,7 @@ label week_1_1:
 
 label pre_game:
     scene bg studio with dissolve
-    "Let's go through the basics of the game."
+    "(Tutorial): Let's go through the basics of the game."
     "This is Yukari’s new studio, where her team will work hard to produce their anime series within three months."
     show screen start_game
     $side_nav_interaction = False
@@ -970,7 +970,6 @@ label week_2_6:
             "The three of them have lunch at the restaurant, and then Sumiko suggests they go see a movie. They buy tickets for a new comedy that just entered theaters."
             "Not only does it distract Yukari from the week ahead, but Yuuko even laughs out loud, the most emotion she’s ever displayed in front of her."
             "It’s a lot of fun. Thanks to the sisters, Yukari is able to forget her worries for a while and de-stress. When the weekend ends, she feels confident."
-    y "No matter how tough it is, I have to buckle down and get those funds!"
     scene studio 
     $nextWeek()
     $shunsuke_tasks[0] = shunsuke_second_task
