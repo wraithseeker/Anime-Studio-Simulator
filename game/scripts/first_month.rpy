@@ -227,7 +227,7 @@ label week_0_4:
     show mayumi at pos_farleft behind yukari
     with dissolve
     y " Everyone, I have great news!"
-    "It’s the first time she’s assembled everyone, although they don’t seem like a cohesive team yet."
+    "It’s the first time she gathered everyone, although they don’t seem like a cohesive team yet."
     "Yuuko remains quiet and Shunsuke hasn’t quite integrated himself into the group. In contrast, Mayumi and Sumiko talk every time they’re together."
     "Everyone looks up at Yukari’s announcement."
     ss "You look excited. Is this about our funding?"
@@ -365,8 +365,8 @@ label week_1_1:
         "It tells the story of a boy named Keiji who is the only male member of his high school’s science club."
         "Love triangles and science hijinks lead to wacky antics as he tries to sort out his feelings while also trying to keep their mad scientist tendencies from getting out of hand."
     elif anime.category == Anime.MYSTERY:
-        "It tells the story of a Hideaki, young detective struggling to make ends meet after a disastrous case cast a shadow over his career."
-        "When he learns about a murder so bizarre and twisted no other detective wants to touch it, he takes the case in the hopes it will restore his reputation."
+        "It tells the story of Hideaki, a young detective struggling to make ends meet after a disastrous case cast a shadow over his career."
+        "When he learns about a murder so bizarre and twisted that no other detective wants to touch it, he takes the case hoping that it will restore his reputation."
     elif anime.category == Anime.ACTION:
         "It tells the story of Itaru, a young man who accidentally stumbles upon an age-old conspiracy hidden deep within the city."
         "He soon finds himself in a race against time to escape his newfound enemies before they silence him permanently."

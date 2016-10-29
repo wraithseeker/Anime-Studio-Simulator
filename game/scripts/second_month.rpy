@@ -1461,7 +1461,7 @@ label week_7_1_2:
     "She opens her mouth to explain, but she can’t find the words. How can they solve this problem?"
     "They can’t go with the key frames as they are currently. That would be a disaster."
     "Deadlines can’t be adjusted, so they’ll have to either increase the production speed at [anim_studio] or find freelancers instead."
-    "Either solution will require them to spend even more funds on animation. Maybe they’ll run of funds and not be able to produce [anime.name] at all."
+    "Either solution will require them to spend even more funds on animation. Maybe they’ll run out of funds and not be able to produce [anime.name] at all."
     show yukari
     "Yukari takes a few deep breaths to try to calm down and sound as though she has the situation under control, even though she feels like screaming, crying, or both."
     y "I’m… I’m afraid there’s been a mistake. I accidentally gave you the draft storyboards, which are totally different from the main storyboards. We can’t use these key frames."
@@ -3246,7 +3246,7 @@ label week_8_4:
     show yuuko at pos_outerright behind sumiko
     with dissolve
     s "I’ll get the popcorn going!" 
-    "When Yukari told them to get whatever they needed, she was thinking pajamas, sleeping backs, and other necessities."
+    "When Yukari told them to get whatever they needed, she was thinking pajamas, sleeping bags, and other necessities."
     "But while she, Mayumi, and Yuuko brought such things, Sumiko’s supplies for the night also included popcorn, soda, and a stack of movies."
     yuu "I’m not sure I can draw while eating popcorn…" 
     show sumiko tsundere
