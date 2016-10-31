@@ -3031,11 +3031,11 @@ label epilogue:
         "Three months earlier, Yukari wasn't sure they could handle the stress and pressure of creating an anime. Now she knows they can." 
         "This is the start of a bright future for Yukari… and her anime studio." 
     ### BETA TESTING ###
-    menu:
-        "Beta Testing, remember to inform me about what anime score you got and Screenshot It)":
-            pass
-    "Anime score is [anime_score]"
-    "Remember to let me know of your final score, since this is a beta test!"
+    # menu:
+    #     "Beta Testing, remember to inform me about what anime score you got and Screenshot It)":
+    #         pass
+    # "Anime score is [anime_score]"
+    # "Remember to let me know of your final score, since this is a beta test!"
     ######################
     $achievement.grant("ACH_4")
     if anime.category == Anime.HAREM:
