@@ -383,7 +383,7 @@ label week_1_1:
     yuu "This scenario sounds very nice."
     m "So, does our anime have a name yet?"
     y "Yes, it's…"
-    $anime.name = renpy.input("Name of your anime?",default="",length=32)
+    $anime.name = renpy.input("Name of your anime?",default="",length=26)
     if anime.name == "":
         $anime.name = "Herb and Fox"
     show mayumi happy
