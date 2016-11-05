@@ -257,7 +257,6 @@ label week_0_4:
     show mayumi happy
     m "Yeah! The rest can wait. Let’s celebrate!"
     "Everyone is in high spirits now that they have an investor, and they celebrate the good news until late in the evening."
-    stop music fadeout 2.0
     scene home with fade
     show yukari happy at left with dissolve
     y "I can’t believe it… It’s finally happening. Next week, I’ll start work on my own anime. I’ll fulfill my dream. No… our dream."
@@ -290,6 +289,7 @@ label week_1_1:
     $achievement.grant("ACH_1")
     $show_status_buttons = True
     $fastForwardDays(3)
+    play music dashboard_music fadein 1.0
     scene bg studio_main
     show yukari at pos_left
     show mayumi at pos_farleft behind yukari
@@ -440,7 +440,6 @@ label pre_game:
     $show_status_buttons = True
     $show_floating_buttons = True
     hide screen start_game
-    play music dashboard_music fadein 1.0
     $renpy.retain_after_load()
     $in_gameplay_menu = True
     call screen start_game
@@ -684,7 +683,6 @@ label week_1_5:
     "Despite her agreement, Yukari gets the feeling Yuuko still isn’t happy with her art. If she’s a perfectionist, that could be a problem, but they’ll deal with that when they get there."
 
 label week_1_6:
-    stop music fadeout 2.0
     $nextDay()
     scene home with fade
     show yukari at left with dissolve
