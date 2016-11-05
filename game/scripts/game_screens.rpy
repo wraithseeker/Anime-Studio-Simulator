@@ -1029,7 +1029,7 @@ screen credits:
             vbox:
                 spacing 15
                 text "wraithseeker - Developer" style "credits"
-                text "Samantha - Writer" style "credits"
+                text "Samantha Lienhard - Writer" style "credits"
                 text "Gato - Sprite & CGs" style "credits"
                 text "Thai Chau - BGs" style "credits"
                 text "Mondonater - Composer" style "credits"
