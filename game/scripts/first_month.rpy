@@ -27,7 +27,6 @@ define va_c_char = Character("[va_c]", color="#000",ctc="ctc_fixed",ctc_position
 # The game starts here.
 
 label week_0_1:
-    stop music fadeout 2.0
     scene home with fade
     show yukari worry at left with dissolve
     "It’s the day after high school graduation. Yukari settles down to watch her favorite anime, but she can’t concentrate."
@@ -384,7 +383,7 @@ label week_1_1:
     yuu "This scenario sounds very nice."
     m "So, does our anime have a name yet?"
     y "Yes, it's…"
-    $anime.name = renpy.input("Name of your anime?",default="",length=16)
+    $anime.name = renpy.input("Name of your anime?",default="",length=32)
     if anime.name == "":
         $anime.name = "Herb and Fox"
     show mayumi happy
